@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, TrendingUp, Menu, X } from "lucide-react";
+import {
+  ArrowRight,
+  Menu,
+  X,
+  Banknote,
+  Users,
+  MapPin,
+  BarChart3,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
 
@@ -10,108 +18,255 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen bg-hero overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-48 h-48 md:w-96 md:h-96 bg-secondary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute top-1/2 -left-10 w-36 h-36 md:w-72 md:h-72 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-20 right-1/4 w-32 h-32 md:w-64 md:h-64 bg-secondary/8 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+      {/* Animated orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.12)_0%,transparent_70%)] animate-float" />
+        <div
+          className="absolute top-1/3 -left-20 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(38_90%_52%/0.08)_0%,transparent_70%)] animate-float"
+          style={{ animationDelay: "3s" }}
+        />
+        <div
+          className="absolute -bottom-20 right-1/3 w-[350px] h-[350px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.08)_0%,transparent_70%)] animate-float"
+          style={{ animationDelay: "5s" }}
+        />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:60px_60px]" />
+      {/* Subtle grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      <div className="relative container mx-auto px-4 sm:px-6 pt-20 sm:pt-32 pb-16 sm:pb-20">
+      <div className="relative container mx-auto px-4 sm:px-6">
         {/* Navigation */}
-        <nav className="absolute top-0 left-0 right-0 py-4 sm:py-6 px-4 sm:px-6">
-          <div className="container mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-secondary flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-foreground" />
-              </div>
-              <span className="text-lg sm:text-xl font-bold text-secondary">Loan.App</span>
-            </div>
-            
-            {/* Mobile menu button */}
-            <button 
-              className="md:hidden p-2 text-muted-foreground hover:text-secondary transition-colors"
+        <nav className="py-4 sm:py-5">
+          <div className="flex items-center justify-between">
+            <a href="/" className="flex items-center gap-2.5">
+              <img
+                src="/favicon.png"
+                alt="Vasool"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl"
+              />
+              <span className="text-xl font-bold text-white">Vasool</span>
+            </a>
+
+            <button
+              className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
 
-            {/* Desktop navigation */}
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
-              <a href="#features" className="text-muted-foreground hover:text-secondary transition-colors text-sm lg:text-base">{t('nav.features')}</a>
-              <a href="#loans" className="text-muted-foreground hover:text-secondary transition-colors text-sm lg:text-base">{t('nav.loanTypes')}</a>
-              <a href="#staff" className="text-muted-foreground hover:text-secondary transition-colors text-sm lg:text-base">{t('nav.forStaff')}</a>
+            <div className="hidden md:flex items-center gap-7">
+              <a
+                href="/features"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                {t("nav.features")}
+              </a>
+              <a
+                href="/loan-types"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                {t("nav.loanTypes")}
+              </a>
+              <a
+                href="/staff-tools"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                {t("nav.staffTools")}
+              </a>
               <LanguageSelector />
-              <Button variant="hero" size="sm">{t('nav.bookDemo')}</Button>
+              <a href="tel:+918680901007">
+                <Button variant="hero" size="sm">
+                  {t("nav.bookDemo")}
+                </Button>
+              </a>
             </div>
           </div>
 
-          {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-lg border-t border-border/20 p-4 space-y-4">
-              <a href="#features" className="block text-muted-foreground hover:text-secondary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>{t('nav.features')}</a>
-              <a href="#loans" className="block text-muted-foreground hover:text-secondary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>{t('nav.loanTypes')}</a>
-              <a href="#staff" className="block text-muted-foreground hover:text-secondary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>{t('nav.forStaff')}</a>
+            <div className="md:hidden mt-4 glass rounded-2xl p-5 space-y-3">
+              <a
+                href="/features"
+                className="block text-white/70 hover:text-white py-2 text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.features")}
+              </a>
+              <a
+                href="/loan-types"
+                className="block text-white/70 hover:text-white py-2 text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.loanTypes")}
+              </a>
+              <a
+                href="/staff-tools"
+                className="block text-white/70 hover:text-white py-2 text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.staffTools")}
+              </a>
               <div className="py-2">
                 <LanguageSelector />
               </div>
-              <Button variant="hero" size="sm" className="w-full">{t('nav.bookDemo')}</Button>
+              <a href="tel:+918680901007" className="block">
+                <Button variant="hero" size="sm" className="w-full">
+                  {t("nav.bookDemo")}
+                </Button>
+              </a>
             </div>
           )}
         </nav>
 
-        {/* Hero content */}
-        <div className="max-w-4xl mx-auto text-center mt-16 sm:mt-20">
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs sm:text-sm font-medium mb-6 sm:mb-8">
-              <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="line-clamp-1">{t('hero.badge')}</span>
-            </span>
+        {/* Hero content — two-column */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 sm:pt-16 lg:pt-20 pb-24 sm:pb-32">
+          {/* Left — text */}
+          <div>
+            <div className="animate-fade-up">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/10 text-emerald-300 text-xs font-medium mb-7">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {t("hero.badge")}
+              </span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 animate-fade-up-delay-1">
+              <span className="text-white">{t("hero.title1")} </span>
+              <span className="text-gradient">{t("hero.title2")}</span>
+              <br />
+              <span className="text-white">{t("hero.title3")}</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-white/50 max-w-lg mb-8 animate-fade-up-delay-2 leading-relaxed">
+              {t("hero.description")}
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
+              <a href="tel:+918680901007">
+                <Button variant="hero" size="lg">
+                  {t("nav.bookDemo")}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+              <a href="/features">
+                <Button variant="heroOutline" size="lg">
+                  {t("nav.features")}
+                </Button>
+              </a>
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 sm:mb-6 animate-fade-up-delay-1">
-            <span className="text-primary-foreground">{t('hero.title1')} </span>
-            <span className="text-gradient">{t('hero.title2')}</span>
-            <br />
-            <span className="text-primary-foreground">{t('hero.title3')}</span>
-          </h1>
+          {/* Right — feature preview card */}
+          <div className="hidden lg:block animate-fade-up-delay-4">
+            <div className="glass rounded-3xl p-8 relative">
+              {/* Glow behind card */}
+              <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 via-transparent to-amber-500/10 rounded-3xl blur-xl -z-10" />
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up-delay-2 px-2">
-            {t('hero.description')}
-          </p>
+              <div className="flex items-center gap-3 mb-7">
+                <img
+                  src="/favicon.png"
+                  alt="Vasool"
+                  className="w-10 h-10 rounded-xl"
+                />
+                <div>
+                  <div className="text-white font-semibold text-sm">
+                    Vasool Dashboard
+                  </div>
+                  <div className="text-white/40 text-xs">
+                    Microfinance Management
+                  </div>
+                </div>
+              </div>
 
-          <div className="flex items-center justify-center animate-fade-up-delay-3">
-            <Button variant="hero" size="lg" className="w-full sm:w-auto">
-              {t('nav.bookDemo')}
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
-          </div>
+              {/* Mini stats */}
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-white mb-0.5">
+                    {t("hero.stat1Value")}
+                  </div>
+                  <div className="text-[11px] text-white/40">
+                    {t("hero.stat1Label")}
+                  </div>
+                </div>
+                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-emerald-400 mb-0.5">
+                    {t("hero.stat2Value")}
+                  </div>
+                  <div className="text-[11px] text-white/40">
+                    {t("hero.stat2Label")}
+                  </div>
+                </div>
+                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-amber-400 mb-0.5">
+                    {t("hero.stat3Value")}
+                  </div>
+                  <div className="text-[11px] text-white/40">
+                    {t("hero.stat3Label")}
+                  </div>
+                </div>
+              </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-20 pt-8 sm:pt-12 border-t border-muted/10">
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient mb-1 sm:mb-2">{t('hero.stat1Value')}</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">{t('hero.stat1Label')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient mb-1 sm:mb-2">{t('hero.stat2Value')}</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">{t('hero.stat2Label')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient mb-1 sm:mb-2">{t('hero.stat3Value')}</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">{t('hero.stat3Label')}</div>
+              {/* Mini feature list */}
+              <div className="space-y-3">
+                {[
+                  {
+                    icon: Banknote,
+                    label: "Loan Management",
+                    color: "text-emerald-400",
+                    bg: "bg-emerald-400/10",
+                  },
+                  {
+                    icon: Users,
+                    label: "Customer Profiles & KYC",
+                    color: "text-teal-400",
+                    bg: "bg-teal-400/10",
+                  },
+                  {
+                    icon: MapPin,
+                    label: "Route & GPS Tracking",
+                    color: "text-cyan-400",
+                    bg: "bg-cyan-400/10",
+                  },
+                  {
+                    icon: BarChart3,
+                    label: "Reports & Analytics",
+                    color: "text-amber-400",
+                    bg: "bg-amber-400/10",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 bg-white/[0.04] rounded-xl px-4 py-3"
+                  >
+                    <div
+                      className={`w-8 h-8 rounded-lg ${item.bg} flex items-center justify-center`}
+                    >
+                      <item.icon className={`w-4 h-4 ${item.color}`} />
+                    </div>
+                    <span className="text-white/70 text-sm">{item.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave */}
+      {/* Wave */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))"/>
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 80L48 72C96 64 192 48 288 40C384 32 480 32 576 36C672 40 768 48 864 52C960 56 1056 56 1152 52C1248 48 1344 40 1392 36L1440 32V80H0Z"
+            fill="hsl(var(--background))"
+          />
         </svg>
       </div>
     </section>

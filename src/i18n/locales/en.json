@@ -2,96 +2,277 @@
   "nav": {
     "features": "Features",
     "loanTypes": "Loan Types",
-    "forStaff": "For Staff",
+    "staffTools": "Staff Tools",
     "bookDemo": "Book a Demo"
   },
   "hero": {
-    "badge": "Your Complete Lending Operations Platform",
+    "badge": "Multi-Tenant Microfinance Platform",
     "title1": "Complete",
     "title2": "Loan Management",
     "title3": "System",
-    "description": "Streamline your lending operations with our comprehensive platform. Manage your customers, track collection routes, handle multiple loan types, and monitor staff expenses—all in one powerful system.",
-    "stat1Value": "6+",
-    "stat1Label": "Loan Types",
+    "description": "Streamline your microfinance operations with our multi-tenant platform. Manage loans, track collections, plan routes, monitor staff, and run analytics—all in one powerful system.",
+    "stat1Value": "100+",
+    "stat1Label": "Features",
     "stat2Value": "Real-time",
-    "stat2Label": "Route Tracking",
+    "stat2Label": "GPS Tracking",
     "stat3Value": "100%",
     "stat3Label": "Customizable"
   },
-  "features": {
-    "badge": "Loan Types",
-    "title1": "Manage All Your",
-    "title2": "Loan Products",
-    "description": "From daily collections to gold loans, handle all your lending products with specialized tools designed for each loan type.",
-    "routeTracking": "Route Tracking",
-    "customerManagement": {
+  "allFeatures": {
+    "badge": "Platform Features",
+    "title1": "Everything You Need to",
+    "title2": "Run Your Lending Business",
+    "description": "From loan origination to collection tracking, staff management to multi-tenant deployment—our platform covers every aspect of microfinance operations.",
+    "featuresLabel": "features",
+    "coreLoan": {
+      "title": "Core Loan Management",
+      "items": [
+        "Daily Loans",
+        "Weekly Loans",
+        "Product-Based Loans",
+        "Loan Renewal",
+        "Repayment Schedules",
+        "Loan Progress Tracking",
+        "Loan Closure Cards",
+        "CSV Bulk Import",
+        "Loan Deduction Config"
+      ]
+    },
+    "collection": {
+      "title": "Collection & Payments",
+      "items": [
+        "Daily Collection Tracking",
+        "Weekly Collection Tracking",
+        "Payment Receipts (PDF)",
+        "Payment History",
+        "Admin Cash Settlement"
+      ]
+    },
+    "route": {
+      "title": "Route Management",
+      "items": [
+        "Daily Routes",
+        "Weekly Routes",
+        "Route Items Management",
+        "Route Completion Tracking"
+      ]
+    },
+    "customer": {
       "title": "Customer Management",
-      "description": "Complete customer profiles with KYC documents, contact history, and loan records. Easily search, filter, and manage your entire customer base."
+      "items": [
+        "Customer Profiles",
+        "Customer Verification",
+        "GPS Location Tracking",
+        "Document Management",
+        "Contact Management",
+        "Customer-Staff Linking",
+        "Customer-Referee Linking"
+      ]
     },
-    "dailyLoan": {
-      "title": "Daily Loan Management",
-      "description": "Handle daily collection loans with precision. Built-in route tracking ensures your staff visits every customer efficiently."
+    "staffTeam": {
+      "title": "Staff & Team Management",
+      "items": [
+        "Staff Management",
+        "Role-Based Access Control",
+        "Staff GPS Tracking",
+        "Staff Location History",
+        "Live Staff Map"
+      ]
     },
-    "weeklyLoan": {
-      "title": "Weekly Loan Management",
-      "description": "Manage weekly repayment schedules with automated reminders and route optimization for field agents."
+    "staffFinancials": {
+      "title": "Staff Financials",
+      "items": [
+        "Expense Tracking",
+        "Expense Approval Workflow",
+        "Cash Advance Management",
+        "Cash Advance Verification",
+        "Cash Balance Summary"
+      ]
     },
-    "emiLoan": {
-      "title": "EMI Based Loans",
-      "description": "Calculate EMI schedules, track payments, and manage long-term loans with comprehensive amortization tables."
+    "reporting": {
+      "title": "Reporting & Analytics",
+      "items": [
+        "Dashboard",
+        "Staff Route Overview",
+        "Officer Performance Reports",
+        "Collection Summary Reports",
+        "Profit & Loss Reports",
+        "Advance Balance Reports",
+        "Overdue Loan Reports",
+        "Staff-Wise Collection Reports",
+        "Daily Collection Reports"
+      ]
     },
-    "goldLoan": {
-      "title": "Gold Loan Management",
-      "description": "Specialized module for gold loans with item valuation, secure storage tracking, and release management."
+    "referee": {
+      "title": "Referee Management",
+      "items": [
+        "Referee Records",
+        "Referee-Customer Linking"
+      ]
     },
-    "monthlyLoan": {
-      "title": "Monthly Loan Management",
-      "description": "Handle monthly installment loans with flexible terms, interest calculations, and payment scheduling."
+    "product": {
+      "title": "Product Catalog",
+      "items": [
+        "Product Categories",
+        "Product Photos",
+        "Product Pricing"
+      ]
+    },
+    "security": {
+      "title": "Security & Audit",
+      "items": [
+        "JWT Authentication",
+        "Unified Login",
+        "Biometric Login",
+        "Audit Logging",
+        "Entity History",
+        "Bot & Attack Protection",
+        "Rate Limiting"
+      ]
+    },
+    "multiTenancy": {
+      "title": "Multi-Tenancy & Infrastructure",
+      "items": [
+        "Multi-Tenant Architecture",
+        "Custom Branding",
+        "Per-Tenant Feature Toggles",
+        "Per-Tenant Storage Limits",
+        "Storage Monitoring",
+        "Multi-Server Deployment",
+        "Automated Provisioning",
+        "Automated Deprovisioning"
+      ]
+    },
+    "api": {
+      "title": "API & Integration",
+      "items": [
+        "REST API (100+ endpoints)",
+        "gRPC API",
+        "gRPC-Web",
+        "Swagger Documentation",
+        "Offline Sync Support"
+      ]
+    },
+    "operations": {
+      "title": "Operations",
+      "items": [
+        "Database Migrations",
+        "Distributed Tracing",
+        "Health Checks",
+        "CI/CD Pipeline"
+      ]
     }
   },
-  "staff": {
-    "badge": "For Your Team",
-    "title1": "Empower Your",
-    "title2": "Staff",
-    "description": "Give your team the tools they need to manage customers, track expenses, and achieve targets efficiently. Everything they need, right at their fingertips.",
-    "feature1": "Mobile app for field agents",
-    "feature2": "Live staff location tracking",
-    "feature3": "Staff expense tracking & reimbursements",
-    "feature4": "Real-time sync & offline support",
-    "feature5": "Role-based access control",
-    "exploreBtn": "Explore Staff Features",
-    "createLoans": {
-      "title": "Create & Manage Loans",
-      "description": "Staff can easily create new loans, update existing ones, and manage the complete loan lifecycle."
+  "home": {
+    "loans": {
+      "badge": "Loan Products",
+      "title1": "Purpose-Built for",
+      "title2": "Microfinance Lending",
+      "description": "Specialized loan management for every collection cycle — daily, weekly, and product-based — with complete lifecycle tools.",
+      "viewAll": "View All Loan Types",
+      "daily": {
+        "title": "Daily Loans",
+        "desc": "Small loans repaid through daily collections by field agents visiting customers on their assigned routes.",
+        "h1": "Auto-generated daily repayment schedules",
+        "h2": "Integrated with daily route planning",
+        "h3": "Real-time collection tracking"
+      },
+      "weekly": {
+        "title": "Weekly Loans",
+        "desc": "Loans with weekly repayment cycles — ideal for borrowers with weekly income patterns like market vendors.",
+        "h1": "Weekly collection schedule generation",
+        "h2": "Flexible term configurations",
+        "h3": "Weekly collection summary reports"
+      },
+      "product": {
+        "title": "Product-Based Loans",
+        "desc": "Loans tied to physical products — customers purchase goods with financing, repaying via daily or weekly collections.",
+        "h1": "Product catalog with photos & pricing",
+        "h2": "Down payment tracking",
+        "h3": "Daily or weekly repayment support"
+      }
     },
-    "expenseTracking": {
-      "title": "Expense Tracking",
-      "description": "Track daily expenses, travel costs, and reimbursements with receipt uploads and approval workflows."
+    "features": {
+      "badge": "Platform Capabilities",
+      "title1": "Beyond Loans —",
+      "title2": "A Complete Platform",
+      "description": "From customer management to multi-tenant infrastructure, Vasool covers every aspect of running a microfinance business.",
+      "viewAll": "Explore All Features",
+      "stat1": "Total Features",
+      "stat2": "Modules",
+      "stat3": "API Endpoints",
+      "stat4": "Feature Toggles",
+      "customer": {
+        "title": "Customer Management",
+        "desc": "Full customer profiles with KYC documents, GPS locations, contact history, and staff/referee linking."
+      },
+      "route": {
+        "title": "Route Management",
+        "desc": "Plan daily and weekly collection routes, assign to staff, and track completion with real-time totals."
+      },
+      "reporting": {
+        "title": "Reporting & Analytics",
+        "desc": "9 report types including P&L, officer performance, collection summaries, and overdue tracking."
+      },
+      "security": {
+        "title": "Security & Audit",
+        "desc": "JWT auth, biometric login, audit logging, bot protection, and rate limiting — built into every deployment."
+      },
+      "multiTenancy": {
+        "title": "Multi-Tenancy",
+        "desc": "Isolated tenant environments with custom branding, feature toggles, storage limits, and automated provisioning."
+      },
+      "api": {
+        "title": "API & Integration",
+        "desc": "REST, gRPC, and gRPC-Web APIs with Swagger docs and offline sync support for mobile clients."
+      }
     },
-    "routeOptimization": {
-      "title": "Route Optimization",
-      "description": "Intelligent route planning for daily and weekly collections to maximize efficiency."
-    },
-    "performanceDashboard": {
-      "title": "Performance Dashboard",
-      "description": "Real-time metrics on collections, targets, and performance for staff and managers."
-    },
-    "attendanceTime": {
-      "title": "Attendance & Time",
-      "description": "Track staff attendance, field visits, and time spent with comprehensive reports."
-    },
-    "commissionManagement": {
-      "title": "Commission Management",
-      "description": "Automated commission calculations based on collections and new customer acquisition."
+    "staff": {
+      "badge": "For Your Team",
+      "title1": "Empower Your",
+      "title2": "Field Staff",
+      "description": "Give your team the tools they need to manage customers, track expenses, and collect payments efficiently — right from their phone.",
+      "exploreBtn": "Explore Staff Tools",
+      "bullet1": "Dedicated mobile app for field agents",
+      "bullet2": "Live GPS location tracking",
+      "bullet3": "Expense tracking & approval workflows",
+      "bullet4": "Offline support for rural areas",
+      "bullet5": "Role-based access control",
+      "cards": {
+        "mobile": {
+          "title": "Mobile App",
+          "desc": "Android app with one-handed UI for daily collections, customer visits, and route navigation."
+        },
+        "gps": {
+          "title": "GPS Tracking",
+          "desc": "Real-time location tracking and historical GPS trail for field visit verification."
+        },
+        "expense": {
+          "title": "Expense Management",
+          "desc": "Log expenses with receipt photos. Admin approval workflow for reimbursements."
+        },
+        "rbac": {
+          "title": "Access Control",
+          "desc": "Custom roles with granular permissions. Control what each staff role can access."
+        },
+        "offline": {
+          "title": "Offline Mode",
+          "desc": "Record collections without internet. Syncs automatically when connectivity returns."
+        },
+        "biometric": {
+          "title": "Biometric Login",
+          "desc": "Fingerprint and face recognition for fast, secure authentication on mobile devices."
+        }
+      }
     }
   },
   "cta": {
     "title1": "Ready to Streamline Your",
     "title2": "Lending Operations?",
-    "description": "Take control of your loan management with Loan.App. Customized to fit your business needs, from customer onboarding to daily collections."
+    "description": "Take control of your microfinance management with Vasool. Customized to fit your business needs, from customer onboarding to daily collections."
   },
   "footer": {
-    "description": "Complete loan management system customized for your lending business.",
+    "description": "Complete multi-tenant microfinance management system customized for your lending business.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",
@@ -106,6 +287,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "security": "Security",
-    "copyright": "© 2024 Loan.App. All rights reserved."
+    "copyright": "© 2024 Vasool. All rights reserved."
   }
 }

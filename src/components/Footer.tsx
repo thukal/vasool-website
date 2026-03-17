@@ -1,65 +1,166 @@
-import { TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-primary py-8 sm:py-12">
+    <footer className="bg-hero pt-12 sm:pt-16 pb-8 sm:pb-10">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-14">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1 text-center md:text-left mb-4 md:mb-0">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 justify-center md:justify-start">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-secondary flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-foreground" />
-              </div>
-              <span className="text-lg sm:text-xl font-bold text-secondary">Loan.App</span>
+          <div className="col-span-2 md:col-span-1 mb-2 md:mb-0">
+            <div className="flex items-center gap-2.5 mb-4">
+              <img
+                src="/favicon.png"
+                alt="Vasool"
+                className="w-9 h-9 rounded-xl"
+              />
+              <span className="text-lg font-bold text-white">Vasool</span>
             </div>
-            <p className="text-muted-foreground text-xs sm:text-sm">
-              {t('footer.description')}
+            <p className="text-white/35 text-sm leading-relaxed max-w-[220px]">
+              {t("footer.description")}
             </p>
           </div>
 
-          {/* Links */}
-          <div className="text-center md:text-left">
-            <h4 className="font-semibold text-primary-foreground mb-3 sm:mb-4 text-sm sm:text-base">{t('footer.product')}</h4>
-            <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.features')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.loanTypes')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.staffTools')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.mobileApp')}</a></li>
+          {/* Product */}
+          <div>
+            <h4 className="font-semibold text-white/80 mb-4 text-sm">
+              {t("footer.product")}
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href="/features"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.features")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/loan-types"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.loanTypes")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/staff-tools"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.staffTools")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/staff-tools#mobile"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.mobileApp")}
+                </a>
+              </li>
             </ul>
           </div>
 
-          <div className="text-center md:text-left">
-            <h4 className="font-semibold text-primary-foreground mb-3 sm:mb-4 text-sm sm:text-base">{t('footer.company')}</h4>
-            <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.aboutUs')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.blog')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.careers')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.contact')}</a></li>
+          {/* Company */}
+          <div>
+            <h4 className="font-semibold text-white/80 mb-4 text-sm">
+              {t("footer.company")}
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href="/about"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.aboutUs")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.blog")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.careers")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.contact")}
+                </a>
+              </li>
             </ul>
           </div>
 
-          <div className="text-center md:text-left">
-            <h4 className="font-semibold text-primary-foreground mb-3 sm:mb-4 text-sm sm:text-base">{t('footer.legal')}</h4>
-            <ul className="space-y-1.5 sm:space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.privacy')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.terms')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">{t('footer.security')}</a></li>
+          {/* Legal */}
+          <div>
+            <h4 className="font-semibold text-white/80 mb-4 text-sm">
+              {t("footer.legal")}
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href="/privacy"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.privacy")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.terms")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/security"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.security")}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-xs sm:text-sm text-center sm:text-left">
-            {t('footer.copyright')}
+        <div className="pt-7 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/25 text-xs text-center sm:text-left">
+            {t("footer.copyright")}
           </p>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">Twitter</a>
-            <a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">LinkedIn</a>
-            <a href="#" className="text-muted-foreground hover:text-secondary transition-colors text-xs sm:text-sm">Facebook</a>
+          <div className="flex items-center gap-6">
+            <a
+              href="#"
+              className="text-white/25 hover:text-white/50 transition-colors text-xs"
+            >
+              Twitter
+            </a>
+            <a
+              href="#"
+              className="text-white/25 hover:text-white/50 transition-colors text-xs"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="#"
+              className="text-white/25 hover:text-white/50 transition-colors text-xs"
+            >
+              Facebook
+            </a>
           </div>
         </div>
       </div>

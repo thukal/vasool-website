@@ -6,38 +6,49 @@ const CTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-hero relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] bg-secondary/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative container mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="text-primary-foreground">{t('cta.title1')} </span>
-            <span className="text-gradient">{t('cta.title2')}</span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto px-2">
-            {t('cta.description')}
-          </p>
-
-          <div className="flex items-center justify-center mb-8 sm:mb-12">
-            <Button variant="hero" size="lg" className="w-full sm:w-auto">
-              {t('nav.bookDemo')}
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+    <section className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="relative rounded-3xl bg-hero overflow-hidden px-6 sm:px-12 py-14 sm:py-20">
+          {/* Glow */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.12)_0%,transparent_70%)]" />
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[radial-gradient(circle,hsl(38_90%_52%/0.08)_0%,transparent_70%)]" />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-muted/10">
-            <a href="tel:+911234567890" className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground hover:text-secondary transition-colors">
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>+91 123 456 7890</span>
-            </a>
-            <a href="mailto:hello@loan.app" className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground hover:text-secondary transition-colors">
-              <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>hello@loan.app</span>
-            </a>
+          <div className="relative max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight">
+              <span className="text-white">{t("cta.title1")} </span>
+              <span className="text-gradient">{t("cta.title2")}</span>
+            </h2>
+            <p className="text-white/45 text-base sm:text-lg mb-9 max-w-xl mx-auto leading-relaxed">
+              {t("cta.description")}
+            </p>
+
+            <div className="flex items-center justify-center mb-10">
+              <a href="tel:+918680901007">
+                <Button variant="hero" size="lg">
+                  {t("nav.bookDemo")}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8 pt-7 border-t border-white/[0.08]">
+              <a
+                href="tel:+918680901007"
+                className="flex items-center gap-2.5 text-sm text-white/40 hover:text-white/70 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>+91 8680901007</span>
+              </a>
+              <a
+                href="mailto:hello@thukal.in"
+                className="flex items-center gap-2.5 text-sm text-white/40 hover:text-white/70 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span>hello@thukal.in</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
