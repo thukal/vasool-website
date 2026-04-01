@@ -20,10 +20,6 @@ interface PretextMasonryProps {
   className?: string;
 }
 
-/**
- * A masonry grid layout that uses Pretext to accurately measure text heights
- * and position cards without layout shift or DOM measurement.
- */
 const PretextMasonry = ({
   items,
   columns = 3,
@@ -32,7 +28,7 @@ const PretextMasonry = ({
   descFont = '400 14px "Plus Jakarta Sans"',
   titleLineHeight = 24,
   descLineHeight = 22,
-  extraHeight = 100, // icon + padding
+  extraHeight = 100,
   className = "",
 }: PretextMasonryProps) => {
   const { ref, width: totalWidth } = useContainerWidth();
@@ -40,6 +36,7 @@ const PretextMasonry = ({
     Array<{ x: number; y: number; height: number }>
   >([]);
   const [totalHeight, setTotalHeight] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   // Responsive column count
   const actualColumns =
@@ -54,28 +51,24 @@ const PretextMasonry = ({
     if (colWidth <= 0) return;
 
     try {
-      const contentWidth = colWidth - 48; // padding
+      const contentWidth = colWidth - 48;
       const colHeights = new Array(actualColumns).fill(0);
 
       const newPositions = items.map((item) => {
         const minCol = colHeights.indexOf(Math.min(...colHeights));
 
-        let titleH = 0;
-        let descH = 0;
+        let titleH = titleLineHeight;
+        let descH = descLineHeight * 2;
 
         try {
           const titlePrepared = prepare(item.title, titleFont);
           titleH = layout(titlePrepared, contentWidth, titleLineHeight).height;
-        } catch {
-          titleH = titleLineHeight;
-        }
+        } catch { /* use default */ }
 
         try {
           const descPrepared = prepare(item.description, descFont);
           descH = layout(descPrepared, contentWidth, descLineHeight).height;
-        } catch {
-          descH = descLineHeight * 2;
-        }
+        } catch { /* use default */ }
 
         const height = extraHeight + titleH + descH;
 
@@ -86,7 +79,6 @@ const PretextMasonry = ({
         };
 
         colHeights[minCol] += height + gap;
-
         return pos;
       });
 
@@ -97,46 +89,61 @@ const PretextMasonry = ({
     }
   }, [items, colWidth, actualColumns, gap, titleFont, descFont, titleLineHeight, descLineHeight, extraHeight]);
 
-  if (totalWidth === 0 || positions.length === 0) {
-    // Fallback: render as regular grid until measured
-    return (
-      <div ref={ref} className={className}>
+  // Intersection observer for staggered entrance
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  const hasMasonry = totalWidth > 0 && positions.length > 0;
+
+  return (
+    <div ref={ref} className={className}>
+      {hasMasonry ? (
+        <div className="relative" style={{ height: totalHeight }}>
+          {items.map((item, i) => {
+            const pos = positions[i];
+            if (!pos) return null;
+            return (
+              <div
+                key={i}
+                className="absolute"
+                style={{
+                  left: pos.x,
+                  top: pos.y,
+                  width: colWidth,
+                  height: pos.height,
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(24px)",
+                  transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
+                }}
+              >
+                {item.content}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
         <div
           className="grid gap-5"
-          style={{
-            gridTemplateColumns: `repeat(${actualColumns}, 1fr)`,
-          }}
+          style={{ gridTemplateColumns: `repeat(auto-fit, minmax(280px, 1fr))` }}
         >
           {items.map((item, i) => (
             <div key={i}>{item.content}</div>
           ))}
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <div ref={ref} className={className}>
-      <div className="relative" style={{ height: totalHeight }}>
-        {items.map((item, i) => {
-          const pos = positions[i];
-          if (!pos) return null;
-          return (
-            <div
-              key={i}
-              className="absolute transition-all duration-500 ease-out"
-              style={{
-                left: pos.x,
-                top: pos.y,
-                width: colWidth,
-                height: pos.height,
-              }}
-            >
-              {item.content}
-            </div>
-          );
-        })}
-      </div>
+      )}
     </div>
   );
 };

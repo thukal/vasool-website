@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import BalancedText from "./pretext/BalancedText";
-import PretextReveal from "./pretext/PretextReveal";
 import PretextMasonry from "./pretext/PretextMasonry";
+import { useInView } from "@/hooks/useInView";
 
 interface FeatureItem {
   icon: LucideIcon;
@@ -68,15 +68,15 @@ const stats = [
 
 const FeaturesHighlight = () => {
   const { t } = useTranslation();
+  const { ref: sectionRef, inView } = useInView(0.05);
 
   const sectionTitle = `${t("home.features.title1")} ${t("home.features.title2")}`;
 
-  // Build masonry items with translated text
   const masonryItems = features.map((feature) => ({
     title: t(feature.titleKey),
     description: t(feature.descKey),
     content: (
-      <div className="group h-full rounded-2xl bg-white/[0.04] border border-white/[0.06] p-6 sm:p-7 hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300">
+      <div className="group h-full rounded-2xl bg-white/[0.04] border border-white/[0.06] p-6 sm:p-7 hover:bg-white/[0.07] hover:border-white/[0.1] hover:-translate-y-1 transition-all duration-300">
         <div
           className={`w-11 h-11 rounded-xl ${feature.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
         >
@@ -93,15 +93,22 @@ const FeaturesHighlight = () => {
   }));
 
   return (
-    <section className="py-20 sm:py-28 bg-hero relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-hero relative overflow-hidden" ref={sectionRef}>
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.08)_0%,transparent_70%)]" />
       </div>
 
       <div className="relative container mx-auto px-4 sm:px-6">
-        {/* Header — Pretext balanced centering */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+        {/* Header with entrance transition */}
+        <div
+          className="text-center max-w-3xl mx-auto mb-14 sm:mb-16"
+          style={{
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(32px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
           <span className="text-emerald-400 font-semibold text-sm tracking-wide uppercase mb-3 block">
             {t("home.features.badge")}
           </span>
@@ -113,23 +120,22 @@ const FeaturesHighlight = () => {
           >
             {sectionTitle}
           </BalancedText>
-          <PretextReveal
-            as="p"
-            className="text-white/45 text-base sm:text-lg leading-relaxed"
-            font='400 18px "Plus Jakarta Sans"'
-            lineHeight={28}
-            staggerMs={80}
-          >
+          <p className="text-white/45 text-base sm:text-lg leading-relaxed text-balance">
             {t("home.features.description")}
-          </PretextReveal>
+          </p>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row with staggered entrance */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-14 sm:mb-16">
-          {stats.map((s) => (
+          {stats.map((s, i) => (
             <div
               key={s.labelKey}
-              className="text-center py-5 px-3 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] transition-colors duration-300"
+              className="text-center py-5 px-3 rounded-2xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] hover:scale-105 transition-all duration-300"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0) scale(1)" : "translateY(20px) scale(0.95)",
+                transition: `opacity 0.5s ease ${300 + i * 100}ms, transform 0.5s ease ${300 + i * 100}ms`,
+              }}
             >
               <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
                 {s.value}
@@ -141,7 +147,7 @@ const FeaturesHighlight = () => {
           ))}
         </div>
 
-        {/* Feature grid — Pretext masonry layout */}
+        {/* Feature grid — Pretext masonry with built-in stagger */}
         <PretextMasonry
           items={masonryItems}
           columns={3}
@@ -154,7 +160,13 @@ const FeaturesHighlight = () => {
           className="mb-12"
         />
 
-        <div className="text-center">
+        <div
+          className="text-center"
+          style={{
+            opacity: inView ? 1 : 0,
+            transition: "opacity 0.6s ease 1s",
+          }}
+        >
           <a
             href="/features"
             className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm hover:gap-3 transition-all"

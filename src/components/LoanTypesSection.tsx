@@ -8,6 +8,7 @@ import {
 import { useTranslation } from "react-i18next";
 import BalancedText from "./pretext/BalancedText";
 import PretextReveal from "./pretext/PretextReveal";
+import { useInView } from "@/hooks/useInView";
 
 const loanTypes = [
   {
@@ -19,10 +20,8 @@ const loanTypes = [
       "home.loans.daily.h2",
       "home.loans.daily.h3",
     ],
-    accent: "from-emerald-500 to-emerald-600",
     accentBg: "bg-emerald-500",
     iconBg: "bg-emerald-50 text-emerald-600",
-    glowColor: "emerald",
     num: "01",
   },
   {
@@ -34,10 +33,8 @@ const loanTypes = [
       "home.loans.weekly.h2",
       "home.loans.weekly.h3",
     ],
-    accent: "from-teal-500 to-teal-600",
     accentBg: "bg-teal-500",
     iconBg: "bg-teal-50 text-teal-600",
-    glowColor: "teal",
     num: "02",
   },
   {
@@ -49,24 +46,30 @@ const loanTypes = [
       "home.loans.product.h2",
       "home.loans.product.h3",
     ],
-    accent: "from-amber-500 to-amber-600",
     accentBg: "bg-amber-500",
     iconBg: "bg-amber-50 text-amber-600",
-    glowColor: "amber",
     num: "03",
   },
 ];
 
 const LoanTypesSection = () => {
   const { t } = useTranslation();
+  const { ref: sectionRef, inView } = useInView(0.1);
 
   const sectionTitle = `${t("home.loans.title1")} ${t("home.loans.title2")}`;
 
   return (
-    <section className="py-20 sm:py-28 bg-background relative">
+    <section className="py-20 sm:py-28 bg-background relative" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header — balanced with Pretext */}
-        <div className="max-w-2xl mb-14 sm:mb-16">
+        <div
+          className="max-w-2xl mb-14 sm:mb-16"
+          style={{
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(32px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
           <span className="text-secondary font-semibold text-sm tracking-wide uppercase mb-3 block">
             {t("home.loans.badge")}
           </span>
@@ -89,14 +92,19 @@ const LoanTypesSection = () => {
           </PretextReveal>
         </div>
 
-        {/* Loan cards — redesigned with gradient accent and Pretext descriptions */}
+        {/* Loan cards with staggered entrance */}
         <div className="space-y-5 sm:space-y-6 mb-12">
-          {loanTypes.map((loan) => (
+          {loanTypes.map((loan, idx) => (
             <div
               key={loan.titleKey}
-              className="group relative bg-card rounded-2xl border border-border/60 shadow-card hover:shadow-card-hover transition-all duration-500 overflow-hidden"
+              className="group relative bg-card rounded-2xl border border-border/60 shadow-card hover:shadow-card-hover transition-all duration-500 overflow-hidden hover:-translate-y-1"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateX(0)" : "translateX(-40px)",
+                transition: `opacity 0.6s ease ${200 + idx * 150}ms, transform 0.6s ease ${200 + idx * 150}ms`,
+              }}
             >
-              {/* Left accent bar with gradient */}
+              {/* Left accent bar */}
               <div
                 className={`absolute left-0 top-0 bottom-0 w-1 ${loan.accentBg} rounded-l-2xl group-hover:w-1.5 transition-all duration-300`}
               />
@@ -118,7 +126,6 @@ const LoanTypesSection = () => {
                       </h3>
                     </div>
                   </div>
-                  {/* Pretext-powered description with line reveal */}
                   <PretextReveal
                     as="p"
                     className="text-muted-foreground leading-relaxed mb-0 md:max-w-lg"
@@ -131,8 +138,16 @@ const LoanTypesSection = () => {
                 </div>
 
                 <div className="flex flex-col justify-center gap-2.5 md:min-w-[260px]">
-                  {loan.highlights.map((hKey) => (
-                    <div key={hKey} className="flex items-center gap-2.5">
+                  {loan.highlights.map((hKey, hi) => (
+                    <div
+                      key={hKey}
+                      className="flex items-center gap-2.5"
+                      style={{
+                        opacity: inView ? 1 : 0,
+                        transform: inView ? "translateX(0)" : "translateX(16px)",
+                        transition: `opacity 0.4s ease ${400 + idx * 150 + hi * 80}ms, transform 0.4s ease ${400 + idx * 150 + hi * 80}ms`,
+                      }}
+                    >
                       <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
                       <span className="text-sm text-foreground/80">
                         {t(hKey)}
@@ -148,6 +163,10 @@ const LoanTypesSection = () => {
         <a
           href="/loan-types"
           className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all"
+          style={{
+            opacity: inView ? 1 : 0,
+            transition: "opacity 0.6s ease 800ms",
+          }}
         >
           {t("home.loans.viewAll")}
           <ArrowRight className="w-4 h-4" />
