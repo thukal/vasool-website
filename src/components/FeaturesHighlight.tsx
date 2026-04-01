@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import BalancedText from "./pretext/BalancedText";
-import PretextMasonry from "./pretext/PretextMasonry";
 import { useInView } from "@/hooks/useInView";
 
 interface FeatureItem {
@@ -72,26 +71,6 @@ const FeaturesHighlight = () => {
 
   const sectionTitle = `${t("home.features.title1")} ${t("home.features.title2")}`;
 
-  const masonryItems = features.map((feature) => ({
-    title: t(feature.titleKey),
-    description: t(feature.descKey),
-    content: (
-      <div className="group h-full rounded-2xl bg-white/[0.04] border border-white/[0.06] p-6 sm:p-7 hover:bg-white/[0.07] hover:border-white/[0.1] hover:-translate-y-1 transition-all duration-300">
-        <div
-          className={`w-11 h-11 rounded-xl ${feature.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
-        >
-          <feature.icon className="w-5 h-5" />
-        </div>
-        <h3 className="text-lg font-bold text-white mb-2">
-          {t(feature.titleKey)}
-        </h3>
-        <p className="text-sm text-white/40 leading-relaxed">
-          {t(feature.descKey)}
-        </p>
-      </div>
-    ),
-  }));
-
   return (
     <section className="py-20 sm:py-28 bg-hero relative overflow-hidden" ref={sectionRef}>
       {/* Background glow */}
@@ -147,24 +126,38 @@ const FeaturesHighlight = () => {
           ))}
         </div>
 
-        {/* Feature grid — Pretext masonry with built-in stagger */}
-        <PretextMasonry
-          items={masonryItems}
-          columns={3}
-          gap={20}
-          titleFont='700 18px "Plus Jakarta Sans"'
-          descFont='400 14px "Plus Jakarta Sans"'
-          titleLineHeight={24}
-          descLineHeight={22}
-          extraHeight={100}
-          className="mb-12"
-        />
+        {/* Feature grid — CSS grid with staggered entrance */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12">
+          {features.map((feature, i) => (
+            <div
+              key={feature.titleKey}
+              className="group rounded-2xl bg-white/[0.04] border border-white/[0.06] p-6 sm:p-7 hover:bg-white/[0.07] hover:border-white/[0.1] hover:-translate-y-1 transition-all duration-300"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(24px)",
+                transition: `opacity 0.6s ease ${500 + i * 100}ms, transform 0.6s ease ${500 + i * 100}ms`,
+              }}
+            >
+              <div
+                className={`w-11 h-11 rounded-xl ${feature.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
+              >
+                <feature.icon className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">
+                {t(feature.titleKey)}
+              </h3>
+              <p className="text-sm text-white/40 leading-relaxed">
+                {t(feature.descKey)}
+              </p>
+            </div>
+          ))}
+        </div>
 
         <div
           className="text-center"
           style={{
             opacity: inView ? 1 : 0,
-            transition: "opacity 0.6s ease 1s",
+            transition: "opacity 0.6s ease 1.2s",
           }}
         >
           <a

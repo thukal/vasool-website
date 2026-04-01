@@ -59,7 +59,7 @@ const BalancedText = ({
     <div ref={ref}>
       <Tag
         className={className}
-        style={balancedWidth ? { maxWidth: balancedWidth } : undefined}
+        style={balancedWidth ? { maxWidth: balancedWidth, marginLeft: "auto", marginRight: "auto" } : undefined}
       >
         {children}
       </Tag>
