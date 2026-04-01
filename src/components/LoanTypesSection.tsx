@@ -4,6 +4,8 @@ import {
   Package,
   ArrowRight,
   CheckCircle2,
+  Gem,
+  Building2,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import BalancedText from "./pretext/BalancedText";
@@ -38,6 +40,32 @@ const loanTypes = [
     num: "02",
   },
   {
+    icon: Gem,
+    titleKey: "home.loans.gold.title",
+    descKey: "home.loans.gold.desc",
+    highlights: [
+      "home.loans.gold.h1",
+      "home.loans.gold.h2",
+      "home.loans.gold.h3",
+    ],
+    accentBg: "bg-yellow-500",
+    iconBg: "bg-yellow-50 text-yellow-600",
+    num: "03",
+  },
+  {
+    icon: Building2,
+    titleKey: "home.loans.property.title",
+    descKey: "home.loans.property.desc",
+    highlights: [
+      "home.loans.property.h1",
+      "home.loans.property.h2",
+      "home.loans.property.h3",
+    ],
+    accentBg: "bg-slate-500",
+    iconBg: "bg-slate-50 text-slate-600",
+    num: "04",
+  },
+  {
     icon: Package,
     titleKey: "home.loans.product.title",
     descKey: "home.loans.product.desc",
@@ -48,7 +76,7 @@ const loanTypes = [
     ],
     accentBg: "bg-amber-500",
     iconBg: "bg-amber-50 text-amber-600",
-    num: "03",
+    num: "05",
   },
 ];
 

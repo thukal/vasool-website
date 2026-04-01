@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Calendar,
   CalendarDays,
+  CalendarRange,
   Package,
   RefreshCw,
   CheckCircle2,
@@ -12,6 +13,9 @@ import {
   BarChart3,
   Upload,
   Settings2,
+  Gem,
+  Building2,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
@@ -45,6 +49,51 @@ const loanTypes = [
       "Weekly collection summary reports",
       "Overdue tracking per weekly cycle",
       "Route completion tracking with totals",
+    ],
+  },
+  {
+    icon: CalendarRange,
+    title: "Monthly Loans",
+    color: "from-purple-500 to-violet-500",
+    description:
+      "Loans with monthly repayment cycles — suitable for salaried borrowers, businesses, and customers with monthly income flows.",
+    highlights: [
+      "Monthly repayment schedule generation",
+      "EMI calculation and tracking",
+      "Flexible tenure options",
+      "Monthly collection summary reports",
+      "Overdue tracking per monthly cycle",
+      "Integrated with staff route management",
+    ],
+  },
+  {
+    icon: Gem,
+    title: "Gold Loans",
+    color: "from-yellow-500 to-amber-500",
+    description:
+      "Loans secured against gold ornaments — manage gold valuation, pledging, interest calculation, and redemption with complete tracking.",
+    highlights: [
+      "Gold item cataloging with weight and purity",
+      "Automated valuation based on market rates",
+      "Interest calculation (daily/monthly)",
+      "Pledge and redemption tracking",
+      "Collateral photo documentation",
+      "Gold loan renewal and top-up support",
+    ],
+  },
+  {
+    icon: Building2,
+    title: "Property Loans",
+    color: "from-slate-500 to-zinc-500",
+    description:
+      "Loans secured against property — manage property valuation, document verification, disbursement, and repayment with full lifecycle tracking.",
+    highlights: [
+      "Property document management",
+      "Property valuation tracking",
+      "EMI and repayment schedule generation",
+      "Document verification workflow",
+      "Flexible repayment options (daily/weekly/monthly)",
+      "Collateral and lien tracking",
     ],
   },
   {
@@ -121,8 +170,8 @@ const LoanTypes = () => {
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
             Purpose-built loan management for every collection cycle — daily,
-            weekly, and product-based — with complete lifecycle tools from
-            origination to closure.
+            weekly, monthly, gold loan, property loan, and product-based — with
+            complete lifecycle tools from origination to closure.
           </p>
         </div>
       </div>
