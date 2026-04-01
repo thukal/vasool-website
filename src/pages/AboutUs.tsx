@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
-import PretextFlowAround from "@/components/pretext/PretextFlowAround";
+import PretextStory from "@/components/pretext/PretextFlowAround";
 
 const values = [
   {
@@ -90,7 +90,11 @@ const offerings = [
   },
 ];
 
-const storyText = `Vasool was born from a simple observation: microfinance companies across India are still running critical operations on paper registers, WhatsApp groups, and disconnected spreadsheets. Field agents walk kilometers daily with no route planning. Admins reconcile cash manually every evening. Customer records live in notebooks that can be lost or damaged. We set out to change that. Built by Thukal, Vasool is a complete loan management platform designed specifically for the Indian microfinance industry. Not a generic banking tool adapted for small lenders — but a purpose-built system that understands daily collections, field routes, cash settlements, and the realities of ground-level lending. Our multi-tenant architecture means each finance company gets their own isolated environment with their own branding, features, and data — all running on infrastructure they control. We don't hold your data hostage. We don't sell insights to third parties. We build great software and let you run your business.`;
+const storyParagraphs = [
+  "Vasool was born from a simple observation: microfinance companies across India are still running critical operations on paper registers, WhatsApp groups, and disconnected spreadsheets. Field agents walk kilometers daily with no route planning. Admins reconcile cash manually every evening. Customer records live in notebooks that can be lost or damaged.",
+  'We set out to change that. Built by <strong class="text-foreground">Thukal</strong>, Vasool is a complete loan management platform designed specifically for the Indian microfinance industry. Not a generic banking tool adapted for small lenders — but a purpose-built system that understands daily collections, field routes, cash settlements, and the realities of ground-level lending.',
+  "Our multi-tenant architecture means each finance company gets their own isolated environment with their own branding, features, and data — all running on infrastructure they control. We don't hold your data hostage. We don't sell insights to third parties. We build great software and let you run your business.",
+];
 
 const AboutUs = () => {
   return (
@@ -117,21 +121,12 @@ const AboutUs = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Story — Pretext flow-around effect */}
+        {/* Story with Thukal particle animation */}
         <section className="py-12 sm:py-16 max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
             Our Story
           </h2>
-          <p className="text-sm text-muted-foreground/60 mb-4 italic">
-            Hover over the text — watch the particles scatter and reflow
-          </p>
-          <PretextFlowAround
-            text={storyText}
-            font='400 16px "Plus Jakarta Sans"'
-            lineHeight={26}
-            className="rounded-2xl border border-border/40 bg-card/50 p-6 sm:p-8 overflow-hidden"
-            textClassName="text-muted-foreground leading-relaxed"
-          />
+          <PretextStory paragraphs={storyParagraphs} />
         </section>
 
         {/* Mission & Vision */}
