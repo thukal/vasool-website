@@ -1,17 +1,16 @@
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface Particle {
   x: number;
   y: number;
-  targetX: number;
-  targetY: number;
+  originX: number;
+  originY: number;
   vx: number;
   vy: number;
   size: number;
   opacity: number;
-  hue: number;
-  scatterAngle: number;
-  scatterDist: number;
+  // How far left this particle is (0=right edge, 1=far left) — controls dispersion
+  disperseFactor: number;
 }
 
 interface ThukalParticlesProps {
@@ -20,41 +19,52 @@ interface ThukalParticlesProps {
 }
 
 /**
- * Self-contained canvas particle system that forms "Thukal".
- * Particles scatter and reassemble in a cycle. Mouse interaction scatters them.
+ * Tamil letter "த" (Tha from Thukal) with left-side particle dispersion.
+ * Right side is solid, left side dissolves into scattered particles.
+ * Mouse interaction causes particles to scatter further.
  */
 const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
+  const solidPixelsRef = useRef<{ x: number; y: number; size: number }[]>([]);
   const animRef = useRef<number>(0);
   const initializedRef = useRef(false);
   const [isHovering, setIsHovering] = useState(false);
   const mouseRef = useRef({ x: -999, y: -999 });
 
-  const getTextPixels = useCallback(
+  const sampleText = useCallback(
     (text: string, fontSize: number, w: number, h: number) => {
       const offscreen = document.createElement("canvas");
       offscreen.width = w;
       offscreen.height = h;
       const ctx = offscreen.getContext("2d");
-      if (!ctx) return [];
+      if (!ctx) return { pixels: [] as { x: number; y: number; alpha: number }[], textBounds: { left: 0, right: w, top: 0, bottom: h } };
 
       ctx.fillStyle = "#fff";
-      ctx.font = `800 ${fontSize}px "Plus Jakarta Sans", sans-serif`;
+      ctx.font = `700 ${fontSize}px "Noto Sans Tamil", "Plus Jakarta Sans", sans-serif`;
       ctx.textBaseline = "middle";
       ctx.textAlign = "center";
       ctx.fillText(text, w / 2, h / 2);
 
       const imageData = ctx.getImageData(0, 0, w, h);
-      const pixels: { x: number; y: number }[] = [];
-      const step = 3;
-      for (let y = 0; y < h; y += step) {
-        for (let x = 0; x < w; x += step) {
+      const pixels: { x: number; y: number; alpha: number }[] = [];
+      let left = w, right = 0, top = h, bottom = 0;
+
+      for (let y = 0; y < h; y += 2) {
+        for (let x = 0; x < w; x += 2) {
           const idx = (y * w + x) * 4;
-          if (imageData.data[idx + 3] > 128) pixels.push({ x, y });
+          const a = imageData.data[idx + 3];
+          if (a > 30) {
+            pixels.push({ x, y, alpha: a / 255 });
+            if (x < left) left = x;
+            if (x > right) right = x;
+            if (y < top) top = y;
+            if (y > bottom) bottom = y;
+          }
         }
       }
-      return pixels;
+
+      return { pixels, textBounds: { left, right, top, bottom } };
     },
     []
   );
@@ -62,31 +72,50 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
   useEffect(() => {
     if (width <= 0 || height <= 0 || initializedRef.current) return;
 
-    const fontSize = Math.min(56, width / 4.5);
-    const pixels = getTextPixels("Thukal", fontSize, width, height);
+    const fontSize = Math.min(height * 0.7, width * 0.45, 280);
+    const { pixels, textBounds } = sampleText("த", fontSize, width, height);
     if (pixels.length === 0) return;
 
-    const particles: Particle[] = pixels.map((p) => {
-      const angle = Math.random() * Math.PI * 2;
-      const dist = 15 + Math.random() * 35;
-      return {
-        x: width / 2 + (Math.random() - 0.5) * width,
-        y: height / 2 + (Math.random() - 0.5) * height,
-        targetX: p.x,
-        targetY: p.y,
-        vx: 0,
-        vy: 0,
-        size: 1.5 + Math.random() * 1.5,
-        opacity: 0.5 + Math.random() * 0.5,
-        hue: 155 + Math.random() * 35,
-        scatterAngle: angle,
-        scatterDist: dist,
-      };
-    });
+    const textWidth = textBounds.right - textBounds.left;
+    const textCenterX = (textBounds.left + textBounds.right) / 2;
+
+    // Dispersion threshold: pixels left of 40% of the text width disperse
+    const disperseEdge = textBounds.left + textWidth * 0.45;
+
+    const particles: Particle[] = [];
+    const solid: { x: number; y: number; size: number }[] = [];
+
+    for (const p of pixels) {
+      // How far into the "disperse zone" is this pixel (0 = at edge, 1 = far left)
+      const disperseAmount = p.x < disperseEdge
+        ? 1 - (p.x - textBounds.left) / (disperseEdge - textBounds.left)
+        : 0;
+
+      if (disperseAmount > 0.05) {
+        // This pixel becomes a particle
+        const angle = Math.PI + (Math.random() - 0.5) * 1.2; // Scatter to the left
+        const dist = disperseAmount * (30 + Math.random() * 80);
+        particles.push({
+          x: p.x,
+          y: p.y,
+          originX: p.x,
+          originY: p.y,
+          vx: 0,
+          vy: 0,
+          size: 0.8 + Math.random() * 2 + disperseAmount * 1.5,
+          opacity: p.alpha * (0.3 + (1 - disperseAmount) * 0.7),
+          disperseFactor: disperseAmount,
+        });
+      } else {
+        // Solid pixel — render as static dot
+        solid.push({ x: p.x, y: p.y, size: 2 });
+      }
+    }
 
     particlesRef.current = particles;
+    solidPixelsRef.current = solid;
     initializedRef.current = true;
-  }, [width, height, getTextPixels]);
+  }, [width, height, sampleText]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -99,82 +128,64 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
     const animate = () => {
       time++;
       ctx.clearRect(0, 0, width, height);
+
       const particles = particlesRef.current;
-      if (particles.length === 0) {
-        animRef.current = requestAnimationFrame(animate);
-        return;
+      const solid = solidPixelsRef.current;
+
+      // Draw solid (non-dispersed) part of the letter
+      const isDark = document.documentElement.classList.contains("dark") ||
+        getComputedStyle(document.documentElement).getPropertyValue("--background").trim().startsWith("168");
+      const baseColor = isDark ? "rgba(255,255,255," : "rgba(30,60,50,";
+
+      for (const s of solid) {
+        ctx.fillStyle = `${baseColor}0.95)`;
+        ctx.fillRect(s.x - 1, s.y - 1, s.size, s.size);
       }
 
-      // Cycle: form -> hold -> scatter -> hold
-      const cycleLen = 540;
-      const phase = (time % cycleLen) / cycleLen;
-      let formFactor: number;
-      if (phase < 0.2) {
-        const t = phase / 0.2;
-        formFactor = t * t * (3 - 2 * t);
-      } else if (phase < 0.55) {
-        formFactor = 1;
-      } else if (phase < 0.7) {
-        const t = (phase - 0.55) / 0.15;
-        formFactor = 1 - t * t * (3 - 2 * t);
-      } else {
-        formFactor = 0;
-      }
-
+      // Animate particles
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
-      const mouseRadius = 80;
+      const mouseRadius = 120;
+
+      // Breathing cycle for auto-dispersion
+      const breathe = Math.sin(time * 0.015) * 0.5 + 0.5; // 0..1
 
       for (const p of particles) {
-        let tx: number, ty: number;
+        // Base scatter position — dispersed to the left
+        const scatterAngle = Math.PI + Math.sin(p.originY * 0.05 + time * 0.008) * 0.6;
+        const scatterDist = p.disperseFactor * (20 + breathe * 40);
+        let tx = p.originX + Math.cos(scatterAngle) * scatterDist;
+        let ty = p.originY + Math.sin(scatterAngle) * scatterDist * 0.5;
 
+        // Mouse repulsion
         if (isHovering) {
-          const dx = p.targetX - mx;
-          const dy = p.targetY - my;
+          const dx = p.x - mx;
+          const dy = p.y - my;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouseRadius) {
             const force = ((mouseRadius - dist) / mouseRadius) ** 2;
-            const angle = Math.atan2(dy, dx);
-            tx = p.targetX + Math.cos(angle) * force * 60;
-            ty = p.targetY + Math.sin(angle) * force * 60;
-          } else {
-            tx = p.targetX;
-            ty = p.targetY;
+            tx += (dx / dist) * force * 80;
+            ty += (dy / dist) * force * 80;
           }
-        } else {
-          const sx = p.targetX + Math.cos(p.scatterAngle) * p.scatterDist;
-          const sy = p.targetY + Math.sin(p.scatterAngle) * p.scatterDist;
-          tx = p.targetX + (sx - p.targetX) * (1 - formFactor);
-          ty = p.targetY + (sy - p.targetY) * (1 - formFactor);
         }
 
-        const ddx = tx - p.x;
-        const ddy = ty - p.y;
-        p.vx += ddx * 0.07;
-        p.vy += ddy * 0.07;
-        p.vx *= 0.86;
-        p.vy *= 0.86;
+        // Spring physics
+        const dx = tx - p.x;
+        const dy = ty - p.y;
+        p.vx += dx * 0.05;
+        p.vy += dy * 0.05;
+        p.vx *= 0.88;
+        p.vy *= 0.88;
         p.x += p.vx;
         p.y += p.vy;
 
-        const floatX = Math.sin(time * 0.015 + p.targetX * 0.05) * 1.5;
-        const floatY = Math.cos(time * 0.012 + p.targetY * 0.05) * 1.5;
-        const drawX = p.x + floatX;
-        const drawY = p.y + floatY;
+        // Draw particle
+        const alpha = p.opacity * (0.5 + (1 - p.disperseFactor * breathe) * 0.5);
+        const size = p.size * (0.7 + p.disperseFactor * breathe * 0.5);
 
-        const alpha = p.opacity * (0.4 + formFactor * 0.6);
-        const lightness = 40 + formFactor * 20;
-
-        // Glow
         ctx.beginPath();
-        ctx.arc(drawX, drawY, p.size * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 70%, ${lightness}%, ${alpha * 0.15})`;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(drawX, drawY, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 80%, ${lightness + 10}%, ${alpha})`;
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `${baseColor}${alpha.toFixed(2)})`;
         ctx.fill();
       }
 

@@ -6,14 +6,13 @@ interface PretextStoryProps {
 }
 
 /**
- * Story section with Thukal particle animation as an interactive visual break
- * between paragraphs. Particles form "Thukal", scatter, and respond to mouse.
+ * Story section with Tamil "த" particle dispersion animation.
+ * Right side solid, left side dissolves into particles — matching the Thukal brand.
  */
 const PretextStory = ({
   paragraphs,
   className = "",
 }: PretextStoryProps) => {
-  // Split paragraphs: first part above particles, rest below
   const splitAt = Math.min(1, paragraphs.length - 1);
   const above = paragraphs.slice(0, splitAt);
   const below = paragraphs.slice(splitAt);
@@ -27,13 +26,13 @@ const PretextStory = ({
         ))}
       </div>
 
-      {/* Thukal particle animation — interactive visual centerpiece */}
-      <div className="relative my-10 rounded-2xl bg-gradient-to-br from-primary/5 via-card to-primary/5 border border-border/40 overflow-hidden">
-        <div className="aspect-[3/1] min-h-[160px] max-h-[220px]">
-          <ThukalParticles width={800} height={220} />
+      {/* Tamil "த" particle dispersion — Thukal brand identity */}
+      <div className="relative my-10 rounded-2xl overflow-hidden bg-background border border-border/30">
+        <div className="aspect-[5/3] sm:aspect-[2/1] max-h-[360px]">
+          <ThukalParticles width={900} height={450} />
         </div>
-        <p className="text-center text-xs text-muted-foreground/40 pb-3 -mt-1">
-          hover to interact
+        <p className="text-center text-[11px] text-muted-foreground/40 pb-3 -mt-1 tracking-wide">
+          hover to interact with particles
         </p>
       </div>
 
