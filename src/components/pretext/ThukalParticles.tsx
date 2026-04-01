@@ -124,7 +124,7 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
     if (width <= 0 || height <= 0 || initializedRef.current) return;
 
     const fontSize = Math.min(height * 0.55, width * 0.22, 200);
-    const { pixels, textBounds } = sampleText("துகழ்", fontSize, width, height);
+    const { pixels, textBounds } = sampleText("துகள்", fontSize, width, height);
     if (pixels.length === 0) return;
 
     const textWidth = textBounds.right - textBounds.left;
