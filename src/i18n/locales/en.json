@@ -10,7 +10,7 @@
     "title1": "Complete",
     "title2": "Loan Management",
     "title3": "System",
-    "description": "Streamline your microfinance operations with our multi-tenant platform. Manage loans, track collections, plan routes, monitor staff, and run analytics—all in one powerful system.",
+    "description": "Vasool App is a Daily, Weekly and Monthly based online finance collection software for micro finance industry. Gold loan, property loan, live tracking, route planning, and analytics—all in one powerful system.",
     "stat1Value": "100+",
     "stat1Label": "Features",
     "stat2Value": "Real-time",
@@ -29,6 +29,9 @@
       "items": [
         "Daily Loans",
         "Weekly Loans",
+        "Monthly Loans",
+        "Gold Loans",
+        "Property Loans",
         "Product-Based Loans",
         "Loan Renewal",
         "Repayment Schedules",
@@ -74,9 +77,10 @@
       "items": [
         "Staff Management",
         "Role-Based Access Control",
-        "Staff GPS Tracking",
+        "Live Staff GPS Tracking",
         "Staff Location History",
-        "Live Staff Map"
+        "Live Staff Map",
+        "Real-Time Field Agent Tracking"
       ]
     },
     "staffFinancials": {
@@ -168,7 +172,7 @@
       "badge": "Loan Products",
       "title1": "Purpose-Built for",
       "title2": "Microfinance Lending",
-      "description": "Specialized loan management for every collection cycle — daily, weekly, and product-based — with complete lifecycle tools.",
+      "description": "Specialized loan management for every collection cycle — daily, weekly, monthly, gold loan, property loan, and product-based — with complete lifecycle tools.",
       "viewAll": "View All Loan Types",
       "daily": {
         "title": "Daily Loans",
@@ -183,6 +187,20 @@
         "h1": "Weekly collection schedule generation",
         "h2": "Flexible term configurations",
         "h3": "Weekly collection summary reports"
+      },
+      "gold": {
+        "title": "Gold Loans",
+        "desc": "Loans secured against gold ornaments — manage valuation, pledging, interest calculation, and redemption with complete tracking.",
+        "h1": "Gold item cataloging with weight & purity",
+        "h2": "Automated valuation & interest calculation",
+        "h3": "Pledge and redemption tracking"
+      },
+      "property": {
+        "title": "Property Loans",
+        "desc": "Loans secured against property — manage valuation, document verification, disbursement, and flexible repayment schedules.",
+        "h1": "Property document management",
+        "h2": "Valuation and verification workflow",
+        "h3": "Flexible daily/weekly/monthly repayment"
       },
       "product": {
         "title": "Product-Based Loans",
@@ -272,7 +290,7 @@
     "description": "Take control of your microfinance management with Vasool. Customized to fit your business needs, from customer onboarding to daily collections."
   },
   "footer": {
-    "description": "Complete multi-tenant microfinance management system customized for your lending business.",
+    "description": "Daily, Weekly and Monthly based online finance collection software for micro finance industry. Gold loan, property loan & live tracking.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",
