@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import PretextFlowAround from "@/components/pretext/PretextFlowAround";
 
 const values = [
   {
@@ -89,6 +90,8 @@ const offerings = [
   },
 ];
 
+const storyText = `Vasool was born from a simple observation: microfinance companies across India are still running critical operations on paper registers, WhatsApp groups, and disconnected spreadsheets. Field agents walk kilometers daily with no route planning. Admins reconcile cash manually every evening. Customer records live in notebooks that can be lost or damaged. We set out to change that. Built by Thukal, Vasool is a complete loan management platform designed specifically for the Indian microfinance industry. Not a generic banking tool adapted for small lenders — but a purpose-built system that understands daily collections, field routes, cash settlements, and the realities of ground-level lending. Our multi-tenant architecture means each finance company gets their own isolated environment with their own branding, features, and data — all running on infrastructure they control. We don't hold your data hostage. We don't sell insights to third parties. We build great software and let you run your business.`;
+
 const AboutUs = () => {
   return (
     <main className="min-h-screen">
@@ -114,37 +117,31 @@ const AboutUs = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Story */}
+        {/* Story — Pretext flow-around effect */}
         <section className="py-12 sm:py-16 max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
             Our Story
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Vasool was born from a simple observation: microfinance companies
-              across India are still running critical operations on paper
-              registers, WhatsApp groups, and disconnected spreadsheets. Field
-              agents walk kilometers daily with no route planning. Admins
-              reconcile cash manually every evening. Customer records live in
-              notebooks that can be lost or damaged.
-            </p>
-            <p>
-              We set out to change that. Built by{" "}
-              <strong className="text-foreground">Thukal</strong>, Vasool is a
-              complete loan management platform designed specifically for the
-              Indian microfinance industry. Not a generic banking tool adapted
-              for small lenders — but a purpose-built system that understands
-              daily collections, field routes, cash settlements, and the
-              realities of ground-level lending.
-            </p>
-            <p>
-              Our multi-tenant architecture means each finance company gets
-              their own isolated environment with their own branding, features,
-              and data — all running on infrastructure they control. We don't
-              hold your data hostage. We don't sell insights to third parties.
-              We build great software and let you run your business.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground/60 mb-4 italic">
+            Move your mouse over the text to guide the logo
+          </p>
+          <PretextFlowAround
+            text={storyText}
+            font='400 16px "Plus Jakarta Sans"'
+            lineHeight={26}
+            shapeSize={90}
+            className="rounded-2xl border border-border/40 bg-card/50 p-6 sm:p-8"
+            textClassName="text-muted-foreground leading-relaxed"
+            shapeContent={
+              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 border border-emerald-500/30 flex items-center justify-center shadow-lg backdrop-blur-sm">
+                <img
+                  src="/favicon.png"
+                  alt="Vasool"
+                  className="w-14 h-14 rounded-xl"
+                />
+              </div>
+            }
+          />
         </section>
 
         {/* Mission & Vision */}
