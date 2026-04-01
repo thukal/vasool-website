@@ -22,7 +22,7 @@ const PretextStory = ({
       {/* Text above */}
       <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
         {above.map((p, i) => (
-          <p key={i}>{p}</p>
+          <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
         ))}
       </div>
 
