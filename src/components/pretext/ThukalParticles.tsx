@@ -92,7 +92,7 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
       if (!ctx) return { pixels: [] as { x: number; y: number; alpha: number }[], textBounds: { left: 0, right: w, top: 0, bottom: h } };
 
       ctx.fillStyle = "#fff";
-      ctx.font = `700 ${fontSize}px "Noto Sans Tamil", "Plus Jakarta Sans", sans-serif`;
+      ctx.font = `700 ${fontSize}px "Noto Serif Tamil", "Kavivanar", "Arima", "Noto Sans Tamil", sans-serif`;
       ctx.textBaseline = "middle";
       ctx.textAlign = "center";
       ctx.fillText(text, w / 2, h / 2);
