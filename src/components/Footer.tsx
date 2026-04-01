@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PretextText from "./pretext/PretextText";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -17,9 +18,15 @@ const Footer = () => {
               />
               <span className="text-lg font-bold text-white">Vasool</span>
             </div>
-            <p className="text-white/35 text-sm leading-relaxed max-w-[220px]">
+            {/* Pretext pre-measures height to prevent layout shift */}
+            <PretextText
+              as="p"
+              className="text-white/35 text-sm leading-relaxed max-w-[220px]"
+              font='400 14px "Plus Jakarta Sans"'
+              lineHeight={22}
+            >
               {t("footer.description")}
-            </p>
+            </PretextText>
           </div>
 
           {/* Product */}

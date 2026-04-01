@@ -11,10 +11,14 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
+import PretextReveal from "./pretext/PretextReveal";
+import BalancedText from "./pretext/BalancedText";
 
 const Hero = () => {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const fullTitle = `${t("hero.title1")} ${t("hero.title2")} ${t("hero.title3")}`;
 
   return (
     <section className="relative min-h-screen bg-hero overflow-hidden">
@@ -123,7 +127,7 @@ const Hero = () => {
 
         {/* Hero content — two-column */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 sm:pt-16 lg:pt-20 pb-24 sm:pb-32">
-          {/* Left — text */}
+          {/* Left — text with Pretext-powered layout */}
           <div>
             <div className="animate-fade-up">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/10 text-emerald-300 text-xs font-medium mb-7">
@@ -132,16 +136,30 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 animate-fade-up-delay-1">
-              <span className="text-white">{t("hero.title1")} </span>
-              <span className="text-gradient">{t("hero.title2")}</span>
-              <br />
-              <span className="text-white">{t("hero.title3")}</span>
-            </h1>
+            {/* Pretext BalancedText: prevents orphan words in the heading */}
+            <div className="animate-fade-up-delay-1">
+              <BalancedText
+                as="h1"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 text-white"
+                font='800 56px "Plus Jakarta Sans"'
+                lineHeight={62}
+              >
+                {fullTitle}
+              </BalancedText>
+            </div>
 
-            <p className="text-base sm:text-lg text-white/50 max-w-lg mb-8 animate-fade-up-delay-2 leading-relaxed">
-              {t("hero.description")}
-            </p>
+            {/* Pretext PretextReveal: line-by-line reveal animation */}
+            <div className="animate-fade-up-delay-2">
+              <PretextReveal
+                as="p"
+                className="text-base sm:text-lg text-white/50 max-w-lg mb-8 leading-relaxed"
+                font='400 18px "Plus Jakarta Sans"'
+                lineHeight={28}
+                staggerMs={100}
+              >
+                {t("hero.description")}
+              </PretextReveal>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
               <a href="tel:+918680901007">

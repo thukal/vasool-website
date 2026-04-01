@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import PretextStory from "@/components/pretext/PretextFlowAround";
 
 const values = [
   {
@@ -89,6 +90,13 @@ const offerings = [
   },
 ];
 
+const storyParagraphs = [
+  'The name <strong class="text-foreground">Thukal</strong> — துகள் — means "particle" in Tamil. It reflects how we think about building technology: small, precise components that come together to form something powerful. Just like the particles that scatter and reassemble above, every feature in our platform is a focused piece of a larger whole.',
+  '<strong class="text-foreground">Vasool</strong> — வசூல் — means "collection" in Tamil, the everyday word used across India\'s microfinance industry. When field agents go out each morning to collect daily repayments, they call it vasool. We named our platform after the work itself — because that\'s exactly what we set out to digitize.',
+  'Together, Thukal and Vasool represent our philosophy: build precise, well-crafted tools (துகள்) that transform how collections (வசூல்) work on the ground. We started by watching how microfinance actually operates — paper registers, WhatsApp groups, manual cash reconciliation every evening — and built a platform that replaces all of it with a single, purpose-built system.',
+  'Built by <strong class="text-foreground">Thukal</strong> for the Indian microfinance industry, Vasool isn\'t a generic banking tool adapted for small lenders. It\'s a ground-up system that understands daily collections, field routes, cash settlements, and the realities of lending at scale. Every finance company gets their own isolated environment with their own branding, features, and data — all running on infrastructure they control. We don\'t hold your data hostage. We build great software and let you run your business.',
+];
+
 const AboutUs = () => {
   return (
     <main className="min-h-screen">
@@ -114,37 +122,12 @@ const AboutUs = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Story */}
+        {/* Story with Thukal particle animation */}
         <section className="py-12 sm:py-16 max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
             Our Story
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Vasool was born from a simple observation: microfinance companies
-              across India are still running critical operations on paper
-              registers, WhatsApp groups, and disconnected spreadsheets. Field
-              agents walk kilometers daily with no route planning. Admins
-              reconcile cash manually every evening. Customer records live in
-              notebooks that can be lost or damaged.
-            </p>
-            <p>
-              We set out to change that. Built by{" "}
-              <strong className="text-foreground">Thukal</strong>, Vasool is a
-              complete loan management platform designed specifically for the
-              Indian microfinance industry. Not a generic banking tool adapted
-              for small lenders — but a purpose-built system that understands
-              daily collections, field routes, cash settlements, and the
-              realities of ground-level lending.
-            </p>
-            <p>
-              Our multi-tenant architecture means each finance company gets
-              their own isolated environment with their own branding, features,
-              and data — all running on infrastructure they control. We don't
-              hold your data hostage. We don't sell insights to third parties.
-              We build great software and let you run your business.
-            </p>
-          </div>
+          <PretextStory paragraphs={storyParagraphs} />
         </section>
 
         {/* Mission & Vision */}
