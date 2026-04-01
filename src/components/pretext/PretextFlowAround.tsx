@@ -23,10 +23,6 @@ interface PretextFlowAroundProps {
   textClassName?: string;
 }
 
-/**
- * Text that flows around "Thukal" particle text using Pretext's layoutNextLine.
- * Particles scatter and reassemble while text dynamically reflows around them.
- */
 const PretextFlowAround = ({
   text,
   font = '400 16px "Plus Jakarta Sans"',
@@ -35,7 +31,6 @@ const PretextFlowAround = ({
   textClassName = "",
 }: PretextFlowAroundProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const animRef = useRef<number>(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [lines, setLines] = useState<FlowLine[]>([]);
   const [totalHeight, setTotalHeight] = useState(0);
@@ -43,7 +38,7 @@ const PretextFlowAround = ({
   const [isHovering, setIsHovering] = useState(false);
   const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
   const boundsRef = useRef<ShapeBounds>({ x: 0, y: 0, w: 0, h: 0 });
-  const layoutTimerRef = useRef<number>(0);
+  const hasLaidOut = useRef(false);
 
   // Measure container
   useEffect(() => {
@@ -52,6 +47,7 @@ const PretextFlowAround = ({
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
         setContainerWidth(entry.contentRect.width);
+        hasLaidOut.current = false; // re-layout on resize
       }
     });
     observer.observe(el);
@@ -63,11 +59,10 @@ const PretextFlowAround = ({
     if (!text || containerWidth <= 0) return;
     try {
       preparedRef.current = prepareWithSegments(text, font);
-      // Initial layout without shape
-      doLayout({ x: 0, y: 0, w: 0, h: 0 });
     } catch {
       preparedRef.current = null;
     }
+    hasLaidOut.current = false;
   }, [text, font, containerWidth]);
 
   // Layout text flowing around the particle bounds
@@ -76,7 +71,7 @@ const PretextFlowAround = ({
       const prepared = preparedRef.current;
       if (!prepared || containerWidth <= 0) return;
 
-      const padding = 14;
+      const padding = 16;
       const shapeLeft = bounds.x;
       const shapeRight = bounds.x + bounds.w;
       const shapeTop = bounds.y;
@@ -101,11 +96,14 @@ const PretextFlowAround = ({
         let availableWidth = containerWidth;
 
         if (overlaps) {
-          if (shapeLeft > containerWidth / 2) {
-            availableWidth = Math.max(60, shapeLeft - padding);
+          // Put text on the side with more space
+          if (shapeLeft > containerWidth - shapeRight) {
+            // More space on the left
+            availableWidth = Math.max(80, shapeLeft - padding);
             lineX = 0;
           } else {
-            availableWidth = Math.max(60, containerWidth - shapeRight - padding);
+            // More space on the right
+            availableWidth = Math.max(80, containerWidth - shapeRight - padding);
             lineX = shapeRight + padding;
           }
         }
@@ -129,13 +127,12 @@ const PretextFlowAround = ({
     [containerWidth, lineHeight]
   );
 
-  // Handle particle bounds updates — throttle layout to every 2 frames
-  const frameCount = useRef(0);
+  // Handle bounds from particle system — layout once with fixed bounds
   const handleBoundsChange = useCallback(
     (bounds: ShapeBounds) => {
       boundsRef.current = bounds;
-      frameCount.current++;
-      if (frameCount.current % 2 === 0) {
+      if (!hasLaidOut.current) {
+        hasLaidOut.current = true;
         doLayout(bounds);
       }
     },
@@ -154,7 +151,6 @@ const PretextFlowAround = ({
     []
   );
 
-  // Compute canvas height — enough for all text plus extra for particles
   const canvasHeight = Math.max(totalHeight, 400);
 
   return (
@@ -184,7 +180,7 @@ const PretextFlowAround = ({
       <div className={`relative z-0 ${textClassName}`} style={{ lineHeight: `${lineHeight}px` }}>
         {lines.map((line, i) => (
           <div
-            key={`${i}-${line.x.toFixed(0)}`}
+            key={i}
             style={{
               height: lineHeight,
               paddingLeft: line.x,
