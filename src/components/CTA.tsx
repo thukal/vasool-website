@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import BalancedText from "./pretext/BalancedText";
 import { useInView } from "@/hooks/useInView";
 
 const CTA = () => {
@@ -35,14 +34,9 @@ const CTA = () => {
                 transition: "opacity 0.6s ease 200ms, transform 0.6s ease 200ms",
               }}
             >
-              <BalancedText
-                as="h2"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight text-white"
-                font='700 44px "Plus Jakarta Sans"'
-                lineHeight={52}
-              >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight text-white text-balance">
                 {ctaTitle}
-              </BalancedText>
+              </h2>
             </div>
             <p
               className="text-white/45 text-base sm:text-lg mb-9 max-w-xl mx-auto leading-relaxed text-balance"
