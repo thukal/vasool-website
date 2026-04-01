@@ -123,8 +123,8 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
   useEffect(() => {
     if (width <= 0 || height <= 0 || initializedRef.current) return;
 
-    const fontSize = Math.min(height * 0.7, width * 0.45, 280);
-    const { pixels, textBounds } = sampleText("த", fontSize, width, height);
+    const fontSize = Math.min(height * 0.55, width * 0.22, 200);
+    const { pixels, textBounds } = sampleText("துகழ்", fontSize, width, height);
     if (pixels.length === 0) return;
 
     const textWidth = textBounds.right - textBounds.left;
