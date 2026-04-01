@@ -123,24 +123,14 @@ const AboutUs = () => {
             Our Story
           </h2>
           <p className="text-sm text-muted-foreground/60 mb-4 italic">
-            Move your mouse over the text to guide the logo
+            Hover over the text — watch the particles scatter and reflow
           </p>
           <PretextFlowAround
             text={storyText}
             font='400 16px "Plus Jakarta Sans"'
             lineHeight={26}
-            shapeSize={90}
-            className="rounded-2xl border border-border/40 bg-card/50 p-6 sm:p-8"
+            className="rounded-2xl border border-border/40 bg-card/50 p-6 sm:p-8 overflow-hidden"
             textClassName="text-muted-foreground leading-relaxed"
-            shapeContent={
-              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 border border-emerald-500/30 flex items-center justify-center shadow-lg backdrop-blur-sm">
-                <img
-                  src="/favicon.png"
-                  alt="Vasool"
-                  className="w-14 h-14 rounded-xl"
-                />
-              </div>
-            }
           />
         </section>
 
