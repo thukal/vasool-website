@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import BalancedText from "./pretext/BalancedText";
+import PretextReveal from "./pretext/PretextReveal";
 
 const CTA = () => {
   const { t } = useTranslation();
+
+  const ctaTitle = `${t("cta.title1")} ${t("cta.title2")}`;
 
   return (
     <section className="py-16 sm:py-24 bg-background">
@@ -16,13 +20,24 @@ const CTA = () => {
           </div>
 
           <div className="relative max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight">
-              <span className="text-white">{t("cta.title1")} </span>
-              <span className="text-gradient">{t("cta.title2")}</span>
-            </h2>
-            <p className="text-white/45 text-base sm:text-lg mb-9 max-w-xl mx-auto leading-relaxed">
+            {/* Pretext balanced CTA heading */}
+            <BalancedText
+              as="h2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight text-white"
+              font='700 44px "Plus Jakarta Sans"'
+              lineHeight={52}
+            >
+              {ctaTitle}
+            </BalancedText>
+            <PretextReveal
+              as="p"
+              className="text-white/45 text-base sm:text-lg mb-9 max-w-xl mx-auto leading-relaxed"
+              font='400 18px "Plus Jakarta Sans"'
+              lineHeight={28}
+              staggerMs={80}
+            >
               {t("cta.description")}
-            </p>
+            </PretextReveal>
 
             <div className="flex items-center justify-center mb-10">
               <a href="tel:+918680901007">
