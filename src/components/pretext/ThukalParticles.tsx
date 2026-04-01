@@ -9,8 +9,20 @@ interface Particle {
   vy: number;
   size: number;
   opacity: number;
-  // How far left this particle is (0=right edge, 1=far left) — controls dispersion
   disperseFactor: number;
+  // Gradient color at this pixel's position
+  r: number;
+  g: number;
+  b: number;
+}
+
+interface SolidPixel {
+  x: number;
+  y: number;
+  size: number;
+  r: number;
+  g: number;
+  b: number;
 }
 
 interface ThukalParticlesProps {
@@ -19,18 +31,57 @@ interface ThukalParticlesProps {
 }
 
 /**
- * Tamil letter "த" (Tha from Thukal) with left-side particle dispersion.
- * Right side is solid, left side dissolves into scattered particles.
- * Mouse interaction causes particles to scatter further.
+ * Tamil "த" with vibrant gradient (blue → magenta → orange) and
+ * left-side particle dispersion. Particles carry the gradient color.
  */
 const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const solidPixelsRef = useRef<{ x: number; y: number; size: number }[]>([]);
+  const solidPixelsRef = useRef<SolidPixel[]>([]);
   const animRef = useRef<number>(0);
   const initializedRef = useRef(false);
   const [isHovering, setIsHovering] = useState(false);
   const mouseRef = useRef({ x: -999, y: -999 });
+
+  // Map a normalized position (0..1 diagonal from bottom-left to top-right) to gradient color
+  const getGradientColor = useCallback(
+    (nx: number, ny: number): [number, number, number] => {
+      // Diagonal gradient: bottom-left (blue/purple) → center (magenta/pink) → top-right (orange/amber)
+      const t = nx * 0.6 + (1 - ny) * 0.4; // 0 = bottom-left, 1 = top-right
+
+      // Color stops: blue(0) → purple(0.25) → magenta(0.45) → pink(0.6) → orange(0.8) → amber(1)
+      let r: number, g: number, b: number;
+      if (t < 0.25) {
+        const s = t / 0.25;
+        r = 80 + s * 60;    // 80 → 140
+        g = 50 + s * 20;    // 50 → 70
+        b = 220 - s * 30;   // 220 → 190
+      } else if (t < 0.45) {
+        const s = (t - 0.25) / 0.2;
+        r = 140 + s * 80;   // 140 → 220
+        g = 70 - s * 30;    // 70 → 40
+        b = 190 - s * 20;   // 190 → 170
+      } else if (t < 0.65) {
+        const s = (t - 0.45) / 0.2;
+        r = 220 + s * 25;   // 220 → 245
+        g = 40 + s * 60;    // 40 → 100
+        b = 170 - s * 70;   // 170 → 100
+      } else if (t < 0.85) {
+        const s = (t - 0.65) / 0.2;
+        r = 245 + s * 10;   // 245 → 255
+        g = 100 + s * 60;   // 100 → 160
+        b = 100 - s * 60;   // 100 → 40
+      } else {
+        const s = (t - 0.85) / 0.15;
+        r = 255;
+        g = 160 + s * 40;   // 160 → 200
+        b = 40 - s * 20;    // 40 → 20
+      }
+
+      return [Math.round(r), Math.round(g), Math.round(b)];
+    },
+    []
+  );
 
   const sampleText = useCallback(
     (text: string, fontSize: number, w: number, h: number) => {
@@ -77,24 +128,23 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
     if (pixels.length === 0) return;
 
     const textWidth = textBounds.right - textBounds.left;
-    const textCenterX = (textBounds.left + textBounds.right) / 2;
-
-    // Dispersion threshold: pixels left of 40% of the text width disperse
+    const textHeight = textBounds.bottom - textBounds.top;
     const disperseEdge = textBounds.left + textWidth * 0.45;
 
     const particles: Particle[] = [];
-    const solid: { x: number; y: number; size: number }[] = [];
+    const solid: SolidPixel[] = [];
 
     for (const p of pixels) {
-      // How far into the "disperse zone" is this pixel (0 = at edge, 1 = far left)
+      // Normalized position within the text bounds for gradient
+      const nx = (p.x - textBounds.left) / textWidth;
+      const ny = (p.y - textBounds.top) / textHeight;
+      const [r, g, b] = getGradientColor(nx, ny);
+
       const disperseAmount = p.x < disperseEdge
         ? 1 - (p.x - textBounds.left) / (disperseEdge - textBounds.left)
         : 0;
 
       if (disperseAmount > 0.05) {
-        // This pixel becomes a particle
-        const angle = Math.PI + (Math.random() - 0.5) * 1.2; // Scatter to the left
-        const dist = disperseAmount * (30 + Math.random() * 80);
         particles.push({
           x: p.x,
           y: p.y,
@@ -102,20 +152,20 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
           originY: p.y,
           vx: 0,
           vy: 0,
-          size: 0.8 + Math.random() * 2 + disperseAmount * 1.5,
+          size: 0.8 + Math.random() * 2 + disperseAmount * 1.8,
           opacity: p.alpha * (0.3 + (1 - disperseAmount) * 0.7),
           disperseFactor: disperseAmount,
+          r, g, b,
         });
       } else {
-        // Solid pixel — render as static dot
-        solid.push({ x: p.x, y: p.y, size: 2 });
+        solid.push({ x: p.x, y: p.y, size: 2, r, g, b });
       }
     }
 
     particlesRef.current = particles;
     solidPixelsRef.current = solid;
     initializedRef.current = true;
-  }, [width, height, sampleText]);
+  }, [width, height, sampleText, getGradientColor]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -132,44 +182,34 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
       const particles = particlesRef.current;
       const solid = solidPixelsRef.current;
 
-      // Draw solid (non-dispersed) part of the letter
-      const isDark = document.documentElement.classList.contains("dark") ||
-        getComputedStyle(document.documentElement).getPropertyValue("--background").trim().startsWith("168");
-      const baseColor = isDark ? "rgba(255,255,255," : "rgba(30,60,50,";
-
+      // Draw solid part with gradient colors
       for (const s of solid) {
-        ctx.fillStyle = `${baseColor}0.95)`;
+        ctx.fillStyle = `rgb(${s.r},${s.g},${s.b})`;
         ctx.fillRect(s.x - 1, s.y - 1, s.size, s.size);
       }
 
-      // Animate particles
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
       const mouseRadius = 120;
-
-      // Breathing cycle for auto-dispersion
-      const breathe = Math.sin(time * 0.015) * 0.5 + 0.5; // 0..1
+      const breathe = Math.sin(time * 0.015) * 0.5 + 0.5;
 
       for (const p of particles) {
-        // Base scatter position — dispersed to the left
         const scatterAngle = Math.PI + Math.sin(p.originY * 0.05 + time * 0.008) * 0.6;
-        const scatterDist = p.disperseFactor * (20 + breathe * 40);
+        const scatterDist = p.disperseFactor * (20 + breathe * 45);
         let tx = p.originX + Math.cos(scatterAngle) * scatterDist;
         let ty = p.originY + Math.sin(scatterAngle) * scatterDist * 0.5;
 
-        // Mouse repulsion
         if (isHovering) {
           const dx = p.x - mx;
           const dy = p.y - my;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouseRadius) {
+          if (dist < mouseRadius && dist > 0) {
             const force = ((mouseRadius - dist) / mouseRadius) ** 2;
-            tx += (dx / dist) * force * 80;
-            ty += (dy / dist) * force * 80;
+            tx += (dx / dist) * force * 90;
+            ty += (dy / dist) * force * 90;
           }
         }
 
-        // Spring physics
         const dx = tx - p.x;
         const dy = ty - p.y;
         p.vx += dx * 0.05;
@@ -179,13 +219,19 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Draw particle
         const alpha = p.opacity * (0.5 + (1 - p.disperseFactor * breathe) * 0.5);
         const size = p.size * (0.7 + p.disperseFactor * breathe * 0.5);
 
+        // Glow layer
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${(alpha * 0.15).toFixed(3)})`;
+        ctx.fill();
+
+        // Core particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `${baseColor}${alpha.toFixed(2)})`;
+        ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${alpha.toFixed(3)})`;
         ctx.fill();
       }
 
