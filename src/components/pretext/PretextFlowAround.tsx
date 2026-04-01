@@ -176,8 +176,8 @@ const PretextFlowAround = ({
         />
       )}
 
-      {/* Rendered text lines */}
-      <div className={`relative z-0 ${textClassName}`} style={{ lineHeight: `${lineHeight}px` }}>
+      {/* Rendered text lines — above canvas so particles never cover text */}
+      <div className={`relative ${textClassName}`} style={{ lineHeight: `${lineHeight}px`, zIndex: 2 }}>
         {lines.map((line, i) => (
           <div
             key={i}

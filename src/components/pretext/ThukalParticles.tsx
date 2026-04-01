@@ -10,7 +10,6 @@ interface Particle {
   size: number;
   opacity: number;
   hue: number;
-  // Unique scatter angle/distance per particle
   scatterAngle: number;
   scatterDist: number;
 }
@@ -34,7 +33,6 @@ const ThukalParticles = ({
   const particlesRef = useRef<Particle[]>([]);
   const animRef = useRef<number>(0);
   const initializedRef = useRef(false);
-  // Store the fixed shape bounds (where "Thukal" sits when formed)
   const shapeBoundsRef = useRef({ x: 0, y: 0, w: 0, h: 0 });
 
   const getTextPixels = useCallback(
@@ -69,24 +67,23 @@ const ThukalParticles = ({
     []
   );
 
-  // Initialize particles
   useEffect(() => {
     if (width <= 0 || height <= 0 || initializedRef.current) return;
 
-    // Make "Thukal" large and prominent
-    const shapeW = Math.min(width * 0.55, 380);
-    const shapeH = Math.min(140, height * 0.35);
-    const fontSize = Math.min(64, shapeW / 4.2);
+    // Compact shape — not too wide so text columns stay readable
+    const shapeW = Math.min(width * 0.4, 280);
+    const shapeH = Math.min(100, height * 0.25);
+    const fontSize = Math.min(52, shapeW / 4);
 
     const pixels = getTextPixels("Thukal", fontSize, shapeW, shapeH);
     if (pixels.length === 0) return;
 
-    // Position in center-right of the canvas
-    const offsetX = width * 0.5 - shapeW / 2;
-    const offsetY = height * 0.45 - shapeH / 2;
+    // Center horizontally, place in upper-middle vertically
+    const offsetX = (width - shapeW) / 2;
+    const offsetY = height * 0.35 - shapeH / 2;
 
-    // Set fixed bounds for text flow — always use this, not particle positions
-    const pad = 24;
+    // Tight bounds — just enough padding for the glow
+    const pad = 14;
     shapeBoundsRef.current = {
       x: offsetX - pad,
       y: offsetY - pad,
@@ -98,16 +95,16 @@ const ThukalParticles = ({
       const tx = p.x + offsetX;
       const ty = p.y + offsetY;
       const angle = Math.random() * Math.PI * 2;
-      // Scatter within a contained radius (not too far)
-      const dist = 30 + Math.random() * 70;
+      // Scatter only within the shape bounds — never into text
+      const dist = 10 + Math.random() * 40;
       return {
-        x: tx + Math.cos(angle) * (100 + Math.random() * 80),
-        y: ty + Math.sin(angle) * (100 + Math.random() * 80),
+        x: tx,
+        y: ty,
         targetX: tx,
         targetY: ty,
-        vx: 0,
-        vy: 0,
-        size: 1.8 + Math.random() * 1.8,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
+        size: 1.5 + Math.random() * 1.5,
         opacity: 0.5 + Math.random() * 0.5,
         hue: 155 + Math.random() * 35,
         scatterAngle: angle,
@@ -117,12 +114,9 @@ const ThukalParticles = ({
 
     particlesRef.current = particles;
     initializedRef.current = true;
-
-    // Report initial bounds
     onBoundsChange?.(shapeBoundsRef.current);
   }, [width, height, getTextPixels, onBoundsChange]);
 
-  // Animation loop
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || width <= 0 || height <= 0) return;
@@ -131,6 +125,7 @@ const ThukalParticles = ({
     if (!ctx) return;
 
     let time = 0;
+    const bounds = shapeBoundsRef.current;
 
     const animate = () => {
       time++;
@@ -142,47 +137,56 @@ const ThukalParticles = ({
         return;
       }
 
-      // Auto cycle: form -> hold -> scatter -> hold
-      const cycleLength = 600;
+      // Cycle: form -> hold -> scatter -> hold
+      const cycleLength = 540;
       const phase = (time % cycleLength) / cycleLength;
       let formFactor: number;
-      if (phase < 0.25) {
-        // Forming: ease in
-        const t = phase / 0.25;
-        formFactor = t * t * (3 - 2 * t); // smoothstep
+      if (phase < 0.2) {
+        const t = phase / 0.2;
+        formFactor = t * t * (3 - 2 * t);
       } else if (phase < 0.55) {
-        formFactor = 1; // hold formed
-      } else if (phase < 0.75) {
-        // Scattering: ease out
-        const t = (phase - 0.55) / 0.2;
+        formFactor = 1;
+      } else if (phase < 0.7) {
+        const t = (phase - 0.55) / 0.15;
         formFactor = 1 - t * t * (3 - 2 * t);
       } else {
-        formFactor = 0; // hold scattered
+        formFactor = 0;
       }
 
       const mx = mousePos?.x ?? -1000;
       const my = mousePos?.y ?? -1000;
-      const mouseRadius = 100;
+      const mouseRadius = 90;
+
+      // Clip drawing to bounds region so particles never render over text
+      ctx.save();
+      ctx.beginPath();
+      const clipPad = 8;
+      ctx.roundRect(
+        bounds.x - clipPad,
+        bounds.y - clipPad,
+        bounds.w + clipPad * 2,
+        bounds.h + clipPad * 2,
+        12
+      );
+      ctx.clip();
 
       for (const p of particles) {
         let tx: number, ty: number;
 
         if (isHovering && mousePos) {
-          // Particles flee from mouse but stay near their target
           const dx = p.targetX - mx;
           const dy = p.targetY - my;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouseRadius) {
             const force = ((mouseRadius - dist) / mouseRadius) ** 2;
             const angle = Math.atan2(dy, dx);
-            tx = p.targetX + Math.cos(angle) * force * 80;
-            ty = p.targetY + Math.sin(angle) * force * 80;
+            tx = p.targetX + Math.cos(angle) * force * 50;
+            ty = p.targetY + Math.sin(angle) * force * 50;
           } else {
             tx = p.targetX;
             ty = p.targetY;
           }
         } else {
-          // Auto: interpolate between formed and scattered
           const sx = p.targetX + Math.cos(p.scatterAngle) * p.scatterDist;
           const sy = p.targetY + Math.sin(p.scatterAngle) * p.scatterDist;
           tx = p.targetX + (sx - p.targetX) * (1 - formFactor);
@@ -192,40 +196,39 @@ const ThukalParticles = ({
         // Spring physics
         const dx = tx - p.x;
         const dy = ty - p.y;
-        p.vx += dx * 0.06;
-        p.vy += dy * 0.06;
-        p.vx *= 0.88;
-        p.vy *= 0.88;
+        p.vx += dx * 0.07;
+        p.vy += dy * 0.07;
+        p.vx *= 0.86;
+        p.vy *= 0.86;
         p.x += p.vx;
         p.y += p.vy;
 
-        // Subtle breathing motion
-        const floatX = Math.sin(time * 0.015 + p.targetX * 0.05) * 2;
-        const floatY = Math.cos(time * 0.012 + p.targetY * 0.05) * 2;
+        // Breathing motion
+        const floatX = Math.sin(time * 0.015 + p.targetX * 0.05) * 1.5;
+        const floatY = Math.cos(time * 0.012 + p.targetY * 0.05) * 1.5;
 
         const drawX = p.x + floatX;
         const drawY = p.y + floatY;
 
-        // Draw particle with glow
-        const alpha = p.opacity * (0.5 + formFactor * 0.5);
+        const alpha = p.opacity * (0.4 + formFactor * 0.6);
         const lightness = 40 + formFactor * 20;
 
-        // Outer glow
+        // Glow
         ctx.beginPath();
         ctx.arc(drawX, drawY, p.size * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 70%, ${lightness}%, ${alpha * 0.15})`;
+        ctx.fillStyle = `hsla(${p.hue}, 70%, ${lightness}%, ${alpha * 0.12})`;
         ctx.fill();
 
-        // Core particle
+        // Core
         ctx.beginPath();
         ctx.arc(drawX, drawY, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `hsla(${p.hue}, 80%, ${lightness + 10}%, ${alpha})`;
         ctx.fill();
       }
 
-      // Always report the fixed "Thukal" region bounds (not actual particle spread)
-      onBoundsChange?.(shapeBoundsRef.current);
+      ctx.restore();
 
+      onBoundsChange?.(shapeBoundsRef.current);
       animRef.current = requestAnimationFrame(animate);
     };
 
@@ -238,7 +241,8 @@ const ThukalParticles = ({
       ref={canvasRef}
       width={width}
       height={height}
-      className="absolute inset-0 z-10 pointer-events-none"
+      className="absolute inset-0 pointer-events-none"
+      style={{ zIndex: 1 }}
     />
   );
 };
