@@ -16,6 +16,7 @@ import {
   Building2,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const securityFeatures = [
   {
@@ -107,6 +108,12 @@ const securityFeatures = [
 const Security = () => {
   return (
     <main className="min-h-screen">
+      <SEO
+        title="Security - Enterprise-Grade Data Protection for Microfinance"
+        description="Vasool provides enterprise-grade security for microfinance: JWT authentication, end-to-end encryption, biometric login, role-based access control, tenant data isolation, audit logging, and bot protection."
+        keywords="microfinance security, loan data security, tenant data isolation, microfinance encryption, financial data protection, secure lending software, RBAC microfinance, audit logging finance"
+        canonical="/security"
+      />
       {/* Header */}
       <div className="bg-hero py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">

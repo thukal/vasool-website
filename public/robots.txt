@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
+# Sitemaps
 Sitemap: https://vasool.app/sitemap.xml
+
+# Crawl-delay
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

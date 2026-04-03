@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const loanTypes = [
   {
@@ -155,6 +156,20 @@ const loanFeatures = [
 const LoanTypes = () => {
   return (
     <main className="min-h-screen">
+      <SEO
+        title="Loan Types - Daily, Weekly, Monthly, Gold & Property Loans"
+        description="Manage all types of microfinance loans with Vasool: daily loans, weekly loans, monthly loans, gold loans, property loans, and product-based loans. Complete lifecycle management from origination to closure."
+        keywords="daily loan software, weekly loan management, monthly loan tracking, gold loan software, property loan management, product loan app, microfinance loan types, EMI loan management, loan collection software, loan repayment tracking"
+        canonical="/loan-types"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vasool.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Loan Types", "item": "https://vasool.app/loan-types" }
+          ]
+        }}
+      />
       {/* Header */}
       <div className="bg-hero py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">

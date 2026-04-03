@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const categories = [
   {
@@ -201,6 +202,20 @@ const Features = () => {
 
   return (
     <main className="min-h-screen">
+      <SEO
+        title="90+ Features - Microfinance Loan Management Platform"
+        description="Explore 90+ features across 11 modules in Vasool's microfinance platform. Core loan management, collection tracking, route planning, customer management, reporting, security, multi-tenancy, and API integration."
+        keywords="microfinance software features, loan management features, collection tracking software, route planning microfinance, customer management lending, microfinance reporting, multi-tenant loan software, lending API, microfinance analytics"
+        canonical="/features"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vasool.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://vasool.app/features" }
+          ]
+        }}
+      />
       {/* Header */}
       <div className="bg-hero py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">
