@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import PretextStory from "@/components/pretext/PretextFlowAround";
+import SEO from "@/components/SEO";
 
 const values = [
   {
@@ -100,6 +101,20 @@ const storyParagraphs = [
 const AboutUs = () => {
   return (
     <main className="min-h-screen">
+      <SEO
+        title="About Vasool - Microfinance Technology by Thukal"
+        description="Learn about Vasool, built by Thukal for India's microfinance industry. We provide complete loan management technology with mobile apps, admin dashboards, self-hosted platforms, and dedicated support for lending businesses."
+        keywords="vasool about, thukal, microfinance technology india, lending software company, microfinance software provider, vasool app developer, tamil nadu fintech"
+        canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vasool.app/" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://vasool.app/about" }
+          ]
+        }}
+      />
       {/* Header */}
       <div className="bg-hero py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">

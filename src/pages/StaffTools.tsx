@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const staffManagement = [
   {
@@ -152,6 +153,20 @@ const adminTools = [
 const StaffTools = () => {
   return (
     <main className="min-h-screen">
+      <SEO
+        title="Staff Tools - GPS Tracking, Mobile App & Field Collection Management"
+        description="Empower your field team with Vasool's staff tools: real-time GPS tracking, dedicated Android app with offline support, expense management, cash advances, biometric login, route planning, and performance monitoring."
+        keywords="field staff tracking app, GPS tracking microfinance, collection agent app, field staff management, mobile collection app, offline collection app, staff expense tracking, cash advance management, biometric login app, route planning software"
+        canonical="/staff-tools"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vasool.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Staff Tools", "item": "https://vasool.app/staff-tools" }
+          ]
+        }}
+      />
       {/* Header */}
       <div className="bg-hero py-12 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6">
