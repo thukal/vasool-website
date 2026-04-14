@@ -61,6 +61,14 @@ const Footer = () => {
               </li>
               <li>
                 <a
+                  href="/pricing"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.pricing")}
+                </a>
+              </li>
+              <li>
+                <a
                   href="/staff-tools#mobile"
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >

@@ -81,6 +81,12 @@ const Hero = () => {
               >
                 {t("nav.staffTools")}
               </a>
+              <a
+                href="/pricing"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                {t("nav.pricing")}
+              </a>
               <LanguageSelector />
               <a href="tel:+918680901007">
                 <Button variant="hero" size="sm">
@@ -112,6 +118,13 @@ const Hero = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.staffTools")}
+              </a>
+              <a
+                href="/pricing"
+                className="block text-white/70 hover:text-white py-2 text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.pricing")}
               </a>
               <div className="py-2">
                 <LanguageSelector />
