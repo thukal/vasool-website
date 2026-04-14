@@ -3,6 +3,7 @@
     "features": "அம்சங்கள்",
     "loanTypes": "கடன் வகைகள்",
     "staffTools": "ஊழியர் கருவிகள்",
+    "pricing": "விலை",
     "bookDemo": "டெமோ முன்பதிவு"
   },
   "hero": {
@@ -296,6 +297,7 @@
     "features": "அம்சங்கள்",
     "loanTypes": "கடன் வகைகள்",
     "staffTools": "ஊழியர் கருவிகள்",
+    "pricing": "விலை",
     "mobileApp": "மொபைல் ஆப்",
     "aboutUs": "எங்களை பற்றி",
     "contact": "தொடர்பு",
