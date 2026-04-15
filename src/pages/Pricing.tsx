@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { CONTACT_PHONE_HREF, mailtoHref } from "@/lib/contact";
 
 type BillingCycle = "monthly" | "yearly";
 
@@ -433,7 +434,7 @@ const Pricing = () => {
                   )}
 
                   {isOffer ? (
-                    <a href="tel:+918680901007" className="block mt-5">
+                    <a href={CONTACT_PHONE_HREF} className="block mt-5">
                       <Button variant="hero" size="lg" className="w-full">
                         Get Started
                         <ArrowRight className="w-4 h-4" />
@@ -700,7 +701,7 @@ const Pricing = () => {
                   </div>
                 </div>
               </div>
-              <a href="mailto:hello@thukal.in?subject=Vasool%20Partner%20Program">
+              <a href={mailtoHref("Vasool Partner Program")}>
                 <Button variant="hero" size="lg">
                   Become a Partner
                   <ArrowRight className="w-4 h-4" />
@@ -727,7 +728,7 @@ const Pricing = () => {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="tel:+918680901007">
+            <a href={CONTACT_PHONE_HREF}>
               <Button variant="heroOutline" size="lg">
                 Talk to us
                 <ArrowRight className="w-4 h-4" />

@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
 import PretextReveal from "./pretext/PretextReveal";
 import BalancedText from "./pretext/BalancedText";
+import { CONTACT_PHONE_HREF } from "@/lib/contact";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -88,7 +89,7 @@ const Hero = () => {
                 {t("nav.pricing")}
               </a>
               <LanguageSelector />
-              <a href="tel:+918680901007">
+              <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="sm">
                   {t("nav.bookDemo")}
                 </Button>
@@ -129,7 +130,7 @@ const Hero = () => {
               <div className="py-2">
                 <LanguageSelector />
               </div>
-              <a href="tel:+918680901007" className="block">
+              <a href={CONTACT_PHONE_HREF} className="block">
                 <Button variant="hero" size="sm" className="w-full">
                   {t("nav.bookDemo")}
                 </Button>
@@ -175,7 +176,7 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
-              <a href="tel:+918680901007">
+              <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="lg">
                   {t("nav.bookDemo")}
                   <ArrowRight className="w-4 h-4" />
