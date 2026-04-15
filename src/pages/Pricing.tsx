@@ -433,10 +433,7 @@ const Pricing = () => {
                   )}
 
                   {isOffer ? (
-                    <a
-                      href="https://app.vasool.app/signup"
-                      className="block mt-5"
-                    >
+                    <a href="tel:+918680901007" className="block mt-5">
                       <Button variant="hero" size="lg" className="w-full">
                         Get Started
                         <ArrowRight className="w-4 h-4" />
@@ -703,7 +700,7 @@ const Pricing = () => {
                   </div>
                 </div>
               </div>
-              <a href="mailto:partners@vasool.app?subject=Vasool%20Partner%20Program">
+              <a href="mailto:hello@thukal.in?subject=Vasool%20Partner%20Program">
                 <Button variant="hero" size="lg">
                   Become a Partner
                   <ArrowRight className="w-4 h-4" />
