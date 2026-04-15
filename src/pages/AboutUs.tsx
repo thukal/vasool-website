@@ -18,6 +18,11 @@ import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import PretextStory from "@/components/pretext/PretextFlowAround";
 import SEO from "@/components/SEO";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_HREF,
+  mailtoHref,
+} from "@/lib/contact";
 
 const values = [
   {
@@ -257,17 +262,17 @@ const AboutUs = () => {
               help digitize your lending operations.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="tel:+918680901007">
+              <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="lg" className="w-full sm:w-auto">
                   Book a Demo
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </a>
               <a
-                href="mailto:hello@thukal.in"
+                href={mailtoHref()}
                 className="text-secondary hover:underline text-sm sm:text-base"
               >
-                or email us at hello@thukal.in
+                or email us at {CONTACT_EMAIL}
               </a>
             </div>
           </div>

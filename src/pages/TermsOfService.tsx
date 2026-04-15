@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_HREF,
+  mailtoHref,
+} from "@/lib/contact";
 
 const TermsOfService = () => {
   return (
@@ -244,17 +250,17 @@ const TermsOfService = () => {
               <li>
                 Support is provided via email at{" "}
                 <a
-                  href="mailto:hello@thukal.in"
+                  href={mailtoHref()}
                   className="text-secondary hover:underline"
                 >
-                  hello@thukal.in
+                  {CONTACT_EMAIL}
                 </a>{" "}
                 and phone at{" "}
                 <a
-                  href="tel:+918680901007"
+                  href={CONTACT_PHONE_HREF}
                   className="text-secondary hover:underline"
                 >
-                  +91 8680901007
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
                 .
               </li>
@@ -403,19 +409,19 @@ const TermsOfService = () => {
               <p>
                 <strong className="text-foreground">Email:</strong>{" "}
                 <a
-                  href="mailto:hello@thukal.in"
+                  href={mailtoHref()}
                   className="text-secondary hover:underline"
                 >
-                  hello@thukal.in
+                  {CONTACT_EMAIL}
                 </a>
               </p>
               <p>
                 <strong className="text-foreground">Phone:</strong>{" "}
                 <a
-                  href="tel:+918680901007"
+                  href={CONTACT_PHONE_HREF}
                   className="text-secondary hover:underline"
                 >
-                  +91 8680901007
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </p>
             </div>

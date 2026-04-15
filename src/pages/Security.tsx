@@ -17,6 +17,12 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_HREF,
+  mailtoHref,
+} from "@/lib/contact";
 
 const securityFeatures = [
   {
@@ -236,19 +242,19 @@ const Security = () => {
               <p>
                 <strong className="text-foreground">Report to:</strong>{" "}
                 <a
-                  href="mailto:hello@thukal.in"
+                  href={mailtoHref()}
                   className="text-secondary hover:underline"
                 >
-                  hello@thukal.in
+                  {CONTACT_EMAIL}
                 </a>
               </p>
               <p>
                 <strong className="text-foreground">Phone:</strong>{" "}
                 <a
-                  href="tel:+918680901007"
+                  href={CONTACT_PHONE_HREF}
                   className="text-secondary hover:underline"
                 >
-                  +91 8680901007
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </p>
               <p className="text-sm">

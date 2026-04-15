@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "@/hooks/useInView";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_HREF,
+  mailtoHref,
+} from "@/lib/contact";
 
 const CTA = () => {
   const { t } = useTranslation();
@@ -57,7 +63,7 @@ const CTA = () => {
                 transition: "opacity 0.5s ease 500ms, transform 0.5s ease 500ms",
               }}
             >
-              <a href="tel:+918680901007">
+              <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="lg">
                   {t("nav.bookDemo")}
                   <ArrowRight className="w-4 h-4" />
@@ -73,18 +79,18 @@ const CTA = () => {
               }}
             >
               <a
-                href="tel:+918680901007"
+                href={CONTACT_PHONE_HREF}
                 className="flex items-center gap-2.5 text-sm text-white/40 hover:text-white/70 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>+91 8680901007</span>
+                <span>{CONTACT_PHONE_DISPLAY}</span>
               </a>
               <a
-                href="mailto:hello@thukal.in"
+                href={mailtoHref()}
                 className="flex items-center gap-2.5 text-sm text-white/40 hover:text-white/70 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>hello@thukal.in</span>
+                <span>{CONTACT_EMAIL}</span>
               </a>
             </div>
           </div>

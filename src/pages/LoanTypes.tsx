@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { CONTACT_PHONE_HREF } from "@/lib/contact";
 
 const loanTypes = [
   {
@@ -284,7 +285,7 @@ const LoanTypes = () => {
               All loan types are included out of the box. Configure what you
               need, disable what you don't — per tenant, per deployment.
             </p>
-            <a href="tel:+918680901007">
+            <a href={CONTACT_PHONE_HREF}>
               <Button variant="hero" size="lg" className="w-full sm:w-auto">
                 Book a Demo
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
