@@ -2,6 +2,15 @@
   command = "npm run build"
   publish = "dist"
 
+# Contact information injected at build time (see src/lib/contact.ts).
+# To change the phone number or email, edit these values and redeploy.
+# Values can also be overridden in the Netlify dashboard under
+# Site settings → Environment variables.
+[build.environment]
+  VITE_CONTACT_PHONE = "+918680901007"
+  VITE_CONTACT_PHONE_DISPLAY = "+91 86809 01007"
+  VITE_CONTACT_EMAIL = "hello@thukal.in"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
