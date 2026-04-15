@@ -23,6 +23,11 @@ import SEO from "@/components/SEO";
 
 type BillingCycle = "monthly" | "yearly";
 
+// Launch offer: every plan is being given at the Full Suite tier for a
+// flat ₹699/month + GST. Original per-plan prices are still shown
+// (struck-through) so customers can see the value of the offer.
+const LAUNCH_PRICE = 699;
+
 interface Plan {
   key: string;
   name: string;
@@ -220,18 +225,18 @@ const pricingStructuredData = {
   name: "Vasool Loan Management CRM",
   description:
     "Loan management CRM for money lenders and microfinance businesses in India with live field staff tracking, route management, and multiple loan plan types.",
-  offers: plans.map((p) => ({
+  offers: {
     "@type": "Offer",
-    name: `Vasool ${p.name}`,
-    price: p.monthly,
+    name: "Vasool Full Suite (Launch Offer)",
+    price: LAUNCH_PRICE,
     priceCurrency: "INR",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: p.monthly,
+      price: LAUNCH_PRICE,
       priceCurrency: "INR",
       unitText: "MONTH",
     },
-  })),
+  },
 };
 
 const faqStructuredData = {
@@ -250,8 +255,8 @@ const Pricing = () => {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Pricing - Simple Plans for Money Lenders & Microfinance"
-        description="Transparent pricing for Vasool loan management CRM. Plans start at ₹699/month with unlimited staff, live location tracking, and route management. Choose Basic, Standard, or Full Suite."
+        title="Pricing - Full Suite at ₹699/month Launch Offer"
+        description="Launch offer: Get the Vasool Full Suite — all 6 loan plan types, unlimited staff, live location tracking, full analytics — for a flat ₹699/month + GST."
         keywords="vasool pricing, loan management software pricing, microfinance software cost, money lender app pricing, chit fund software price, finance CRM pricing India"
         canonical="/pricing"
         structuredData={[pricingStructuredData, faqStructuredData]}
@@ -316,91 +321,170 @@ const Pricing = () => {
 
       {/* Pricing cards */}
       <section className="container mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 relative z-10">
+        {/* Launch offer banner */}
+        <div className="max-w-6xl mx-auto mb-6 sm:mb-8">
+          <div className="rounded-2xl bg-gradient-to-r from-secondary to-emerald-600 text-white p-5 sm:p-6 shadow-card-hover flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider flex-shrink-0">
+              <Sparkles className="w-3.5 h-3.5" />
+              Launch Offer
+            </div>
+            <p className="text-sm sm:text-base font-medium leading-relaxed flex-1">
+              For a limited time, every new customer gets the{" "}
+              <span className="font-bold">Full Suite</span> — all 6 loan plan
+              types, 5 GB storage, and full analytics — for a flat{" "}
+              <span className="font-bold">₹{LAUNCH_PRICE}/month + GST</span>.
+              Old plan tiers are paused.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {plans.map((plan) => {
-            const price = billing === "monthly" ? plan.monthly : plan.yearly;
-            const totalYearly = plan.yearly * 12;
+            const originalPrice =
+              billing === "monthly" ? plan.monthly : plan.yearly;
+            const launchPrice =
+              billing === "monthly"
+                ? LAUNCH_PRICE
+                : Math.round((LAUNCH_PRICE * 10) / 12);
+            const launchYearlyTotal = Math.round((LAUNCH_PRICE * 10) / 12) * 12;
+            const isOffer = plan.key === "full";
             return (
               <div
                 key={plan.key}
                 className={`relative bg-card rounded-2xl border transition-all flex flex-col ${
-                  plan.highlight
+                  isOffer
                     ? "border-secondary shadow-card-hover md:scale-[1.03] md:-my-2"
-                    : "border-border/60 shadow-card hover:shadow-card-hover"
+                    : "border-border/60 shadow-card opacity-70"
                 }`}
               >
-                {plan.highlight && (
+                {isOffer && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold shadow-lg">
                       <Sparkles className="w-3.5 h-3.5" />
-                      Most Popular
+                      Launch Offer
+                    </span>
+                  </div>
+                )}
+                {!isOffer && (
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
+                      Paused
                     </span>
                   </div>
                 )}
                 <div className="p-6 sm:p-7">
-                  <h3 className="text-lg font-bold text-foreground">
+                  <h3
+                    className={`text-lg font-bold ${
+                      isOffer
+                        ? "text-foreground"
+                        : "text-muted-foreground line-through"
+                    }`}
+                  >
                     {plan.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed min-h-[2.5rem]">
+                  <p
+                    className={`text-xs sm:text-sm mt-1 leading-relaxed min-h-[2.5rem] ${
+                      isOffer
+                        ? "text-muted-foreground"
+                        : "text-muted-foreground/60 line-through"
+                    }`}
+                  >
                     {plan.tagline}
                   </p>
 
-                  <div className="mt-5 flex items-baseline gap-1">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
-                      ₹{formatPrice(price)}
-                    </span>
-                    <span className="text-sm text-muted-foreground">/month</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {billing === "yearly" ? (
-                      <>
-                        Billed ₹{formatPrice(totalYearly)} yearly · +18% GST
-                      </>
-                    ) : (
-                      <>Billed monthly · +18% GST</>
-                    )}
-                  </p>
+                  {isOffer ? (
+                    <>
+                      <div className="mt-5 flex items-baseline gap-2 flex-wrap">
+                        <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                          ₹{formatPrice(launchPrice)}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          /month
+                        </span>
+                        <span className="text-base sm:text-lg text-muted-foreground line-through">
+                          ₹{formatPrice(originalPrice)}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {billing === "yearly" ? (
+                          <>
+                            Billed ₹{formatPrice(launchYearlyTotal)} yearly ·
+                            +18% GST
+                          </>
+                        ) : (
+                          <>Billed monthly · +18% GST</>
+                        )}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="mt-5 flex items-baseline gap-1">
+                        <span className="text-3xl sm:text-4xl font-extrabold text-muted-foreground/60 line-through">
+                          ₹{formatPrice(originalPrice)}
+                        </span>
+                        <span className="text-sm text-muted-foreground/60 line-through">
+                          /month
+                        </span>
+                      </div>
+                      <p className="text-xs text-secondary font-semibold mt-1">
+                        Get the Full Suite at ₹{LAUNCH_PRICE}/mo instead →
+                      </p>
+                    </>
+                  )}
 
-                  <a href="https://app.vasool.app/signup" className="block mt-5">
-                    <Button
-                      variant={plan.highlight ? "hero" : "default"}
-                      size="lg"
-                      className="w-full"
+                  {isOffer ? (
+                    <a
+                      href="https://app.vasool.app/signup"
+                      className="block mt-5"
                     >
-                      Get Started
-                      <ArrowRight className="w-4 h-4" />
+                      <Button variant="hero" size="lg" className="w-full">
+                        Get Started
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full mt-5"
+                      disabled
+                    >
+                      Unavailable
                     </Button>
-                  </a>
+                  )}
                 </div>
 
                 <div className="border-t border-border/60 px-6 sm:px-7 py-5 sm:py-6 space-y-3">
-                  {plan.features.map((f) => (
-                    <div
-                      key={f.label}
-                      className="flex items-start gap-3 text-sm"
-                    >
-                      {f.included ? (
-                        <Check
-                          className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
-                          strokeWidth={3}
-                        />
-                      ) : (
-                        <X
-                          className="w-5 h-5 text-muted-foreground/40 mt-0.5 flex-shrink-0"
-                          strokeWidth={2.5}
-                        />
-                      )}
-                      <span
-                        className={
-                          f.included
-                            ? "text-foreground"
-                            : "text-muted-foreground/70 line-through"
-                        }
+                  {plan.features.map((f) => {
+                    const struck = !isOffer;
+                    return (
+                      <div
+                        key={f.label}
+                        className="flex items-start gap-3 text-sm"
                       >
-                        {f.label}
-                      </span>
-                    </div>
-                  ))}
+                        {f.included && !struck ? (
+                          <Check
+                            className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
+                            strokeWidth={3}
+                          />
+                        ) : (
+                          <X
+                            className="w-5 h-5 text-muted-foreground/40 mt-0.5 flex-shrink-0"
+                            strokeWidth={2.5}
+                          />
+                        )}
+                        <span
+                          className={
+                            f.included && !struck
+                              ? "text-foreground"
+                              : "text-muted-foreground/70 line-through"
+                          }
+                        >
+                          {f.label}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
@@ -408,8 +492,10 @@ const Pricing = () => {
         </div>
 
         <p className="text-center text-xs sm:text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-          All plans include <span className="font-semibold">+18% GST</span> on
-          the above prices. Need more storage? Add extra at just{" "}
+          Launch offer: Full Suite at{" "}
+          <span className="font-semibold text-foreground">₹{LAUNCH_PRICE}/month</span>{" "}
+          <span className="font-semibold">+18% GST</span>. Need more storage? Add
+          extra at just{" "}
           <span className="font-semibold text-foreground">₹49/GB/month</span>.
         </p>
       </section>
@@ -421,8 +507,8 @@ const Pricing = () => {
             6 loan plan types
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Pick the ones that match how you lend. Basic includes any one plan
-            type, Standard includes any three, Full Suite unlocks all six.
+            With the launch offer, every customer gets all six loan plan types
+            unlocked from day one.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl">
@@ -464,21 +550,39 @@ const Pricing = () => {
                   <th className="text-left text-sm font-semibold text-foreground px-6 py-4 w-2/5">
                     Features
                   </th>
-                  {plans.map((p) => (
-                    <th
-                      key={p.key}
-                      className={`text-center text-sm font-semibold px-4 py-4 ${
-                        p.highlight
-                          ? "text-secondary"
-                          : "text-foreground"
-                      }`}
-                    >
-                      {p.name}
-                      <div className="text-xs font-normal text-muted-foreground mt-0.5">
-                        ₹{formatPrice(p.monthly)}/mo
-                      </div>
-                    </th>
-                  ))}
+                  {plans.map((p) => {
+                    const isOffer = p.key === "full";
+                    return (
+                      <th
+                        key={p.key}
+                        className={`text-center text-sm font-semibold px-4 py-4 ${
+                          isOffer
+                            ? "text-secondary"
+                            : "text-muted-foreground/70"
+                        }`}
+                      >
+                        <span className={isOffer ? "" : "line-through"}>
+                          {p.name}
+                        </span>
+                        <div className="text-xs font-normal mt-0.5 flex items-center justify-center gap-1.5">
+                          {isOffer ? (
+                            <>
+                              <span className="text-foreground font-semibold">
+                                ₹{LAUNCH_PRICE}/mo
+                              </span>
+                              <span className="line-through text-muted-foreground">
+                                ₹{formatPrice(p.monthly)}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="line-through">
+                              ₹{formatPrice(p.monthly)}/mo
+                            </span>
+                          )}
+                        </div>
+                      </th>
+                    );
+                  })}
                 </tr>
               </thead>
               <tbody>
@@ -494,16 +598,19 @@ const Pricing = () => {
                     <td className="text-sm text-foreground px-6 py-4">
                       {row.label}
                     </td>
-                    {row.values.map((v, i) => (
-                      <td
-                        key={i}
-                        className={`text-center px-4 py-4 ${
-                          plans[i].highlight ? "bg-secondary/5" : ""
-                        }`}
-                      >
-                        <Cell value={v} />
-                      </td>
-                    ))}
+                    {row.values.map((v, i) => {
+                      const isOffer = plans[i].key === "full";
+                      return (
+                        <td
+                          key={i}
+                          className={`text-center px-4 py-4 ${
+                            isOffer ? "bg-secondary/5" : "opacity-50"
+                          }`}
+                        >
+                          <Cell value={v} />
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
