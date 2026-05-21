@@ -28,3 +28,11 @@ export const mailtoHref = (subject?: string): string =>
   subject
     ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`
     : `mailto:${CONTACT_EMAIL}`;
+
+/** WhatsApp chat link (wa.me format), optionally with a prefilled message. */
+export const whatsappHref = (message?: string): string => {
+  const phone = CONTACT_PHONE.replace(/^\+/, "");
+  return message
+    ? `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+    : `https://wa.me/${phone}`;
+};
