@@ -81,4 +81,4 @@ The site supports English and Tamil. Language preference is persisted in `localS
 ## Contact
 
 - **Email:** hello@thukal.in
-- **Phone:** +91 8680901007
+- **Phone:** +91 86829 27187

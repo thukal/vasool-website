@@ -4,8 +4,6 @@ import {
   ArrowLeft,
   ArrowRight,
   Check,
-  X,
-  Sparkles,
   Calendar,
   CalendarDays,
   Package,
@@ -24,77 +22,30 @@ import { CONTACT_PHONE_HREF, mailtoHref } from "@/lib/contact";
 
 type BillingCycle = "monthly" | "yearly";
 
-// Launch offer: every plan is being given at the Full Suite tier for a
-// flat ₹699/month + GST. Original per-plan prices are still shown
-// (struck-through) so customers can see the value of the offer.
-const LAUNCH_PRICE = 699;
+const standardPlan = {
+  name: "Standard",
+  monthly: 699,
+  yearly: Math.round((699 * 10) / 12),
+  tagline: "Run one loan product with the full Vasool toolkit.",
+  features: [
+    "1 loan plan type (choose any one)",
+    "Unlimited staff accounts",
+    "Role-based access control",
+    "Live field staff location tracking",
+    "Route & history tracking",
+    "1 GB storage",
+    "Basic reports",
+    "Advanced reports + export",
+    "Full analytics + data export",
+  ],
+};
 
-interface Plan {
-  key: string;
-  name: string;
-  monthly: number;
-  yearly: number; // per-month equivalent when billed yearly (2 months free => 10/12 of monthly)
-  tagline: string;
-  highlight?: boolean;
-  features: { label: string; included: boolean }[];
-}
-
-const plans: Plan[] = [
-  {
-    key: "basic",
-    name: "Basic",
-    monthly: 699,
-    yearly: Math.round((699 * 10) / 12),
-    tagline: "For lenders just getting started with a single loan product.",
-    features: [
-      { label: "1 loan plan type (choose any one)", included: true },
-      { label: "Unlimited staff accounts", included: true },
-      { label: "Role-based access control", included: true },
-      { label: "Live field staff location tracking", included: true },
-      { label: "Route & history tracking", included: true },
-      { label: "1 GB storage", included: true },
-      { label: "Basic reports", included: true },
-      { label: "Advanced reports + export", included: false },
-      { label: "Full analytics + data export", included: false },
-    ],
-  },
-  {
-    key: "standard",
-    name: "Standard",
-    monthly: 999,
-    yearly: Math.round((999 * 10) / 12),
-    tagline: "Our most popular plan — for growing finance businesses.",
-    highlight: true,
-    features: [
-      { label: "Any 3 loan plan types", included: true },
-      { label: "Unlimited staff accounts", included: true },
-      { label: "Role-based access control", included: true },
-      { label: "Live field staff location tracking", included: true },
-      { label: "Route & history tracking", included: true },
-      { label: "2 GB storage", included: true },
-      { label: "Advanced reports + export", included: true },
-      { label: "Basic reports", included: true },
-      { label: "Full analytics + data export", included: false },
-    ],
-  },
-  {
-    key: "full",
-    name: "Full Suite",
-    monthly: 1499,
-    yearly: Math.round((1499 * 10) / 12),
-    tagline: "Every loan type and every feature — built for scale.",
-    features: [
-      { label: "All 6 loan plan types", included: true },
-      { label: "Unlimited staff accounts", included: true },
-      { label: "Role-based access control", included: true },
-      { label: "Live field staff location tracking", included: true },
-      { label: "Route & history tracking", included: true },
-      { label: "5 GB storage", included: true },
-      { label: "Basic reports", included: true },
-      { label: "Advanced reports + export", included: true },
-      { label: "Full analytics + data export", included: true },
-    ],
-  },
+const customPlanFeatures = [
+  "2 to 6 loan plan types",
+  "Everything in Standard",
+  "Storage tailored to your needs",
+  "Personalized onboarding",
+  "Direct line to our team",
 ];
 
 const loanPlanTypes = [
@@ -130,30 +81,14 @@ const loanPlanTypes = [
   },
 ];
 
-const comparisonRows: {
-  label: string;
-  values: [string | boolean, string | boolean, string | boolean];
-}[] = [
-  { label: "Loan plan types", values: ["1", "3", "All 6"] },
-  { label: "Unlimited staff accounts", values: [true, true, true] },
-  { label: "Role-based access control", values: [true, true, true] },
-  { label: "Live field staff location tracking", values: [true, true, true] },
-  { label: "Route & history tracking", values: [true, true, true] },
-  { label: "Storage", values: ["1 GB", "2 GB", "5 GB"] },
-  { label: "Basic reports", values: [true, true, true] },
-  { label: "Advanced reports + export", values: [false, true, true] },
-  { label: "Full analytics + data export", values: [false, false, true] },
-  { label: "Extra storage add-on", values: ["₹49/GB/mo", "₹49/GB/mo", "₹49/GB/mo"] },
-];
-
 const faqs = [
   {
-    q: "Can I change my plan later?",
-    a: "Yes. You can upgrade or downgrade at any time from your account settings. Upgrades take effect immediately and we prorate the difference. Downgrades take effect at the start of your next billing cycle.",
+    q: "Can I add more loan products later?",
+    a: "Yes. Start with one loan product at ₹699/month and reach out when you're ready to add more. We'll tailor a plan that fits the number of products and the size of your business.",
   },
   {
     q: "Is GST included in the price?",
-    a: "No. All prices shown are exclusive of GST. 18% GST will be added on top of the plan price at checkout, as required by Indian tax regulations.",
+    a: "No. The price shown is exclusive of GST. 18% GST will be added on top of the plan price at checkout, as required by Indian tax regulations.",
   },
   {
     q: "How does the referral discount work?",
@@ -164,31 +99,13 @@ const faqs = [
     a: "We'll notify you before you hit your limit. You can add extra storage at ₹49/GB/month as an add-on — it's billed on the same invoice as your plan. No loss of data and no interruption to service.",
   },
   {
-    q: "Do all plans really include location tracking?",
-    a: "Yes. Live field staff location tracking and route & history tracking are included in every plan — Basic, Standard, and Full Suite. We believe these are core to running a money-lending business and shouldn't be locked behind premium tiers.",
+    q: "Does the plan really include location tracking?",
+    a: "Yes. Live field staff location tracking and route & history tracking are included at ₹699/month. We believe these are core to running a money-lending business and shouldn't be locked behind premium tiers.",
   },
 ];
 
 const formatPrice = (n: number) =>
   new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(n);
-
-const Cell = ({ value }: { value: string | boolean }) => {
-  if (value === true) {
-    return (
-      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary/15 text-secondary">
-        <Check className="w-4 h-4" strokeWidth={3} />
-      </span>
-    );
-  }
-  if (value === false) {
-    return (
-      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-muted text-muted-foreground/60">
-        <X className="w-4 h-4" strokeWidth={2.5} />
-      </span>
-    );
-  }
-  return <span className="text-sm font-medium text-foreground">{value}</span>;
-};
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
@@ -228,12 +145,12 @@ const pricingStructuredData = {
     "Loan management CRM for money lenders and microfinance businesses in India with live field staff tracking, route management, and multiple loan plan types.",
   offers: {
     "@type": "Offer",
-    name: "Vasool Full Suite (Launch Offer)",
-    price: LAUNCH_PRICE,
+    name: `Vasool ${standardPlan.name}`,
+    price: standardPlan.monthly,
     priceCurrency: "INR",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: LAUNCH_PRICE,
+      price: standardPlan.monthly,
       priceCurrency: "INR",
       unitText: "MONTH",
     },
@@ -252,12 +169,14 @@ const faqStructuredData = {
 
 const Pricing = () => {
   const [billing, setBilling] = useState<BillingCycle>("monthly");
+  const price = billing === "monthly" ? standardPlan.monthly : standardPlan.yearly;
+  const totalYearly = standardPlan.yearly * 12;
 
   return (
     <main className="min-h-screen">
       <SEO
-        title="Pricing - Full Suite at ₹699/month Launch Offer"
-        description="Launch offer: Get the Vasool Full Suite — all 6 loan plan types, unlimited staff, live location tracking, full analytics — for a flat ₹699/month + GST."
+        title="Pricing - Simple Plan for Money Lenders & Microfinance"
+        description="Transparent pricing for Vasool loan management CRM. Single loan product at ₹699/month with unlimited staff, live location tracking, and route management. Need more loan products? Contact us for a tailored plan."
         keywords="vasool pricing, loan management software pricing, microfinance software cost, money lender app pricing, chit fund software price, finance CRM pricing India"
         canonical="/pricing"
         structuredData={[pricingStructuredData, faqStructuredData]}
@@ -279,9 +198,9 @@ const Pricing = () => {
               <span className="text-gradient">pricing</span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Pick a plan that fits the size of your lending business. Every
-              plan includes unlimited staff accounts, live location tracking,
-              and route management — no hidden add-ons, no surprises.
+              One loan product at ₹699/month — every feature included, no hidden
+              add-ons. Running more than one loan product? Talk to us and we'll
+              tailor a plan that fits your business.
             </p>
           </div>
 
@@ -322,178 +241,98 @@ const Pricing = () => {
 
       {/* Pricing cards */}
       <section className="container mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 relative z-10">
-        {/* Launch offer banner */}
-        <div className="max-w-6xl mx-auto mb-6 sm:mb-8">
-          <div className="rounded-2xl bg-gradient-to-r from-secondary to-emerald-600 text-white p-5 sm:p-6 shadow-card-hover flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider flex-shrink-0">
-              <Sparkles className="w-3.5 h-3.5" />
-              Launch Offer
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+          {/* Standard plan */}
+          <div className="bg-card rounded-2xl border border-secondary shadow-card-hover flex flex-col">
+            <div className="p-6 sm:p-7">
+              <h3 className="text-lg font-bold text-foreground">
+                {standardPlan.name}
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed min-h-[2.5rem]">
+                {standardPlan.tagline}
+              </p>
+
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                  ₹{formatPrice(price)}
+                </span>
+                <span className="text-sm text-muted-foreground">/month</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                {billing === "yearly" ? (
+                  <>Billed ₹{formatPrice(totalYearly)} yearly · +18% GST</>
+                ) : (
+                  <>Billed monthly · +18% GST</>
+                )}
+              </p>
+
+              <a href={CONTACT_PHONE_HREF} className="block mt-5">
+                <Button variant="hero" size="lg" className="w-full">
+                  Get Started
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
-            <p className="text-sm sm:text-base font-medium leading-relaxed flex-1">
-              For a limited time, every new customer gets the{" "}
-              <span className="font-bold">Full Suite</span> — all 6 loan plan
-              types, 5 GB storage, and full analytics — for a flat{" "}
-              <span className="font-bold">₹{LAUNCH_PRICE}/month + GST</span>.
-              Old plan tiers are paused.
-            </p>
+
+            <div className="border-t border-border/60 px-6 sm:px-7 py-5 sm:py-6 space-y-3">
+              {standardPlan.features.map((f) => (
+                <div key={f} className="flex items-start gap-3 text-sm">
+                  <Check
+                    className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
+                    strokeWidth={3}
+                  />
+                  <span className="text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact us for more products */}
+          <div className="bg-card rounded-2xl border border-border/60 shadow-card hover:shadow-card-hover transition-all flex flex-col">
+            <div className="p-6 sm:p-7">
+              <h3 className="text-lg font-bold text-foreground">
+                More than one product?
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed min-h-[2.5rem]">
+                Running multiple loan products? Let's build a plan that fits
+                your business.
+              </p>
+
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                  Custom
+                </span>
+                <span className="text-sm text-muted-foreground">pricing</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                Tailored to your business · +18% GST
+              </p>
+
+              <a href={CONTACT_PHONE_HREF} className="block mt-5">
+                <Button variant="default" size="lg" className="w-full">
+                  Talk to us
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+
+            <div className="border-t border-border/60 px-6 sm:px-7 py-5 sm:py-6 space-y-3">
+              {customPlanFeatures.map((f) => (
+                <div key={f} className="flex items-start gap-3 text-sm">
+                  <Check
+                    className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
+                    strokeWidth={3}
+                  />
+                  <span className="text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
-          {plans.map((plan) => {
-            const originalPrice =
-              billing === "monthly" ? plan.monthly : plan.yearly;
-            const launchPrice =
-              billing === "monthly"
-                ? LAUNCH_PRICE
-                : Math.round((LAUNCH_PRICE * 10) / 12);
-            const launchYearlyTotal = Math.round((LAUNCH_PRICE * 10) / 12) * 12;
-            const isOffer = plan.key === "full";
-            return (
-              <div
-                key={plan.key}
-                className={`relative bg-card rounded-2xl border transition-all flex flex-col ${
-                  isOffer
-                    ? "border-secondary shadow-card-hover md:scale-[1.03] md:-my-2"
-                    : "border-border/60 shadow-card opacity-70"
-                }`}
-              >
-                {isOffer && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold shadow-lg">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      Launch Offer
-                    </span>
-                  </div>
-                )}
-                {!isOffer && (
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
-                      Paused
-                    </span>
-                  </div>
-                )}
-                <div className="p-6 sm:p-7">
-                  <h3
-                    className={`text-lg font-bold ${
-                      isOffer
-                        ? "text-foreground"
-                        : "text-muted-foreground line-through"
-                    }`}
-                  >
-                    {plan.name}
-                  </h3>
-                  <p
-                    className={`text-xs sm:text-sm mt-1 leading-relaxed min-h-[2.5rem] ${
-                      isOffer
-                        ? "text-muted-foreground"
-                        : "text-muted-foreground/60 line-through"
-                    }`}
-                  >
-                    {plan.tagline}
-                  </p>
-
-                  {isOffer ? (
-                    <>
-                      <div className="mt-5 flex items-baseline gap-2 flex-wrap">
-                        <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
-                          ₹{formatPrice(launchPrice)}
-                        </span>
-                        <span className="text-sm text-muted-foreground">
-                          /month
-                        </span>
-                        <span className="text-base sm:text-lg text-muted-foreground line-through">
-                          ₹{formatPrice(originalPrice)}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {billing === "yearly" ? (
-                          <>
-                            Billed ₹{formatPrice(launchYearlyTotal)} yearly ·
-                            +18% GST
-                          </>
-                        ) : (
-                          <>Billed monthly · +18% GST</>
-                        )}
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="mt-5 flex items-baseline gap-1">
-                        <span className="text-3xl sm:text-4xl font-extrabold text-muted-foreground/60 line-through">
-                          ₹{formatPrice(originalPrice)}
-                        </span>
-                        <span className="text-sm text-muted-foreground/60 line-through">
-                          /month
-                        </span>
-                      </div>
-                      <p className="text-xs text-secondary font-semibold mt-1">
-                        Get the Full Suite at ₹{LAUNCH_PRICE}/mo instead →
-                      </p>
-                    </>
-                  )}
-
-                  {isOffer ? (
-                    <a href={CONTACT_PHONE_HREF} className="block mt-5">
-                      <Button variant="hero" size="lg" className="w-full">
-                        Get Started
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    </a>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full mt-5"
-                      disabled
-                    >
-                      Unavailable
-                    </Button>
-                  )}
-                </div>
-
-                <div className="border-t border-border/60 px-6 sm:px-7 py-5 sm:py-6 space-y-3">
-                  {plan.features.map((f) => {
-                    const struck = !isOffer;
-                    return (
-                      <div
-                        key={f.label}
-                        className="flex items-start gap-3 text-sm"
-                      >
-                        {f.included && !struck ? (
-                          <Check
-                            className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
-                            strokeWidth={3}
-                          />
-                        ) : (
-                          <X
-                            className="w-5 h-5 text-muted-foreground/40 mt-0.5 flex-shrink-0"
-                            strokeWidth={2.5}
-                          />
-                        )}
-                        <span
-                          className={
-                            f.included && !struck
-                              ? "text-foreground"
-                              : "text-muted-foreground/70 line-through"
-                          }
-                        >
-                          {f.label}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
         <p className="text-center text-xs sm:text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-          Launch offer: Full Suite at{" "}
-          <span className="font-semibold text-foreground">₹{LAUNCH_PRICE}/month</span>{" "}
-          <span className="font-semibold">+18% GST</span>. Need more storage? Add
-          extra at just{" "}
+          Price is exclusive of <span className="font-semibold">18% GST</span>.
+          Need more storage? Add extra at just{" "}
           <span className="font-semibold text-foreground">₹49/GB/month</span>.
         </p>
       </section>
@@ -505,8 +344,8 @@ const Pricing = () => {
             6 loan plan types
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            With the launch offer, every customer gets all six loan plan types
-            unlocked from day one.
+            Pick the one that matches how you lend. Need more than one? Talk to
+            us and we'll tailor a plan.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl">
@@ -528,92 +367,6 @@ const Pricing = () => {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Feature comparison table (desktop) */}
-      <section className="container mx-auto px-4 sm:px-6 pb-16 sm:pb-24 hidden md:block">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-            Compare all features
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            A side-by-side look at what's included in every plan.
-          </p>
-
-          <div className="bg-card rounded-2xl border border-border/60 shadow-card overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-muted/40">
-                  <th className="text-left text-sm font-semibold text-foreground px-6 py-4 w-2/5">
-                    Features
-                  </th>
-                  {plans.map((p) => {
-                    const isOffer = p.key === "full";
-                    return (
-                      <th
-                        key={p.key}
-                        className={`text-center text-sm font-semibold px-4 py-4 ${
-                          isOffer
-                            ? "text-secondary"
-                            : "text-muted-foreground/70"
-                        }`}
-                      >
-                        <span className={isOffer ? "" : "line-through"}>
-                          {p.name}
-                        </span>
-                        <div className="text-xs font-normal mt-0.5 flex items-center justify-center gap-1.5">
-                          {isOffer ? (
-                            <>
-                              <span className="text-foreground font-semibold">
-                                ₹{LAUNCH_PRICE}/mo
-                              </span>
-                              <span className="line-through text-muted-foreground">
-                                ₹{formatPrice(p.monthly)}
-                              </span>
-                            </>
-                          ) : (
-                            <span className="line-through">
-                              ₹{formatPrice(p.monthly)}/mo
-                            </span>
-                          )}
-                        </div>
-                      </th>
-                    );
-                  })}
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row, idx) => (
-                  <tr
-                    key={row.label}
-                    className={
-                      idx !== comparisonRows.length - 1
-                        ? "border-b border-border/50"
-                        : ""
-                    }
-                  >
-                    <td className="text-sm text-foreground px-6 py-4">
-                      {row.label}
-                    </td>
-                    {row.values.map((v, i) => {
-                      const isOffer = plans[i].key === "full";
-                      return (
-                        <td
-                          key={i}
-                          className={`text-center px-4 py-4 ${
-                            isOffer ? "bg-secondary/5" : "opacity-50"
-                          }`}
-                        >
-                          <Cell value={v} />
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
 

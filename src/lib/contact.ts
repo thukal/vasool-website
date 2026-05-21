@@ -4,8 +4,8 @@
  * Values can be overridden at build time via Vite environment variables in
  * `.env` / `.env.local` (see `.env.example`):
  *
- *   VITE_CONTACT_PHONE          – E.164 phone number, e.g. "+918680901007"
- *   VITE_CONTACT_PHONE_DISPLAY  – Human-readable phone, e.g. "+91 86809 01007"
+ *   VITE_CONTACT_PHONE          – E.164 phone number, e.g. "+918682927187"
+ *   VITE_CONTACT_PHONE_DISPLAY  – Human-readable phone, e.g. "+91 86829 27187"
  *   VITE_CONTACT_EMAIL          – Support / contact email
  *
  * If unset, the defaults below are used.
@@ -13,10 +13,10 @@
 
 const env = import.meta.env as Record<string, string | undefined>;
 
-export const CONTACT_PHONE = env.VITE_CONTACT_PHONE || "+918680901007";
+export const CONTACT_PHONE = env.VITE_CONTACT_PHONE || "+918682927187";
 
 export const CONTACT_PHONE_DISPLAY =
-  env.VITE_CONTACT_PHONE_DISPLAY || "+91 86809 01007";
+  env.VITE_CONTACT_PHONE_DISPLAY || "+91 86829 27187";
 
 export const CONTACT_EMAIL = env.VITE_CONTACT_EMAIL || "hello@thukal.in";
 
