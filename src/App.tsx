@@ -12,6 +12,7 @@ import FeaturesPage from "./pages/Features";
 import LoanTypes from "./pages/LoanTypes";
 import StaffTools from "./pages/StaffTools";
 import Pricing from "./pages/Pricing";
+import Compare from "./pages/Compare";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/loan-types" element={<LoanTypes />} />
           <Route path="/staff-tools" element={<StaffTools />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/compare" element={<Compare />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
