@@ -13,6 +13,13 @@ import LoanTypes from "./pages/LoanTypes";
 import StaffTools from "./pages/StaffTools";
 import Pricing from "./pages/Pricing";
 import Compare from "./pages/Compare";
+import LoanCollectionApp from "./pages/solutions/LoanCollectionApp";
+import DailyCollectionApp from "./pages/solutions/DailyCollectionApp";
+import VoiceEntryCollectionApp from "./pages/solutions/VoiceEntryCollectionApp";
+import WeeklyCollectionApp from "./pages/solutions/WeeklyCollectionApp";
+import MonthlyFinanceApp from "./pages/solutions/MonthlyFinanceApp";
+import LineManagementApp from "./pages/solutions/LineManagementApp";
+import KandhuVattiApp from "./pages/solutions/KandhuVattiApp";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -35,6 +42,13 @@ const App = () => (
           <Route path="/staff-tools" element={<StaffTools />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/compare" element={<Compare />} />
+          <Route path="/loan-collection-app" element={<LoanCollectionApp />} />
+          <Route path="/daily-collection-app" element={<DailyCollectionApp />} />
+          <Route path="/voice-entry-collection-app" element={<VoiceEntryCollectionApp />} />
+          <Route path="/weekly-collection-app" element={<WeeklyCollectionApp />} />
+          <Route path="/monthly-finance-app" element={<MonthlyFinanceApp />} />
+          <Route path="/line-management-app" element={<LineManagementApp />} />
+          <Route path="/kandhu-vatti-app" element={<KandhuVattiApp />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
