@@ -161,6 +161,32 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Solution pages — keyword anchors kept in English to match search terms */}
+        <div className="pt-7 mb-7 border-t border-white/[0.06]">
+          <h4 className="font-semibold text-white/50 mb-3 text-xs uppercase tracking-wider">
+            Solutions
+          </h4>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {[
+              { label: "Loan Collection App", href: "/loan-collection-app" },
+              { label: "Daily Collection App", href: "/daily-collection-app" },
+              { label: "Voice Entry Collection App", href: "/voice-entry-collection-app" },
+              { label: "Weekly Collection App", href: "/weekly-collection-app" },
+              { label: "Monthly Finance App", href: "/monthly-finance-app" },
+              { label: "Line Management App", href: "/line-management-app" },
+              { label: "Kandhu Vatti App", href: "/kandhu-vatti-app" },
+            ].map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                className="text-white/35 hover:text-white/70 transition-colors text-xs"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
         <div className="pt-7 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/25 text-xs text-center sm:text-left">
             {t("footer.copyright")}
