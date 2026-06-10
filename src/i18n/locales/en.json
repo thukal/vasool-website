@@ -4,6 +4,7 @@
     "loanTypes": "Loan Types",
     "staffTools": "Staff Tools",
     "pricing": "Pricing",
+    "compare": "Compare",
     "bookDemo": "Book a Demo"
   },
   "hero": {
@@ -299,6 +300,7 @@
     "loanTypes": "Loan Types",
     "staffTools": "Staff Tools",
     "pricing": "Pricing",
+    "compare": "Compare",
     "mobileApp": "Mobile App",
     "aboutUs": "About Us",
     "contact": "Contact",

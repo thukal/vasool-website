@@ -4,6 +4,7 @@
     "loanTypes": "கடன் வகைகள்",
     "staffTools": "ஊழியர் கருவிகள்",
     "pricing": "விலை",
+    "compare": "ஒப்பீடு",
     "bookDemo": "டெமோ முன்பதிவு"
   },
   "hero": {
@@ -298,6 +299,7 @@
     "loanTypes": "கடன் வகைகள்",
     "staffTools": "ஊழியர் கருவிகள்",
     "pricing": "விலை",
+    "compare": "ஒப்பீடு",
     "mobileApp": "மொபைல் ஆப்",
     "aboutUs": "எங்களை பற்றி",
     "contact": "தொடர்பு",

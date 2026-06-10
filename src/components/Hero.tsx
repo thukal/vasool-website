@@ -88,6 +88,12 @@ const Hero = () => {
               >
                 {t("nav.pricing")}
               </a>
+              <a
+                href="/compare"
+                className="text-white/60 hover:text-white transition-colors text-sm"
+              >
+                {t("nav.compare")}
+              </a>
               <LanguageSelector />
               <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="sm">
@@ -126,6 +132,13 @@ const Hero = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.pricing")}
+              </a>
+              <a
+                href="/compare"
+                className="block text-white/70 hover:text-white py-2 text-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.compare")}
               </a>
               <div className="py-2">
                 <LanguageSelector />
