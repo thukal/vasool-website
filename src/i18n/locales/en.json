@@ -7,11 +7,11 @@
     "bookDemo": "Book a Demo"
   },
   "hero": {
-    "badge": "Multi-Tenant Microfinance Platform",
-    "title1": "Complete",
-    "title2": "Loan Management",
-    "title3": "System",
-    "description": "Vasool App is a Daily, Weekly and Monthly based online finance collection software for micro finance industry. Gold loan, property loan, live tracking, route planning, and analytics—all in one powerful system.",
+    "badge": "Voice Entry Loan Collection App",
+    "title1": "Voice Entry",
+    "title2": "Loan Collection",
+    "title3": "App",
+    "description": "Vasool is a daily, weekly and monthly loan collection app for money lenders and micro finance businesses. Record collections by voice in 6 languages, attach photo proof, manage gold loans and EMI, track staff with live GPS — even fully offline.",
     "stat1Value": "100+",
     "stat1Label": "Features",
     "stat2Value": "Real-time",
