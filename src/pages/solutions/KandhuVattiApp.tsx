@@ -160,10 +160,11 @@ const config: KeywordLandingConfig = {
     },
   ],
   related: [
+    { label: "Byaj Wasooli App (Hindi)", to: "/byaj-wasooli-app" },
+    { label: "Ugrani App (Kannada)", to: "/ugrani-app" },
     { label: "Voice Entry Collection App", to: "/voice-entry-collection-app" },
     { label: "Daily Collection App", to: "/daily-collection-app" },
     { label: "Line Management App", to: "/line-management-app" },
-    { label: "Loan Collection App", to: "/loan-collection-app" },
     { label: "Compare Vasool", to: "/compare" },
   ],
   ctaHeading: "தமிழில் ஒரு demo பாருங்கள்",

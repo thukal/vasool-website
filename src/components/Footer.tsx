@@ -175,6 +175,8 @@ const Footer = () => {
               { label: "Monthly Finance App", href: "/monthly-finance-app" },
               { label: "Line Management App", href: "/line-management-app" },
               { label: "Kandhu Vatti App", href: "/kandhu-vatti-app" },
+              { label: "Byaj Wasooli App", href: "/byaj-wasooli-app" },
+              { label: "Ugrani App", href: "/ugrani-app" },
             ].map((s) => (
               <a
                 key={s.href}

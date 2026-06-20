@@ -20,6 +20,8 @@ import WeeklyCollectionApp from "./pages/solutions/WeeklyCollectionApp";
 import MonthlyFinanceApp from "./pages/solutions/MonthlyFinanceApp";
 import LineManagementApp from "./pages/solutions/LineManagementApp";
 import KandhuVattiApp from "./pages/solutions/KandhuVattiApp";
+import ByajWasooliApp from "./pages/solutions/ByajWasooliApp";
+import UgraniApp from "./pages/solutions/UgraniApp";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -50,6 +52,8 @@ const App = () => (
         <Route path="/monthly-finance-app" element={<MonthlyFinanceApp />} />
         <Route path="/line-management-app" element={<LineManagementApp />} />
         <Route path="/kandhu-vatti-app" element={<KandhuVattiApp />} />
+        <Route path="/byaj-wasooli-app" element={<ByajWasooliApp />} />
+        <Route path="/ugrani-app" element={<UgraniApp />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

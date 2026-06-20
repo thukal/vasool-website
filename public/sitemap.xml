@@ -82,6 +82,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vasool.app/byaj-wasooli-app</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vasool.app/ugrani-app</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vasool.app/about</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
