@@ -4,9 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
-
-// Initialize i18n before rendering
-import "./i18n";
+import i18n from "./i18n";
 
 const container = document.getElementById("root")!;
 
@@ -20,17 +18,15 @@ const app = (
   </React.StrictMode>
 );
 
-// Pages are prerendered in English at build time. Hydrate when the saved
-// language matches; otherwise fall back to a clean client render so the
-// translated UI doesn't mismatch the server HTML.
-const savedLanguage =
-  typeof localStorage !== "undefined"
-    ? localStorage.getItem("language") || "en"
-    : "en";
+// The URL determines the prerendered language: /ta (and /ta/...) is Tamil,
+// everything else is English. Match the client language to the prerendered
+// HTML so hydration doesn't mismatch.
+const path = window.location.pathname;
+const urlLang = path === "/ta" || path.startsWith("/ta/") ? "ta" : "en";
+i18n.changeLanguage(urlLang);
 
-if (container.hasChildNodes() && savedLanguage === "en") {
+if (container.hasChildNodes()) {
   hydrateRoot(container, app);
 } else {
-  container.innerHTML = "";
   createRoot(container).render(app);
 }

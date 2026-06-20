@@ -1,313 +1,364 @@
 {
   "nav": {
-    "features": "அம்சங்கள்",
-    "loanTypes": "கடன் வகைகள்",
-    "staffTools": "ஊழியர் கருவிகள்",
-    "pricing": "விலை",
-    "compare": "ஒப்பீடு",
-    "bookDemo": "டெமோ முன்பதிவு"
+    "features": "Features",
+    "loanTypes": "Loan Types",
+    "staffTools": "Staff Tools",
+    "pricing": "Pricing",
+    "compare": "Compare",
+    "bookDemo": "Demo Book பண்ணுங்க"
   },
   "hero": {
-    "badge": "குரல் பதிவு வசூல் ஆப்",
-    "title1": "குரல் பதிவு",
-    "title2": "கடன் வசூல்",
-    "title3": "ஆப்",
-    "description": "Vasool என்பது கடன் வழங்குபவர்கள் மற்றும் நுண்நிதி வணிகங்களுக்கான தினசரி, வாராந்திர மற்றும் மாதாந்திர கடன் வசூல் ஆப். 6 மொழிகளில் குரல் மூலம் வசூல் பதிவு, புகைப்பட ஆதாரம், தங்கக் கடன் மற்றும் EMI மேலாண்மை, நேரடி GPS கண்காணிப்பு — இணையம் இல்லாமலும் செயல்படும்.",
+    "badge": "Voice Entry Loan Collection App",
+    "title1": "Voice Entry",
+    "title2": "Loan Collection",
+    "title3": "App",
+    "description": "Vasool oru daily, weekly, monthly loan collection app — money lenders மற்றும் micro finance business-க்கானது. 6 மொழியில் collection-ஐ பேசியே record பண்ணுங்க, photo proof attach பண்ணுங்க, gold loan மற்றும் EMI-ஐ manage பண்ணுங்க, GPS-ல staff-ஐ live-ஆ track பண்ணுங்க — internet illama kooda work ஆகும்.",
     "stat1Value": "100+",
-    "stat1Label": "அம்சங்கள்",
-    "stat2Value": "நிகழ்நேர",
-    "stat2Label": "GPS கண்காணிப்பு",
+    "stat1Label": "Features",
+    "stat2Value": "Real-time",
+    "stat2Label": "GPS Tracking",
     "stat3Value": "100%",
-    "stat3Label": "தனிப்பயனாக்கக்கூடியது"
+    "stat3Label": "Customizable"
   },
   "allFeatures": {
-    "badge": "தள அம்சங்கள்",
-    "title1": "உங்கள் கடன் வணிகத்தை நடத்த",
-    "title2": "தேவையான அனைத்தும்",
-    "description": "கடன் வழங்கல் முதல் வசூல் கண்காணிப்பு, ஊழியர் மேலாண்மை முதல் பல குத்தகை வரிசைப்படுத்தல் வரை—எங்கள் தளம் நுண்நிதி செயல்பாடுகளின் ஒவ்வொரு அம்சத்தையும் உள்ளடக்குகிறது.",
-    "featuresLabel": "அம்சங்கள்",
+    "badge": "Platform Features",
+    "title1": "உங்க Lending Business-ஐ",
+    "title2": "நடத்த தேவையான எல்லாமே",
+    "description": "Loan origination முதல் collection tracking வரை, staff management முதல் multi-tenant deployment வரை — engaloda platform microfinance operations-ஓட எல்லா aspect-ையும் cover பண்ணுது.",
+    "featuresLabel": "features",
     "coreLoan": {
-      "title": "முக்கிய கடன் மேலாண்மை",
+      "title": "Core Loan Management",
       "items": [
-        "தினசரி கடன்கள்",
-        "வாராந்திர கடன்கள்",
-        "மாதாந்திர கடன்கள்",
-        "தங்கக் கடன்கள்",
-        "சொத்துக் கடன்கள்",
-        "பொருள் அடிப்படை கடன்கள்",
-        "கடன் புதுப்பித்தல்",
-        "திருப்பச்செலுத்தல் அட்டவணைகள்",
-        "கடன் முன்னேற்ற கண்காணிப்பு",
-        "கடன் முடிவு அட்டைகள்",
-        "CSV மொத்த இறக்குமதி",
-        "கடன் கழிவு அமைப்பு"
+        "Daily Loans",
+        "Weekly Loans",
+        "Monthly Loans",
+        "Gold Loans",
+        "Property Loans",
+        "Product-Based Loans",
+        "Loan Renewal",
+        "Repayment Schedules",
+        "Loan Progress Tracking",
+        "Loan Closure Cards",
+        "CSV Bulk Import",
+        "Loan Deduction Config"
       ]
     },
     "collection": {
-      "title": "வசூல் & கொடுப்பனவுகள்",
+      "title": "Collection & Payments",
       "items": [
-        "தினசரி வசூல் கண்காணிப்பு",
-        "வாராந்திர வசூல் கண்காணிப்பு",
-        "கொடுப்பனவு ரசீதுகள் (PDF)",
-        "கொடுப்பனவு வரலாறு",
-        "நிர்வாக பண தீர்வு"
+        "Daily Collection Tracking",
+        "Weekly Collection Tracking",
+        "Payment Receipts (PDF)",
+        "Payment History",
+        "Admin Cash Settlement"
       ]
     },
     "route": {
-      "title": "வழி மேலாண்மை",
+      "title": "Route Management",
       "items": [
-        "தினசரி வழிகள்",
-        "வாராந்திர வழிகள்",
-        "வழி உருப்படிகள் மேலாண்மை",
-        "வழி நிறைவு கண்காணிப்பு"
+        "Daily Routes",
+        "Weekly Routes",
+        "Route Items Management",
+        "Route Completion Tracking"
       ]
     },
     "customer": {
-      "title": "வாடிக்கையாளர் மேலாண்மை",
+      "title": "Customer Management",
       "items": [
-        "வாடிக்கையாளர் சுயவிவரங்கள்",
-        "வாடிக்கையாளர் சரிபார்ப்பு",
-        "GPS இருப்பிட கண்காணிப்பு",
-        "ஆவண மேலாண்மை",
-        "தொடர்பு மேலாண்மை",
-        "வாடிக்கையாளர்-ஊழியர் இணைப்பு",
-        "வாடிக்கையாளர்-ஜாமீன் இணைப்பு"
+        "Customer Profiles",
+        "Customer Verification",
+        "GPS Location Tracking",
+        "Document Management",
+        "Contact Management",
+        "Customer-Staff Linking",
+        "Customer-Referee Linking"
       ]
     },
     "staffTeam": {
-      "title": "ஊழியர் & குழு மேலாண்மை",
+      "title": "Staff & Team Management",
       "items": [
-        "ஊழியர் மேலாண்மை",
-        "பங்கு அடிப்படை அணுகல் கட்டுப்பாடு",
-        "ஊழியர் GPS கண்காணிப்பு",
-        "ஊழியர் இருப்பிட வரலாறு",
-        "நேரடி ஊழியர் வரைபடம்"
+        "Staff Management",
+        "Role-Based Access Control",
+        "Live Staff GPS Tracking",
+        "Staff Location History",
+        "Live Staff Map",
+        "Real-Time Field Agent Tracking"
       ]
     },
     "staffFinancials": {
-      "title": "ஊழியர் நிதி",
+      "title": "Staff Financials",
       "items": [
-        "செலவு கண்காணிப்பு",
-        "செலவு ஒப்புதல் பணிப்பாய்வு",
-        "பண முன்பணம் மேலாண்மை",
-        "பண முன்பணம் சரிபார்ப்பு",
-        "பண இருப்பு சுருக்கம்"
+        "Expense Tracking",
+        "Expense Approval Workflow",
+        "Cash Advance Management",
+        "Cash Advance Verification",
+        "Cash Balance Summary"
       ]
     },
     "reporting": {
-      "title": "அறிக்கைகள் & பகுப்பாய்வு",
+      "title": "Reporting & Analytics",
       "items": [
-        "டாஷ்போர்டு",
-        "ஊழியர் வழி கண்ணோட்டம்",
-        "அதிகாரி செயல்திறன் அறிக்கைகள்",
-        "வசூல் சுருக்க அறிக்கைகள்",
-        "லாப & நஷ்ட அறிக்கைகள்",
-        "முன்பணம் இருப்பு அறிக்கைகள்",
-        "தாமத கடன் அறிக்கைகள்",
-        "ஊழியர் வாரியான வசூல் அறிக்கைகள்",
-        "தினசரி வசூல் அறிக்கைகள்"
+        "Dashboard",
+        "Staff Route Overview",
+        "Officer Performance Reports",
+        "Collection Summary Reports",
+        "Profit & Loss Reports",
+        "Advance Balance Reports",
+        "Overdue Loan Reports",
+        "Staff-Wise Collection Reports",
+        "Daily Collection Reports"
       ]
     },
     "referee": {
-      "title": "ஜாமீன் மேலாண்மை",
+      "title": "Referee Management",
       "items": [
-        "ஜாமீன் பதிவுகள்",
-        "ஜாமீன்-வாடிக்கையாளர் இணைப்பு"
+        "Referee Records",
+        "Referee-Customer Linking"
       ]
     },
     "product": {
-      "title": "பொருள் பட்டியல்",
+      "title": "Product Catalog",
       "items": [
-        "பொருள் வகைகள்",
-        "பொருள் புகைப்படங்கள்",
-        "பொருள் விலை நிர்ணயம்"
+        "Product Categories",
+        "Product Photos",
+        "Product Pricing"
       ]
     },
     "security": {
-      "title": "பாதுகாப்பு & தணிக்கை",
+      "title": "Security & Audit",
       "items": [
-        "JWT அங்கீகாரம்",
-        "ஒருங்கிணைந்த உள்நுழைவு",
-        "பயோமெட்ரிக் உள்நுழைவு",
-        "தணிக்கை பதிவு",
-        "நிறுவன வரலாறு",
-        "போட் & தாக்குதல் பாதுகாப்பு",
-        "வீத வரம்பு"
+        "JWT Authentication",
+        "Unified Login",
+        "Biometric Login",
+        "Audit Logging",
+        "Entity History",
+        "Bot & Attack Protection",
+        "Rate Limiting"
       ]
     },
     "multiTenancy": {
-      "title": "பல குத்தகை & உள்கட்டமைப்பு",
+      "title": "Multi-Tenancy & Infrastructure",
       "items": [
-        "பல குத்தகை கட்டமைப்பு",
-        "தனிப்பயன் பிராண்டிங்",
-        "குத்தகையாளர் வாரியான அம்ச மாற்றிகள்",
-        "குத்தகையாளர் வாரியான சேமிப்பு வரம்புகள்",
-        "சேமிப்பு கண்காணிப்பு",
-        "பல சேவையக வரிசைப்படுத்தல்",
-        "தானியங்கி வழங்கல்",
-        "தானியங்கி நீக்கல்"
+        "Multi-Tenant Architecture",
+        "Custom Branding",
+        "Per-Tenant Feature Toggles",
+        "Per-Tenant Storage Limits",
+        "Storage Monitoring",
+        "Multi-Server Deployment",
+        "Automated Provisioning",
+        "Automated Deprovisioning"
       ]
     },
     "api": {
-      "title": "API & ஒருங்கிணைப்பு",
+      "title": "API & Integration",
       "items": [
-        "REST API (100+ முனைப்புள்ளிகள்)",
+        "REST API (100+ endpoints)",
         "gRPC API",
         "gRPC-Web",
-        "Swagger ஆவணப்படுத்தல்",
-        "ஆஃப்லைன் ஒத்திசைவு ஆதரவு"
+        "Swagger Documentation",
+        "Offline Sync Support"
       ]
     },
     "operations": {
-      "title": "செயல்பாடுகள்",
+      "title": "Operations",
       "items": [
-        "தரவுத்தள இடம்பெயர்வுகள்",
-        "விநியோகிக்கப்பட்ட தடமறிதல்",
-        "ஆரோக்கிய சோதனைகள்",
-        "CI/CD குழாய்"
+        "Database Migrations",
+        "Distributed Tracing",
+        "Health Checks",
+        "CI/CD Pipeline"
       ]
     }
   },
   "home": {
     "loans": {
-      "badge": "கடன் தயாரிப்புகள்",
-      "title1": "நுண்நிதி கடனுக்காக",
-      "title2": "சிறப்பாக உருவாக்கப்பட்டது",
-      "description": "ஒவ்வொரு வசூல் சுழற்சிக்கும் சிறப்பு கடன் மேலாண்மை — தினசரி, வாராந்திர, மாதாந்திர, தங்கக் கடன், சொத்துக் கடன், மற்றும் பொருள் அடிப்படை — முழுமையான வாழ்க்கை சுழற்சி கருவிகளுடன்.",
-      "viewAll": "அனைத்து கடன் வகைகளையும் காண்க",
+      "badge": "Loan Products",
+      "title1": "Microfinance Lending-க்காக",
+      "title2": "சிறப்பா உருவாக்கப்பட்டது",
+      "description": "ஒவ்வொரு collection cycle-க்கும் special loan management — daily, weekly, monthly, gold loan, property loan மற்றும் product-based — complete lifecycle tools-உடன்.",
+      "viewAll": "எல்லா Loan Types-ஐயும் பாருங்க",
       "daily": {
-        "title": "தினசரி கடன்கள்",
-        "desc": "களப் பணியாளர்கள் தினசரி வசூல் மூலம் திருப்பிச்செலுத்தும் சிறிய கடன்கள்.",
-        "h1": "தானியங்கி தினசரி திருப்பச்செலுத்தல் அட்டவணைகள்",
-        "h2": "தினசரி வழி திட்டமிடலுடன் ஒருங்கிணைப்பு",
-        "h3": "நிகழ்நேர வசூல் கண்காணிப்பு"
+        "title": "Daily Loans",
+        "desc": "Field agent-கள் அவங்க route-ல customer-களை visit பண்ணி, தினமும் collection மூலமா திரும்ப வாங்கற small loans.",
+        "h1": "Daily repayment schedule auto-generate ஆகும்",
+        "h2": "Daily route planning-உடன் integrate",
+        "h3": "Real-time collection tracking"
       },
       "weekly": {
-        "title": "வாராந்திர கடன்கள்",
-        "desc": "வாராந்திர திருப்பச்செலுத்தல் சுழற்சி கடன்கள் — சந்தை வணிகர்கள் போன்ற வாராந்திர வருமானம் உள்ளவர்களுக்கு ஏற்றது.",
-        "h1": "வாராந்திர வசூல் அட்டவணை உருவாக்கம்",
-        "h2": "நெகிழ்வான கால அமைப்புகள்",
-        "h3": "வாராந்திர வசூல் சுருக்க அறிக்கைகள்"
+        "title": "Weekly Loans",
+        "desc": "வாரம் collection cycle உள்ள loans — market vendor மாதிரி weekly income வர்றவங்களுக்கு ideal.",
+        "h1": "Weekly collection schedule auto-generate",
+        "h2": "Flexible term configuration",
+        "h3": "Weekly collection summary reports"
       },
       "gold": {
-        "title": "தங்கக் கடன்கள்",
-        "desc": "தங்க நகைகளுக்கு எதிரான கடன்கள் — மதிப்பீடு, அடமானம், வட்டி கணக்கீடு, மற்றும் மீட்பு கண்காணிப்பு.",
-        "h1": "எடை & தூய்மையுடன் தங்க பொருள் பட்டியல்",
-        "h2": "தானியங்கி மதிப்பீடு & வட்டி கணக்கீடு",
-        "h3": "அடமானம் மற்றும் மீட்பு கண்காணிப்பு"
+        "title": "Gold Loans",
+        "desc": "தங்க நகை மேல secure பண்ணப்பட்ட loans — valuation, pledging, interest calculation மற்றும் redemption-ஐ complete tracking-உடன் manage பண்ணுங்க.",
+        "h1": "Weight & purity-உடன் gold item cataloging",
+        "h2": "Automated valuation & interest calculation",
+        "h3": "Pledge மற்றும் redemption tracking"
       },
       "property": {
-        "title": "சொத்துக் கடன்கள்",
-        "desc": "சொத்துக்கு எதிரான கடன்கள் — மதிப்பீடு, ஆவண சரிபார்ப்பு, வழங்கல், மற்றும் நெகிழ்வான திருப்பச்செலுத்தல்.",
-        "h1": "சொத்து ஆவண மேலாண்மை",
-        "h2": "மதிப்பீடு மற்றும் சரிபார்ப்பு பணிப்பாய்வு",
-        "h3": "நெகிழ்வான தினசரி/வாராந்திர/மாதாந்திர திருப்பச்செலுத்தல்"
+        "title": "Property Loans",
+        "desc": "சொத்து மேல secure பண்ணப்பட்ட loans — valuation, document verification, disbursement மற்றும் flexible repayment schedule manage பண்ணுங்க.",
+        "h1": "Property document management",
+        "h2": "Valuation மற்றும் verification workflow",
+        "h3": "Flexible daily/weekly/monthly repayment"
       },
       "product": {
-        "title": "பொருள் அடிப்படை கடன்கள்",
-        "desc": "பொருட்களுடன் இணைக்கப்பட்ட கடன்கள் — வாடிக்கையாளர்கள் நிதியுதவியுடன் பொருட்களை வாங்குகிறார்கள்.",
-        "h1": "புகைப்படங்கள் & விலையுடன் பொருள் பட்டியல்",
-        "h2": "முன்பணம் கண்காணிப்பு",
-        "h3": "தினசரி அல்லது வாராந்திர திருப்பச்செலுத்தல் ஆதரவு"
+        "title": "Product-Based Loans",
+        "desc": "Physical product-உடன் இணைந்த loans — customer-கள் financing-ல goods வாங்கி, daily அல்லது weekly collection மூலமா திரும்ப கட்டுவாங்க.",
+        "h1": "Photo & pricing-உடன் product catalog",
+        "h2": "Down payment tracking",
+        "h3": "Daily அல்லது weekly repayment support"
       }
     },
     "features": {
-      "badge": "தள திறன்கள்",
-      "title1": "கடன்களுக்கு அப்பால் —",
-      "title2": "முழுமையான தளம்",
-      "description": "வாடிக்கையாளர் மேலாண்மை முதல் பல குத்தகை உள்கட்டமைப்பு வரை, நுண்நிதி வணிகத்தை நடத்துவதன் ஒவ்வொரு அம்சத்தையும் Vasool உள்ளடக்குகிறது.",
-      "viewAll": "அனைத்து அம்சங்களையும் ஆராயுங்கள்",
-      "stat1": "மொத்த அம்சங்கள்",
-      "stat2": "தொகுதிகள்",
-      "stat3": "API முனைப்புள்ளிகள்",
-      "stat4": "அம்ச மாற்றிகள்",
+      "badge": "Platform Capabilities",
+      "title1": "Loans-ஐ தாண்டி —",
+      "title2": "ஒரு Complete Platform",
+      "description": "Customer management முதல் multi-tenant infrastructure வரை, microfinance business நடத்தற எல்லா aspect-ையும் Vasool cover பண்ணுது.",
+      "viewAll": "எல்லா Features-ஐயும் பாருங்க",
+      "stat1": "Total Features",
+      "stat2": "Modules",
+      "stat3": "API Endpoints",
+      "stat4": "Feature Toggles",
       "customer": {
-        "title": "வாடிக்கையாளர் மேலாண்மை",
-        "desc": "KYC ஆவணங்கள், GPS இருப்பிடங்கள், தொடர்பு வரலாறு, மற்றும் ஊழியர்/ஜாமீன் இணைப்புடன் முழு வாடிக்கையாளர் சுயவிவரங்கள்."
+        "title": "Customer Management",
+        "desc": "KYC document, GPS location, contact history மற்றும் staff/referee linking-உடன் full customer profiles."
       },
       "route": {
-        "title": "வழி மேலாண்மை",
-        "desc": "தினசரி மற்றும் வாராந்திர வசூல் வழிகளை திட்டமிடவும், ஊழியர்களுக்கு ஒதுக்கவும், நிகழ்நேர மொத்தங்களுடன் நிறைவை கண்காணிக்கவும்."
+        "title": "Route Management",
+        "desc": "Daily மற்றும் weekly collection route plan பண்ணுங்க, staff-க்கு assign பண்ணுங்க, real-time total-உடன் completion track பண்ணுங்க."
       },
       "reporting": {
-        "title": "அறிக்கைகள் & பகுப்பாய்வு",
-        "desc": "லாப & நஷ்டம், அதிகாரி செயல்திறன், வசூல் சுருக்கங்கள், மற்றும் தாமத கண்காணிப்பு உள்ளிட்ட 9 அறிக்கை வகைகள்."
+        "title": "Reporting & Analytics",
+        "desc": "P&L, officer performance, collection summary மற்றும் overdue tracking உட்பட 9 report types."
       },
       "security": {
-        "title": "பாதுகாப்பு & தணிக்கை",
-        "desc": "JWT அங்கீகாரம், பயோமெட்ரிக் உள்நுழைவு, தணிக்கை பதிவு, போட் பாதுகாப்பு, மற்றும் வீத வரம்பு — ஒவ்வொரு வரிசைப்படுத்தலிலும் உள்ளமைக்கப்பட்டது."
+        "title": "Security & Audit",
+        "desc": "JWT auth, biometric login, audit logging, bot protection மற்றும் rate limiting — ஒவ்வொரு deployment-லயும் இருக்கு."
       },
       "multiTenancy": {
-        "title": "பல குத்தகை",
-        "desc": "தனிப்பயன் பிராண்டிங், அம்ச மாற்றிகள், சேமிப்பு வரம்புகள், மற்றும் தானியங்கி வழங்கலுடன் தனிமைப்படுத்தப்பட்ட குத்தகை சூழல்கள்."
+        "title": "Multi-Tenancy",
+        "desc": "Custom branding, feature toggles, storage limits மற்றும் automated provisioning-உடன் isolated tenant environments."
       },
       "api": {
-        "title": "API & ஒருங்கிணைப்பு",
-        "desc": "REST, gRPC, மற்றும் gRPC-Web API-கள் Swagger ஆவணங்கள் மற்றும் மொபைல் கிளையன்ட்களுக்கான ஆஃப்லைன் ஒத்திசைவு ஆதரவுடன்."
+        "title": "API & Integration",
+        "desc": "Swagger docs மற்றும் offline sync support-உடன் REST, gRPC மற்றும் gRPC-Web APIs — mobile client-களுக்கு."
       }
     },
     "staff": {
-      "badge": "உங்கள் குழுவிற்கு",
-      "title1": "உங்கள் களப்",
-      "title2": "பணியாளர்களை மேம்படுத்துங்கள்",
-      "description": "வாடிக்கையாளர்களை நிர்வகிக்கவும், செலவுகளை கண்காணிக்கவும், கொடுப்பனவுகளை திறம்பட வசூலிக்கவும் உங்கள் குழுவிற்கு தேவையான கருவிகளை வழங்குங்கள் — அவர்களின் தொலைபேசியிலிருந்தே.",
-      "exploreBtn": "ஊழியர் கருவிகளை ஆராயுங்கள்",
-      "bullet1": "களப் பணியாளர்களுக்கான அர்ப்பணிக்கப்பட்ட மொபைல் ஆப்",
-      "bullet2": "நேரடி GPS இருப்பிட கண்காணிப்பு",
-      "bullet3": "செலவு கண்காணிப்பு & ஒப்புதல் பணிப்பாய்வுகள்",
-      "bullet4": "கிராமப்புற பகுதிகளுக்கான ஆஃப்லைன் ஆதரவு",
-      "bullet5": "பங்கு அடிப்படையிலான அணுகல் கட்டுப்பாடு",
+      "badge": "For Your Team",
+      "title1": "உங்க Field Staff-ஐ",
+      "title2": "Powerful ஆக்குங்க",
+      "description": "Customer manage பண்ண, expense track பண்ண, payment efficient-ஆ collect பண்ண தேவையான tools-ஐ உங்க team-க்கு phone-லயே கொடுங்க.",
+      "exploreBtn": "Staff Tools-ஐ பாருங்க",
+      "bullet1": "Field agent-களுக்கு dedicated mobile app",
+      "bullet2": "Live GPS location tracking",
+      "bullet3": "Expense tracking & approval workflow",
+      "bullet4": "Rural area-க்கு offline support",
+      "bullet5": "Role-based access control",
       "cards": {
         "mobile": {
-          "title": "மொபைல் ஆப்",
-          "desc": "தினசரி வசூல்கள், வாடிக்கையாளர் வருகைகள், மற்றும் வழி வழிசெலுத்தலுக்கான Android ஆப்."
+          "title": "Mobile App",
+          "desc": "Daily collection, customer visit மற்றும் route navigation-க்கு one-handed UI உள்ள Android app."
         },
         "gps": {
-          "title": "GPS கண்காணிப்பு",
-          "desc": "நிகழ்நேர இருப்பிட கண்காணிப்பு மற்றும் கள வருகை சரிபார்ப்புக்கான GPS வரலாறு."
+          "title": "GPS Tracking",
+          "desc": "Field visit verify பண்ண real-time location tracking மற்றும் historical GPS trail."
         },
         "expense": {
-          "title": "செலவு மேலாண்மை",
-          "desc": "ரசீது புகைப்படங்களுடன் செலவுகளை பதிவு செய்யுங்கள். திருப்பிச்செலுத்தலுக்கான நிர்வாக ஒப்புதல் பணிப்பாய்வு."
+          "title": "Expense Management",
+          "desc": "Receipt photo-உடன் expense log பண்ணுங்க. Reimbursement-க்கு admin approval workflow."
         },
         "rbac": {
-          "title": "அணுகல் கட்டுப்பாடு",
-          "desc": "நுணுக்கமான அனுமதிகளுடன் தனிப்பயன் பங்குகள். ஒவ்வொரு ஊழியர் பங்கும் அணுகக்கூடியதை கட்டுப்படுத்துங்கள்."
+          "title": "Access Control",
+          "desc": "Granular permission உள்ள custom roles. ஒவ்வொரு staff role-உம் எதை access பண்ணலாம்னு control பண்ணுங்க."
         },
         "offline": {
-          "title": "ஆஃப்லைன் பயன்முறை",
-          "desc": "இணைய இணைப்பு இல்லாமல் வசூல்களை பதிவு செய்யுங்கள். இணைப்பு திரும்பியவுடன் தானாக ஒத்திசைக்கும்."
+          "title": "Offline Mode",
+          "desc": "Internet illama collection record பண்ணுங்க. Connectivity திரும்ப வந்தவுடன் automatic-ஆ sync ஆகும்."
         },
         "biometric": {
-          "title": "பயோமெட்ரிக் உள்நுழைவு",
-          "desc": "மொபைல் சாதனங்களில் வேகமான, பாதுகாப்பான அங்கீகாரத்திற்கான கைரேகை மற்றும் முக அங்கீகாரம்."
+          "title": "Biometric Login",
+          "desc": "Mobile-ல fast, secure authentication-க்கு fingerprint மற்றும் face recognition."
         }
       }
-    }
+    },
+    "faqTitle": "அடிக்கடி கேட்கற Questions",
+    "faqSubtitle": "Manual vasool notebook-லிருந்து Vasool-க்கு மாறற முன்னாடி money lenders மற்றும் finance business கேட்கற எல்லா questions-உம்.",
+    "faq": [
+      {
+        "question": "Vasool App-னா என்ன?",
+        "answer": "Vasool App-னா India-ல இருக்கற money lenders, micro finance company, finance கடை மற்றும் chit fund நடத்துறவங்களுக்கான ஒரு voice entry loan collection app. Daily, weekly, monthly collection, EMI loan, gold loan மற்றும் interest-only loan-ஐ — field staff-க்கு mobile app, office-க்கு web dashboard, customer-களுக்கு self-service portal மூலமா manage பண்ணுது."
+      },
+      {
+        "question": "Voice entry collection எப்படி work ஆகுது?",
+        "answer": "Type பண்றதுக்கு பதிலா, உங்க collection agent entry-ஐ வெறுமனே பேசுவாங்க — உதாரணமா \"Arun 500 cash\" அல்லது \"Selvi 200 GPay\" — Vasool சரியான customer-க்கு எதிரா payment-ஐ automatic-ஆ record பண்ணும். Voice entry தமிழ், தெலுங்கு, இந்தி, மலையாளம், கன்னடம் உட்பட 6 மொழியில் work ஆகுது — field-ல daily collection record பண்ண இதுதான் fastest way."
+      },
+      {
+        "question": "Internet illama Vasool work ஆகுமா?",
+        "answer": "ஆமா. Vasool field condition-க்காக build பண்ணப்பட்டது — mobile app முழுசா offline-ல work ஆகும், phone திரும்ப online வந்தவுடன் automatic-ஆ sync ஆகும். Network இல்லாத area-லயும் agent-கள் payment record பண்ணலாம், customer add பண்ணலாம், balance பார்க்கலாம் — எந்த entry-யும் miss ஆகாது."
+      },
+      {
+        "question": "Loan entry மற்றும் customer profile-ல photo attach பண்ணலாமா?",
+        "answer": "ஆமா. Vasool collection-ல photo proof, borrower-களுக்கு photo KYC மற்றும் document photo storage-ஐ support பண்ணுது. ஒவ்வொரு loan-க்கும் customer photo, ID proof, sign பண்ணப்பட்ட document attach பண்ணுங்க — manual vasool notebook-க்கு பதிலா customer photo-wise tracking மற்றும் paperless records."
+      },
+      {
+        "question": "Vasool எந்த மாதிரியான loan-களை support பண்ணுது?",
+        "answer": "Vasool daily, weekly, monthly மற்றும் semi-monthly line finance, foreclosure & tenure control உள்ள EMI loan, interest-only loan, live gold-rate எடுக்கற gold loan, gold sale மற்றும் உங்க inventory-உடன் இணைந்த product-backed loan-ஐ support பண்ணுது. ஒவ்வொரு loan type-க்கும் தனி collection workflow மற்றும் repayment schedule இருக்கு."
+      },
+      {
+        "question": "Vasool எந்த மொழிகளை support பண்ணுது?",
+        "answer": "Vasool English, தமிழ், தெலுங்கு, இந்தி, மலையாளம் மற்றும் கன்னடத்தில் work ஆகுது — app interface மற்றும் voice entry ரெண்டும். உங்க field staff அவங்க மொழியில் collect பண்ணலாம், office எல்லாத்தையும் ஒரே dashboard-ல பார்க்கும்."
+      },
+      {
+        "question": "Vasool என் collection staff-ஐ manage பண்ணுமா?",
+        "answer": "ஆமா. Vasool முழு staff management உள்ள loan collection app: field agent-களோட live GPS tracking, route planning மற்றும் navigation, custom role-based permission, performance report, cash advance, expense approval மற்றும் route-க்கு ஒரு day book."
+      },
+      {
+        "question": "Vasool PDF receipt மற்றும் report generate பண்ணுமா?",
+        "answer": "ஆமா. ஒவ்வொரு collection-உம் automatic PDF receipt generate பண்ணும், ஒவ்வொரு report-உம் — Profit & Loss, day book, officer performance, customer overdue — PDF-ஆ export பண்ணலாம். GPay, PhonePe, scan மூலமா வர்ற UPI collection முழு audit log-உடன் record ஆகும்."
+      },
+      {
+        "question": "என் manual vasool notebook-ஐ app-க்கு எப்படி மாத்துறது?",
+        "answer": "உங்க vasool business-ஐ digital ஆக்குறது easy: உங்க existing customer மற்றும் loan-ஐ import பண்ணுங்க, முதல் நாளிலிருந்தே உங்க staff vasool book அல்லது diary-ல எழுதறதுக்கு பதிலா voice அல்லது ஒரே tap-ல collection record பண்ணுவாங்க. Balance, interest மற்றும் due date automatic-ஆ calculate ஆகும் — math mistake இல்ல, notebook தொலையற கவலையும் இல்ல."
+      },
+      {
+        "question": "Vasool free-யா? Pricing எப்படி?",
+        "answer": "Vasool start பண்ண free plan கொடுக்குது, ஒவ்வொரு deployment-லயும் எல்லா feature-உம் இருக்கு, extra upsell இல்ல. ஒவ்வொரு business-உம் dedicated database உள்ள தனி infrastructure-ல run ஆகுது — உங்க data வேற யாரோடயும் mix ஆகாது. உங்க finance business-க்கான pricing-க்கு எங்களை contact பண்ணுங்க."
+      }
+    ]
   },
   "cta": {
-    "title1": "உங்கள் கடன் செயல்பாடுகளை",
-    "title2": "எளிதாக்க தயாரா?",
-    "description": "Vasool மூலம் உங்கள் நுண்நிதி மேலாண்மையை கட்டுப்படுத்துங்கள். வாடிக்கையாளர் சேர்க்கை முதல் தினசரி வசூல் வரை உங்கள் வணிக தேவைகளுக்கு ஏற்ப தனிப்பயனாக்கப்பட்டது."
+    "title1": "உங்க Lending Operations-ஐ",
+    "title2": "Streamline பண்ண தயாரா?",
+    "description": "Vasool-உடன் உங்க microfinance management-ஐ control பண்ணுங்க. Customer onboarding முதல் daily collection வரை, உங்க business need-க்கு ஏத்த மாதிரி customize பண்ணப்படும்."
   },
   "footer": {
-    "description": "நுண்நிதி துறைக்கான தினசரி, வாராந்திர மற்றும் மாதாந்திர அடிப்படையிலான ஆன்லைன் நிதி வசூல் மென்பொருள். தங்கக் கடன், சொத்துக் கடன் & நேரடி கண்காணிப்பு.",
-    "product": "தயாரிப்பு",
-    "company": "நிறுவனம்",
-    "legal": "சட்டம்",
-    "features": "அம்சங்கள்",
-    "loanTypes": "கடன் வகைகள்",
-    "staffTools": "ஊழியர் கருவிகள்",
-    "pricing": "விலை",
-    "compare": "ஒப்பீடு",
-    "mobileApp": "மொபைல் ஆப்",
-    "aboutUs": "எங்களை பற்றி",
-    "contact": "தொடர்பு",
-    "careers": "வேலைவாய்ப்புகள்",
-    "blog": "வலைப்பதிவு",
-    "privacy": "தனியுரிமை கொள்கை",
-    "terms": "சேவை விதிமுறைகள்",
-    "security": "பாதுகாப்பு",
-    "copyright": "© 2025 Vasool (vasool.app). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+    "description": "Micro finance industry-க்கான daily, weekly மற்றும் monthly online finance collection software. Gold loan, property loan & live tracking.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "features": "Features",
+    "loanTypes": "Loan Types",
+    "staffTools": "Staff Tools",
+    "pricing": "Pricing",
+    "compare": "Compare",
+    "mobileApp": "Mobile App",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "careers": "Careers",
+    "blog": "Blog",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "security": "Security",
+    "copyright": "© 2025 Vasool (vasool.app). All rights reserved."
+  },
+  "seo": {
+    "home": {
+      "title": "Vasool App - Money Lenders-க்கான Voice Entry Loan Collection App | Daily, Weekly & Monthly Finance",
+      "description": "Vasool App-னா money lenders & micro finance-க்கான voice entry loan collection app. Daily, weekly & monthly collection-ஐ பேசியே record பண்ணுங்க, photo proof attach பண்ணுங்க, gold loan, EMI, GPS staff tracking & analytics manage பண்ணுங்க — internet illama work ஆகும். Android & iOS-ல free."
+    }
   }
 }

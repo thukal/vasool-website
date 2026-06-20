@@ -1,5 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
+interface LanguageAlternate {
+  hreflang: string;
+  href: string;
+}
+
 interface SEOProps {
   title: string;
   description: string;
@@ -9,6 +14,9 @@ interface SEOProps {
   ogDescription?: string;
   ogImage?: string;
   ogType?: string;
+  ogLocale?: string;
+  /** hreflang alternates for multilingual pages (absolute URLs). */
+  alternates?: LanguageAlternate[];
   structuredData?: object | object[];
 }
 
@@ -24,6 +32,8 @@ const SEO = ({
   ogDescription,
   ogImage,
   ogType = "website",
+  ogLocale = "en_US",
+  alternates,
   structuredData,
 }: SEOProps) => {
   const fullTitle = title.includes("Vasool") ? title : `${title} | Vasool App`;
@@ -37,6 +47,16 @@ const SEO = ({
       {keywords && <meta name="keywords" content={keywords} />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
+      {/* hreflang alternates */}
+      {alternates?.map((alt) => (
+        <link
+          key={alt.hreflang}
+          rel="alternate"
+          hrefLang={alt.hreflang}
+          href={alt.href}
+        />
+      ))}
+
       {/* Open Graph */}
       <meta property="og:title" content={ogTitle || fullTitle} />
       <meta property="og:description" content={ogDescription || description} />
@@ -44,7 +64,7 @@ const SEO = ({
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="Vasool" />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -3,14 +3,16 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import App from "./App";
+import i18n from "./i18n";
 
-// Initialize i18n (always English on the server — see main.tsx)
-import "./i18n";
+export async function render(
+  url: string,
+  lang: string = "en"
+): Promise<{ html: string; helmet: HelmetServerState | undefined }> {
+  // Set the language before rendering so t() and SEO emit the right locale.
+  // Resources are bundled (no async backend), so the change applies immediately.
+  await i18n.changeLanguage(lang);
 
-export function render(url: string): {
-  html: string;
-  helmet: HelmetServerState | undefined;
-} {
   const helmetContext: { helmet?: HelmetServerState } = {};
 
   const html = renderToString(
