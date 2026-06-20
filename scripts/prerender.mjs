@@ -44,8 +44,13 @@ if (routes.length === 0) {
   throw new Error("No routes found in public/sitemap.xml — prerender aborted");
 }
 
+// Routes under /ta are the Tamil versions; everything else renders in English.
+const langForRoute = (route) =>
+  route === "/ta" || route.startsWith("/ta/") ? "ta" : "en";
+
 for (const route of routes) {
-  const { html, helmet } = render(route);
+  const lang = langForRoute(route);
+  const { html, helmet } = await render(route, lang);
 
   if (!helmet || !/<title[^>]*>[^<]+<\/title>/.test(helmet.title.toString())) {
     throw new Error(
@@ -58,12 +63,18 @@ for (const route of routes) {
     );
   }
 
+  const htmlLangAttr = lang === "ta" ? "ta" : "en";
+
   const headTags = [helmet.title, helmet.meta, helmet.link, helmet.script]
     .map((part) => part.toString())
     .filter(Boolean)
-    .join("\n    ");
+    .join("\n    ")
+    // Normalize react-helmet's camelCase hrefLang to the standard lowercase
+    // hreflang attribute (HTML parses it either way, but lowercase is clean).
+    .replaceAll("hrefLang=", "hreflang=");
 
   const page = template
+    .replace('<html lang="en">', `<html lang="${htmlLangAttr}">`)
     .replace(
       new RegExp(`${MARK_START}[\\s\\S]*?${MARK_END}`),
       `${MARK_START}\n    ${headTags}\n    ${MARK_END}`
@@ -77,7 +88,7 @@ for (const route of routes) {
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, page);
-  console.log(`prerendered ${route} -> ${path.relative(root, outFile)}`);
+  console.log(`prerendered ${route} (${lang}) -> ${path.relative(root, outFile)}`);
 }
 
 console.log(`\nPrerendered ${routes.length} routes.`);

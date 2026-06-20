@@ -1,4 +1,5 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -9,16 +10,26 @@ import {
 import { Globe } from "lucide-react";
 
 const languages = [
-  { code: 'en', name: 'English', nativeName: 'English' },
-  { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்' },
+  { code: "en", name: "English", nativeName: "English" },
+  { code: "ta", name: "Tamil", nativeName: "தமிழ்" },
 ];
+
+// The homepage has distinct URLs per language (/ and /ta). Elsewhere we only
+// switch the in-app language without changing the URL.
+const HOME_PATHS = ["/", "/ta"];
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLanguageChange = (value: string) => {
     i18n.changeLanguage(value);
-    localStorage.setItem('language', value);
+    localStorage.setItem("language", value);
+
+    if (HOME_PATHS.includes(location.pathname)) {
+      navigate(value === "ta" ? "/ta" : "/");
+    }
   };
 
   return (

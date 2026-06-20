@@ -20,6 +20,11 @@ import WeeklyCollectionApp from "./pages/solutions/WeeklyCollectionApp";
 import MonthlyFinanceApp from "./pages/solutions/MonthlyFinanceApp";
 import LineManagementApp from "./pages/solutions/LineManagementApp";
 import KandhuVattiApp from "./pages/solutions/KandhuVattiApp";
+import ByajWasooliApp from "./pages/solutions/ByajWasooliApp";
+import UgraniApp from "./pages/solutions/UgraniApp";
+import SelfHostedLoanSoftware from "./pages/solutions/SelfHostedLoanSoftware";
+import WhiteLabelLoanApp from "./pages/solutions/WhiteLabelLoanApp";
+import ChitFundAndLendingApp from "./pages/solutions/ChitFundAndLendingApp";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -34,15 +39,21 @@ const App = () => (
       <Sonner />
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/ta" element={<Index />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/security" element={<Security />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/ta/features" element={<FeaturesPage />} />
         <Route path="/loan-types" element={<LoanTypes />} />
+        <Route path="/ta/loan-types" element={<LoanTypes />} />
         <Route path="/staff-tools" element={<StaffTools />} />
+        <Route path="/ta/staff-tools" element={<StaffTools />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/ta/pricing" element={<Pricing />} />
         <Route path="/compare" element={<Compare />} />
+        <Route path="/ta/compare" element={<Compare />} />
         <Route path="/loan-collection-app" element={<LoanCollectionApp />} />
         <Route path="/daily-collection-app" element={<DailyCollectionApp />} />
         <Route path="/voice-entry-collection-app" element={<VoiceEntryCollectionApp />} />
@@ -50,6 +61,11 @@ const App = () => (
         <Route path="/monthly-finance-app" element={<MonthlyFinanceApp />} />
         <Route path="/line-management-app" element={<LineManagementApp />} />
         <Route path="/kandhu-vatti-app" element={<KandhuVattiApp />} />
+        <Route path="/byaj-wasooli-app" element={<ByajWasooliApp />} />
+        <Route path="/ugrani-app" element={<UgraniApp />} />
+        <Route path="/self-hosted-loan-software" element={<SelfHostedLoanSoftware />} />
+        <Route path="/white-label-loan-app" element={<WhiteLabelLoanApp />} />
+        <Route path="/chit-fund-and-lending-app" element={<ChitFundAndLendingApp />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
