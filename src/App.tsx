@@ -22,6 +22,9 @@ import LineManagementApp from "./pages/solutions/LineManagementApp";
 import KandhuVattiApp from "./pages/solutions/KandhuVattiApp";
 import ByajWasooliApp from "./pages/solutions/ByajWasooliApp";
 import UgraniApp from "./pages/solutions/UgraniApp";
+import SelfHostedLoanSoftware from "./pages/solutions/SelfHostedLoanSoftware";
+import WhiteLabelLoanApp from "./pages/solutions/WhiteLabelLoanApp";
+import ChitFundAndLendingApp from "./pages/solutions/ChitFundAndLendingApp";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -55,6 +58,9 @@ const App = () => (
         <Route path="/kandhu-vatti-app" element={<KandhuVattiApp />} />
         <Route path="/byaj-wasooli-app" element={<ByajWasooliApp />} />
         <Route path="/ugrani-app" element={<UgraniApp />} />
+        <Route path="/self-hosted-loan-software" element={<SelfHostedLoanSoftware />} />
+        <Route path="/white-label-loan-app" element={<WhiteLabelLoanApp />} />
+        <Route path="/chit-fund-and-lending-app" element={<ChitFundAndLendingApp />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

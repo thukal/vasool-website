@@ -177,6 +177,9 @@ const Footer = () => {
               { label: "Kandhu Vatti App", href: "/kandhu-vatti-app" },
               { label: "Byaj Wasooli App", href: "/byaj-wasooli-app" },
               { label: "Ugrani App", href: "/ugrani-app" },
+              { label: "Self-Hosted Loan Software", href: "/self-hosted-loan-software" },
+              { label: "White-Label Loan App", href: "/white-label-loan-app" },
+              { label: "Chit Fund & Lending App", href: "/chit-fund-and-lending-app" },
             ].map((s) => (
               <a
                 key={s.href}
