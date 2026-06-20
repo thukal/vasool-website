@@ -47,7 +47,9 @@ const App = () => (
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/ta/features" element={<FeaturesPage />} />
         <Route path="/loan-types" element={<LoanTypes />} />
+        <Route path="/ta/loan-types" element={<LoanTypes />} />
         <Route path="/staff-tools" element={<StaffTools />} />
+        <Route path="/ta/staff-tools" element={<StaffTools />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/loan-collection-app" element={<LoanCollectionApp />} />
