@@ -75,15 +75,39 @@
   </url>
   <url>
     <loc>https://vasool.app/pricing</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/pricing" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://vasool.app/ta/pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vasool.app/pricing" />
+  </url>
+  <url>
+    <loc>https://vasool.app/ta/pricing</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/pricing" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://vasool.app/ta/pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vasool.app/pricing" />
   </url>
   <url>
     <loc>https://vasool.app/compare</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/compare" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://vasool.app/ta/compare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vasool.app/compare" />
+  </url>
+  <url>
+    <loc>https://vasool.app/ta/compare</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/compare" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://vasool.app/ta/compare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vasool.app/compare" />
   </url>
   <url>
     <loc>https://vasool.app/self-hosted-loan-software</loc>
