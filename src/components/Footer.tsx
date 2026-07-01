@@ -100,30 +100,6 @@ const Footer = () => {
                   {t("footer.aboutUs")}
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
-                >
-                  {t("footer.blog")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
-                >
-                  {t("footer.careers")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
-                >
-                  {t("footer.contact")}
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -196,26 +172,6 @@ const Footer = () => {
           <p className="text-white/25 text-xs text-center sm:text-left">
             {t("footer.copyright")}
           </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="#"
-              className="text-white/25 hover:text-white/50 transition-colors text-xs"
-            >
-              Twitter
-            </a>
-            <a
-              href="#"
-              className="text-white/25 hover:text-white/50 transition-colors text-xs"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="#"
-              className="text-white/25 hover:text-white/50 transition-colors text-xs"
-            >
-              Facebook
-            </a>
-          </div>
         </div>
       </div>
     </footer>
