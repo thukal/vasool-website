@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Kandhu Vatti App (கந்து வட்டி ஆப்) - Daily Interest Collection in Tamil | Vasool",
+      "Kandhu Vatti App - Daily Vatti Collection in Tamil | Vasool",
     description:
       "Vasool is the kandhu vatti app for Tamil finance businesses — daily vatti collections, thandal lines, Tamil voice entry (குரல் பதிவு), automatic vatti calculation, and Tamil interface. Works offline. Free demo in Tamil.",
     keywords:

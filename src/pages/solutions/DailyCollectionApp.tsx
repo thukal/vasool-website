@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Daily Collection App - Daily Finance Collection Software | Vasool",
+      "Daily Collection App - Daily Finance Software | Vasool",
     description:
       "Vasool is a daily collection app for daily finance businesses — 100-day lines, daily interest, route-wise day book, voice entry, and pigmy-style collections. Daily finance collection software that works offline. Free demo.",
     keywords:

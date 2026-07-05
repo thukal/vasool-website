@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "White-Label Loan Collection App - Your Brand, Your Subdomain | Vasool",
+      "White-Label Loan Collection App - Your Brand | Vasool",
     description:
       "Vasool is a white-label loan collection app — put your own name, logo, and branded subdomain (yourbusiness.vasool.app) on a full microfinance platform. Rebrandable for finance businesses and resellers. Free demo.",
     keywords:

@@ -389,7 +389,7 @@ const categoriesTa: FeatureCategory[] = [
 
 const copy = {
   en: {
-    title: "90+ Features - Microfinance Loan Management Platform",
+    title: "90+ Features - Microfinance Loan Platform",
     description:
       "Explore 90+ features across 11 modules in Vasool's microfinance platform. Core loan management, collection tracking, route planning, customer management, reporting, security, multi-tenancy, and API integration.",
     back: "Back to Home",
@@ -408,7 +408,7 @@ const copy = {
     ctaBtn: "Book a Demo",
   },
   ta: {
-    title: "90+ Features - Microfinance Loan Management Platform | Vasool",
+    title: "90+ Features - Microfinance Loan Platform | Vasool",
     description:
       "Vasool microfinance platform-ல 11 module-ல 90+ feature. Core loan management, collection tracking, route planning, customer management, reporting, security, multi-tenancy மற்றும் API integration — எல்லாமே ஒரே platform-ல.",
     back: "Home-க்கு திரும்பு",

@@ -14,8 +14,13 @@ import LanguageSelector from "./LanguageSelector";
 import PretextReveal from "./pretext/PretextReveal";
 import BalancedText from "./pretext/BalancedText";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
+import { useLocation } from "react-router-dom";
+import { localizedPath } from "@/lib/langRoutes";
 
 const Hero = () => {
+  const { pathname } = useLocation();
+  // On /ta the nav must link to the Tamil page variants, not the English ones.
+  const to = (target: string) => localizedPath(target, pathname);
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -43,7 +48,7 @@ const Hero = () => {
         {/* Navigation */}
         <nav className="py-4 sm:py-5">
           <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2.5">
+            <a href={to("/")} className="flex items-center gap-2.5">
               <img
                 src="/favicon.png"
                 alt="Vasool"
@@ -65,31 +70,31 @@ const Hero = () => {
 
             <div className="hidden md:flex items-center gap-7">
               <a
-                href="/features"
+                href={to("/features")}
                 className="text-white/60 hover:text-white transition-colors text-sm"
               >
                 {t("nav.features")}
               </a>
               <a
-                href="/loan-types"
+                href={to("/loan-types")}
                 className="text-white/60 hover:text-white transition-colors text-sm"
               >
                 {t("nav.loanTypes")}
               </a>
               <a
-                href="/staff-tools"
+                href={to("/staff-tools")}
                 className="text-white/60 hover:text-white transition-colors text-sm"
               >
                 {t("nav.staffTools")}
               </a>
               <a
-                href="/pricing"
+                href={to("/pricing")}
                 className="text-white/60 hover:text-white transition-colors text-sm"
               >
                 {t("nav.pricing")}
               </a>
               <a
-                href="/compare"
+                href={to("/compare")}
                 className="text-white/60 hover:text-white transition-colors text-sm"
               >
                 {t("nav.compare")}
@@ -106,35 +111,35 @@ const Hero = () => {
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 glass rounded-2xl p-5 space-y-3">
               <a
-                href="/features"
+                href={to("/features")}
                 className="block text-white/70 hover:text-white py-2 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.features")}
               </a>
               <a
-                href="/loan-types"
+                href={to("/loan-types")}
                 className="block text-white/70 hover:text-white py-2 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.loanTypes")}
               </a>
               <a
-                href="/staff-tools"
+                href={to("/staff-tools")}
                 className="block text-white/70 hover:text-white py-2 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.staffTools")}
               </a>
               <a
-                href="/pricing"
+                href={to("/pricing")}
                 className="block text-white/70 hover:text-white py-2 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t("nav.pricing")}
               </a>
               <a
-                href="/compare"
+                href={to("/compare")}
                 className="block text-white/70 hover:text-white py-2 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -195,7 +200,7 @@ const Hero = () => {
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
-              <a href="/features">
+              <a href={to("/features")}>
                 <Button variant="heroOutline" size="lg">
                   {t("nav.features")}
                 </Button>

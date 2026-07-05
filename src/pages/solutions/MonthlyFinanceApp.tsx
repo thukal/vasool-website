@@ -13,7 +13,7 @@ import KeywordLanding, {
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Monthly Finance App - EMI & Monthly Interest Collections | Vasool",
+    title: "Monthly Finance App - EMI & Interest Collection | Vasool",
     description:
       "Vasool is a monthly finance app for monthly interest lending, EMI with foreclosure, semi-monthly lines, and salary-day collections. Automatic interest calculation, PDF receipts, overdue tracking. Free demo.",
     keywords:

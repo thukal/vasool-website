@@ -32,7 +32,7 @@ const planTypeIcons: LucideIcon[] = [Calendar, CalendarDays, Package, ShoppingBa
 
 const content = {
   en: {
-    title: "Pricing - Simple Plan for Money Lenders & Microfinance",
+    title: "Pricing - Simple Plan for Money Lenders | Vasool",
     description:
       "Transparent pricing for Vasool loan management CRM. Single loan product at ₹699/month with unlimited staff, live location tracking, and route management. Need more loan products? Contact us for a tailored plan.",
     back: "Back to Home",
@@ -114,7 +114,7 @@ const content = {
     ],
   },
   ta: {
-    title: "Pricing - Money Lenders & Microfinance-க்கான Simple Plan | Vasool",
+    title: "Pricing - Money Lenders-க்கான Simple Plan | Vasool",
     description:
       "Vasool loan management CRM-க்கு transparent pricing. ஒரு loan product ₹699/month — unlimited staff, live location tracking மற்றும் route management உடன். அதிக loan product வேணுமா? Tailored plan-க்கு எங்களை contact பண்ணுங்க.",
     back: "Home-க்கு திரும்பு",
@@ -237,11 +237,14 @@ const Pricing = () => {
     name: "Vasool Loan Management CRM",
     description:
       "Loan management CRM for money lenders and microfinance businesses in India with live field staff tracking, route management, and multiple loan plan types.",
+    image: "https://vasool.app/logo-full.png",
     offers: {
       "@type": "Offer",
       name: `Vasool ${c.planName}`,
+      url: "https://vasool.app/pricing",
       price: MONTHLY,
       priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
       priceSpecification: { "@type": "UnitPriceSpecification", price: MONTHLY, priceCurrency: "INR", unitText: "MONTH" },
     },
   };

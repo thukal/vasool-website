@@ -25,11 +25,6 @@ const websiteSchema = {
   "url": "https://vasool.app",
   "description":
     "Voice entry loan collection app for money lenders and micro finance — daily, weekly, and monthly finance collection with photo proof, gold loans, EMI, and GPS staff tracking.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://vasool.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 // Keywords stay in English on both language versions — search terms like

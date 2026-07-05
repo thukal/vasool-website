@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Ugrani App (ಉಗ್ರಾಣಿ ಆ್ಯಪ್) - Kannada Loan Collection & Meter Baddi | Vasool",
+      "Ugrani App - Kannada Loan Collection & Meter Baddi | Vasool",
     description:
       "Vasool is the ugrani app for Kannada finance businesses — daily ugrani collection, meter baddi tracking, Kannada voice entry, automatic interest calculation, and full Kannada interface. Works offline. Free demo in Kannada.",
     keywords:

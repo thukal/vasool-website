@@ -1,8 +1,22 @@
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import PretextText from "./pretext/PretextText";
+import {
+  BILINGUAL_PATHS,
+  basePathOf,
+  isTamilPath,
+  localizedPath,
+  tamilPathOf,
+} from "@/lib/langRoutes";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  // On Tamil pages, bilingual product links point at their /ta variants so
+  // the Tamil pages are reachable through plain crawlable links.
+  const to = (target: string) => localizedPath(target, pathname);
+  const basePath = basePathOf(pathname);
+  const hasTamilTwin = BILINGUAL_PATHS.includes(basePath);
 
   return (
     <footer className="bg-hero pt-12 sm:pt-16 pb-8 sm:pb-10">
@@ -37,7 +51,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="/features"
+                  href={to("/features")}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.features")}
@@ -45,7 +59,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/loan-types"
+                  href={to("/loan-types")}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.loanTypes")}
@@ -53,7 +67,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/staff-tools"
+                  href={to("/staff-tools")}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.staffTools")}
@@ -61,7 +75,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/pricing"
+                  href={to("/pricing")}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.pricing")}
@@ -69,7 +83,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/compare"
+                  href={to("/compare")}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.compare")}
@@ -77,7 +91,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/staff-tools#mobile"
+                  href={`${to("/staff-tools")}#mobile`}
                   className="text-white/35 hover:text-white/70 transition-colors text-sm"
                 >
                   {t("footer.mobileApp")}
@@ -172,6 +186,30 @@ const Footer = () => {
           <p className="text-white/25 text-xs text-center sm:text-left">
             {t("footer.copyright")}
           </p>
+          {/* Crawlable language links — the header selector is JS-only, so
+              these anchors are how crawlers discover the Tamil pages. */}
+          {hasTamilTwin && (
+            <p className="text-xs">
+              {isTamilPath(pathname) ? (
+                <a
+                  href={basePath}
+                  hrefLang="en"
+                  className="text-white/35 hover:text-white/70 transition-colors"
+                >
+                  This page in English
+                </a>
+              ) : (
+                <a
+                  href={tamilPathOf(basePath)}
+                  hrefLang="ta"
+                  lang="ta"
+                  className="text-white/35 hover:text-white/70 transition-colors"
+                >
+                  இந்தப் பக்கம் தமிழில்
+                </a>
+              )}
+            </p>
+          )}
         </div>
       </div>
     </footer>

@@ -303,7 +303,7 @@ const loanFeaturesTa: LoanFeature[] = [
 
 const copy = {
   en: {
-    title: "Loan Types - Daily, Weekly, Monthly, Gold & Property Loans",
+    title: "Loan Types - Daily, Weekly, Monthly & Gold Loans | Vasool",
     description:
       "Manage all types of microfinance loans with Vasool: daily loans, weekly loans, monthly loans, gold loans, property loans, and product-based loans. Complete lifecycle management from origination to closure.",
     back: "Back to Home",
@@ -321,7 +321,7 @@ const copy = {
     ctaBtn: "Book a Demo",
   },
   ta: {
-    title: "Loan Types - Daily, Weekly, Monthly, Gold & Property Loans | Vasool",
+    title: "Vasool Loan Types - Daily, Weekly, Monthly & Gold Loans",
     description:
       "Vasool-ல எல்லா மாதிரியான microfinance loan-ஐயும் manage பண்ணுங்க: daily, weekly, monthly, gold, property மற்றும் product-based loan. Origination முதல் closure வரை முழு lifecycle management.",
     back: "Home-க்கு திரும்பு",
