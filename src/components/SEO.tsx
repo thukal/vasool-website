@@ -75,9 +75,7 @@ const SEO = ({
       {/* Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
-          {JSON.stringify(
-            Array.isArray(structuredData) ? structuredData : structuredData
-          )}
+          {JSON.stringify(structuredData)}
         </script>
       )}
     </Helmet>

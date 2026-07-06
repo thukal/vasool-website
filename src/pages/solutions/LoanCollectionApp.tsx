@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Loan Collection App for Money Lenders & Micro Finance | Vasool",
+      "Loan Collection App - Money Lenders & Micro Finance | Vasool",
     description:
       "Vasool is a loan collection app built for Indian money lenders — record collections by voice, track field agents with GPS, collect cash & UPI, auto-generate PDF receipts, and chase overdues. Works offline. Free demo.",
     keywords:

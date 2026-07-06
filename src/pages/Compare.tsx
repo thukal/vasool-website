@@ -104,7 +104,7 @@ const rowFeaturesTa = [
 
 const content = {
   en: {
-    title: "Best Vasool App 2026 - Compare Vasool vs Vasool Book Apps & Manual Diary",
+    title: "Best Vasool App 2026 - Vasool vs Vasool Book Apps & Diary",
     description:
       "Looking for a Vasool Book or Vasool Diary alternative? Compare the best vasool apps of 2026 — voice to data collections, self-hosting on your own server, white-label branding, chit & lending in one app, photo proof, GPS staff tracking. See why money lenders switch to Vasool.",
     back: "Back to Home",
@@ -154,7 +154,7 @@ const content = {
     ctaBtn2: "View Pricing",
   },
   ta: {
-    title: "Best Vasool App 2026 - Vasool vs Vasool Book Apps & Manual Diary | Vasool",
+    title: "Vasool vs Vasool Book Apps & Diary - Best Vasool App 2026",
     description:
       "Vasool Book அல்லது Vasool Diary alternative தேடுறீங்களா? 2026-ஓட best vasool app-ஐ compare பண்ணுங்க — voice to data collection, சொந்த server-ல self-hosting, white-label branding, chit & lending ஒரே app-ல, photo proof, GPS staff tracking. Money lenders ஏன் Vasool-க்கு மாறுறாங்கனு பாருங்க.",
     back: "Home-க்கு திரும்பு",

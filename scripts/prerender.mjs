@@ -5,10 +5,13 @@
 //   2. Renders each route with the server bundle (entry-server.tsx).
 //   3. Injects the rendered markup into #root and swaps the head block
 //      between the per-route-seo markers with the page's helmet tags.
-//   4. Writes dist/<route>/index.html (the homepage overwrites dist/index.html).
+//   4. Writes dist/<route>.html (the homepage overwrites dist/index.html)
+//      plus dist/404.html for unknown URLs.
 //
-// Netlify serves these static files directly; the /* -> /index.html redirect
-// only catches routes without a prerendered file (e.g. unknown URLs -> 404 page).
+// Flat .html files (dist/ta.html, not dist/ta/index.html) matter: Netlify
+// serves /ta from ta.html with a 200, but a ta/index.html would 301 /ta to
+// /ta/ — which breaks every canonical, hreflang, and sitemap URL on the site.
+// Unknown URLs get dist/404.html with a real 404 status (no SPA fallback).
 
 import fs from "node:fs";
 import path from "node:path";
@@ -84,11 +87,40 @@ for (const route of routes) {
   const outFile =
     route === "/"
       ? templatePath
-      : path.join(dist, route.replace(/^\//, ""), "index.html");
+      : path.join(dist, `${route.replace(/^\//, "")}.html`);
 
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, page);
   console.log(`prerendered ${route} (${lang}) -> ${path.relative(root, outFile)}`);
 }
 
-console.log(`\nPrerendered ${routes.length} routes.`);
+// Netlify serves dist/404.html with a 404 status for any URL that matches no
+// file. Rendered through the router's catch-all so it shows the NotFound page
+// (skips the length check above — a 404 page is legitimately small).
+{
+  const { html, helmet } = await render("/404-not-found", "en");
+  const headTags = [helmet.title, helmet.meta, helmet.link]
+    .map((part) => part.toString())
+    .filter(Boolean)
+    .join("\n    ");
+  const page = template
+    .replace(
+      new RegExp(`${MARK_START}[\\s\\S]*?${MARK_END}`),
+      `${MARK_START}\n    ${headTags}\n    ${MARK_END}`
+    )
+    .replace(ROOT_DIV, `<div id="root">${html}</div>`);
+  fs.writeFileSync(path.join(dist, "404.html"), page);
+  console.log("prerendered 404 page -> dist/404.html");
+}
+
+// The previous deploy layout (route/index.html) taught crawlers trailing-slash
+// URLs. Redirect each /route/ back to the canonical slashless /route so those
+// indexed URLs consolidate instead of 404ing.
+const redirects = routes
+  .filter((route) => route !== "/")
+  .map((route) => `${route}/ ${route} 301`)
+  .join("\n");
+fs.writeFileSync(path.join(dist, "_redirects"), `${redirects}\n`);
+console.log("wrote trailing-slash redirects -> dist/_redirects");
+
+console.log(`\nPrerendered ${routes.length} routes + 404.`);

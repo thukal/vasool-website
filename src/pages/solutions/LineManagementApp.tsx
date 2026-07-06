@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Line Management App - Finance Line App for Daily, Weekly & Monthly Lines | Vasool",
+      "Line Management App for Finance Lines | Vasool",
     description:
       "Vasool is a line management app for finance lines — run daily, weekly & monthly lines with line-wise day books, agents per line, line transfers, and line P&L. The finance line app for line vasool businesses. Free demo.",
     keywords:

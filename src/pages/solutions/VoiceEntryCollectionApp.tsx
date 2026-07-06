@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Voice Entry Collection App - Speak & Record Collections | Vasool",
+      "Voice Entry Collection App - Speak & Record | Vasool",
     description:
       'Vasool is the voice entry collection app for money lenders: say "Arun 500 cash" and the payment is recorded. Voice to data in Tamil, Telugu, Hindi, Malayalam, Kannada & English. Hands-free collection entry, works offline.',
     keywords:

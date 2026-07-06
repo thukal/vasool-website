@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Byaj Wasooli App (ब्याज वसूली ऐप) - Udhar Khata & Loan Collection in Hindi | Vasool",
+      "Byaj Wasooli App - Udhar Khata & Loan Collection | Vasool",
     description:
       "Vasool is the byaj wasooli app for Hindi finance businesses — daily byaj collection, udhar khata, lena dena tracking, Hindi voice entry, automatic interest calculation, and full Hindi interface. Works offline. Free demo in Hindi.",
     keywords:

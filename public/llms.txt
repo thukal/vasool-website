@@ -1,0 +1,41 @@
+# Vasool
+
+> Vasool is a voice-entry loan collection app for money lenders and microfinance businesses in India. It records daily, weekly and monthly collections by voice in 6 languages, attaches photo proof, manages gold and property loans and EMI schedules, tracks field staff with live GPS, and works fully offline. Free on Android and iOS.
+
+Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending market: daily finance, weekly finance, monthly finance, kandhu vatti, thandal, byaj wasooli and ugrani style collections. The website is available in English and Tamil (/ta pages).
+
+## Product
+
+- [Home](https://vasool.app/): Overview of the voice entry loan collection app
+- [Features](https://vasool.app/features): Full feature list — voice entry, photo proof, offline mode, analytics
+- [Loan Types](https://vasool.app/loan-types): Daily, weekly, monthly, gold loan, property loan and EMI support
+- [Staff Tools](https://vasool.app/staff-tools): Live GPS tracking, route planning and staff management
+- [Pricing](https://vasool.app/pricing): Plans and pricing
+- [Compare](https://vasool.app/compare): How Vasool compares to other collection apps
+
+## Solutions
+
+- [Loan Collection App](https://vasool.app/loan-collection-app): Loan collection for money lenders
+- [Daily Collection App](https://vasool.app/daily-collection-app): Daily finance collection
+- [Voice Entry Collection App](https://vasool.app/voice-entry-collection-app): Record collections by speaking
+- [Weekly Collection App](https://vasool.app/weekly-collection-app): Weekly finance collection
+- [Monthly Finance App](https://vasool.app/monthly-finance-app): Monthly finance and EMI collection
+- [Line Management App](https://vasool.app/line-management-app): Line-wise collection management
+- [Kandhu Vatti App](https://vasool.app/kandhu-vatti-app): Kandhu vatti lending management
+- [Byaj Wasooli App](https://vasool.app/byaj-wasooli-app): Byaj wasooli interest collection
+- [Ugrani App](https://vasool.app/ugrani-app): Ugrani collection management
+- [Self-Hosted Loan Software](https://vasool.app/self-hosted-loan-software): Run Vasool on your own infrastructure
+- [White-Label Loan App](https://vasool.app/white-label-loan-app): Vasool under your own brand
+- [Chit Fund & Lending App](https://vasool.app/chit-fund-and-lending-app): Chit fund and lending management
+
+## Company
+
+- [About](https://vasool.app/about): About Vasool and Thukal
+- [Security](https://vasool.app/security): Data protection and security practices
+- [Privacy Policy](https://vasool.app/privacy): Privacy policy
+- [Terms of Service](https://vasool.app/terms): Terms of service
+
+## Optional
+
+- [Tamil Home](https://vasool.app/ta): Tamil version of the homepage
+- [Tamil Features](https://vasool.app/ta/features): Tamil version of the features page

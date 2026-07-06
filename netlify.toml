@@ -11,7 +11,7 @@
   VITE_CONTACT_PHONE_DISPLAY = "+91 86829 27187"
   VITE_CONTACT_EMAIL = "hello@thukal.in"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA fallback rewrite: every public route is prerendered to a static
+# .html file (see scripts/prerender.mjs), and unknown URLs are served
+# dist/404.html with a real 404 status. A /* -> /index.html rewrite would
+# turn every bad URL into a 200 "soft 404" duplicate page.

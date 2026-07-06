@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Chit Fund & Lending App - Run Chits and Loans in One App | Vasool",
+      "Chit Fund & Lending App - Chits & Loans in One App | Vasool",
     description:
       "Vasool runs your chit funds and lending business in a single app — daily, weekly, monthly, EMI and gold loans alongside chit operations. One dashboard, one staff team, one platform. Free demo.",
     keywords:

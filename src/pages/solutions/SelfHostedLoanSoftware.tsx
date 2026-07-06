@@ -14,7 +14,7 @@ import KeywordLanding, {
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Self-Hosted Loan Management Software - Run Vasool on Your Own Server | Vasool",
+      "Self-Hosted Loan Management Software - Your Server | Vasool",
     description:
       "Vasool is self-hosted loan management software you can run on your own server — even a Raspberry Pi in your office. Own your borrower data, work offline, no shared cloud. On-premise vasool app for money lenders. Free demo.",
     keywords:

@@ -115,7 +115,7 @@ const Security = () => {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Security - Enterprise-Grade Data Protection for Microfinance"
+        title="Security - Microfinance Data Protection | Vasool"
         description="Vasool provides enterprise-grade security for microfinance: JWT authentication, end-to-end encryption, biometric login, role-based access control, tenant data isolation, audit logging, and bot protection."
         keywords="microfinance security, loan data security, tenant data isolation, microfinance encryption, financial data protection, secure lending software, RBAC microfinance, audit logging finance"
         canonical="/security"

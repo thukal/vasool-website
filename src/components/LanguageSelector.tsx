@@ -8,15 +8,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Globe } from "lucide-react";
+import { BILINGUAL_PATHS, basePathOf, tamilPathOf } from "@/lib/langRoutes";
 
 const languages = [
   { code: "en", name: "English", nativeName: "English" },
   { code: "ta", name: "Tamil", nativeName: "தமிழ்" },
 ];
-
-// The homepage has distinct URLs per language (/ and /ta). Elsewhere we only
-// switch the in-app language without changing the URL.
-const HOME_PATHS = ["/", "/ta"];
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
@@ -27,8 +24,11 @@ const LanguageSelector = () => {
     i18n.changeLanguage(value);
     localStorage.setItem("language", value);
 
-    if (HOME_PATHS.includes(location.pathname)) {
-      navigate(value === "ta" ? "/ta" : "/");
+    // Pages with distinct per-language URLs (/x and /ta/x) navigate to the
+    // matching variant; elsewhere only the in-app language changes.
+    const basePath = basePathOf(location.pathname);
+    if (BILINGUAL_PATHS.includes(basePath)) {
+      navigate(value === "ta" ? tamilPathOf(basePath) : basePath);
     }
   };
 
