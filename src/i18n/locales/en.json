@@ -12,7 +12,7 @@
     "title1": "Voice Entry",
     "title2": "Loan Collection",
     "title3": "App",
-    "description": "Vasool is a daily, weekly and monthly loan collection app for money lenders and micro finance businesses. Record collections by voice in 6 languages, attach photo proof, manage gold loans and EMI, track staff with live GPS — even fully offline.",
+    "description": "Vasool is a voice-entry loan collection and lending platform for money lenders, finance companies and NBFCs. Record collections by voice in 6 languages, run EMI, gold, interest-only and chit-fund products, score credit risk with AI, and track staff with live GPS — even fully offline.",
     "stat1Value": "100+",
     "stat1Label": "Features",
     "stat2Value": "Real-time",
@@ -88,8 +88,8 @@
     "staffFinancials": {
       "title": "Staff Financials",
       "items": [
-        "Expense Tracking",
-        "Expense Approval Workflow",
+        "Income & Expense Ledger",
+        "Day Book & Cash Settlement",
         "Cash Advance Management",
         "Cash Advance Verification",
         "Cash Balance Summary"
@@ -153,8 +153,7 @@
       "title": "API & Integration",
       "items": [
         "REST API (100+ endpoints)",
-        "gRPC API",
-        "gRPC-Web",
+        "Generated TypeScript Types",
         "Swagger Documentation",
         "Offline Sync Support"
       ]
@@ -242,9 +241,9 @@
         "title": "Multi-Tenancy",
         "desc": "Isolated tenant environments with custom branding, feature toggles, storage limits, and automated provisioning."
       },
-      "api": {
-        "title": "API & Integration",
-        "desc": "REST, gRPC, and gRPC-Web APIs with Swagger docs and offline sync support for mobile clients."
+      "automation": {
+        "title": "Automation & AI",
+        "desc": "Vasool AI turns one voice recording into an app action, scores credit risk, and sends WhatsApp reminders — less typing, less chasing."
       }
     },
     "staff": {
@@ -255,7 +254,7 @@
       "exploreBtn": "Explore Staff Tools",
       "bullet1": "Dedicated mobile app for field agents",
       "bullet2": "Live GPS location tracking",
-      "bullet3": "Expense tracking & approval workflows",
+      "bullet3": "Income & expense ledger with a day book",
       "bullet4": "Offline support for rural areas",
       "bullet5": "Role-based access control",
       "cards": {
@@ -269,7 +268,7 @@
         },
         "expense": {
           "title": "Expense Management",
-          "desc": "Log expenses with receipt photos. Admin approval workflow for reimbursements."
+          "desc": "Log income and expenses with receipt photos. A day-book ledger admins can edit and backdate."
         },
         "rbac": {
           "title": "Access Control",
@@ -314,7 +313,7 @@
       },
       {
         "question": "Can Vasool manage my collection staff?",
-        "answer": "Yes. Vasool is a loan collection app with full staff management: live GPS tracking of field agents, route planning and navigation, custom role-based permissions, performance reports, cash advances, expense approvals, and a day book per route."
+        "answer": "Yes. Vasool is a loan collection app with full staff management: live GPS tracking of field agents, route planning and navigation, custom role-based permissions, staff attendance, performance reports, cash advances, an income & expense ledger, and a day book per route."
       },
       {
         "question": "Does Vasool generate PDF receipts and reports?",
@@ -358,7 +357,7 @@
   "seo": {
     "home": {
       "title": "Vasool App - Voice Entry Loan Collection for Money Lenders",
-      "description": "Vasool App is a voice entry loan collection app for money lenders & micro finance. Speak to record daily, weekly & monthly collections, attach photo proof, manage gold loans, EMI, GPS staff tracking & analytics — works offline. Free on Android & iOS."
+      "description": "Vasool App is a voice entry loan collection & lending platform for money lenders, finance companies & NBFCs. Speak to record daily, weekly & monthly collections, manage gold, EMI, interest-only & chit-fund products, score credit with AI, and track staff with live GPS — works offline. Free on Android & iOS."
     }
   }
 }

@@ -128,6 +128,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vasool.app/nbfc-loan-management</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vasool.app/loan-collection-app</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>

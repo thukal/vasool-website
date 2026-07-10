@@ -4,7 +4,7 @@ import {
   BarChart3,
   Lock,
   Building2,
-  Code2,
+  Sparkles,
   ArrowRight,
   type LucideIcon,
 } from "lucide-react";
@@ -51,9 +51,9 @@ const features: FeatureItem[] = [
     iconBg: "bg-cyan-500/10 text-cyan-500",
   },
   {
-    icon: Code2,
-    titleKey: "home.features.api.title",
-    descKey: "home.features.api.desc",
+    icon: Sparkles,
+    titleKey: "home.features.automation.title",
+    descKey: "home.features.automation.desc",
     iconBg: "bg-violet-500/10 text-violet-500",
   },
 ];

@@ -170,6 +170,7 @@ const Footer = () => {
               { label: "Self-Hosted Loan Software", href: "/self-hosted-loan-software" },
               { label: "White-Label Loan App", href: "/white-label-loan-app" },
               { label: "Chit Fund & Lending App", href: "/chit-fund-and-lending-app" },
+              { label: "NBFC Loan Management", href: "/nbfc-loan-management" },
             ].map((s) => (
               <a
                 key={s.href}

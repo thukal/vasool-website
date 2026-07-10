@@ -13,6 +13,10 @@ import {
   Building2,
   Code2,
   Settings,
+  Layers,
+  Landmark,
+  Sparkles,
+  Smartphone,
   ArrowRight,
   CheckCircle2,
   type LucideIcon,
@@ -44,7 +48,11 @@ const categoriesEn: FeatureCategory[] = [
       "Complete lifecycle management for all loan types — from origination and disbursement to repayment tracking and closure.",
     features: [
       { name: "Daily Loans", desc: "Create, track, and collect daily repayment microfinance loans" },
-      { name: "Weekly Loans", desc: "Weekly collection cycle loans with flexible terms" },
+      { name: "Weekly Loans", desc: "Weekly collection cycle loans, with optional custom per-week stepped amounts" },
+      { name: "Monthly & Semi-Monthly Loans", desc: "Monthly and twice-monthly collection cycles for salaried and business borrowers" },
+      { name: "EMI Loans", desc: "Equated installments with 15-day/30-day variants, foreclosure and tenure controls" },
+      { name: "Interest-Only Loans", desc: "Kandhu vatti / byaj — simple, compound, or daily interest, with optional weekly cadence" },
+      { name: "Gold Loans", desc: "Gold-backed loans with live per-gram rate, valuation, and redemption tracking" },
       { name: "Product-Based Loans", desc: "Loans tied to physical products with photos, pricing, down payments, and category management" },
       { name: "Loan Renewal", desc: "Seamlessly renew completed or active loans" },
       { name: "Repayment Schedules", desc: "Auto-generated repayment plans for each loan" },
@@ -145,6 +153,65 @@ const categoriesEn: FeatureCategory[] = [
     ],
   },
   {
+    key: "chitSavings",
+    icon: Layers,
+    color: "from-fuchsia-500 to-purple-500",
+    title: "Chit Funds & Savings Schemes",
+    description:
+      "Run chit funds and shop savings schemes alongside your loan book — the same customers, staff, and cash, in one platform.",
+    features: [
+      { name: "Agent Chit (Chit Funds)", desc: "Chit groups, members, cycles, and collections in one module" },
+      { name: "Foreman Commission", desc: "Flat per-member or percentage-of-contribution, with per-collection late fees" },
+      { name: "Savings Chit Schemes", desc: "Festival and deposit schemes (e.g. Diwali) with daily/weekly/monthly deposits" },
+      { name: "Maturity Payout", desc: "Auto-computed or fixed maturity in cash or goods, with redemption tracking" },
+      { name: "Chit Reminders", desc: "Per-collection WhatsApp reminders to chit members" },
+    ],
+  },
+  {
+    key: "funding",
+    icon: Landmark,
+    color: "from-emerald-500 to-green-600",
+    title: "Funding & Investors",
+    description:
+      "Track the money behind the money — partner capital and borrowed funds — so you see what the business owes alongside what it lends.",
+    features: [
+      { name: "Investor / Partner Capital", desc: "Track partner capital contributions and profit-share" },
+      { name: "Financier Borrowings", desc: "Record owner borrowings with fixed monthly interest owed" },
+      { name: "Interest & Principal Repayments", desc: "Log interest payments and principal returns per financier" },
+      { name: "Owner Liability View", desc: "See funding liabilities alongside the lending portfolio" },
+    ],
+  },
+  {
+    key: "automation",
+    icon: Sparkles,
+    color: "from-amber-500 to-orange-500",
+    title: "Automation & AI",
+    description:
+      "Vasool AI turns one voice recording into an app action, scores credit risk, and sends reminders — so the field team does less typing and chasing.",
+    features: [
+      { name: "Vasool AI Voice Assistant", desc: "One recording becomes an app action — create loans, log collections, add customers" },
+      { name: "Voice Collection Entry", desc: "Say “Arun 500 cash” to record a payment against the right customer, in 6 languages" },
+      { name: "Call Customer by Name", desc: "Speak a customer’s name to dial their stored number in one tap" },
+      { name: "AI Loan Eligibility", desc: "Advisory risk score, approve/review/reject, and a suggested limit from loan history" },
+      { name: "WhatsApp Reminders", desc: "Server-side sends via your own Meta / Interakt / Gupshup / WATI / AiSensy account" },
+      { name: "Automated Due Reminders", desc: "Overdue and upcoming-due alerts with per-loan de-duplication" },
+    ],
+  },
+  {
+    key: "portal",
+    icon: Smartphone,
+    color: "from-sky-500 to-blue-500",
+    title: "Customer Self-Service Portal",
+    description:
+      "Give borrowers a portal of their own — balances, dues, and receipts — so they self-serve instead of calling the office.",
+    features: [
+      { name: "Borrower Login", desc: "Customers log in to a dedicated self-service portal" },
+      { name: "Balances, Dues & History", desc: "See outstanding, due dates, and full payment history" },
+      { name: "Downloadable PDF Receipts", desc: "A receipt for every payment, on demand" },
+      { name: "Live Customer Location", desc: "Optional live GPS while the borrower is logged in" },
+    ],
+  },
+  {
     key: "security",
     icon: Lock,
     color: "from-red-500 to-orange-500",
@@ -185,12 +252,11 @@ const categoriesEn: FeatureCategory[] = [
     color: "from-purple-500 to-violet-500",
     title: "API & Integration",
     description:
-      "REST, gRPC, and gRPC-Web APIs with interactive documentation and offline sync support.",
+      "A REST API with generated type-safe clients, interactive documentation, and offline sync support.",
     features: [
       { name: "REST API", desc: "Full-featured HTTP/JSON API with 100+ endpoints" },
-      { name: "gRPC API", desc: "High-performance binary protocol for native mobile apps" },
-      { name: "gRPC-Web", desc: "Browser and React Native compatible gRPC" },
-      { name: "Swagger Documentation", desc: "Interactive API documentation" },
+      { name: "Generated TypeScript Types", desc: "Type-safe clients generated from the API spec, shared by app and web" },
+      { name: "Swagger / OpenAPI Docs", desc: "Interactive, always-current API documentation" },
       { name: "Offline Sync Support", desc: "Feature flag for offline-capable mobile clients" },
     ],
   },
@@ -221,7 +287,11 @@ const categoriesTa: FeatureCategory[] = [
       "எல்லா loan type-க்கும் முழு lifecycle management — origination, disbursement முதல் repayment tracking மற்றும் closure வரை.",
     features: [
       { name: "Daily Loans", desc: "தினசரி repayment microfinance loan-ஐ create, track மற்றும் collect பண்ணுங்க" },
-      { name: "Weekly Loans", desc: "Flexible term உள்ள weekly collection cycle loans" },
+      { name: "Weekly Loans", desc: "Weekly collection cycle loans — optional custom per-week stepped amount-உடன்" },
+      { name: "Monthly & Semi-Monthly Loans", desc: "Salary வாங்கறவங்க மற்றும் business-க்கு monthly மற்றும் twice-monthly collection cycle" },
+      { name: "EMI Loans", desc: "15-day/30-day variant, foreclosure மற்றும் tenure control உள்ள equated installment" },
+      { name: "Interest-Only Loans", desc: "கந்து வட்டி / byaj — simple, compound அல்லது daily interest, optional weekly cadence-உடன்" },
+      { name: "Gold Loans", desc: "Live per-gram rate, valuation மற்றும் redemption tracking உள்ள gold-backed loans" },
       { name: "Product-Based Loans", desc: "Photo, pricing, down payment மற்றும் category management உள்ள physical product loans" },
       { name: "Loan Renewal", desc: "முடிஞ்ச அல்லது active loan-ஐ easy-ஆ renew பண்ணுங்க" },
       { name: "Repayment Schedules", desc: "ஒவ்வொரு loan-க்கும் auto-generate ஆகற repayment plan" },
@@ -322,6 +392,65 @@ const categoriesTa: FeatureCategory[] = [
     ],
   },
   {
+    key: "chitSavings",
+    icon: Layers,
+    color: "from-fuchsia-500 to-purple-500",
+    title: "Chit Funds & Savings Schemes",
+    description:
+      "உங்க loan book-உடன் சேர்த்து chit fund மற்றும் shop savings scheme-ஐ நடத்துங்க — அதே customer, staff மற்றும் cash, ஒரே platform-ல.",
+    features: [
+      { name: "Agent Chit (Chit Funds)", desc: "Chit group, member, cycle மற்றும் collection எல்லாம் ஒரே module-ல" },
+      { name: "Foreman Commission", desc: "Flat per-member அல்லது percentage-of-contribution, per-collection late fee-உடன்" },
+      { name: "Savings Chit Schemes", desc: "Festival மற்றும் deposit scheme (உ.ம். Diwali) — daily/weekly/monthly deposit-உடன்" },
+      { name: "Maturity Payout", desc: "Auto-compute அல்லது fixed maturity — cash அல்லது goods-ல, redemption tracking-உடன்" },
+      { name: "Chit Reminders", desc: "Chit member-களுக்கு per-collection WhatsApp reminder" },
+    ],
+  },
+  {
+    key: "funding",
+    icon: Landmark,
+    color: "from-emerald-500 to-green-600",
+    title: "Funding & Investors",
+    description:
+      "பணத்துக்கு பின்னால இருக்கற பணத்தை track பண்ணுங்க — partner capital மற்றும் borrow பண்ணின fund — நீங்க lend பண்ணறதோட சேர்த்து business என்ன கடன்பட்டிருக்குனு பாருங்க.",
+    features: [
+      { name: "Investor / Partner Capital", desc: "Partner capital contribution மற்றும் profit-share-ஐ track பண்ணுங்க" },
+      { name: "Financier Borrowings", desc: "Fixed monthly interest உள்ள owner borrowing-ஐ record பண்ணுங்க" },
+      { name: "Interest & Principal Repayments", desc: "ஒவ்வொரு financier-க்கும் interest payment மற்றும் principal return-ஐ log பண்ணுங்க" },
+      { name: "Owner Liability View", desc: "Lending portfolio-உடன் சேர்த்து funding liability-ஐ பாருங்க" },
+    ],
+  },
+  {
+    key: "automation",
+    icon: Sparkles,
+    color: "from-amber-500 to-orange-500",
+    title: "Automation & AI",
+    description:
+      "Vasool AI ஒரே voice recording-ஐ app action-ஆ மாத்தும், credit risk score பண்ணும், reminder அனுப்பும் — field team-க்கு typing-உம் chasing-உம் குறையும்.",
+    features: [
+      { name: "Vasool AI Voice Assistant", desc: "ஒரே recording app action ஆகும் — loan create, collection log, customer add" },
+      { name: "Voice Collection Entry", desc: "“Arun 500 cash”-னு சொன்னா சரியான customer-க்கு எதிரா record ஆகும், 6 language-ல" },
+      { name: "Call Customer by Name", desc: "Customer பேரை சொன்னா அவங்க number-ஐ one tap-ல dial பண்ணும்" },
+      { name: "AI Loan Eligibility", desc: "Loan history-லிருந்து advisory risk score, approve/review/reject மற்றும் suggested limit" },
+      { name: "WhatsApp Reminders", desc: "உங்க சொந்த Meta / Interakt / Gupshup / WATI / AiSensy account மூலமா server-side send" },
+      { name: "Automated Due Reminders", desc: "Per-loan de-duplication-உடன் overdue மற்றும் upcoming-due alert" },
+    ],
+  },
+  {
+    key: "portal",
+    icon: Smartphone,
+    color: "from-sky-500 to-blue-500",
+    title: "Customer Self-Service Portal",
+    description:
+      "Borrower-களுக்கு அவங்களோட சொந்த portal கொடுங்க — balance, due மற்றும் receipt — office-க்கு call பண்ணாம அவங்களே self-serve பண்ணுவாங்க.",
+    features: [
+      { name: "Borrower Login", desc: "Customer-கள் dedicated self-service portal-ல login பண்ணுவாங்க" },
+      { name: "Balances, Dues & History", desc: "Outstanding, due date மற்றும் முழு payment history-ஐ பாருங்க" },
+      { name: "Downloadable PDF Receipts", desc: "ஒவ்வொரு payment-க்கும் receipt, தேவைப்படும்போது" },
+      { name: "Live Customer Location", desc: "Borrower login ஆகி இருக்கும்போது optional live GPS" },
+    ],
+  },
+  {
     key: "security",
     icon: Lock,
     color: "from-red-500 to-orange-500",
@@ -362,12 +491,11 @@ const categoriesTa: FeatureCategory[] = [
     color: "from-purple-500 to-violet-500",
     title: "API & Integration",
     description:
-      "Interactive documentation மற்றும் offline sync support-உடன் REST, gRPC மற்றும் gRPC-Web APIs.",
+      "Generate ஆகற type-safe client, interactive documentation மற்றும் offline sync support உள்ள REST API.",
     features: [
       { name: "REST API", desc: "100+ endpoint உள்ள full-featured HTTP/JSON API" },
-      { name: "gRPC API", desc: "Native mobile app-க்கான high-performance binary protocol" },
-      { name: "gRPC-Web", desc: "Browser மற்றும் React Native compatible gRPC" },
-      { name: "Swagger Documentation", desc: "Interactive API documentation" },
+      { name: "Generated TypeScript Types", desc: "API spec-லிருந்து generate ஆகற type-safe client — app மற்றும் web பகிர்ந்து பயன்படுத்தும்" },
+      { name: "Swagger / OpenAPI Docs", desc: "Interactive, எப்பவும் up-to-date API documentation" },
       { name: "Offline Sync Support", desc: "Offline-capable mobile client-க்கான feature flag" },
     ],
   },
@@ -389,9 +517,9 @@ const categoriesTa: FeatureCategory[] = [
 
 const copy = {
   en: {
-    title: "90+ Features - Microfinance Loan Platform",
+    title: "Features - Microfinance & NBFC Loan Platform",
     description:
-      "Explore 90+ features across 11 modules in Vasool's microfinance platform. Core loan management, collection tracking, route planning, customer management, reporting, security, multi-tenancy, and API integration.",
+      "Explore every module in Vasool's lending platform: daily/weekly/monthly, EMI, interest-only and gold loans, chit funds and savings schemes, collection and routes, funding & investors, automation & AI, a customer portal, reporting, security and multi-tenancy.",
     back: "Back to Home",
     h1a: "Platform",
     h1b: "Features",
@@ -408,9 +536,9 @@ const copy = {
     ctaBtn: "Book a Demo",
   },
   ta: {
-    title: "90+ Features - Microfinance Loan Platform | Vasool",
+    title: "Features - Microfinance & NBFC Loan Platform | Vasool",
     description:
-      "Vasool microfinance platform-ல 11 module-ல 90+ feature. Core loan management, collection tracking, route planning, customer management, reporting, security, multi-tenancy மற்றும் API integration — எல்லாமே ஒரே platform-ல.",
+      "Vasool lending platform-ல எல்லா module-ஐயும் பாருங்க: daily/weekly/monthly, EMI, interest-only மற்றும் gold loan, chit fund மற்றும் savings scheme, collection மற்றும் route, funding & investors, automation & AI, customer portal, reporting, security மற்றும் multi-tenancy.",
     back: "Home-க்கு திரும்பு",
     h1a: "Platform",
     h1b: "Features",
@@ -440,7 +568,7 @@ const Features = () => {
       <SEO
         title={c.title}
         description={c.description}
-        keywords="microfinance software features, loan management features, collection tracking software, route planning microfinance, customer management lending, microfinance reporting, multi-tenant loan software, lending API, microfinance analytics"
+        keywords="microfinance software features, loan management features, NBFC loan management software, chit fund software, savings scheme software, EMI loan management, interest-only loan software, gold loan software, WhatsApp collection reminders, AI loan eligibility, investor management microfinance, customer self-service portal, collection tracking software, route planning microfinance, multi-tenant loan software"
         canonical={canonical}
         ogLocale={ogLocale}
         alternates={alternates}
