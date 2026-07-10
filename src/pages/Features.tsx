@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
@@ -565,6 +566,7 @@ const Features = () => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={c.title}
         description={c.description}
@@ -582,7 +584,7 @@ const Features = () => {
         }}
       />
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to={isTamil ? "/ta" : "/"}
@@ -591,7 +593,7 @@ const Features = () => {
             <ArrowLeft className="w-4 h-4" />
             {c.back}
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             {c.h1a} <span className="text-gradient">{c.h1b}</span>
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -627,9 +629,9 @@ const Features = () => {
             <section key={category.key} id={category.key}>
               <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <div
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${category.color} p-2 sm:p-2.5 flex-shrink-0`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 p-2 sm:p-2.5 flex-shrink-0`}
                 >
-                  <category.icon className="w-full h-full text-white" />
+                  <category.icon className="w-full h-full text-secondary" />
                 </div>
                 <div>
                   <h2 className="text-xl sm:text-2xl font-bold text-foreground">

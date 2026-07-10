@@ -1,0 +1,15 @@
+/* TEAM */
+  Built by: Thukal
+  Contact: hello@thukal.in
+  Location: India
+
+/* PRODUCT */
+  Name: Vasool
+  Purpose: Voice-entry loan collection & lending platform for money lenders,
+           finance companies and NBFCs in India.
+  Site: https://vasool.app
+
+/* TECHNOLOGY */
+  Vite, React, TypeScript, Tailwind CSS
+  Prerendered static HTML, hosted on Netlify
+  Languages: English, Tamil

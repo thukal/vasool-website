@@ -6,7 +6,11 @@ const WhatsAppFloat = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat with us on WhatsApp"
-    className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
+    style={{
+      bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)",
+      right: "calc(env(safe-area-inset-right, 0px) + 1.25rem)",
+    }}
+    className="fixed z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
   >
     <svg
       viewBox="0 0 24 24"

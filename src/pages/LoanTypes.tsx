@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
@@ -411,6 +412,7 @@ const LoanTypes = () => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={c.title}
         description={c.description}
@@ -428,7 +430,7 @@ const LoanTypes = () => {
         }}
       />
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to={isTamil ? "/ta" : "/"}
@@ -437,7 +439,7 @@ const LoanTypes = () => {
             <ArrowLeft className="w-4 h-4" />
             {c.back}
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             {c.h1a} <span className="text-gradient">{c.h1b}</span>
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -455,9 +457,9 @@ const LoanTypes = () => {
                 <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${loan.color} p-2.5 sm:p-3`}
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-secondary/10 p-2.5 sm:p-3`}
                     >
-                      <loan.icon className="w-full h-full text-white" />
+                      <loan.icon className="w-full h-full text-secondary" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                       {loan.title}
@@ -512,8 +514,8 @@ const LoanTypes = () => {
                 key={feature.title}
                 className="group bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-all duration-500 border border-border/50 hover:border-secondary/30 hover:-translate-y-1"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
                   {feature.title}

@@ -2,47 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* Fonts are loaded via a <link> in index.html (see the Google Fonts tag there)
+   so they don't violate CSS @import ordering. */
 
 @layer base {
   :root {
-    --background: 150 10% 97%;
-    --foreground: 170 35% 10%;
+    /* Daylight — warm paper, deep-forest ink, emerald + muted gold. */
+    --background: 44 24% 95%;
+    --foreground: 156 34% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 170 35% 10%;
+    --card: 42 40% 99%;
+    --card-foreground: 156 34% 11%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 170 35% 10%;
+    --popover: 42 40% 99%;
+    --popover-foreground: 156 34% 11%;
 
-    --primary: 168 50% 12%;
-    --primary-foreground: 150 30% 95%;
+    --primary: 158 52% 13%;
+    --primary-foreground: 44 30% 96%;
 
-    --secondary: 158 70% 38%;
+    --secondary: 159 79% 27%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 150 10% 91%;
-    --muted-foreground: 170 8% 42%;
+    --muted: 44 18% 91%;
+    --muted-foreground: 155 12% 37%;
 
-    --accent: 38 90% 52%;
-    --accent-foreground: 170 35% 10%;
+    --accent: 37 62% 44%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 150 10% 88%;
-    --input: 150 10% 88%;
-    --ring: 168 50% 12%;
+    --border: 45 18% 86%;
+    --input: 45 18% 86%;
+    --ring: 159 79% 27%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(168 50% 7%) 0%, hsl(168 45% 14%) 50%, hsl(172 38% 18%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(150 10% 98%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(158 70% 38%) 0%, hsl(38 90% 52%) 100%);
-    --shadow-card: 0 1px 3px hsl(170 35% 10% / 0.04), 0 4px 20px -4px hsl(170 35% 10% / 0.06);
-    --shadow-card-hover: 0 4px 12px hsl(170 35% 10% / 0.06), 0 16px 40px -8px hsl(170 35% 10% / 0.12);
-    --shadow-glow: 0 0 60px hsl(158 70% 38% / 0.25);
+    --gradient-hero: linear-gradient(158deg, hsl(160 46% 8%) 0%, hsl(159 40% 12%) 55%, hsl(160 33% 16%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(42 40% 99%) 0%, hsl(44 26% 97%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(159 70% 30%) 0%, hsl(37 66% 47%) 100%);
+    --shadow-card: 0 1px 2px hsl(156 30% 12% / 0.05), 0 6px 20px -6px hsl(156 30% 12% / 0.08);
+    --shadow-card-hover: 0 4px 12px hsl(156 30% 12% / 0.07), 0 18px 44px -10px hsl(156 30% 12% / 0.14);
+    --shadow-glow: 0 0 60px hsl(159 70% 30% / 0.18);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -101,14 +103,44 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', 'Anek Tamil', system-ui, sans-serif;
+  }
+
+  /* Display face carries the identity. Latin renders in Hanken Grotesk;
+     Tamil glyphs fall back per-character to Anek Tamil. */
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Hanken Grotesk', 'Anek Tamil', system-ui, sans-serif;
+    letter-spacing: -0.018em;
+    font-weight: 700;
   }
 }
 
 @layer utilities {
+  /* Headline accent — a clean solid emerald reads premium on the light ground
+     (the emerald→gold gradient turned muddy/olive on large text). Gold stays
+     for small UI accents: nav underline, badges, the ledger progress bar. */
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-gold);
+    color: hsl(var(--secondary));
+  }
+
+  /* Aligned tabular figures for amounts and stats (clean sans, not mono). */
+  .font-mono-ui {
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'tnum' 1;
+    letter-spacing: -0.01em;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Uppercase micro-label used for eyebrows / section kickers. */
+  .eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   .bg-hero {
@@ -175,5 +207,29 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion: make everything effectively instant, and force the
+   entrance-animation elements (which start at opacity:0) to their visible
+   state so nothing stays hidden when animations are suppressed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4 {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

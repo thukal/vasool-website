@@ -1,6 +1,6 @@
 # Vasool
 
-> Vasool is a voice-entry loan collection app for money lenders and microfinance businesses in India. It records daily, weekly and monthly collections by voice in 6 languages, attaches photo proof, manages gold and property loans and EMI schedules, tracks field staff with live GPS, and works fully offline. Free on Android and iOS.
+> Vasool is a voice-entry loan collection and lending platform for money lenders, finance companies and NBFCs in India. It records daily, weekly and monthly collections by voice in 6 languages, runs EMI, gold, interest-only (kandhu vatti) and product-backed loans plus chit funds and savings schemes, scores credit risk with AI, tracks field staff with live GPS, and works fully offline.
 
 Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending market: daily finance, weekly finance, monthly finance, kandhu vatti, thandal, byaj wasooli and ugrani style collections. The website is available in English and Tamil (/ta pages).
 
@@ -40,3 +40,4 @@ Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending ma
 
 - [Tamil Home](https://vasool.app/ta): Tamil version of the homepage
 - [Tamil Features](https://vasool.app/ta/features): Tamil version of the features page
+- [Full overview](https://vasool.app/llms-full.txt): Extended machine-readable summary of Vasool's full product, loan types and modules

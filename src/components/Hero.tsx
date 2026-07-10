@@ -1,323 +1,164 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Menu,
-  X,
-  Banknote,
-  Users,
-  MapPin,
-  BarChart3,
-} from "lucide-react";
+import { ArrowRight, Mic } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "./LanguageSelector";
-import PretextReveal from "./pretext/PretextReveal";
-import BalancedText from "./pretext/BalancedText";
-import { CONTACT_PHONE_HREF } from "@/lib/contact";
 import { useLocation } from "react-router-dom";
+import { CONTACT_PHONE_HREF } from "@/lib/contact";
 import { localizedPath } from "@/lib/langRoutes";
+
+// Illustrative collection feed — the product's core act (a spoken entry
+// becoming a ledger row).
+const LEDGER = [
+  { name: "Arun K.", amount: "500", method: "Cash", voice: true },
+  { name: "Selvi R.", amount: "200", method: "GPay", voice: false },
+  { name: "Meena", amount: "150", method: "Cash", voice: false },
+  { name: "Karthik", amount: "300", method: "GPay", voice: false },
+];
 
 const Hero = () => {
   const { pathname } = useLocation();
-  // On /ta the nav must link to the Tamil page variants, not the English ones.
   const to = (target: string) => localizedPath(target, pathname);
   const { t } = useTranslation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const fullTitle = `${t("hero.title1")} ${t("hero.title2")} ${t("hero.title3")}`;
 
   return (
-    <section className="relative min-h-screen bg-hero overflow-hidden">
-      {/* Animated orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.12)_0%,transparent_70%)] animate-float" />
-        <div
-          className="absolute top-1/3 -left-20 w-[400px] h-[400px] bg-[radial-gradient(circle,hsl(38_90%_52%/0.08)_0%,transparent_70%)] animate-float"
-          style={{ animationDelay: "3s" }}
-        />
-        <div
-          className="absolute -bottom-20 right-1/3 w-[350px] h-[350px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.08)_0%,transparent_70%)] animate-float"
-          style={{ animationDelay: "5s" }}
-        />
+    <section className="relative overflow-hidden bg-background">
+      {/* Warm, airy light ground: a soft emerald wash + faint grid, kept quiet. */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 right-[-8%] h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,hsl(159_70%_40%/0.10)_0%,transparent_70%)]" />
+        <div className="absolute -bottom-24 left-[-6%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,hsl(37_70%_50%/0.07)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(hsl(156_34%_11%/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(156_34%_11%/0.03)_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_78%)]" />
       </div>
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
-
       <div className="relative container mx-auto px-4 sm:px-6">
-        {/* Navigation */}
-        <nav className="py-4 sm:py-5">
-          <div className="flex items-center justify-between">
-            <a href={to("/")} className="flex items-center gap-2.5">
-              <img
-                src="/favicon.png"
-                alt="Vasool"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl"
-              />
-              <span className="text-xl font-bold text-white">Vasool</span>
-            </a>
+        <div className="grid items-center gap-12 pb-20 pt-24 sm:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28 lg:pt-32">
+          {/* Left — message */}
+          <div className="max-w-xl">
+            <span className="animate-fade-up eyebrow inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/[0.07] px-3.5 py-1.5 text-secondary">
+              <Mic className="h-3.5 w-3.5" />
+              {t("hero.badge")}
+            </span>
 
-            <button
-              className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
+            <h1 className="animate-fade-up-delay-1 mt-6 text-balance text-[2.6rem] font-extrabold leading-[1.05] text-foreground sm:text-6xl lg:text-[4.1rem] lg:leading-[1.03]">
+              {t("hero.title1")}{" "}
+              <span className="text-gradient">{t("hero.title2")}</span>{" "}
+              {t("hero.title3")}
+            </h1>
 
-            <div className="hidden md:flex items-center gap-7">
-              <a
-                href={to("/features")}
-                className="text-white/60 hover:text-white transition-colors text-sm"
-              >
-                {t("nav.features")}
-              </a>
-              <a
-                href={to("/loan-types")}
-                className="text-white/60 hover:text-white transition-colors text-sm"
-              >
-                {t("nav.loanTypes")}
-              </a>
-              <a
-                href={to("/staff-tools")}
-                className="text-white/60 hover:text-white transition-colors text-sm"
-              >
-                {t("nav.staffTools")}
-              </a>
-              <a
-                href={to("/pricing")}
-                className="text-white/60 hover:text-white transition-colors text-sm"
-              >
-                {t("nav.pricing")}
-              </a>
-              <a
-                href={to("/compare")}
-                className="text-white/60 hover:text-white transition-colors text-sm"
-              >
-                {t("nav.compare")}
-              </a>
-              <LanguageSelector />
-              <a href={CONTACT_PHONE_HREF}>
-                <Button variant="hero" size="sm">
+            <p className="animate-fade-up-delay-2 mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {t("hero.description")}
+            </p>
+
+            <div className="animate-fade-up-delay-3 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href={CONTACT_PHONE_HREF} className="w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto">
                   {t("nav.bookDemo")}
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </a>
-            </div>
-          </div>
-
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 glass rounded-2xl p-5 space-y-3">
-              <a
-                href={to("/features")}
-                className="block text-white/70 hover:text-white py-2 text-sm"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.features")}
-              </a>
-              <a
-                href={to("/loan-types")}
-                className="block text-white/70 hover:text-white py-2 text-sm"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.loanTypes")}
-              </a>
-              <a
-                href={to("/staff-tools")}
-                className="block text-white/70 hover:text-white py-2 text-sm"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.staffTools")}
-              </a>
-              <a
-                href={to("/pricing")}
-                className="block text-white/70 hover:text-white py-2 text-sm"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.pricing")}
-              </a>
-              <a
-                href={to("/compare")}
-                className="block text-white/70 hover:text-white py-2 text-sm"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t("nav.compare")}
-              </a>
-              <div className="py-2">
-                <LanguageSelector />
-              </div>
-              <a href={CONTACT_PHONE_HREF} className="block">
-                <Button variant="hero" size="sm" className="w-full">
-                  {t("nav.bookDemo")}
-                </Button>
-              </a>
-            </div>
-          )}
-        </nav>
-
-        {/* Hero content — two-column */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-12 sm:pt-16 lg:pt-20 pb-24 sm:pb-32">
-          {/* Left — text with Pretext-powered layout */}
-          <div>
-            <div className="animate-fade-up">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/10 text-emerald-300 text-xs font-medium mb-7">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                {t("hero.badge")}
-              </span>
-            </div>
-
-            {/* Pretext BalancedText: prevents orphan words in the heading */}
-            <div className="animate-fade-up-delay-1">
-              <BalancedText
-                as="h1"
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 text-white"
-                font='800 56px "Plus Jakarta Sans"'
-                lineHeight={62}
-              >
-                {fullTitle}
-              </BalancedText>
-            </div>
-
-            {/* Pretext PretextReveal: line-by-line reveal animation */}
-            <div className="animate-fade-up-delay-2">
-              <PretextReveal
-                as="p"
-                className="text-base sm:text-lg text-white/50 max-w-lg mb-8 leading-relaxed"
-                font='400 18px "Plus Jakarta Sans"'
-                lineHeight={28}
-                staggerMs={100}
-              >
-                {t("hero.description")}
-              </PretextReveal>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
-              <a href={CONTACT_PHONE_HREF}>
-                <Button variant="hero" size="lg">
-                  {t("nav.bookDemo")}
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </a>
-              <a href={to("/features")}>
-                <Button variant="heroOutline" size="lg">
+              <a href={to("/features")} className="w-full sm:w-auto">
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">
                   {t("nav.features")}
                 </Button>
               </a>
             </div>
+
+            <dl className="animate-fade-up-delay-4 mt-10 grid grid-cols-3 gap-4 border-t border-border pt-6 sm:max-w-md">
+              {[
+                { v: t("hero.stat1Value"), l: t("hero.stat1Label") },
+                { v: t("hero.stat2Value"), l: t("hero.stat2Label") },
+                { v: t("hero.stat3Value"), l: t("hero.stat3Label") },
+              ].map((s) => (
+                <div key={s.l}>
+                  <dt className="font-mono-ui text-2xl font-extrabold tracking-tight text-foreground sm:text-[1.7rem]">
+                    {s.v}
+                  </dt>
+                  <dd className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">
+                    {s.l}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* Right — feature preview card */}
-          <div className="hidden lg:block animate-fade-up-delay-4">
-            <div className="glass rounded-3xl p-8 relative">
-              {/* Glow behind card */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 via-transparent to-amber-500/10 rounded-3xl blur-xl -z-10" />
-
-              <div className="flex items-center gap-3 mb-7">
-                <img
-                  src="/favicon.png"
-                  alt="Vasool"
-                  className="w-10 h-10 rounded-xl"
-                />
+          {/* Right — the collection ledger (signature), light */}
+          <div className="animate-fade-up-delay-3 relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-secondary/10 via-transparent to-accent/10 blur-2xl" />
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card-hover">
+              {/* Panel head */}
+              <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-6">
                 <div>
-                  <div className="text-white font-semibold text-sm">
-                    Vasool Dashboard
+                  <div className="eyebrow text-muted-foreground">Today's collection</div>
+                  <div className="mt-1 font-mono-ui text-2xl font-extrabold text-foreground tnum">
+                    ₹42,850
                   </div>
-                  <div className="text-white/40 text-xs">
-                    Microfinance Management
+                </div>
+                <div className="text-right">
+                  <div className="font-mono-ui text-sm font-bold text-secondary tnum">
+                    68<span className="text-muted-foreground/50"> / 92</span>
+                  </div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                    stops done
                   </div>
                 </div>
               </div>
 
-              {/* Mini stats */}
-              <div className="grid grid-cols-3 gap-3 mb-6">
-                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-white mb-0.5">
-                    {t("hero.stat1Value")}
-                  </div>
-                  <div className="text-[11px] text-white/40">
-                    {t("hero.stat1Label")}
-                  </div>
-                </div>
-                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-emerald-400 mb-0.5">
-                    {t("hero.stat2Value")}
-                  </div>
-                  <div className="text-[11px] text-white/40">
-                    {t("hero.stat2Label")}
-                  </div>
-                </div>
-                <div className="bg-white/[0.06] rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-amber-400 mb-0.5">
-                    {t("hero.stat3Value")}
-                  </div>
-                  <div className="text-[11px] text-white/40">
-                    {t("hero.stat3Label")}
-                  </div>
+              {/* Route progress */}
+              <div className="px-5 pt-4 sm:px-6">
+                <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="h-full w-[74%] rounded-full bg-gradient-to-r from-secondary to-accent" />
                 </div>
               </div>
 
-              {/* Mini feature list */}
-              <div className="space-y-3">
-                {[
-                  {
-                    icon: Banknote,
-                    label: "Loan Management",
-                    color: "text-emerald-400",
-                    bg: "bg-emerald-400/10",
-                  },
-                  {
-                    icon: Users,
-                    label: "Customer Profiles & KYC",
-                    color: "text-teal-400",
-                    bg: "bg-teal-400/10",
-                  },
-                  {
-                    icon: MapPin,
-                    label: "Route & GPS Tracking",
-                    color: "text-cyan-400",
-                    bg: "bg-cyan-400/10",
-                  },
-                  {
-                    icon: BarChart3,
-                    label: "Reports & Analytics",
-                    color: "text-amber-400",
-                    bg: "bg-amber-400/10",
-                  },
-                ].map((item) => (
+              {/* Ledger rows */}
+              <div className="space-y-2 p-4 sm:p-5">
+                {LEDGER.map((row) => (
                   <div
-                    key={item.label}
-                    className="flex items-center gap-3 bg-white/[0.04] rounded-xl px-4 py-3"
+                    key={row.name}
+                    className={`flex items-center gap-3 rounded-xl px-3.5 py-3 ${
+                      row.voice
+                        ? "bg-secondary/[0.08] ring-1 ring-secondary/20"
+                        : "bg-muted/60"
+                    }`}
                   >
                     <div
-                      className={`w-8 h-8 rounded-lg ${item.bg} flex items-center justify-center`}
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                        row.voice ? "bg-secondary/15 text-secondary" : "bg-foreground/[0.06] text-muted-foreground"
+                      }`}
                     >
-                      <item.icon className={`w-4 h-4 ${item.color}`} />
+                      {row.voice ? (
+                        <Mic className="h-4 w-4" />
+                      ) : (
+                        <span className="font-mono-ui text-xs font-semibold">{row.name[0]}</span>
+                      )}
                     </div>
-                    <span className="text-white/70 text-sm">{item.label}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm font-medium text-foreground">
+                        {row.name}
+                        {row.voice && (
+                          <span className="eyebrow ml-2 align-middle text-secondary">voice</span>
+                        )}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground">{row.method}</div>
+                    </div>
+                    <div className="font-mono-ui text-sm font-bold text-foreground tnum">
+                      ₹{row.amount}
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Voice prompt footer */}
+              <div className="flex items-center gap-3 border-t border-border px-5 py-4 sm:px-6">
+                <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-white">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-secondary/30" />
+                  <Mic className="relative h-4 w-4" />
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  “Arun 500 cash” → <span className="font-semibold text-secondary">recorded</span>
+                </span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 80L48 72C96 64 192 48 288 40C384 32 480 32 576 36C672 40 768 48 864 52C960 56 1056 56 1152 52C1248 48 1344 40 1392 36L1440 32V80H0Z"
-            fill="hsl(var(--background))"
-          />
-        </svg>
       </div>
     </section>
   );

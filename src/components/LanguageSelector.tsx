@@ -15,7 +15,7 @@ const languages = [
   { code: "ta", name: "Tamil", nativeName: "தமிழ்" },
 ];
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ dark = false }: { dark?: boolean }) => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,7 +34,13 @@ const LanguageSelector = () => {
 
   return (
     <Select value={i18n.language} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-auto gap-2 bg-transparent border-muted/30 text-muted-foreground hover:text-secondary hover:border-secondary/50 transition-colors">
+      <SelectTrigger
+        className={
+          dark
+            ? "w-auto gap-2 bg-white/[0.06] border-white/15 text-white/80 hover:text-white hover:border-white/30 transition-colors"
+            : "w-auto gap-2 bg-transparent border-muted/30 text-muted-foreground hover:text-secondary hover:border-secondary/50 transition-colors"
+        }
+      >
         <Globe className="w-4 h-4" />
         <SelectValue />
       </SelectTrigger>

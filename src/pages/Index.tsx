@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next";
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
+import WhoItsFor from "@/components/WhoItsFor";
 import LoanTypesSection from "@/components/LoanTypesSection";
 import FeaturesHighlight from "@/components/FeaturesHighlight";
+import RegulatedLending from "@/components/RegulatedLending";
 import StaffHighlight from "@/components/StaffHighlight";
 import FAQSection, { useHomeFaq } from "@/components/FAQSection";
 import CTA from "@/components/CTA";
@@ -62,9 +66,13 @@ const Index = () => {
         alternates={homeAlternates}
         structuredData={[homeFAQ, websiteSchema]}
       />
+      <Navigation />
       <Hero />
+      <TrustBar />
+      <WhoItsFor />
       <LoanTypesSection />
       <FeaturesHighlight />
+      <RegulatedLending />
       <StaffHighlight />
       <FAQSection />
       <CTA />

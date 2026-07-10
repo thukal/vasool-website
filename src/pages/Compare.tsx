@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
@@ -337,6 +338,7 @@ const Compare = () => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={c.title}
         description={c.description}
@@ -348,14 +350,14 @@ const Compare = () => {
       />
 
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link to={isTamil ? "/ta" : "/"} className="inline-flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors text-sm mb-6">
             <ArrowLeft className="w-4 h-4" />
             {c.back}
           </Link>
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
               {c.h1a} <span className="text-gradient">{c.h1b}</span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{c.intro}</p>

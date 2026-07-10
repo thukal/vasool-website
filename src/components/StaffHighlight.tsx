@@ -9,7 +9,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import BalancedText from "./pretext/BalancedText";
 import PretextReveal from "./pretext/PretextReveal";
 import { useInView } from "@/hooks/useInView";
 
@@ -90,14 +89,9 @@ const StaffHighlight = () => {
             <span className="text-secondary font-semibold text-sm tracking-wide uppercase mb-3 block">
               {t("home.staff.badge")}
             </span>
-            <BalancedText
-              as="h2"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5 leading-tight"
-              font='700 44px "Plus Jakarta Sans"'
-              lineHeight={52}
-            >
+            <h2 className="mb-5 text-balance text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
               {sectionTitle}
-            </BalancedText>
+            </h2>
             <PretextReveal
               as="p"
               className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8"
