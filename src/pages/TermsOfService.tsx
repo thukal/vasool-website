@@ -72,7 +72,7 @@ const TermsOfService = () => {
             <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
               <li>Web-based admin dashboard and management interface</li>
               <li>Mobile application for field staff operations</li>
-              <li>REST and gRPC APIs for integration</li>
+              <li>REST API for integration</li>
               <li>
                 Isolated tenant environments with configurable features and
                 branding

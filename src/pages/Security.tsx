@@ -36,7 +36,7 @@ const securityFeatures = [
     icon: Lock,
     title: "End-to-End Encryption",
     description:
-      "All data in transit is encrypted using TLS/SSL. API communications over both REST and gRPC are secured with industry-standard encryption protocols.",
+      "All data in transit is encrypted using TLS/SSL. All REST API communications are secured with industry-standard encryption protocols.",
     color: "from-emerald-500 to-teal-500",
   },
   {

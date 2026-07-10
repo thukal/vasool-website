@@ -25,6 +25,7 @@ import UgraniApp from "./pages/solutions/UgraniApp";
 import SelfHostedLoanSoftware from "./pages/solutions/SelfHostedLoanSoftware";
 import WhiteLabelLoanApp from "./pages/solutions/WhiteLabelLoanApp";
 import ChitFundAndLendingApp from "./pages/solutions/ChitFundAndLendingApp";
+import NbfcLoanManagement from "./pages/solutions/NbfcLoanManagement";
 import NotFound from "./pages/NotFound";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -66,6 +67,7 @@ const App = () => (
         <Route path="/self-hosted-loan-software" element={<SelfHostedLoanSoftware />} />
         <Route path="/white-label-loan-app" element={<WhiteLabelLoanApp />} />
         <Route path="/chit-fund-and-lending-app" element={<ChitFundAndLendingApp />} />
+        <Route path="/nbfc-loan-management" element={<NbfcLoanManagement />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

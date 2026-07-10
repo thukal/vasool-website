@@ -27,6 +27,7 @@ Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending ma
 - [Self-Hosted Loan Software](https://vasool.app/self-hosted-loan-software): Run Vasool on your own infrastructure
 - [White-Label Loan App](https://vasool.app/white-label-loan-app): Vasool under your own brand
 - [Chit Fund & Lending App](https://vasool.app/chit-fund-and-lending-app): Chit fund and lending management
+- [NBFC Loan Management](https://vasool.app/nbfc-loan-management): Loan management software for NBFCs in India
 
 ## Company
 

@@ -16,6 +16,8 @@ import {
   Settings2,
   Gem,
   Building2,
+  Receipt,
+  Percent,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -81,6 +83,36 @@ const loanTypesEn: LoanType[] = [
       "Monthly collection summary reports",
       "Overdue tracking per monthly cycle",
       "Integrated with staff route management",
+    ],
+  },
+  {
+    icon: Receipt,
+    title: "EMI Loans",
+    color: "from-teal-500 to-emerald-500",
+    description:
+      "Fixed-tenor equated monthly installment loans with automatic EMI schedules — also available in 15-day and 30-day interval variants, with foreclosure and pre-closure handling built in.",
+    highlights: [
+      "Equated monthly installment schedule generation",
+      "15-day and 30-day interval variants",
+      "Foreclosure and pre-closure handling",
+      "Principal and interest split per installment",
+      "Tenure and rate configuration",
+      "Overdue tracking and PDF receipts",
+    ],
+  },
+  {
+    icon: Percent,
+    title: "Interest-Only Loans",
+    color: "from-rose-500 to-pink-500",
+    description:
+      "Borrower pays only interest each period while the principal stays outstanding until closure — the classic 'kandhu vatti' / 'byaj' model, with simple, compound, and daily interest modes plus an optional weekly collection cadence.",
+    highlights: [
+      "Simple, compound, and daily interest modes",
+      "Interest auto-calculated on outstanding principal",
+      "Optional weekly interest collection cadence",
+      "Principal stays open until closure or renewal",
+      "Ideal for kandhu vatti / byaj lending",
+      "Automatic interest reminders and PDF receipts",
     ],
   },
   {
@@ -174,6 +206,36 @@ const loanTypesTa: LoanType[] = [
       "Monthly collection summary report",
       "Monthly cycle-வாரியா overdue tracking",
       "Staff route management-உடன் integrate",
+    ],
+  },
+  {
+    icon: Receipt,
+    title: "EMI Loans",
+    color: "from-teal-500 to-emerald-500",
+    description:
+      "Fixed tenor உள்ள equated monthly installment loans — auto EMI schedule-உடன், 15-day மற்றும் 30-day interval variant-லயும் வரும், foreclosure மற்றும் pre-closure handling உடன்.",
+    highlights: [
+      "Equated monthly installment schedule generation",
+      "15-day மற்றும் 30-day interval variants",
+      "Foreclosure மற்றும் pre-closure handling",
+      "ஒவ்வொரு installment-க்கும் principal மற்றும் interest split",
+      "Tenure மற்றும் rate configuration",
+      "Overdue tracking மற்றும் PDF receipts",
+    ],
+  },
+  {
+    icon: Percent,
+    title: "Interest-Only Loans",
+    color: "from-rose-500 to-pink-500",
+    description:
+      "Borrower ஒவ்வொரு period-லயும் interest மட்டும் கட்டுவாங்க, principal closure வரை outstanding-ஆ இருக்கும் — classic 'கந்து வட்டி' / 'byaj' model, simple, compound மற்றும் daily interest mode-உடன், optional weekly collection cadence-உம்.",
+    highlights: [
+      "Simple, compound மற்றும் daily interest modes",
+      "Outstanding principal மேல interest auto-calculate",
+      "Optional weekly interest collection cadence",
+      "Closure அல்லது renewal வரை principal open-ஆ இருக்கும்",
+      "கந்து வட்டி / byaj lending-க்கு ideal",
+      "Automatic interest reminder மற்றும் PDF receipts",
     ],
   },
   {
@@ -310,7 +372,7 @@ const copy = {
     h1a: "Loan",
     h1b: "Types",
     intro:
-      "Purpose-built loan management for every collection cycle — daily, weekly, monthly, gold loan, property loan, and product-based — with complete lifecycle tools from origination to closure.",
+      "Purpose-built loan management for every collection cycle — daily, weekly, monthly, EMI, interest-only, gold loan, property loan, and product-based — with complete lifecycle tools from origination to closure.",
     capabilities: "Key Capabilities",
     commonTitle: "Common Across All Loan Types",
     commonText:
@@ -328,7 +390,7 @@ const copy = {
     h1a: "Loan",
     h1b: "Types",
     intro:
-      "ஒவ்வொரு collection cycle-க்கும் purpose-built loan management — daily, weekly, monthly, gold loan, property loan மற்றும் product-based — origination முதல் closure வரை முழு lifecycle tools-உடன்.",
+      "ஒவ்வொரு collection cycle-க்கும் purpose-built loan management — daily, weekly, monthly, EMI, interest-only, gold loan, property loan மற்றும் product-based — origination முதல் closure வரை முழு lifecycle tools-உடன்.",
     capabilities: "Key Capabilities",
     commonTitle: "எல்லா Loan Type-க்கும் Common",
     commonText:
@@ -352,7 +414,7 @@ const LoanTypes = () => {
       <SEO
         title={c.title}
         description={c.description}
-        keywords="daily loan software, weekly loan management, monthly loan tracking, gold loan software, property loan management, product loan app, microfinance loan types, EMI loan management, loan collection software, loan repayment tracking"
+        keywords="daily loan software, weekly loan management, monthly loan tracking, gold loan software, property loan management, product loan app, microfinance loan types, EMI loan management, interest-only loan software, kandhu vatti app, loan collection software, loan repayment tracking"
         canonical={canonical}
         ogLocale={ogLocale}
         alternates={alternates}

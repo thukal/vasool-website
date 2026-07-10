@@ -12,7 +12,7 @@
     "title1": "Voice Entry",
     "title2": "Loan Collection",
     "title3": "App",
-    "description": "Vasool oru daily, weekly, monthly loan collection app — money lenders மற்றும் micro finance business-க்கானது. 6 மொழியில் collection-ஐ பேசியே record பண்ணுங்க, photo proof attach பண்ணுங்க, gold loan மற்றும் EMI-ஐ manage பண்ணுங்க, GPS-ல staff-ஐ live-ஆ track பண்ணுங்க — internet illama kooda work ஆகும்.",
+    "description": "Vasool oru voice-entry loan collection மற்றும் lending platform — money lenders, finance company மற்றும் NBFC-க்கானது. 6 மொழியில் collection-ஐ பேசியே record பண்ணுங்க, EMI, gold, interest-only மற்றும் chit-fund product-ஐ நடத்துங்க, AI-ல credit risk score பண்ணுங்க, GPS-ல staff-ஐ live-ஆ track பண்ணுங்க — internet illama kooda work ஆகும்.",
     "stat1Value": "100+",
     "stat1Label": "Features",
     "stat2Value": "Real-time",
@@ -88,8 +88,8 @@
     "staffFinancials": {
       "title": "Staff Financials",
       "items": [
-        "Expense Tracking",
-        "Expense Approval Workflow",
+        "Income & Expense Ledger",
+        "Day Book & Cash Settlement",
         "Cash Advance Management",
         "Cash Advance Verification",
         "Cash Balance Summary"
@@ -153,8 +153,7 @@
       "title": "API & Integration",
       "items": [
         "REST API (100+ endpoints)",
-        "gRPC API",
-        "gRPC-Web",
+        "Generated TypeScript Types",
         "Swagger Documentation",
         "Offline Sync Support"
       ]
@@ -242,9 +241,9 @@
         "title": "Multi-Tenancy",
         "desc": "Custom branding, feature toggles, storage limits மற்றும் automated provisioning-உடன் isolated tenant environments."
       },
-      "api": {
-        "title": "API & Integration",
-        "desc": "Swagger docs மற்றும் offline sync support-உடன் REST, gRPC மற்றும் gRPC-Web APIs — mobile client-களுக்கு."
+      "automation": {
+        "title": "Automation & AI",
+        "desc": "Vasool AI ஒரே voice recording-ஐ app action-ஆ மாத்தும், credit risk score பண்ணும், WhatsApp reminder அனுப்பும் — typing குறையும், chasing குறையும்."
       }
     },
     "staff": {
@@ -255,7 +254,7 @@
       "exploreBtn": "Staff Tools-ஐ பாருங்க",
       "bullet1": "Field agent-களுக்கு dedicated mobile app",
       "bullet2": "Live GPS location tracking",
-      "bullet3": "Expense tracking & approval workflow",
+      "bullet3": "Income & expense ledger — day book-உடன்",
       "bullet4": "Rural area-க்கு offline support",
       "bullet5": "Role-based access control",
       "cards": {
@@ -269,7 +268,7 @@
         },
         "expense": {
           "title": "Expense Management",
-          "desc": "Receipt photo-உடன் expense log பண்ணுங்க. Reimbursement-க்கு admin approval workflow."
+          "desc": "Receipt photo-உடன் income மற்றும் expense log பண்ணுங்க. Admin edit/backdate பண்ணக்கூடிய day-book ledger."
         },
         "rbac": {
           "title": "Access Control",
@@ -314,7 +313,7 @@
       },
       {
         "question": "Vasool என் collection staff-ஐ manage பண்ணுமா?",
-        "answer": "ஆமா. Vasool முழு staff management உள்ள loan collection app: field agent-களோட live GPS tracking, route planning மற்றும் navigation, custom role-based permission, performance report, cash advance, expense approval மற்றும் route-க்கு ஒரு day book."
+        "answer": "ஆமா. Vasool முழு staff management உள்ள loan collection app: field agent-களோட live GPS tracking, route planning மற்றும் navigation, custom role-based permission, staff attendance, performance report, cash advance, income & expense ledger மற்றும் route-க்கு ஒரு day book."
       },
       {
         "question": "Vasool PDF receipt மற்றும் report generate பண்ணுமா?",
@@ -358,7 +357,7 @@
   "seo": {
     "home": {
       "title": "Vasool App - Money Lenders-க்கான Voice Entry Collection App",
-      "description": "Vasool App-னா money lenders & micro finance-க்கான voice entry loan collection app. Daily, weekly & monthly collection-ஐ பேசியே record பண்ணுங்க, photo proof attach பண்ணுங்க, gold loan, EMI, GPS staff tracking & analytics manage பண்ணுங்க — internet illama work ஆகும். Android & iOS-ல free."
+      "description": "Vasool App-னா money lenders, finance company & NBFC-க்கான voice entry loan collection & lending platform. Daily, weekly & monthly collection-ஐ பேசியே record பண்ணுங்க, gold, EMI, interest-only & chit-fund product manage பண்ணுங்க, AI-ல credit score பண்ணுங்க, GPS-ல staff-ஐ live track பண்ணுங்க — internet illama work ஆகும். Android & iOS-ல free."
     }
   }
 }

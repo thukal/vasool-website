@@ -41,11 +41,12 @@ const staffManagement = (ta: boolean): Item[] => [
   { icon: MapPin, title: "Staff GPS Tracking", description: ta ? "Field officer-கள் collection route-ல போகும்போது real-time location tracking." : "Real-time location tracking of field officers as they move through their collection routes." },
   { icon: History, title: "Staff Location History", description: ta ? "Field staff எங்க போனாங்கனு காட்டற historical GPS trail — visit verification மற்றும் route analysis-க்கு." : "Historical GPS trail showing where field staff have been — for visit verification and route analysis." },
   { icon: Map, title: "Live Staff Map", description: ta ? "எல்லா field staff location-ஐயும் ஒரே real-time map-ல பாருங்க. யார் எங்க இருக்காங்கனு இப்பவே தெரியும்." : "See all field staff locations on a single real-time map. Know who is where, right now." },
+  { icon: Clock, title: "Staff Attendance", description: ta ? "Field-லிருந்து staff self-mark பண்ணுவாங்க (GPS-உடன்), owner approve/reject பண்ணுவாங்க. Present/Absent-ஐ track பண்ணி monthly summary + CSV export எடுங்க." : "Staff self-mark attendance from the field with GPS; the owner approves or rejects. Track present/absent with a monthly summary and CSV export." },
 ];
 
 const staffFinancials = (ta: boolean): Item[] => [
-  { icon: Receipt, title: "Expense Tracking", description: ta ? "Staff தினசரி expense — travel, food, transport — receipt upload-உடன் log பண்ணலாம், முழு transparency-க்கு." : "Staff can log daily expenses — travel, food, transportation — with receipt uploads for full transparency." },
-  { icon: CheckSquare, title: "Expense Approval Workflow", description: ta ? "Admin expense claim-ஐ review பண்ணி approve/reject பண்ணும். Staff-க்கும் management-க்கும் clear status tracking." : "Admin reviews and approves or rejects expense claims. Clear status tracking for both staff and management." },
+  { icon: Receipt, title: "Income & Expense Ledger", description: ta ? "வருமானம் (CREDIT) மற்றும் செலவு (DEBIT) ரெண்டையும் ஒரே ledger-ல receipt photo-உடன் log பண்ணுங்க. Admin entry-ஐ edit/backdate பண்ணலாம் — Day Book மற்றும் P&L report-க்கு feed ஆகும்." : "Log both income (credit) and expenses (debit) in one ledger with receipt photos. Admins can add, edit, and backdate entries — feeding the Day Book and Profit & Loss reports." },
+  { icon: CheckSquare, title: "Day Book & Cash Settlement", description: ta ? "ஒவ்வொரு route-க்கும் day book — collection, expense, advance மற்றும் net cash position. நாள் முடிவில் field staff-க்கும் admin-க்கும் cash reconcile பண்ணுங்க." : "A day book per route — collections, expenses, advances, and net cash position. Reconcile end-of-day cash between field staff and admin." },
   { icon: Wallet, title: "Cash Advance Management", description: ta ? "Daily operation-க்கு field staff-க்கு cash advance கொடுங்க. Outstanding balance மற்றும் settlement history-ஐ track பண்ணுங்க." : "Issue cash advances to field staff for daily operations. Track outstanding balances and settlement history." },
   { icon: ShieldCheck, title: "Cash Advance Verification", description: ta ? "Financial accountability-க்கு cash advance-ஐ collection மற்றும் expense-க்கு எதிரா verify பண்ணி reconcile பண்ணுங்க." : "Verify and reconcile cash advances against collections and expenses to ensure financial accountability." },
   { icon: DollarSign, title: "Cash Balance Summary", description: ta ? "Staff-வாரியா real-time cash position — advance கொடுத்தது, collection வந்தது, expense claim மற்றும் net balance." : "Real-time cash position per staff member — advances issued, collections received, expenses claimed, and net balance." },
@@ -98,7 +99,7 @@ const copy = {
     sec1Title: "Staff & Team Management",
     sec1Text: "Manage your entire field team with role-based access, real-time GPS tracking, and a live map showing every agent's location.",
     sec2Title: "Staff Financials",
-    sec2Text: "Track every rupee — expenses, advances, collections, and settlements — with approval workflows and real-time balance visibility.",
+    sec2Text: "Track every rupee — income, expenses, advances, collections, and settlements — with a day-book ledger and real-time balance visibility.",
     sec3Title: "Mobile App for Field Agents",
     sec3Text: "A dedicated Android app with offline support, biometric authentication, and everything field staff need to handle their daily operations.",
     fieldTitle: "What Staff Can Do in the Field",
@@ -120,7 +121,7 @@ const copy = {
     sec1Title: "Staff & Team Management",
     sec1Text: "Role-based access, real-time GPS tracking மற்றும் ஒவ்வொரு agent location-ஐயும் காட்டற live map-உடன் உங்க முழு field team-ஐ manage பண்ணுங்க.",
     sec2Title: "Staff Financials",
-    sec2Text: "ஒவ்வொரு ரூபாயையும் track பண்ணுங்க — expense, advance, collection மற்றும் settlement — approval workflow மற்றும் real-time balance visibility-உடன்.",
+    sec2Text: "ஒவ்வொரு ரூபாயையும் track பண்ணுங்க — income, expense, advance, collection மற்றும் settlement — day-book ledger மற்றும் real-time balance visibility-உடன்.",
     sec3Title: "Field Agent-களுக்கான Mobile App",
     sec3Text: "Offline support, biometric authentication மற்றும் field staff-க்கு daily operation handle பண்ண தேவையான எல்லாத்துடனும் ஒரு dedicated Android app.",
     fieldTitle: "Field-ல Staff என்ன பண்ணலாம்",
