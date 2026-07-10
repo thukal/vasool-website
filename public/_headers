@@ -1,11 +1,13 @@
 # Security headers applied to every route (Netlify).
 # CSP allows self + Google Fonts (CSS from googleapis, font files from gstatic),
 # inline styles (React style props / prerendered inline CSS) and inline scripts
-# (the JSON-LD structured-data blocks in the page head). No third-party JS.
+# (the JSON-LD structured-data blocks in the page head + Netlify's injected RUM
+# script). connect-src additionally allows Netlify's Real User Metrics beacon
+# (ingesteer.services-prod.nsvcs.net) so RUM isn't blocked. No other third-party JS.
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ingesteer.services-prod.nsvcs.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
