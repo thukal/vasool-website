@@ -1,0 +1,68 @@
+# Vasool — Full Overview
+
+> Vasool is a voice-entry loan collection and lending platform for money lenders, finance companies and NBFCs in India. Built by Thukal. The website is bilingual (English and Tamil, /ta pages). Field staff use an Android/iOS app; the office uses a web dashboard; borrowers get a self-service portal. Works fully offline and syncs when back online.
+
+## What Vasool does
+
+Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lenders traditionally run on paper. A field agent records a payment by speaking — for example "Arun 500 cash" — and it is logged against the right customer automatically, in six languages (English, Tamil, Telugu, Hindi, Malayalam, Kannada). The same platform scales from a single-route money lender to a multi-branch NBFC through per-tenant feature flags; each company runs in its own isolated database on infrastructure it controls.
+
+## Loan and finance products
+
+- Daily loans — small loans repaid through daily field collections
+- Weekly loans — weekly cycles, with optional custom per-week stepped amounts
+- Monthly and semi-monthly loans — for salaried and business borrowers
+- EMI loans — equated instalments, 15-day/30-day variants, foreclosure and tenure controls
+- Interest-only loans — "kandhu vatti" / "byaj": simple, compound or daily interest, optional weekly cadence
+- Gold loans — gold-backed lending with live per-gram rate, valuation and redemption
+- Product-based loans — loans tied to physical goods (daily/weekly/monthly/semi-monthly)
+- Chit funds (Agent Chit) — groups, members, cycles, foreman commission, late fees, WhatsApp reminders
+- Savings schemes (Savings Chit) — festival/deposit schemes with cash or goods maturity payouts
+- Gold business — recovered-gold inventory, sales and profit & loss
+
+## Operations and modules
+
+- Voice AI ("Vasool AI") — one recording becomes an app action: create loans, log collections, add customers, call a customer by name, query reports
+- AI loan eligibility — aggregates a borrower's history into a risk score with approve/review/reject and a suggested limit
+- WhatsApp reminders — server-side sends via the lender's own provider account (Meta, Interakt, Gupshup, WATI, AiSensy)
+- Collection & payments — cash and UPI, automatic PDF receipts, payment history, admin cash settlement
+- Route management — plan daily/weekly routes, assign to staff, GPS navigation, completion tracking
+- Staff tools — live GPS tracking, location history, role-based access control, staff attendance
+- Financials — income & expense ledger, day book per route, cash advances, profit & loss reports
+- Funding & investors — partner capital (profit-share) and financier borrowings (the liability side)
+- Customer management — profiles, KYC document vault (Aadhaar, PAN, voter ID, ration card, gas bill), referee/guarantor linking, live customer location
+- Customer self-service portal — borrowers see balances, dues and receipts
+- Reporting — dashboards, officer performance, collection summaries, overdue/DPD tracking, P&L
+
+## Security and data ownership
+
+- Each tenant runs in a separate database and storage; no cross-tenant access
+- Data lives on infrastructure the client provides or designates — Vasool does not centrally store it
+- TLS/SSL in transit, JWT authentication, biometric login, granular role-based access control
+- Full audit trail with entity-level change history on every record
+- Bot/attack protection and rate limiting
+- On the roadmap: formal certifications (SOC 2, ISO 27001) and RBI-aligned compliance modules (CKYC, credit-bureau reporting). Vasool supports a lender's compliance; it does not replace their obligations.
+
+## Deployment
+
+- Multi-tenant: one Docker container + PostgreSQL database per company, behind a shared reverse proxy
+- Self-hosting and white-labelling available — run under your own brand on your own servers
+- Free plan to get started; standard plan from ₹699/month, custom pricing for multiple loan products
+
+## Key pages
+
+- Home: https://vasool.app/
+- Features: https://vasool.app/features
+- Loan Types: https://vasool.app/loan-types
+- Staff Tools: https://vasool.app/staff-tools
+- Pricing: https://vasool.app/pricing
+- Compare: https://vasool.app/compare
+- NBFC Loan Management: https://vasool.app/nbfc-loan-management
+- Security: https://vasool.app/security
+- About: https://vasool.app/about
+
+## Contact
+
+- Company: Thukal
+- Email: hello@thukal.in
+- Phone: +91 86829 27187
+- Languages: English, Tamil

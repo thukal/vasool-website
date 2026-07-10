@@ -19,7 +19,7 @@ const Footer = () => {
   const hasTamilTwin = BILINGUAL_PATHS.includes(basePath);
 
   return (
-    <footer className="bg-hero pt-12 sm:pt-16 pb-8 sm:pb-10">
+    <footer className="bg-hero pt-12 sm:pt-16 pb-28 sm:pb-10">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-14">
           {/* Brand */}

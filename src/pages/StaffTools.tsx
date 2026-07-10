@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
@@ -148,6 +149,7 @@ const StaffTools = () => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={c.title}
         description={c.description}
@@ -165,7 +167,7 @@ const StaffTools = () => {
         }}
       />
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to={isTamil ? "/ta" : "/"}
@@ -174,7 +176,7 @@ const StaffTools = () => {
             <ArrowLeft className="w-4 h-4" />
             {c.back}
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             {c.h1a} <span className="text-gradient">{c.h1b}</span>
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -192,8 +194,8 @@ const StaffTools = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {sm.map((feature) => (
                 <div key={feature.title} className={cardCls}>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-full h-full text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-full h-full text-secondary" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
@@ -209,8 +211,8 @@ const StaffTools = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {sf.map((feature) => (
                 <div key={feature.title} className={cardCls}>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-yellow-500 to-orange-500 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-full h-full text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-full h-full text-secondary" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
@@ -227,8 +229,8 @@ const StaffTools = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {mf.map((feature) => (
                   <div key={feature.title} className="bg-card rounded-xl p-5 border border-border/50 shadow-card">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 p-2 mb-3">
-                      <feature.icon className="w-full h-full text-white" />
+                    <div className="w-10 h-10 rounded-lg bg-secondary/10 p-2 mb-3">
+                      <feature.icon className="w-full h-full text-secondary" />
                     </div>
                     <h4 className="text-sm sm:text-base font-bold text-foreground mb-1">{feature.title}</h4>
                     <p className="text-xs sm:text-sm text-muted-foreground">{feature.description}</p>
@@ -256,8 +258,8 @@ const StaffTools = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {at.map((feature) => (
                 <div key={feature.title} className={cardCls}>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-full h-full text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-full h-full text-secondary" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>

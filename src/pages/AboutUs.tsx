@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import PretextStory from "@/components/pretext/PretextFlowAround";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import {
   CONTACT_EMAIL,
@@ -106,6 +107,7 @@ const storyParagraphs = [
 const AboutUs = () => {
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title="About Vasool - Microfinance Technology by Thukal"
         description="Learn about Vasool, built by Thukal for India's microfinance industry. We provide complete loan management technology with mobile apps, admin dashboards, self-hosted platforms, and dedicated support for lending businesses."
@@ -121,7 +123,7 @@ const AboutUs = () => {
         }}
       />
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to="/"
@@ -130,7 +132,7 @@ const AboutUs = () => {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             About <span className="text-gradient">Vasool</span>
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -154,8 +156,8 @@ const AboutUs = () => {
         <section className="py-12 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             <div className="rounded-2xl bg-card border border-border/50 shadow-card p-6 sm:p-10">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 p-2.5 mb-5">
-                <Target className="w-full h-full text-white" />
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 p-2.5 mb-5">
+                <Target className="w-full h-full text-secondary" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
                 Our Mission
@@ -168,8 +170,8 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="rounded-2xl bg-card border border-border/50 shadow-card p-6 sm:p-10">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 p-2.5 mb-5">
-                <Eye className="w-full h-full text-white" />
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 p-2.5 mb-5">
+                <Eye className="w-full h-full text-secondary" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
                 Our Vision
@@ -202,9 +204,9 @@ const AboutUs = () => {
                 className="group bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-all duration-500 border border-border/50 hover:border-secondary/30 hover:-translate-y-1"
               >
                 <div
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${value.color} p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 p-2 sm:p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <value.icon className="w-full h-full text-white" />
+                  <value.icon className="w-full h-full text-secondary" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
                   {value.title}
@@ -234,8 +236,8 @@ const AboutUs = () => {
                 key={item.title}
                 className="flex gap-4 bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-card border border-border/50"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                 </div>
                 <div>
                   <h4 className="text-base sm:text-lg font-bold text-foreground mb-1">

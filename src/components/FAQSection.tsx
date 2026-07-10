@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import BalancedText from "./pretext/BalancedText";
 import { useInView } from "@/hooks/useInView";
 
 export interface FAQItem {
@@ -40,14 +39,9 @@ const FAQSection = () => {
           <span className="text-emerald-600 font-semibold text-sm tracking-wide uppercase mb-3 block">
             FAQ
           </span>
-          <BalancedText
-            as="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5 leading-tight"
-            font='700 44px "Plus Jakarta Sans"'
-            lineHeight={52}
-          >
+          <h2 className="mb-5 text-balance text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
             {t("home.faqTitle")}
-          </BalancedText>
+          </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed text-balance">
             {t("home.faqSubtitle")}
           </p>

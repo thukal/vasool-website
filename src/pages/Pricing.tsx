@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF, mailtoHref } from "@/lib/contact";
@@ -256,6 +257,7 @@ const Pricing = () => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={c.title}
         description={c.description}
@@ -267,25 +269,25 @@ const Pricing = () => {
       />
 
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link to={isTamil ? "/ta" : "/"} className="inline-flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors text-sm mb-6">
             <ArrowLeft className="w-4 h-4" />
             {c.back}
           </Link>
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
               {c.h1a} <span className="text-gradient">{c.h1b}</span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{c.intro}</p>
           </div>
 
           {/* Billing toggle */}
-          <div className="mt-8 sm:mt-10 inline-flex items-center gap-1 p-1 rounded-full bg-white/5 border border-white/10">
-            <button onClick={() => setBilling("monthly")} className={`px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all ${billing === "monthly" ? "bg-secondary text-secondary-foreground shadow" : "text-white/60 hover:text-white"}`}>
+          <div className="mt-8 sm:mt-10 inline-flex items-center gap-1 p-1 rounded-full bg-muted border border-border">
+            <button onClick={() => setBilling("monthly")} className={`px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all ${billing === "monthly" ? "bg-secondary text-secondary-foreground shadow" : "text-muted-foreground hover:text-foreground"}`}>
               {c.monthly}
             </button>
-            <button onClick={() => setBilling("yearly")} className={`px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${billing === "yearly" ? "bg-secondary text-secondary-foreground shadow" : "text-white/60 hover:text-white"}`}>
+            <button onClick={() => setBilling("yearly")} className={`px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${billing === "yearly" ? "bg-secondary text-secondary-foreground shadow" : "text-muted-foreground hover:text-foreground"}`}>
               {c.yearly}
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${billing === "yearly" ? "bg-secondary-foreground/15 text-secondary-foreground" : "bg-accent/20 text-accent"}`}>{c.monthsFree}</span>
             </button>

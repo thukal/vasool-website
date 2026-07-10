@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
 
@@ -125,6 +126,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
 
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title={config.seo.title}
         description={config.seo.description}
@@ -134,7 +136,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
       />
 
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to="/"
@@ -144,11 +146,11 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
             Back to Home
           </Link>
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/10 text-emerald-300 text-xs font-medium mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-medium mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
               {config.badge}
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
               {config.h1}
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-7">

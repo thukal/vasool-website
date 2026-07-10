@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import {
   CONTACT_EMAIL,
@@ -12,13 +13,14 @@ import {
 const PrivacyPolicy = () => {
   return (
     <main className="min-h-screen">
+      <Navigation />
       <SEO
         title="Privacy Policy - Vasool App"
         description="Read Vasool App's privacy policy. Learn how we handle your data with complete tenant data isolation and client-controlled infrastructure."
         canonical="/privacy"
       />
       {/* Header */}
-      <div className="bg-hero py-12 sm:py-20">
+      <div className="bg-muted/40 border-b border-border pt-24 pb-12 sm:pt-28 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
           <Link
             to="/"
@@ -27,7 +29,7 @@ const PrivacyPolicy = () => {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground">
             Privacy Policy
           </h1>
           <p className="text-muted-foreground mt-3 text-sm sm:text-base">
