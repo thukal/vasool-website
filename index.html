@@ -22,10 +22,24 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Load the font CSS without blocking first paint: the stylesheet is
+      fetched as "print" media (so it's not render-blocking), then swapped
+      to "all" once it arrives. Text paints immediately in the fallback
+      font stack and swaps to the webfont when it's ready (display=swap).
+    -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <!--
       Route-specific SEO tags. During prerendering (scripts/prerender.mjs)
