@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-philippines";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -37,6 +48,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Not another spreadsheet — the record that stands up when a borrower disputes a payment, a collector's cash is short, or an examiner asks what you disclosed.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: WifiOff,
       title: "Collect offline, anywhere on the route",
@@ -67,6 +80,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and maker-checker approvals",
       desc: "Every edit, discount, write-off and closure is logged with who did it and when. Hold staff changes for owner approval on the records that matter.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From route sheet to reconciled book",
   steps: [
@@ -104,6 +119,8 @@ const config: KeywordLandingConfig = {
         NOT_A_LICENCE,
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in the Philippines",
@@ -119,6 +136,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Is Vasool suitable for an SEC-registered lending company?",
       a: "Yes, as its system of record. Vasool holds borrower records, loan terms, disbursements, every payment with its mode and collector, receipts, corrections and closures, with an audit trail across all of it. It does not register your company, set your rates or produce your regulatory filings — those remain yours.",

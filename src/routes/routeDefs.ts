@@ -29,6 +29,9 @@ export const routeDefs: RouteDef[] = [
   { path: "/loan-collection-app", importer: () => import("../pages/solutions/LoanCollectionApp") },
   { path: "/daily-collection-app", importer: () => import("../pages/solutions/DailyCollectionApp") },
   { path: "/voice-entry-collection-app", importer: () => import("../pages/solutions/VoiceEntryCollectionApp") },
+  // The cross-market counterpart to the India-focused voice page above: voice
+  // capture plus maker-checker, positioned once for every supported country.
+  { path: "/voice-approval-workflow", importer: () => import("../pages/solutions/VoiceApprovalWorkflow") },
   { path: "/weekly-collection-app", importer: () => import("../pages/solutions/WeeklyCollectionApp") },
   { path: "/monthly-finance-app", importer: () => import("../pages/solutions/MonthlyFinanceApp") },
   { path: "/line-management-app", importer: () => import("../pages/solutions/LineManagementApp") },

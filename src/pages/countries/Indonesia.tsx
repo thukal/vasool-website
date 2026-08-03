@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-indonesia";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "IDR values run to many digits, so an input that quietly reformats an amount is not a cosmetic bug — it is a corrupted book. Start there, then build the accountability around it.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: Calculator,
       title: "Rupiah amounts stored exactly as entered",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and maker-checker approvals",
       desc: "Every edit, discount, write-off and closure is logged with who did it and when, and staff changes can be held for approval before they take effect.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From field officer to reconciled book",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "In Vasool a line is an operational portfolio — borrowers grouped by route, market, officer or repayment day so field work can be scheduled and a day's cash reconciled. It organises work. It does not classify credit, and it grants no permission to lend.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Indonesia",
@@ -118,6 +135,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Is the app available in Bahasa Indonesia?",
       a: "Not yet. Indonesian operations run in English today, with Bahasa Indonesia on the roadmap. We would rather state that before you sign than let you discover it during rollout to field officers.",

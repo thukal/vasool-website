@@ -17,7 +17,8 @@ Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending ma
 
 - [Loan Collection App](https://vasool.app/loan-collection-app): Loan collection for money lenders
 - [Daily Collection App](https://vasool.app/daily-collection-app): Daily finance collection
-- [Voice Entry Collection App](https://vasool.app/voice-entry-collection-app): Record collections by speaking
+- [Voice Entry Collection App](https://vasool.app/voice-entry-collection-app): Record collections by speaking (India focus — six Indian languages plus English)
+- [Voice Approval Workflow](https://vasool.app/voice-approval-workflow): The full field round across all supported countries — officers dictate collections AND expenses in local languages, every entry is tagged to a GPS-tracked route, gated resources are held for an approver, and the day closes on a per-route day book, officer performance, DPD ageing and P&L. Approvals are NOT given by voice, and individual collection entries cannot be gated yet
 - [Weekly Collection App](https://vasool.app/weekly-collection-app): Weekly finance collection
 - [Monthly Finance App](https://vasool.app/monthly-finance-app): Monthly finance and EMI collection
 - [Line Management App](https://vasool.app/line-management-app): Line-wise collection management
@@ -35,7 +36,7 @@ Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending ma
 
 ## Countries
 
-Vasool supports company setup in eight countries. Each sets its own currency, local business date and time zone without changing the accounting meaning of any recorded amount. Vasool is collections and portfolio software — it is not a lending licence, registration or regulatory approval in any market.
+Vasool supports company setup in eight countries. Each sets its own currency, local business date and time zone without changing the accounting meaning of any recorded amount. Voice entry works in every supported market, in the languages officers speak on those routes — it is not India-only. Maker-checker approvals are available everywhere too. Vasool is collections and portfolio software — it is not a lending licence, registration or regulatory approval in any market.
 
 - [Supported Countries](https://vasool.app/countries): All eight markets, with the buyer, payment rail, currency and regulatory home for each
 - [Philippines](https://vasool.app/loan-management-software-philippines): SEC-registered lending companies and cooperatives — PHP, GCash/Maya tagging, daily and weekly field collection
@@ -43,7 +44,7 @@ Vasool supports company setup in eight countries. Each sets its own currency, lo
 - [Kenya](https://vasool.app/loan-management-software-kenya): SACCOs and digital credit providers — KES, M-Pesa channel and transaction reference on every payment
 - [Sri Lanka](https://vasool.app/loan-management-software-sri-lanka): Licensed microfinance and finance companies — LKR, Tamil and English interface
 - [Indonesia](https://vasool.app/loan-management-software-indonesia): Koperasi simpan pinjam, BPR and microfinance institutions — IDR amounts stored exactly as entered
-- [Cambodia](https://vasool.app/loan-management-software-cambodia): Market page only — Cambodia is NOT selectable at company setup, and dual-currency KHR/USD support and Khmer are not shipped
+- [Cambodia](https://vasool.app/loan-management-software-cambodia): Market page only — Cambodia is NOT selectable at company setup, and dual-currency KHR/USD support and Khmer (interface and voice dictation) are not shipped
 - [South Africa](https://vasool.app/loan-management-software-south-africa): NCR-registered credit providers — ZAR, agreement and affordability-evidence records, payment allocation
 - [Colombia](https://vasool.app/loan-management-software-colombia): Supervised microcredit institutions and cooperatives — COP, per-modality pricing; not for informal gota a gota lending
 - [India](https://vasool.app/nbfc-loan-management): Money lenders, finance companies and NBFCs — INR, voice entry, kandhu vatti and EMI books

@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-nigeria";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Frequent cash collection is good for repayment discipline and bad for cash control. The answer is not fewer collections — it is accountability at the point of collection.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: Wallet,
       title: "Agent cash accountability and daily close",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and maker-checker approvals",
       desc: "Every edit, discount, write-off and closure is logged with who did it and when, and staff changes can be held for owner or manager approval before they take effect.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From market day to reconciled book",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "Recovery conduct is not a feature toggle. Harassment, public shaming, contact-list abuse, threats and coercion are not collection techniques in Nigeria or anywhere else Vasool operates, and the system is built to record respectful, documented recovery — including the reason a payment was missed.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Nigeria",
@@ -118,6 +135,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Can Vasool run a microfinance bank's loan book?",
       a: "It runs the lending and collection operation: borrower records, loan terms, disbursements, every payment with its mode and collector, group and individual exposure, PAR ageing, corrections and closures, all under an audit trail. It is not a core banking system and does not produce regulatory returns — treat it as the loan and collection system of record.",

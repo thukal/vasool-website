@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-kenya";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "When most repayments arrive over M-Pesa, the operational failure modes change: reference matching, duplicate posting, wrong-account transfers and delayed reconciliation. This is what the book has to defend against.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: Smartphone,
       title: "Channel and transaction reference on every payment",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and need-to-know data scoping",
       desc: "Every edit and closure is logged with who did it and when, and roles default to seeing only their own customers — no field phone holds the whole member register unless you allow it.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From payment notification to reconciled book",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "Consumer-protection and data expectations under the digital credit rules point the same way. Borrower data should be held on a need-to-know basis, contact lists are not a collection tool, and recovery conduct has to be documented and respectful. Vasool is built for lenders who want that on the record, not lenders looking to avoid it.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Kenya",
@@ -118,6 +135,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Does Vasool integrate directly with M-Pesa?",
       a: "Not today. Payments are recorded with their channel and transaction reference so they reconcile against your statements and remain traceable, but Vasool does not pull transactions automatically from Daraja. Automated import is on the roadmap, and we would rather state that plainly than let you discover it after signing.",

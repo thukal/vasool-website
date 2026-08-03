@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-south-africa";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Here the defensible artefact is the file — the agreement, the assessment behind it, and an allocation history that explains every rand of the outstanding balance.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: ScrollText,
       title: "Agreement and disclosure records per borrower",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Immutable audit trail",
       desc: "Every edit, reversal, discount, write-off and closure is logged with who did it and when, and staff changes can be held for approval before taking effect.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From granting to a defensible file",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "If you are a registered credit provider who already runs quotes, agreements and collections elsewhere and needs a defensible book with real access control, that is a fit worth a conversation. If you need the statutory document and bureau workflow inside one system today, we would rather tell you now.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first advance in South Africa",
@@ -119,6 +136,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Does Vasool generate NCA-compliant agreements and quotes?",
       a: "No. Statutory pre-agreement quotes and agreement templates are not produced by Vasool. You bring your own compliant documents and keep the executed copy on the account, where the audit trail covers it.",

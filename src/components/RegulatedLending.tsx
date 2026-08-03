@@ -20,7 +20,7 @@ const PILLARS = [
   {
     icon: UserCheck,
     title: "Maker-checker approvals",
-    desc: "Hold a staff member's create, edit or delete until an owner or manager approves it. Turn it on for the resources that need a second pair of eyes, leave the rest one-tap.",
+    desc: "Hold a staff member's create, edit or delete until an owner or manager approves it. Turn it on for the resources that need a second pair of eyes, leave the rest one-tap — so a spoken collection still posts in seconds while a rewritten loan waits.",
   },
   {
     icon: EyeOff,

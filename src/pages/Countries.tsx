@@ -5,7 +5,20 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { CONTACT_PHONE_HREF } from "@/lib/contact";
-import { COUNTRIES, NOT_A_LICENCE } from "@/lib/countries";
+import { COUNTRIES, NOT_A_LICENCE, inSentence } from "@/lib/countries";
+
+/**
+ * Every dictation language across the supported markets, deduped and read as a
+ * sentence. Built from COUNTRIES so adding a market cannot leave this list
+ * quietly stale — the failure mode of a hand-written list on a hub page.
+ */
+const VOICE_LANGUAGES = (() => {
+  const langs = [
+    ...new Set(COUNTRIES.flatMap((c) => c.voiceLangs.split(/,\s*|\s+and\s+/))),
+  ];
+  const last = langs.pop();
+  return `${langs.join(", ")} and ${last}`;
+})();
 
 const FAQS = [
   {
@@ -27,6 +40,14 @@ const FAQS = [
   {
     q: "Is the interface available in local languages?",
     a: "The app ships with six Indian languages plus English, and Tamil covers Sri Lanka's Northern and Eastern provinces. Bahasa Indonesia and Spanish are on the roadmap — until they ship, those markets run in English, and we would rather say so than imply otherwise.",
+  },
+  {
+    q: "Can officers record entries by voice outside India?",
+    a: "Yes, and it is worth separating from the question above. The interface language is what the buttons and reports are written in; the dictation language is what an officer can speak at the doorstep. Voice entry works in every supported market — Swahili in Kenya, Filipino in the Philippines, Bahasa Indonesia, Khmer, Spanish and the rest — even where the interface itself is still English. Vasool converts the speech into a structured record and shows the match for confirmation before saving.",
+  },
+  {
+    q: "Which actions can be held for approval?",
+    a: "Maker-checker covers customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes, enabled per role and per resource. A gated create, edit or delete is held as a request, routes to the owner or an assigned approver, and applies only on approval — with both outcomes on the audit trail. Holding an individual collection entry is on the roadmap and does not ship today.",
   },
 ];
 
@@ -61,7 +82,7 @@ const itemListSchema = {
   itemListElement: COUNTRIES.map((c, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    name: `Vasool in ${c.name}`,
+    name: `Vasool in ${inSentence(c)}`,
     url: `https://vasool.app${c.slug}`,
   })),
 };
@@ -201,6 +222,47 @@ const Countries = () => (
           fact that repayments happen daily, weekly or monthly.
         </p>
         <p>{NOT_A_LICENCE}</p>
+      </div>
+    </section>
+
+    <section className="container mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
+      <div className="max-w-3xl space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
+        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          One field workflow across every market
+        </h2>
+        <p>
+          What does not change country to country is how work reaches the book.
+          In every market an officer dictates the entry rather
+          than typing it — {VOICE_LANGUAGES} — and Vasool writes a structured
+          record rather than an audio clip. Expenses go the same way — the fuel,
+          the fare, the market fee — so a round is recorded in both directions
+          while the officer is still on it.
+        </p>
+        <p>
+          Every entry attaches to a route. Routes are planned daily or weekly and
+          assigned ahead of the day, officers navigate with GPS, completion is
+          tracked live, and a location history shows where staff actually went.
+          That is what makes the day book per route and end-of-day cash
+          settlement per officer — and what makes officer performance, overdue
+          ageing, cash flow by account and profit and loss worth reading.
+        </p>
+        <p>
+          The changes that carry real consequence go the other way. Switch
+          maker-checker on per role and per resource and a gated create, edit or
+          delete is held as a request until an owner or assigned approver allows
+          it, with the approval and the rejection both on the audit trail. What
+          each market's lenders usually gate differs, and every country page
+          above says which records those are.
+        </p>
+        <p>
+          <Link
+            to="/voice-approval-workflow"
+            className="text-secondary hover:underline"
+          >
+            See how the voice approval workflow fits together
+          </Link>
+          , including what it does not cover today.
+        </p>
       </div>
     </section>
 

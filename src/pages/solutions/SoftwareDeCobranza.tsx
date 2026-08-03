@@ -5,6 +5,9 @@ import {
   WifiOff,
   ShieldCheck,
   ScrollText,
+  Mic,
+  MapPin,
+  BarChart3,
 } from "lucide-react";
 import KeywordLanding, {
   type KeywordLandingConfig,
@@ -47,6 +50,21 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Un total recaudado no es una utilidad, y un crédito vencido no es una pérdida. La diferencia entre ambas cosas vive en el registro, no en la hoja de cálculo del cobrador.",
   features: [
+    {
+      icon: MapPin,
+      title: "La ruta es la unidad del día",
+      desc: "Planifique rutas diarias y semanales, asígnelas a los asesores y siga su avance en vivo con GPS e historial de ubicación. Cada cobro y cada gasto queda ligado a su ruta, de modo que el cierre de caja del día es una conciliación y no una discusión.",
+    },
+    {
+      icon: BarChart3,
+      title: "Informes que cierran el día y el mes",
+      desc: "Libro diario por ruta, desempeño por asesor con eficiencia de cobro y desglose de gastos, resúmenes de recaudo, antigüedad de mora, flujo de caja por cuenta y estado de resultados — todo exportable en PDF o CSV.",
+    },
+    {
+      icon: Mic,
+      title: "Registro por voz, aprobación deliberada",
+      desc: "El asesor dicta el cobro en español y Vasool escribe un registro estructurado — cliente, monto, medio de pago — y no un audio guardado. Los cambios que sí pesan, como reescribir una condición o una tasa por modalidad, pueden quedar retenidos en la bandeja de aprobaciones hasta que un responsable los autorice.",
+    },
     {
       icon: Split,
       title: "Asignación transparente de cada pago",
@@ -130,6 +148,22 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    {
+      q: "¿También se pueden registrar los gastos por voz?",
+      a: "Sí. El asesor dicta el gasto tal como lo diría en voz alta — por ejemplo \"Transporte 8 mil\" — y queda en el libro de ingresos y gastos con la foto del comprobante adjunta. Es la misma vía de captura que un cobro, así que la jornada queda registrada completa mientras el asesor sigue en la calle, y el libro diario cierra contra caja real y no contra un estimado escrito en la noche.",
+    },
+    {
+      q: "¿Cómo se planifican y se controlan las rutas de cobro?",
+      a: "Las rutas se planifican por día o por semana, se asignan a un asesor y se cargan con los créditos y clientes que vencen. El asesor navega con GPS, el avance se ve en vivo y el historial de ubicación deja constancia de dónde estuvo. Como cada cobro y cada gasto queda ligado a su ruta, hay libro diario por ruta y cierre de caja por asesor.",
+    },
+    {
+      q: "¿El asesor puede registrar el cobro hablando?",
+      a: "Sí. El asesor toca el micrófono y dicta el cobro en español; Vasool identifica al cliente, interpreta el monto y el medio de pago, y muestra la coincidencia para que la confirme antes de guardar. Nada entra a la cartera sin esa confirmación. La entrada por voz está disponible en todos los países donde opera Vasool, no solo en India.",
+    },
+    {
+      q: "¿Qué cambios se pueden retener para aprobación?",
+      a: "El control maker-checker cubre clientes, créditos, esquemas de ahorro y natilleras, ventas de oro, gastos, personal, roles y rutas, y se activa por rol y por recurso. La solicitud se enruta al aprobador asignado, se aplica solo si es aprobada, y tanto la aprobación como el rechazo quedan en la traza de auditoría. Retener un cobro individual está en la hoja de ruta y hoy no es una función disponible.",
+    },
     {
       q: "¿Puedo usar Vasool para una operación de gota a gota?",
       a: "No. Vasool es para préstamos formales y vigilados. Los modelos ilegales de gota a gota se asocian por la Policía Nacional con intereses excesivos, intimidación y cobro criminal, y nada en este producto busca habilitarlos, disimularlos ni legitimarlos. La cobranza coercitiva no es un caso de uso que apoyemos en ningún país.",

@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-colombia";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "A lawful operator should be able to produce all of this on demand. If your operation cannot, no software should be helping you collect.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: ScrollText,
       title: "Product category and signed terms per loan",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Documented, respectful recovery",
       desc: "Missed payments are recorded with their reason and the contact that followed. There is no feature here for intimidation, and there will not be one.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From authority to a defensible book",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "Daily repayment is a legitimate schedule when it follows a microenterprise's real cash cycle and a signed agreement. It becomes something else entirely when it is chosen to maximise pressure. Vasool records the agreement, the schedule and the conduct — which is useful to an honest lender and inconvenient to a coercive one.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Colombia",
@@ -119,6 +136,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Can I use Vasool to run a gota a gota operation?",
       a: "No. Vasool is for supervised, formal lending. Illegal gota a gota models are associated by the National Police with excessive interest, intimidation and criminal collection, and nothing in this product is intended to enable, disguise or legitimise them. Coercive recovery is not a use case we support anywhere.",

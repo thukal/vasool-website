@@ -13,6 +13,18 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
+import { countryFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFeature,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
+
+// India's entry in COUNTRIES points at this page — see the note in countries.ts.
+const COUNTRY = countryFor("/nbfc-loan-management");
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -34,6 +46,10 @@ const config: KeywordLandingConfig = {
   intro:
     "Vasool is the operating system a lender grows with. The same platform that runs a one-route money lender scales to a multi-branch NBFC — because every capability is a per-tenant toggle. Maker-checker approvals, immutable audit trails, row-level data scoping, a KYC document vault, AI-assisted credit appraisal and DPD tracking come standard, on a database that is yours alone.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
+    routeTrackingFeature(),
+    reportingFeature(),
     {
       icon: ShieldCheck,
       title: "Immutable audit trail",
@@ -142,6 +158,7 @@ const config: KeywordLandingConfig = {
         "Because your data sits in a database you own and can self-host, and because features are toggles, these are additions we build with you rather than a rewrite. We'd rather tell you what's ready and what isn't up front than have you discover it in an audit.",
       ],
     },
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "What NBFC-grade loan software needs",
@@ -159,6 +176,7 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Is Vasool suitable for an NBFC?",
       a: "Yes, as your lending operating system. Vasool runs the day-to-day of an NBFC — onboarding with KYC, AI-assisted credit appraisal, disbursement, collection across every loan product, DPD tracking, and portfolio reporting — on a per-tenant isolated database you can self-host. Features are toggles, so the same platform scales from a single route to a multi-branch finance company.",
@@ -184,6 +202,7 @@ const config: KeywordLandingConfig = {
     { label: "Self-Hosted Loan Software", to: "/self-hosted-loan-software" },
     { label: "White-Label Loan App", to: "/white-label-loan-app" },
     { label: "Loan Types", to: "/loan-types" },
+    { label: "Voice Approval Workflow", to: "/voice-approval-workflow" },
     { label: "Compare Vasool", to: "/compare" },
     { label: "Chit Fund & Lending App", to: "/chit-fund-and-lending-app" },
   ],

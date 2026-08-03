@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-sri-lanka";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "The operational similarity is real and useful. The regulatory similarity does not exist — so the records have to be Sri Lankan from the first entry.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: Languages,
       title: "Tamil or English, on the same book",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and maker-checker approvals",
       desc: "Every edit, discount, write-off and closure is logged with who did it and when, and staff changes can be held for owner approval before they take effect.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "From route sheet to reconciled book",
   steps: [
@@ -103,6 +118,8 @@ const config: KeywordLandingConfig = {
         "In Vasool a line is an operational portfolio — a way to group borrowers by route, market, agent or repayment day so field work can be scheduled and a day's cash reconciled. Underneath it, every loan keeps its own borrower-level history.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Sri Lanka",
@@ -118,6 +135,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Does the app work in Tamil?",
       a: "Yes. Tamil is fully supported, which matters in the Northern and Eastern provinces where much field collection happens in Tamil. Head office can read the same book in English. Sinhala is not shipped yet — we would rather say so than imply a localisation you would find missing later.",

@@ -9,9 +9,20 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
-import { NOT_A_LICENCE, relatedFor } from "@/lib/countries";
+import { NOT_A_LICENCE, countryFor, relatedFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  fieldDayProse,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceApprovalProse,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
 
 const CANONICAL = "/loan-management-software-cambodia";
+const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -36,6 +47,8 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Most of this already exists in Vasool and runs in seven other markets. The dual-currency handling is the piece that has to be right before Cambodia is worth switching on.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
     {
       icon: Coins,
       title: "KHR and USD held separately",
@@ -66,6 +79,8 @@ const config: KeywordLandingConfig = {
       title: "Audit trail and need-to-know data scoping",
       desc: "Every edit, discount, restructure and closure is logged with who did it and when, and roles default to seeing only their own borrowers.",
     },
+    routeTrackingFeature(),
+    reportingFeature(),
   ],
   stepsHeading: "How a Cambodian rollout would work",
   steps: [
@@ -104,6 +119,8 @@ const config: KeywordLandingConfig = {
         "If you are a Cambodian lender evaluating options now, the useful next step is a conversation about timing — what you need, when you need it, and whether that lines up with what we can honestly commit to. If it does not, we will say so.",
       ],
     },
+    voiceApprovalProse(COUNTRY),
+    fieldDayProse(COUNTRY),
   ],
   checklist: {
     heading: "Before your first disbursement in Cambodia",
@@ -119,6 +136,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Can I set up a Cambodian company in Vasool today?",
       a: "No. The eight countries available at setup are India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia. This page exists because Cambodian lenders ask, and because we would rather publish an honest market page than let you find out after a sales call.",

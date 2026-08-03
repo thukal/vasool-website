@@ -114,6 +114,25 @@ const config: KeywordLandingConfig = {
         </>,
       ],
     },
+    {
+      heading: "The same entry, held for approval when it should be",
+      paragraphs: [
+        "Speed is right for a repayment and wrong for a decision. A collection is high-volume and low-consequence, so it posts as soon as the agent confirms the match. Rewriting a kandhu vatti term, closing a loan for less than the book says or releasing a gold sale is neither — those can be gated instead, held as a pending request until an owner or manager allows them, with the approval and the rejection both on the audit trail.",
+        <>
+          Voice entry is also not India-only. Officers dictate in every market
+          Vasool supports — Swahili in Kenya, Filipino in the Philippines,
+          Bahasa Indonesia, Khmer, Spanish and the rest. The{" "}
+          <Link
+            to="/voice-approval-workflow"
+            className="text-secondary hover:underline"
+          >
+            voice approval workflow
+          </Link>{" "}
+          page covers how capture and approval fit together across all of them,
+          and what the approval gate does not reach yet.
+        </>,
+      ],
+    },
   ],
   checklist: {
     heading: "Voice entry, measured honestly",
@@ -135,7 +154,11 @@ const config: KeywordLandingConfig = {
     },
     {
       q: "Which languages does voice entry support?",
-      a: "Tamil, Telugu, Hindi, Malayalam, Kannada, and English. Agents can speak naturally, including mixed-language phrases like a Tamil sentence with an English number.",
+      a: "In India: Tamil, Telugu, Hindi, Malayalam, Kannada, and English. Agents can speak naturally, including mixed-language phrases like a Tamil sentence with an English number. Voice entry is not limited to India — officers dictate in the local languages of every market Vasool supports, from Swahili in Kenya to Filipino in the Philippines.",
+    },
+    {
+      q: "Can a voice entry be held for approval before it hits the book?",
+      a: "A collection posts as soon as the agent confirms the matched borrower and amount. The consequential changes are what get gated: maker-checker covers customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes, per role and per resource. Those are held as requests, routed to the owner or an assigned approver, and applied only on approval. Holding an individual collection entry is on the roadmap and does not ship today.",
     },
     {
       q: "What if the app hears the name wrong?",
@@ -155,6 +178,7 @@ const config: KeywordLandingConfig = {
     { label: "Daily Collection App", to: "/daily-collection-app" },
     { label: "Kandhu Vatti App", to: "/kandhu-vatti-app" },
     { label: "Line Management App", to: "/line-management-app" },
+    { label: "Voice Approval Workflow", to: "/voice-approval-workflow" },
     { label: "Compare Vasool", to: "/compare" },
   ],
   ctaHeading: "Hear it record your first entry",

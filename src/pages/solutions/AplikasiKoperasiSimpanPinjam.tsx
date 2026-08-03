@@ -5,6 +5,9 @@ import {
   Wallet,
   ShieldCheck,
   Receipt,
+  Mic,
+  MapPin,
+  BarChart3,
 } from "lucide-react";
 import KeywordLanding, {
   type KeywordLandingConfig,
@@ -47,6 +50,21 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Selama satu orang mengelola satu buku, spreadsheet sudah cukup. Begitu penagihan dilakukan lewat ponsel di lapangan, yang dibutuhkan adalah pertanggungjawaban, bukan sekadar penjumlahan.",
   features: [
+    {
+      icon: MapPin,
+      title: "Rute sebagai satuan kerja harian",
+      desc: "Susun rute harian dan mingguan, tugaskan ke petugas, lalu pantau penyelesaiannya secara langsung lewat GPS beserta riwayat lokasi. Setiap setoran dan pengeluaran menempel pada rutenya, sehingga penutupan kas di akhir hari menjadi pencocokan, bukan perdebatan.",
+    },
+    {
+      icon: BarChart3,
+      title: "Laporan yang menutup hari dan bulan",
+      desc: "Buku harian per rute, kinerja petugas lengkap dengan efisiensi penagihan dan rincian pengeluaran, ringkasan setoran, umur tunggakan, arus kas per rekening, serta laba rugi — semuanya bisa diekspor sebagai PDF atau CSV.",
+    },
+    {
+      icon: Mic,
+      title: "Catat dengan suara, setujui yang berisiko",
+      desc: "Petugas lapangan mendiktekan setoran dalam Bahasa Indonesia, Jawa, atau Inggris, dan Vasool menuliskannya sebagai catatan terstruktur — anggota, jumlah, dan cara bayar — bukan rekaman suara. Perubahan yang berdampak pada saldo anggota bisa ditahan lebih dulu di kotak persetujuan sampai pengurus menyetujuinya.",
+    },
     {
       icon: Calculator,
       title: "Nilai rupiah tersimpan apa adanya",
@@ -129,6 +147,22 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    {
+      q: "Apakah pengeluaran juga bisa dicatat lewat suara?",
+      a: "Bisa. Petugas menyebutkan pengeluarannya seperti biasa — misalnya \"Bensin 20 ribu\" — dan catatan itu masuk ke buku kas masuk dan keluar beserta foto struknya. Jalurnya sama dengan setoran, jadi satu putaran tercatat utuh selagi petugas masih di lapangan, dan buku harian ditutup dengan kas yang nyata, bukan perkiraan yang ditulis malam hari.",
+    },
+    {
+      q: "Bagaimana rute penagihan direncanakan dan dipantau?",
+      a: "Rute disusun harian atau mingguan, ditugaskan ke petugas, lalu diisi dengan pinjaman dan anggota yang jatuh tempo. Petugas menavigasi dengan GPS, penyelesaian terpantau langsung, dan riwayat lokasi menunjukkan ke mana petugas benar-benar pergi. Karena setiap setoran dan pengeluaran menempel pada rutenya, buku harian tersedia per rute dan penyelesaian kas akhir hari bisa dihitung per petugas.",
+    },
+    {
+      q: "Apakah petugas bisa mencatat setoran lewat suara?",
+      a: "Bisa. Petugas cukup menekan tombol mikrofon lalu menyebutkan setoran dalam Bahasa Indonesia, Jawa, atau Inggris, termasuk kalimat campuran. Vasool mencocokkan anggota, membaca jumlahnya, lalu menampilkan hasilnya untuk dikonfirmasi sebelum disimpan — jadi salah dengar tidak pernah masuk ke pembukuan. Fitur ini tersedia di seluruh negara yang didukung Vasool, bukan hanya di India.",
+    },
+    {
+      q: "Perubahan apa saja yang bisa ditahan untuk persetujuan pengurus?",
+      a: "Persetujuan maker-checker mencakup data anggota, pinjaman, skema simpanan dan arisan, penjualan emas, pengeluaran, staf, peran, serta rute — diaktifkan per peran dan per jenis data. Permintaan diteruskan ke pengurus yang ditunjuk dan baru berlaku setelah disetujui, sementara persetujuan maupun penolakan sama-sama tercatat di jejak audit. Menahan satu catatan setoran masih dalam rencana pengembangan dan belum tersedia hari ini.",
+    },
     {
       q: "Apakah ini aplikasi koperasi simpan pinjam yang lengkap?",
       a: "Tidak. Vasool menangani sisi pinjaman dan penagihan. Administrasi simpanan pokok, simpanan wajib, simpanan sukarela, perhitungan SHU, dan RAT tetap di sistem inti koperasi Anda. Kami lebih memilih menyampaikannya sekarang daripada saat pemasangan.",

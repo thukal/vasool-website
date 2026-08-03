@@ -229,8 +229,8 @@ const categoriesEn: FeatureCategory[] = [
     description:
       "Vasool AI turns one voice recording into an app action, scores credit risk, and sends reminders — so the field team does less typing and chasing.",
     features: [
-      { name: "Vasool AI Voice Assistant", desc: "One recording becomes an app action — create loans, log collections, add customers" },
-      { name: "Voice Collection Entry", desc: "Say “Arun 500 cash” to record a payment against the right customer, in 6 languages" },
+      { name: "Vasool AI Voice Assistant", desc: "One recording becomes an app action — create loans, log collections, add expenses, add customers, query reports" },
+      { name: "Voice Collection Entry", desc: "Say “Arun 500 cash” to record a payment against the right customer — in every country Vasool supports, in the languages officers speak on those routes" },
       { name: "Call Customer by Name", desc: "Speak a customer’s name to dial their stored number in one tap" },
       { name: "AI Loan Eligibility", desc: "Advisory risk score, approve/review/reject, and a suggested limit from loan history" },
       { name: "WhatsApp Reminders", desc: "Server-side sends via your own Meta / Interakt / Gupshup / WATI / AiSensy account" },
@@ -522,7 +522,7 @@ const categoriesTa: FeatureCategory[] = [
     description:
       "Vasool AI ஒரே voice recording-ஐ app action-ஆ மாத்தும், credit risk score பண்ணும், reminder அனுப்பும் — field team-க்கு typing-உம் chasing-உம் குறையும்.",
     features: [
-      { name: "Vasool AI Voice Assistant", desc: "ஒரே recording app action ஆகும் — loan create, collection log, customer add" },
+      { name: "Vasool AI Voice Assistant", desc: "ஒரே recording app action ஆகும் — loan create, collection log, expense add, customer add, report query" },
       { name: "Voice Collection Entry", desc: "“Arun 500 cash”-னு சொன்னா சரியான customer-க்கு எதிரா record ஆகும், 6 language-ல" },
       { name: "Call Customer by Name", desc: "Customer பேரை சொன்னா அவங்க number-ஐ one tap-ல dial பண்ணும்" },
       { name: "AI Loan Eligibility", desc: "Loan history-லிருந்து advisory risk score, approve/review/reject மற்றும் suggested limit" },

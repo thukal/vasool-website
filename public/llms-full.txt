@@ -4,7 +4,7 @@
 
 ## What Vasool does
 
-Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lenders traditionally run on paper. A field agent records a payment by speaking — for example "Arun 500 cash" — and it is logged against the right customer automatically, in six languages (English, Tamil, Telugu, Hindi, Malayalam, Kannada). The same platform scales from a single-route money lender to a multi-branch NBFC through per-tenant feature flags; each company runs in its own isolated database on infrastructure it controls.
+Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lenders traditionally run on paper. A field agent records a payment by speaking — for example "Arun 500 cash" — and it is logged against the right customer automatically, in six languages (English, Tamil, Telugu, Hindi, Malayalam, Kannada). Voice entry is not India-only: it works in every country Vasool supports, in the languages officers speak on those routes — Swahili in Kenya, Filipino in the Philippines, Bahasa Indonesia, Spanish in Colombia, Afrikaans and isiZulu in South Africa, Sinhala in Sri Lanka, Hausa and Yoruba in Nigeria. The same platform scales from a single-route money lender to a multi-branch NBFC through per-tenant feature flags; each company runs in its own isolated database on infrastructure it controls.
 
 ## Loan and finance products
 
@@ -21,21 +21,21 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 
 ## Operations and modules
 
-- Voice AI ("Vasool AI") — one recording becomes an app action: create loans, log collections, add customers, call a customer by name, query reports
+- Voice AI ("Vasool AI") — one recording becomes an app action: create loans, log collections, add expenses, add customers, call a customer by name, query reports. Speech is converted to a structured record, not stored as audio, and the matched borrower and amount are confirmed before saving
 - AI loan eligibility — aggregates a borrower's history into a risk score with approve/review/reject and a suggested limit
 - WhatsApp reminders — server-side sends via the lender's own provider account (Meta, Interakt, Gupshup, WATI, AiSensy)
 - Collection & payments — cash and UPI, automatic PDF receipts, payment history, admin cash settlement
-- Route management — plan daily/weekly routes, assign to staff, GPS navigation, completion tracking
+- Route management — plan daily/weekly routes, assign to staff, GPS navigation, completion tracking. Every collection and expense is tagged to its route, which is what makes the per-route day book and per-officer end-of-day cash settlement possible
 - Staff tools — live GPS tracking, location history, role-based access control, staff attendance
-- Maker-checker approvals — staff creates/edits/deletes can be held for owner or manager approval before they take effect; enabled per role and per resource, covering customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes
+- Maker-checker approvals — staff creates/edits/deletes can be held for owner or manager approval before they take effect; enabled per role and per resource, covering customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes. Individual collection entries CANNOT be gated yet (roadmap) — a spoken collection posts once the officer confirms the match. Approvals are never given by voice: capture is spoken, authorisation is a deliberate action in the approvals inbox. Together these are positioned as the voice approval workflow, available in every supported country
 - Row-level data scoping — roles default to View Own; View All is granted per resource, so a manager can see every customer but only their own loans
-- Financials — income & expense ledger, day book per route, cash advances, profit & loss reports
+- Financials — income & expense ledger (expenses can be dictated by voice and carry a receipt photo), day book per route, cash advances, profit & loss reports
 - Cash & accounts — register UPI, company and personal accounts, tag every transaction to the account it hit, and pull a date-ranged cash-flow-by-account report plus a cash book, both as PDF
 - Office web dashboard — full browser app for the office: every loan product, reports with PDF/CSV export, approvals inbox, roles and permissions, staff attendance, and live staff/customer maps
 - Funding & investors — partner capital (profit-share) and financier borrowings (the liability side)
 - Customer management — profiles, KYC document vault (Aadhaar, PAN, voter ID, ration card, gas bill), referee/guarantor linking, live customer location
 - Customer self-service portal — borrowers see balances, dues and receipts
-- Reporting — dashboards, officer performance, collection summaries, overdue/DPD tracking, P&L
+- Reporting — dashboards, officer performance (collection efficiency, attendance, route stats, expense breakdown), collection summaries, overdue/DPD tracking, cash flow by account, cash book, gold sale report, P&L. PDF and CSV export on each, and reports can be queried by voice. NOT included: credit-bureau reporting, NPA classification to regulator norms, automated mobile-money import — all roadmap
 
 ## Security and data ownership
 
@@ -60,6 +60,7 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 - Staff Tools: https://vasool.app/staff-tools
 - Pricing: https://vasool.app/pricing
 - Compare: https://vasool.app/compare
+- Voice Approval Workflow: https://vasool.app/voice-approval-workflow
 - NBFC Loan Management: https://vasool.app/nbfc-loan-management
 - Security: https://vasool.app/security
 - About: https://vasool.app/about

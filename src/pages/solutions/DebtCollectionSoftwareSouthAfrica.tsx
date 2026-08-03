@@ -9,6 +9,17 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
+import { countryFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
+
+const COUNTRY = countryFor("/loan-management-software-south-africa");
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -33,6 +44,10 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "Collections work is a sequence of contacts, promises and part-payments. Software that only stores a balance loses the part that decides whether the debt is actually recoverable.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
+    routeTrackingFeature(),
+    reportingFeature(),
     {
       icon: Split,
       title: "Transparent payment allocation",
@@ -115,6 +130,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Is this for debt collection agencies?",
       a: "No. It is for credit providers collecting their own book. Agency workflows, attorney legal process and court steps such as Section 129 notices, summonses and judgments are outside it.",

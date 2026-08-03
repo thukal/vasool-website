@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import PretextText from "./pretext/PretextText";
-import { COUNTRIES } from "@/lib/countries";
+import { COUNTRIES, inSentence } from "@/lib/countries";
 import {
   BILINGUAL_PATHS,
   basePathOf,
@@ -162,6 +162,7 @@ const Footer = () => {
               { label: "Loan Collection App", href: "/loan-collection-app" },
               { label: "Daily Collection App", href: "/daily-collection-app" },
               { label: "Voice Entry Collection App", href: "/voice-entry-collection-app" },
+              { label: "Voice Approval Workflow", href: "/voice-approval-workflow" },
               { label: "Weekly Collection App", href: "/weekly-collection-app" },
               { label: "Monthly Finance App", href: "/monthly-finance-app" },
               { label: "Line Management App", href: "/line-management-app" },
@@ -206,7 +207,7 @@ const Footer = () => {
                 href={c.slug}
                 className="text-white/35 hover:text-white/70 transition-colors text-xs"
               >
-                Vasool in {c.name}
+                Vasool in {inSentence(c)}
               </a>
             ))}
           </div>

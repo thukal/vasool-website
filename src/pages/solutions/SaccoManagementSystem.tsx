@@ -9,6 +9,17 @@ import {
 import KeywordLanding, {
   type KeywordLandingConfig,
 } from "@/components/KeywordLanding";
+import { countryFor } from "@/lib/countries";
+import {
+  fieldDayFaqs,
+  reportingFeature,
+  routeTrackingFeature,
+  voiceApprovalFaqs,
+  voiceApprovalFeature,
+  voiceExpenseFeature,
+} from "@/lib/fieldOperations";
+
+const COUNTRY = countryFor("/loan-management-software-kenya");
 
 const config: KeywordLandingConfig = {
   seo: {
@@ -33,6 +44,10 @@ const config: KeywordLandingConfig = {
   featuresSub:
     "A SACCO member is an owner, a saver and a borrower at once, and their loan is usually guaranteed by other members' shares. Generic loan software gets that wrong on day one.",
   features: [
+    voiceApprovalFeature(COUNTRY),
+    voiceExpenseFeature(COUNTRY),
+    routeTrackingFeature(),
+    reportingFeature(),
     {
       icon: Users,
       title: "Member and borrower records held together",
@@ -115,6 +130,8 @@ const config: KeywordLandingConfig = {
     ],
   },
   faqs: [
+    ...voiceApprovalFaqs(COUNTRY),
+    ...fieldDayFaqs(COUNTRY),
     {
       q: "Is this a complete SACCO management system?",
       a: "No. It covers loans and collections — member loan records, guarantors, repayments, arrears, reconciliation and audit. Share capital, member deposits, dividends and statutory returns stay in your core system. We would rather tell you that now than during implementation.",
