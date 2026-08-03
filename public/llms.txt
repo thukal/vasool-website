@@ -28,6 +28,25 @@ Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending ma
 - [White-Label Loan App](https://vasool.app/white-label-loan-app): Vasool under your own brand
 - [Chit Fund & Lending App](https://vasool.app/chit-fund-and-lending-app): Chit fund and lending management
 - [NBFC Loan Management](https://vasool.app/nbfc-loan-management): Loan management software for NBFCs in India
+- [SACCO Management System](https://vasool.app/sacco-management-system): Loans and collections for SACCOs — guarantor tracking, M-Pesa references, arrears ageing (not a full SACCO system; shares and deposits stay in your core system)
+- [Aplikasi Koperasi Simpan Pinjam](https://vasool.app/aplikasi-koperasi-simpan-pinjam): Indonesian-language page for koperasi loan and field collection management
+- [Software de Cobranza](https://vasool.app/software-de-cobranza): Spanish-language page for formal microcredit field collections in Colombia
+- [Debt Collection Software South Africa](https://vasool.app/debt-collection-software-south-africa): Arrears ageing, promise-to-pay tracking and payment allocation for South African credit providers
+
+## Countries
+
+Vasool supports company setup in eight countries. Each sets its own currency, local business date and time zone without changing the accounting meaning of any recorded amount. Vasool is collections and portfolio software — it is not a lending licence, registration or regulatory approval in any market.
+
+- [Supported Countries](https://vasool.app/countries): All eight markets, with the buyer, payment rail, currency and regulatory home for each
+- [Philippines](https://vasool.app/loan-management-software-philippines): SEC-registered lending companies and cooperatives — PHP, GCash/Maya tagging, daily and weekly field collection
+- [Nigeria](https://vasool.app/loan-management-software-nigeria): Microfinance banks, cooperatives and market lenders — NGN, group and individual exposure, portfolio at risk
+- [Kenya](https://vasool.app/loan-management-software-kenya): SACCOs and digital credit providers — KES, M-Pesa channel and transaction reference on every payment
+- [Sri Lanka](https://vasool.app/loan-management-software-sri-lanka): Licensed microfinance and finance companies — LKR, Tamil and English interface
+- [Indonesia](https://vasool.app/loan-management-software-indonesia): Koperasi simpan pinjam, BPR and microfinance institutions — IDR amounts stored exactly as entered
+- [Cambodia](https://vasool.app/loan-management-software-cambodia): Market page only — Cambodia is NOT selectable at company setup, and dual-currency KHR/USD support and Khmer are not shipped
+- [South Africa](https://vasool.app/loan-management-software-south-africa): NCR-registered credit providers — ZAR, agreement and affordability-evidence records, payment allocation
+- [Colombia](https://vasool.app/loan-management-software-colombia): Supervised microcredit institutions and cooperatives — COP, per-modality pricing; not for informal gota a gota lending
+- [India](https://vasool.app/nbfc-loan-management): Money lenders, finance companies and NBFCs — INR, voice entry, kandhu vatti and EMI books
 
 ## Company
 

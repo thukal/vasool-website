@@ -40,13 +40,44 @@ export interface RelatedLink {
   to: string;
 }
 
+/**
+ * Fixed UI labels around the configured content. Pages written in a language
+ * other than English override these so the whole page reads in one language —
+ * a page that mixes English chrome into Indonesian body copy is both worse to
+ * read and a weaker language signal to search engines.
+ */
+export interface LandingChrome {
+  backHome: string;
+  bookDemo: string;
+  viewPricing: string;
+  faqHeading: string;
+  relatedHeading: string;
+  ctaButton: string;
+  compareButton: string;
+}
+
+const DEFAULT_CHROME: LandingChrome = {
+  backHome: "Back to Home",
+  bookDemo: "Book a Free Demo",
+  viewPricing: "View Pricing",
+  faqHeading: "Frequently asked questions",
+  relatedHeading: "Explore more",
+  ctaButton: "Book a Demo",
+  compareButton: "Compare Vasool",
+};
+
 export interface KeywordLandingConfig {
   seo: {
     title: string;
     description: string;
     keywords: string;
     canonical: string;
+    /** Open Graph locale, e.g. "id_ID". Defaults to en_US. */
+    ogLocale?: string;
   };
+  /** BCP-47 tag for the body copy's language. Used for og:locale and <html lang>. */
+  lang?: string;
+  chrome?: LandingChrome;
   breadcrumbName: string;
   badge: string;
   h1: ReactNode;
@@ -95,6 +126,7 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
 };
 
 const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
+  const chrome = config.chrome ?? DEFAULT_CHROME;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -132,6 +164,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
         description={config.seo.description}
         keywords={config.seo.keywords}
         canonical={config.seo.canonical}
+        ogLocale={config.seo.ogLocale}
         structuredData={[faqSchema, breadcrumbSchema]}
       />
 
@@ -143,7 +176,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors text-sm mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {chrome.backHome}
           </Link>
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-medium mb-5">
@@ -159,13 +192,13 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="lg">
-                  Book a Free Demo
+                  {chrome.bookDemo}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
               <Link to="/pricing">
                 <Button variant="heroOutline" size="lg">
-                  View Pricing
+                  {chrome.viewPricing}
                 </Button>
               </Link>
             </div>
@@ -279,7 +312,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
       <section className="container mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
-            Frequently asked questions
+            {chrome.faqHeading}
           </h2>
           <div className="space-y-3">
             {config.faqs.map((f) => (
@@ -293,7 +326,7 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
       <section className="container mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-lg font-bold text-foreground mb-4 text-center">
-            Explore more
+            {chrome.relatedHeading}
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {config.related.map((r) => (
@@ -323,13 +356,13 @@ const KeywordLanding = ({ config }: { config: KeywordLandingConfig }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href={CONTACT_PHONE_HREF}>
                 <Button variant="hero" size="lg">
-                  Book a Demo
+                  {chrome.ctaButton}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
               <Link to="/compare">
                 <Button variant="heroOutline" size="lg">
-                  Compare Vasool
+                  {chrome.compareButton}
                 </Button>
               </Link>
             </div>

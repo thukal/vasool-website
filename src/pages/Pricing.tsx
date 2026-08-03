@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -23,6 +23,16 @@ import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF, mailtoHref } from "@/lib/contact";
+import {
+  DEFAULT_LOCALE,
+  PRICE_LOCALES,
+  detectLocale,
+  localeByCode,
+  money,
+  readStoredLocale,
+  storeLocale,
+  type PriceLocale,
+} from "@/lib/pricing";
 
 type BillingCycle = "monthly" | "yearly";
 
@@ -35,20 +45,20 @@ const content = {
   en: {
     title: "Pricing - Simple Plan for Money Lenders | Vasool",
     description:
-      "Transparent pricing for Vasool loan management CRM. Single loan product at ₹699/month with unlimited staff, live location tracking, and route management. Need more loan products? Contact us for a tailored plan.",
+      "Transparent pricing for Vasool loan management CRM. Single loan product at {{price}}/month with unlimited staff, live location tracking, and route management. Need more loan products? Contact us for a tailored plan.",
     back: "Back to Home",
     h1a: "Simple, transparent",
     h1b: "pricing",
     intro:
-      "One loan product at ₹699/month — every feature included, no hidden add-ons. Running more than one loan product? Talk to us and we'll tailor a plan that fits your business.",
+      "One loan product at {{price}}/month — every feature included, no hidden add-ons. Running more than one loan product? Talk to us and we'll tailor a plan that fits your business.",
     monthly: "Monthly",
     yearly: "Yearly",
     monthsFree: "2 MONTHS FREE",
     planName: "Standard",
     planTagline: "Run one loan product with the full Vasool toolkit.",
     perMonth: "/month",
-    billedYearly: (t: string) => `Billed ₹${t} yearly · +18% GST`,
-    billedMonthly: "Billed monthly · +18% GST",
+    billedYearly: (t: string) => `Billed ${t} yearly · {{tax}}`,
+    billedMonthly: "Billed monthly · {{tax}}",
     getStarted: "Get Started",
     planFeatures: [
       "1 loan plan type (choose any one)",
@@ -65,7 +75,7 @@ const content = {
     customTagline: "Running multiple loan products? Let's build a plan that fits your business.",
     custom: "Custom",
     pricingWord: "pricing",
-    customSub: "Tailored to your business · +18% GST",
+    customSub: "Tailored to your business · {{tax}}",
     talkToUs: "Talk to us",
     customFeatures: [
       "2 to 6 loan plan types",
@@ -75,9 +85,9 @@ const content = {
       "Direct line to our team",
     ],
     gstNote1: "Price is exclusive of",
-    gstNote2: "18% GST",
+    gstNote2: "{{taxShort}}",
     gstNote3: "Need more storage? Add extra at just",
-    gstNote4: "₹49/GB/month",
+    gstNote4: "{{storage}}/GB/month",
     planTypesTitle: "6 loan plan types",
     planTypesText: "Pick the one that matches how you lend. Need more than one? Talk to us and we'll tailor a plan.",
     planTypes: [
@@ -91,15 +101,15 @@ const content = {
     referTitle: "Refer & Save",
     referText: "Share Vasool with another money lender and both of you save for the next 3 months.",
     newClient: "New client",
-    newClientAmt: "₹50 off/month",
+    newClientAmt: "{{newClient}} off/month",
     referClient: "Referring client",
-    referClientAmt: "₹30 off/month",
+    referClientAmt: "{{referClient}} off/month",
     first3: "For first 3 months.",
     partnerTitle: "Grow with Vasool — Partner Program",
     partnerText: "Earn commission for every client you bring to Vasool. Choose the structure that works best for you.",
     opt1: "Option 1",
-    opt1Title: "Fixed ₹ per client",
-    opt1Text: "A fixed rupee commission per client per month.",
+    opt1Title: "Fixed {{symbol}} per client",
+    opt1Text: "A fixed commission per client per month.",
     opt2: "Option 2",
     opt2Title: "10% of monthly fee",
     opt2Text: "10% commission on each client's monthly plan fee.",
@@ -107,11 +117,11 @@ const content = {
     faqTitle: "Frequently asked questions",
     faqText: "Still not sure? Drop us a call and we'll help you pick the right plan.",
     faqs: [
-      { q: "Can I add more loan products later?", a: "Yes. Start with one loan product at ₹699/month and reach out when you're ready to add more. We'll tailor a plan that fits the number of products and the size of your business." },
-      { q: "Is GST included in the price?", a: "No. The price shown is exclusive of GST. 18% GST will be added on top of the plan price at checkout, as required by Indian tax regulations." },
-      { q: "How does the referral discount work?", a: "When someone signs up using your referral, they get ₹50 off per month for their first 3 months. You get ₹30 off per month for 3 months on your own plan. The discount is applied automatically to the next 3 invoices after the referred client subscribes." },
-      { q: "What happens if I exceed my storage limit?", a: "We'll notify you before you hit your limit. You can add extra storage at ₹49/GB/month as an add-on — it's billed on the same invoice as your plan. No loss of data and no interruption to service." },
-      { q: "Does the plan really include location tracking?", a: "Yes. Live field staff location tracking and route & history tracking are included at ₹699/month. We believe these are core to running a money-lending business and shouldn't be locked behind premium tiers." },
+      { q: "Can I add more loan products later?", a: "Yes. Start with one loan product at {{price}}/month and reach out when you're ready to add more. We'll tailor a plan that fits the number of products and the size of your business." },
+      { q: "Is tax included in the price?", a: "No. The price shown is exclusive of tax. We add {{taxLabel}} on top of the plan price at checkout." },
+      { q: "How does the referral discount work?", a: "When someone signs up using your referral, they get {{newClient}} off per month for their first 3 months. You get {{referClient}} off per month for 3 months on your own plan. The discount is applied automatically to the next 3 invoices after the referred client subscribes." },
+      { q: "What happens if I exceed my storage limit?", a: "We'll notify you before you hit your limit. You can add extra storage at {{storage}}/GB/month as an add-on — it's billed on the same invoice as your plan. No loss of data and no interruption to service." },
+      { q: "Does the plan really include location tracking?", a: "Yes. Live field staff location tracking and route & history tracking are included at {{price}}/month. We believe these are core to running a money-lending business and shouldn't be locked behind premium tiers." },
     ],
   },
   ta: {
@@ -129,7 +139,7 @@ const content = {
     planName: "Standard",
     planTagline: "முழு Vasool toolkit-உடன் ஒரு loan product நடத்துங்க.",
     perMonth: "/month",
-    billedYearly: (t: string) => `வருஷத்துக்கு ₹${t} bill · +18% GST`,
+    billedYearly: (t: string) => `வருஷத்துக்கு ${t} bill · +18% GST`,
     billedMonthly: "மாசம் bill · +18% GST",
     getStarted: "Get Started",
     planFeatures: [
@@ -157,9 +167,9 @@ const content = {
       "எங்க team-க்கு direct line",
     ],
     gstNote1: "விலை",
-    gstNote2: "18% GST",
+    gstNote2: "{{taxShort}}",
     gstNote3: "சேர்க்காதது. அதிக storage வேணுமா? வெறும்",
-    gstNote4: "₹49/GB/month",
+    gstNote4: "{{storage}}/GB/month",
     planTypesTitle: "6 loan plan type",
     planTypesText: "நீங்க எப்படி கடன் கொடுக்கறீங்களோ அதுக்கு ஏத்ததை choose பண்ணுங்க. ஒன்னுக்கு மேல வேணுமா? எங்களோட பேசுங்க.",
     planTypes: [
@@ -173,9 +183,9 @@ const content = {
     referTitle: "Refer & Save",
     referText: "இன்னொரு money lender-க்கு Vasool-ஐ share பண்ணுங்க, அடுத்த 3 மாசத்துக்கு ரெண்டு பேரும் save பண்ணுங்க.",
     newClient: "New client",
-    newClientAmt: "₹50 off/month",
+    newClientAmt: "{{newClient}} off/month",
     referClient: "Referring client",
-    referClientAmt: "₹30 off/month",
+    referClientAmt: "{{referClient}} off/month",
     first3: "முதல் 3 மாசத்துக்கு.",
     partnerTitle: "Vasool-உடன் Grow பண்ணுங்க — Partner Program",
     partnerText: "Vasool-க்கு கொண்டுவர்ற ஒவ்வொரு client-க்கும் commission சம்பாதியுங்க. உங்களுக்கு ஏத்த structure-ஐ choose பண்ணுங்க.",
@@ -197,8 +207,6 @@ const content = {
     ],
   },
 };
-
-const formatPrice = (n: number) => new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(n);
 
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
@@ -229,8 +237,38 @@ const Pricing = () => {
   const { isTamil, canonical, alternates, ogLocale } = useLangPage("/pricing");
   const c = isTamil ? content.ta : content.en;
   const [billing, setBilling] = useState<BillingCycle>("monthly");
-  const price = billing === "monthly" ? MONTHLY : YEARLY;
-  const totalYearly = YEARLY * 12;
+  // Always render INR first. The prerendered HTML is shared by every visitor
+  // and every crawler, so the currency can only change after hydration.
+  const [loc, setLoc] = useState<PriceLocale>(DEFAULT_LOCALE);
+
+  useEffect(() => {
+    // The Tamil page serves India; leave it in rupees.
+    if (isTamil) return;
+    setLoc(readStoredLocale() ?? detectLocale());
+  }, [isTamil]);
+
+  const pickLocale = (code: string) => {
+    const next = localeByCode(code);
+    setLoc(next);
+    storeLocale(next.code);
+  };
+
+  const priceInr = billing === "monthly" ? MONTHLY : YEARLY;
+
+  const tokens: Record<string, string> = {
+    price: money(MONTHLY, loc),
+    storage: money(49, loc),
+    newClient: money(50, loc),
+    referClient: money(30, loc),
+    symbol: loc.symbol.trim(),
+    tax: loc.taxNote,
+    taxShort: loc.code === "IN" ? "18% GST" : "applicable local taxes",
+    taxLabel: loc.taxLabel,
+  };
+
+  /** Replaces the {{...}} price tokens in the copy with local-currency values. */
+  const fill = (s: string) =>
+    s.replace(/\{\{(\w+)\}\}/g, (match, key: string) => tokens[key] ?? match);
 
   const pricingStructuredData = {
     "@context": "https://schema.org",
@@ -252,7 +290,7 @@ const Pricing = () => {
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: c.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    mainEntity: c.faqs.map((f) => ({ "@type": "Question", name: fill(f.q), acceptedAnswer: { "@type": "Answer", text: fill(f.a) } })),
   };
 
   return (
@@ -260,7 +298,7 @@ const Pricing = () => {
       <Navigation />
       <SEO
         title={c.title}
-        description={c.description}
+        description={fill(c.description)}
         keywords="vasool pricing, loan management software pricing, microfinance software cost, money lender app pricing, chit fund software price, finance CRM pricing India"
         canonical={canonical}
         ogLocale={ogLocale}
@@ -279,7 +317,7 @@ const Pricing = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
               {c.h1a} <span className="text-gradient">{c.h1b}</span>
             </h1>
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{c.intro}</p>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{fill(c.intro)}</p>
           </div>
 
           {/* Billing toggle */}
@@ -292,6 +330,35 @@ const Pricing = () => {
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${billing === "yearly" ? "bg-secondary-foreground/15 text-secondary-foreground" : "bg-accent/20 text-accent"}`}>{c.monthsFree}</span>
             </button>
           </div>
+
+          {!isTamil && (
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <label
+                htmlFor="pricing-country"
+                className="text-sm text-muted-foreground"
+              >
+                Show prices in
+              </label>
+              <select
+                id="pricing-country"
+                value={loc.code}
+                onChange={(e) => pickLocale(e.target.value)}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground shadow-card focus:outline-none focus:ring-2 focus:ring-secondary/40"
+              >
+                {PRICE_LOCALES.map((l) => (
+                  <option key={l.code} value={l.code}>
+                    {l.name} ({l.currency})
+                  </option>
+                ))}
+              </select>
+              {loc.code !== "IN" && (
+                <span className="text-xs text-muted-foreground">
+                  Converted from ₹{MONTHLY}/month — indicative, invoiced amount
+                  may differ with the exchange rate on the day.
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -304,11 +371,11 @@ const Pricing = () => {
               <h3 className="text-lg font-bold text-foreground">{c.planName}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed min-h-[2.5rem]">{c.planTagline}</p>
               <div className="mt-5 flex items-baseline gap-1">
-                <span className="text-3xl sm:text-4xl font-extrabold text-foreground">₹{formatPrice(price)}</span>
+                <span className="text-3xl sm:text-4xl font-extrabold text-foreground">{money(priceInr, loc)}</span>
                 <span className="text-sm text-muted-foreground">{c.perMonth}</span>
               </div>
               <p className="text-xs text-muted-foreground mt-1">
-                {billing === "yearly" ? c.billedYearly(formatPrice(totalYearly)) : c.billedMonthly}
+                {billing === "yearly" ? fill(c.billedYearly(money(YEARLY * 12, loc))) : fill(c.billedMonthly)}
               </p>
               <a href={CONTACT_PHONE_HREF} className="block mt-5">
                 <Button variant="hero" size="lg" className="w-full">
@@ -336,7 +403,7 @@ const Pricing = () => {
                 <span className="text-3xl sm:text-4xl font-extrabold text-foreground">{c.custom}</span>
                 <span className="text-sm text-muted-foreground">{c.pricingWord}</span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">{c.customSub}</p>
+              <p className="text-xs text-muted-foreground mt-1">{fill(c.customSub)}</p>
               <a href={CONTACT_PHONE_HREF} className="block mt-5">
                 <Button variant="default" size="lg" className="w-full">
                   {c.talkToUs}
@@ -356,8 +423,8 @@ const Pricing = () => {
         </div>
 
         <p className="text-center text-xs sm:text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-          {c.gstNote1} <span className="font-semibold">{c.gstNote2}</span> {c.gstNote3}{" "}
-          <span className="font-semibold text-foreground">{c.gstNote4}</span>.
+          {c.gstNote1} <span className="font-semibold">{fill(c.gstNote2)}</span> {c.gstNote3}{" "}
+          <span className="font-semibold text-foreground">{fill(c.gstNote4)}</span>.
         </p>
       </section>
 
@@ -398,12 +465,12 @@ const Pricing = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-border/60 bg-card p-5">
                   <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{c.newClient}</div>
-                  <div className="mt-1 text-2xl font-extrabold text-secondary">{c.newClientAmt}</div>
+                  <div className="mt-1 text-2xl font-extrabold text-secondary">{fill(c.newClientAmt)}</div>
                   <div className="text-sm text-muted-foreground mt-1">{c.first3}</div>
                 </div>
                 <div className="rounded-xl border border-border/60 bg-card p-5">
                   <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{c.referClient}</div>
-                  <div className="mt-1 text-2xl font-extrabold text-secondary">{c.referClientAmt}</div>
+                  <div className="mt-1 text-2xl font-extrabold text-secondary">{fill(c.referClientAmt)}</div>
                   <div className="text-sm text-muted-foreground mt-1">{c.first3}</div>
                 </div>
               </div>
@@ -426,7 +493,7 @@ const Pricing = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="rounded-xl bg-white/5 border border-white/10 p-5">
                   <div className="text-xs uppercase tracking-wider text-white/50 font-semibold">{c.opt1}</div>
-                  <div className="mt-1 text-lg font-bold text-white">{c.opt1Title}</div>
+                  <div className="mt-1 text-lg font-bold text-white">{fill(c.opt1Title)}</div>
                   <div className="text-sm text-white/60 mt-1">{c.opt1Text}</div>
                 </div>
                 <div className="rounded-xl bg-white/5 border border-white/10 p-5">
@@ -453,7 +520,7 @@ const Pricing = () => {
           <p className="text-muted-foreground mb-8">{c.faqText}</p>
           <div className="space-y-3">
             {c.faqs.map((f) => (
-              <FAQItem key={f.q} q={f.q} a={f.a} />
+              <FAQItem key={f.q} q={fill(f.q)} a={fill(f.a)} />
             ))}
           </div>
           <div className="mt-10 text-center">

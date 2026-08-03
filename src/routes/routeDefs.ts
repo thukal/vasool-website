@@ -39,6 +39,26 @@ export const routeDefs: RouteDef[] = [
   { path: "/white-label-loan-app", importer: () => import("../pages/solutions/WhiteLabelLoanApp") },
   { path: "/chit-fund-and-lending-app", importer: () => import("../pages/solutions/ChitFundAndLendingApp") },
   { path: "/nbfc-loan-management", importer: () => import("../pages/solutions/NbfcLoanManagement") },
+  // Exact-match pages for the head terms buyers actually search in each market.
+  // The Indonesian and Spanish pages are written in-language: an English page
+  // does not rank for an Indonesian or Spanish query. See PAGE_LANG in
+  // scripts/prerender.mjs, which sets <html lang> for them.
+  { path: "/sacco-management-system", importer: () => import("../pages/solutions/SaccoManagementSystem") },
+  { path: "/aplikasi-koperasi-simpan-pinjam", importer: () => import("../pages/solutions/AplikasiKoperasiSimpanPinjam") },
+  { path: "/software-de-cobranza", importer: () => import("../pages/solutions/SoftwareDeCobranza") },
+  { path: "/debt-collection-software-south-africa", importer: () => import("../pages/solutions/DebtCollectionSoftwareSouthAfrica") },
+  // Country pages. India isn't listed here — the whole site is the India
+  // pitch, and /nbfc-loan-management is its entry in the country hub.
+  { path: "/countries", importer: () => import("../pages/Countries") },
+  { path: "/loan-management-software-philippines", importer: () => import("../pages/countries/Philippines") },
+  { path: "/loan-management-software-nigeria", importer: () => import("../pages/countries/Nigeria") },
+  { path: "/loan-management-software-kenya", importer: () => import("../pages/countries/Kenya") },
+  { path: "/loan-management-software-sri-lanka", importer: () => import("../pages/countries/SriLanka") },
+  { path: "/loan-management-software-indonesia", importer: () => import("../pages/countries/Indonesia") },
+  { path: "/loan-management-software-south-africa", importer: () => import("../pages/countries/SouthAfrica") },
+  { path: "/loan-management-software-colombia", importer: () => import("../pages/countries/Colombia") },
+  // Cambodia has a market page but no company setup yet — see status: "preview".
+  { path: "/loan-management-software-cambodia", importer: () => import("../pages/countries/Cambodia") },
   // ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE
   { path: "*", importer: () => import("../pages/NotFound") },
 ];

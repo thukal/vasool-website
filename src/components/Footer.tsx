@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import PretextText from "./pretext/PretextText";
+import { COUNTRIES } from "@/lib/countries";
 import {
   BILINGUAL_PATHS,
   basePathOf,
@@ -171,6 +172,10 @@ const Footer = () => {
               { label: "White-Label Loan App", href: "/white-label-loan-app" },
               { label: "Chit Fund & Lending App", href: "/chit-fund-and-lending-app" },
               { label: "NBFC Loan Management", href: "/nbfc-loan-management" },
+              { label: "SACCO Management System", href: "/sacco-management-system" },
+              { label: "Aplikasi Koperasi Simpan Pinjam", href: "/aplikasi-koperasi-simpan-pinjam" },
+              { label: "Software de Cobranza", href: "/software-de-cobranza" },
+              { label: "Debt Collection Software South Africa", href: "/debt-collection-software-south-africa" },
             ].map((s) => (
               <a
                 key={s.href}
@@ -178,6 +183,30 @@ const Footer = () => {
                 className="text-white/35 hover:text-white/70 transition-colors text-xs"
               >
                 {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Country pages — crawlable anchors for each supported market */}
+        <div className="pt-7 mb-7 border-t border-white/[0.06]">
+          <h4 className="font-semibold text-white/50 mb-3 text-xs uppercase tracking-wider">
+            Countries
+          </h4>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <a
+              href="/countries"
+              className="text-white/35 hover:text-white/70 transition-colors text-xs"
+            >
+              All Supported Countries
+            </a>
+            {COUNTRIES.map((c) => (
+              <a
+                key={c.slug}
+                href={c.slug}
+                className="text-white/35 hover:text-white/70 transition-colors text-xs"
+              >
+                Vasool in {c.name}
               </a>
             ))}
           </div>

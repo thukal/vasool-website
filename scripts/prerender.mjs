@@ -51,6 +51,15 @@ if (routes.length === 0) {
 const langForRoute = (route) =>
   route === "/ta" || route.startsWith("/ta/") ? "ta" : "en";
 
+// Pages whose body copy is written in a language the site has no locale bundle
+// for. They render with English shared chrome (nav, footer) but their own
+// content language, so <html lang> must match the content — that attribute is
+// what tells a crawler which query language the page answers.
+const PAGE_LANG = {
+  "/aplikasi-koperasi-simpan-pinjam": "id",
+  "/software-de-cobranza": "es",
+};
+
 for (const route of routes) {
   const lang = langForRoute(route);
   const { html, helmet } = await render(route, lang);
@@ -66,7 +75,7 @@ for (const route of routes) {
     );
   }
 
-  const htmlLangAttr = lang === "ta" ? "ta" : "en";
+  const htmlLangAttr = PAGE_LANG[route] ?? (lang === "ta" ? "ta" : "en");
 
   const headTags = [helmet.title, helmet.meta, helmet.link, helmet.script]
     .map((part) => part.toString())
