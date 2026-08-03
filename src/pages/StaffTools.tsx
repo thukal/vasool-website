@@ -5,6 +5,8 @@ import {
   ArrowRight,
   UserCog,
   Shield,
+  EyeOff,
+  UserCheck,
   MapPin,
   History,
   Map,
@@ -39,6 +41,8 @@ interface Item {
 const staffManagement = (ta: boolean): Item[] => [
   { icon: UserCog, title: "Staff Management", description: ta ? "Complete profile, contact details மற்றும் assignment history-உடன் field staff-ஐ add, edit மற்றும் manage பண்ணுங்க." : "Add, edit, and manage field staff with complete profiles, contact details, and assignment history." },
   { icon: Shield, title: "Role-Based Access Control", description: ta ? "Resource மற்றும் action-வாரியா granular permission உள்ள custom roles. ஒவ்வொரு role-உம் என்ன பார்க்கலாம், create/edit/delete பண்ணலாம்னு control பண்ணுங்க." : "Custom roles with granular permissions per resource and action. Control exactly what each role can see, create, edit, or delete." },
+  { icon: EyeOff, title: "View Own vs View All", description: ta ? "Ovvoru role-உம் default-ஆ தன்னோட customer மற்றும் loan-ஐ மட்டும் பார்க்கும். Resource-வாரியா View All tick பண்ணா மட்டுமே முழு book தெரியும் — manager எல்லா customer-ஐயும் பார்க்கலாம், ஆனா தன்னோட loan-ஐ மட்டும்னு set பண்ணலாம்." : "Roles default to seeing only their own customers and loans. Tick View All per resource to widen it — a manager can see every customer but only their own loans. No field phone holds the whole book unless you say so." },
+  { icon: UserCheck, title: "Approvals Inbox", description: ta ? "Staff-ஓட create, edit, delete-ஐ approve ஆகற வரைக்கும் hold பண்ணுங்க. Request assign பண்ணப்பட்ட approver-க்கு போகும், approve ஆனா மட்டுமே apply ஆகும் — ரெண்டு முடிவும் audit log-ல." : "Hold a staff member's create, edit or delete until it's approved. The request routes to the assigned approver and applies only on approval — with both outcomes on the audit log. Enable it per role and per resource." },
   { icon: MapPin, title: "Staff GPS Tracking", description: ta ? "Field officer-கள் collection route-ல போகும்போது real-time location tracking." : "Real-time location tracking of field officers as they move through their collection routes." },
   { icon: History, title: "Staff Location History", description: ta ? "Field staff எங்க போனாங்கனு காட்டற historical GPS trail — visit verification மற்றும் route analysis-க்கு." : "Historical GPS trail showing where field staff have been — for visit verification and route analysis." },
   { icon: Map, title: "Live Staff Map", description: ta ? "எல்லா field staff location-ஐயும் ஒரே real-time map-ல பாருங்க. யார் எங்க இருக்காங்கனு இப்பவே தெரியும்." : "See all field staff locations on a single real-time map. Know who is where, right now." },

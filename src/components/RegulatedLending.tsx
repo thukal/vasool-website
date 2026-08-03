@@ -4,6 +4,8 @@ import {
   Database,
   FileCheck2,
   Sparkles,
+  UserCheck,
+  EyeOff,
   ArrowRight,
   Info,
 } from "lucide-react";
@@ -14,6 +16,16 @@ const PILLARS = [
     icon: ShieldCheck,
     title: "Immutable audit trail",
     desc: "Every edit, approval, and closure is written to an audit log with full entity history — reconstruct exactly what changed, when, and by whom.",
+  },
+  {
+    icon: UserCheck,
+    title: "Maker-checker approvals",
+    desc: "Hold a staff member's create, edit or delete until an owner or manager approves it. Turn it on for the resources that need a second pair of eyes, leave the rest one-tap.",
+  },
+  {
+    icon: EyeOff,
+    title: "Need-to-know data scoping",
+    desc: "Roles default to seeing only their own customers and loans. Grant View All per resource — so no field phone ever holds the whole book unless you say so.",
   },
   {
     icon: Database,

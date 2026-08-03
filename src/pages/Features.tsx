@@ -17,6 +17,9 @@ import {
   Landmark,
   Sparkles,
   Smartphone,
+  Wallet,
+  Gem,
+  LayoutDashboard,
   ArrowRight,
   CheckCircle2,
   type LucideIcon,
@@ -79,6 +82,21 @@ const categoriesEn: FeatureCategory[] = [
     ],
   },
   {
+    key: "cashAccounts",
+    icon: Wallet,
+    color: "from-lime-500 to-emerald-500",
+    title: "Cash & Accounts",
+    description:
+      "Know which account the money actually landed in. Register your UPI IDs and bank accounts, tag every transaction to one, and reconcile cash and digital side by side.",
+    features: [
+      { name: "Company Accounts", desc: "Register UPI, company and personal accounts with bank, IFSC and UPI-ID details" },
+      { name: "Payment-Method Tagging", desc: "Tag collections, disbursements, chit dues, income and expenses to the account they hit" },
+      { name: "Cash Flow by Account", desc: "Date-ranged inflow/outflow grouped by account across every module, exportable as PDF" },
+      { name: "Cash Book", desc: "Owner and investor capital in-and-out ledger with a downloadable PDF" },
+      { name: "Day Book", desc: "Per-route daily book — collections, expenses, advances, and the net cash position" },
+    ],
+  },
+  {
     key: "route",
     icon: MapPin,
     color: "from-orange-500 to-amber-500",
@@ -126,6 +144,9 @@ const categoriesEn: FeatureCategory[] = [
       { name: "Overdue Loan Reports", desc: "Track overdue customers and amounts" },
       { name: "Staff-Wise Collection Reports", desc: "Per-staff collection performance" },
       { name: "Daily Collection Reports", desc: "Day-by-day collection details" },
+      { name: "Outstanding Balance Reports", desc: "Live outstanding across the portfolio, with PDF export" },
+      { name: "Route-Wise Reports", desc: "Collection performance broken down by route" },
+      { name: "Payment Reminder Reports", desc: "Who is due, who is overdue, and who has already been reminded" },
     ],
   },
   {
@@ -151,6 +172,24 @@ const categoriesEn: FeatureCategory[] = [
       { name: "Product Categories", desc: "Manage categories for product-based loans" },
       { name: "Product Photos", desc: "Upload product images for product loans" },
       { name: "Product Pricing", desc: "Track product price, down payment, and loan amount" },
+      { name: "Vendors", desc: "Maintain the suppliers you buy financed stock from" },
+      { name: "Stock Entries", desc: "Log purchases into stock and track what is left to finance" },
+    ],
+  },
+  {
+    key: "goldBusiness",
+    icon: Gem,
+    color: "from-yellow-500 to-amber-600",
+    title: "Gold Business",
+    description:
+      "When a pledged ornament has to be sold, the sale is a first-class record — not a note in a diary. Recover the outstanding, pay the surplus back, and keep the proof.",
+    features: [
+      { name: "Sale from a Pledged Loan", desc: "Move gold from a defaulted loan into a sale; the loan closes only when the sale completes" },
+      { name: "Standalone Gold Sales", desc: "Record sales of gold that was never tied to a loan" },
+      { name: "Surplus & Owner Deduction", desc: "Recover the outstanding, deduct a flat or percentage margin, and pay the surplus to the customer" },
+      { name: "Item Photos & Custody", desc: "Photograph every ornament and restrict who can view the images" },
+      { name: "Gold Sale Dashboard & Report", desc: "Track active, completed and cancelled sales with realised value" },
+      { name: "Live Gold Rate", desc: "Per-gram rate fetching feeding both gold loan valuation and sale pricing" },
     ],
   },
   {
@@ -213,6 +252,22 @@ const categoriesEn: FeatureCategory[] = [
     ],
   },
   {
+    key: "webApp",
+    icon: LayoutDashboard,
+    color: "from-blue-600 to-indigo-600",
+    title: "Office Web Dashboard",
+    description:
+      "The field runs on the phone; the office runs on a browser. The same data, on a screen big enough to review a portfolio, approve work, and pull reports.",
+    features: [
+      { name: "Browser Dashboard", desc: "Full web app for the office — no install, same live data as the mobile app" },
+      { name: "Every Loan Product", desc: "Create and manage daily, weekly, monthly, EMI, gold, gold sale and product loans from the desk" },
+      { name: "Reports & Exports", desc: "P&L, day book, collection summary, overdue and cash flow, with PDF and CSV export" },
+      { name: "Approvals Inbox", desc: "Review and approve pending staff actions without picking up the phone" },
+      { name: "Admin Console", desc: "Staff, roles and permissions, attendance, deduction configs and storage in one place" },
+      { name: "Live Maps", desc: "Staff and customer locations plotted on a full-size map" },
+    ],
+  },
+  {
     key: "security",
     icon: Lock,
     color: "from-red-500 to-orange-500",
@@ -220,6 +275,8 @@ const categoriesEn: FeatureCategory[] = [
     description:
       "Enterprise-grade security with authentication, audit trails, and attack protection built into every deployment.",
     features: [
+      { name: "Maker-Checker Approvals", desc: "Route staff creates, edits and deletes to an owner or manager for approval before they take effect" },
+      { name: "View Own vs View All", desc: "Per-resource row scoping — a role can see every customer but only its own loans" },
       { name: "JWT Authentication", desc: "Secure token-based authentication" },
       { name: "Unified Login", desc: "Single login for both admin and staff" },
       { name: "Biometric Login", desc: "Mobile biometric/fingerprint authentication support" },
@@ -239,7 +296,7 @@ const categoriesEn: FeatureCategory[] = [
     features: [
       { name: "Multi-Tenant Architecture", desc: "Each company gets isolated data and configuration" },
       { name: "Custom Branding", desc: "Per-tenant app name, tagline, icon, and support contact" },
-      { name: "Per-Tenant Feature Toggles", desc: "Enable/disable 27+ features per tenant" },
+      { name: "Per-Tenant Feature Toggles", desc: "Enable/disable 70+ features per tenant" },
       { name: "Per-Tenant Storage Limits", desc: "Configurable storage quotas (default 7GB)" },
       { name: "Storage Monitoring", desc: "Track and manage per-tenant file storage usage" },
       { name: "Multi-Server Deployment", desc: "Distribute tenants across multiple servers" },
@@ -255,7 +312,7 @@ const categoriesEn: FeatureCategory[] = [
     description:
       "A REST API with generated type-safe clients, interactive documentation, and offline sync support.",
     features: [
-      { name: "REST API", desc: "Full-featured HTTP/JSON API with 100+ endpoints" },
+      { name: "REST API", desc: "Full-featured HTTP/JSON API with 400+ endpoints" },
       { name: "Generated TypeScript Types", desc: "Type-safe clients generated from the API spec, shared by app and web" },
       { name: "Swagger / OpenAPI Docs", desc: "Interactive, always-current API documentation" },
       { name: "Offline Sync Support", desc: "Feature flag for offline-capable mobile clients" },
@@ -318,6 +375,21 @@ const categoriesTa: FeatureCategory[] = [
     ],
   },
   {
+    key: "cashAccounts",
+    icon: Wallet,
+    color: "from-lime-500 to-emerald-500",
+    title: "Cash & Accounts",
+    description:
+      "பணம் எந்த account-ல விழுந்துச்சுனு தெரியும். உங்க UPI ID மற்றும் bank account-ஐ register பண்ணி, ஒவ்வொரு transaction-ஐயும் அதுக்கு tag பண்ணி, cash-ஐயும் digital-ஐயும் பக்கத்துப் பக்கத்துல reconcile பண்ணுங்க.",
+    features: [
+      { name: "Company Accounts", desc: "Bank, IFSC மற்றும் UPI-ID details-உடன் UPI, company மற்றும் personal account-ஐ register பண்ணுங்க" },
+      { name: "Payment-Method Tagging", desc: "Collection, disbursement, chit due, income மற்றும் expense-ஐ அது விழுந்த account-க்கு tag பண்ணுங்க" },
+      { name: "Cash Flow by Account", desc: "எல்லா module-லயும் account-வாரியா date-range inflow/outflow, PDF-ஆ export பண்ணலாம்" },
+      { name: "Cash Book", desc: "Owner மற்றும் investor capital வரவு-செலவு ledger, PDF download-உடன்" },
+      { name: "Day Book", desc: "Route-வாரியா தினசரி book — collection, expense, advance மற்றும் net cash position" },
+    ],
+  },
+  {
     key: "route",
     icon: MapPin,
     color: "from-orange-500 to-amber-500",
@@ -365,6 +437,9 @@ const categoriesTa: FeatureCategory[] = [
       { name: "Overdue Loan Reports", desc: "Overdue customer மற்றும் amount-ஐ track பண்ணுங்க" },
       { name: "Staff-Wise Collection Reports", desc: "Staff-வாரியா collection performance" },
       { name: "Daily Collection Reports", desc: "நாள்வாரியா collection details" },
+      { name: "Outstanding Balance Reports", desc: "Portfolio முழுக்க live outstanding, PDF export-உடன்" },
+      { name: "Route-Wise Reports", desc: "Route-வாரியா collection performance breakdown" },
+      { name: "Payment Reminder Reports", desc: "யாருக்கு due, யாரு overdue, யாருக்கு ஏற்கனவே reminder போச்சு" },
     ],
   },
   {
@@ -390,6 +465,24 @@ const categoriesTa: FeatureCategory[] = [
       { name: "Product Categories", desc: "Product-based loan-களுக்கான category-ஐ manage பண்ணுங்க" },
       { name: "Product Photos", desc: "Product loan-களுக்கு product image upload பண்ணுங்க" },
       { name: "Product Pricing", desc: "Product price, down payment மற்றும் loan amount-ஐ track பண்ணுங்க" },
+      { name: "Vendors", desc: "Finance பண்ற stock-ஐ வாங்கற supplier-களை maintain பண்ணுங்க" },
+      { name: "Stock Entries", desc: "Purchase-ஐ stock-ல log பண்ணி, finance பண்ண மீதி என்னனு track பண்ணுங்க" },
+    ],
+  },
+  {
+    key: "goldBusiness",
+    icon: Gem,
+    color: "from-yellow-500 to-amber-600",
+    title: "Gold Business",
+    description:
+      "Pledge பண்ணின நகையை விக்க வேண்டி வந்தா, அந்த sale ஒரு முழு record — diary-ல ஒரு note இல்ல. Outstanding-ஐ recover பண்ணி, surplus-ஐ திருப்பிக் கொடுத்து, proof-ஐ வெச்சுக்குங்க.",
+    features: [
+      { name: "Sale from a Pledged Loan", desc: "Default ஆன loan-லிருந்து gold-ஐ sale-க்கு மாத்துங்க; sale complete ஆனா மட்டுமே loan close ஆகும்" },
+      { name: "Standalone Gold Sales", desc: "Loan-உடன் சம்பந்தம் இல்லாத gold sale-ஐயும் record பண்ணுங்க" },
+      { name: "Surplus & Owner Deduction", desc: "Outstanding-ஐ recover பண்ணி, flat அல்லது percentage margin எடுத்து, surplus-ஐ customer-க்கு கொடுங்க" },
+      { name: "Item Photos & Custody", desc: "ஒவ்வொரு நகையையும் photo எடுங்க; யாரு பார்க்கலாம்னு control பண்ணுங்க" },
+      { name: "Gold Sale Dashboard & Report", desc: "Active, completed மற்றும் cancelled sale-ஐ realised value-உடன் track பண்ணுங்க" },
+      { name: "Live Gold Rate", desc: "Gold loan valuation மற்றும் sale pricing ரெண்டுக்கும் per-gram rate fetch" },
     ],
   },
   {
@@ -452,6 +545,22 @@ const categoriesTa: FeatureCategory[] = [
     ],
   },
   {
+    key: "webApp",
+    icon: LayoutDashboard,
+    color: "from-blue-600 to-indigo-600",
+    title: "Office Web Dashboard",
+    description:
+      "Field phone-ல ஓடுது; office browser-ல ஓடுது. அதே data, portfolio-ஐ review பண்ண, work-ஐ approve பண்ண, report எடுக்க பெரிய screen-ல.",
+    features: [
+      { name: "Browser Dashboard", desc: "Office-க்கு முழு web app — install தேவையில்ல, mobile app-ஓட அதே live data" },
+      { name: "Every Loan Product", desc: "Daily, weekly, monthly, EMI, gold, gold sale மற்றும் product loan-ஐ desk-லிருந்தே manage பண்ணுங்க" },
+      { name: "Reports & Exports", desc: "P&L, day book, collection summary, overdue மற்றும் cash flow — PDF மற்றும் CSV export-உடன்" },
+      { name: "Approvals Inbox", desc: "Phone எடுக்காம pending staff action-ஐ review பண்ணி approve பண்ணுங்க" },
+      { name: "Admin Console", desc: "Staff, role & permission, attendance, deduction config மற்றும் storage ஒரே இடத்துல" },
+      { name: "Live Maps", desc: "Staff மற்றும் customer location-ஐ full-size map-ல பாருங்க" },
+    ],
+  },
+  {
     key: "security",
     icon: Lock,
     color: "from-red-500 to-orange-500",
@@ -459,6 +568,8 @@ const categoriesTa: FeatureCategory[] = [
     description:
       "Authentication, audit trail மற்றும் attack protection ஒவ்வொரு deployment-லயும் build பண்ணப்பட்ட enterprise-grade security.",
     features: [
+      { name: "Maker-Checker Approvals", desc: "Staff-ஓட create, edit, delete-ஐ owner அல்லது manager approve பண்ணின பிறகே நடக்கும்" },
+      { name: "View Own vs View All", desc: "Resource-வாரியா row scoping — ஒரு role எல்லா customer-ஐயும் பார்க்கலாம், ஆனா தன்னோட loan-ஐ மட்டும்" },
       { name: "JWT Authentication", desc: "Secure token-based authentication" },
       { name: "Unified Login", desc: "Admin மற்றும் staff ரெண்டுக்கும் ஒரே login" },
       { name: "Biometric Login", desc: "Mobile biometric/fingerprint authentication support" },
@@ -478,7 +589,7 @@ const categoriesTa: FeatureCategory[] = [
     features: [
       { name: "Multi-Tenant Architecture", desc: "ஒவ்வொரு company-க்கும் isolated data மற்றும் configuration" },
       { name: "Custom Branding", desc: "Tenant-வாரியா app name, tagline, icon மற்றும் support contact" },
-      { name: "Per-Tenant Feature Toggles", desc: "Tenant-வாரியா 27+ feature-ஐ enable/disable பண்ணுங்க" },
+      { name: "Per-Tenant Feature Toggles", desc: "Tenant-வாரியா 70+ feature-ஐ enable/disable பண்ணுங்க" },
       { name: "Per-Tenant Storage Limits", desc: "Configurable storage quota (default 7GB)" },
       { name: "Storage Monitoring", desc: "Tenant-வாரியா file storage usage-ஐ track பண்ணுங்க" },
       { name: "Multi-Server Deployment", desc: "பல server-ல tenant-களை distribute பண்ணுங்க" },
@@ -494,7 +605,7 @@ const categoriesTa: FeatureCategory[] = [
     description:
       "Generate ஆகற type-safe client, interactive documentation மற்றும் offline sync support உள்ள REST API.",
     features: [
-      { name: "REST API", desc: "100+ endpoint உள்ள full-featured HTTP/JSON API" },
+      { name: "REST API", desc: "400+ endpoint உள்ள full-featured HTTP/JSON API" },
       { name: "Generated TypeScript Types", desc: "API spec-லிருந்து generate ஆகற type-safe client — app மற்றும் web பகிர்ந்து பயன்படுத்தும்" },
       { name: "Swagger / OpenAPI Docs", desc: "Interactive, எப்பவும் up-to-date API documentation" },
       { name: "Offline Sync Support", desc: "Offline-capable mobile client-க்கான feature flag" },
@@ -614,11 +725,11 @@ const Features = () => {
             <div className="text-xs sm:text-sm text-muted-foreground">{c.statModules}</div>
           </div>
           <div className="text-center p-5 sm:p-6 rounded-2xl bg-card border border-border/50 shadow-card">
-            <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">100+</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">400+</div>
             <div className="text-xs sm:text-sm text-muted-foreground">{c.statApi}</div>
           </div>
           <div className="text-center p-5 sm:p-6 rounded-2xl bg-card border border-border/50 shadow-card">
-            <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">27+</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">70+</div>
             <div className="text-xs sm:text-sm text-muted-foreground">{c.statToggles}</div>
           </div>
         </div>

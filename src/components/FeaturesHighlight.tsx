@@ -57,11 +57,14 @@ const features: FeatureItem[] = [
   },
 ];
 
+// Keep these in sync with src/pages/Features.tsx — the features page derives
+// its counts from the category array; this row is the home-page mirror.
+// Businesses = live tenant configs in infra/tenants (demo tenants excluded).
 const stats = [
-  { value: "73+", labelKey: "home.features.stat1" },
-  { value: "13", labelKey: "home.features.stat2" },
-  { value: "100+", labelKey: "home.features.stat3" },
-  { value: "27+", labelKey: "home.features.stat4" },
+  { value: "109+", labelKey: "home.features.stat1" },
+  { value: "18", labelKey: "home.features.stat2" },
+  { value: "60+", labelKey: "home.features.stat3" },
+  { value: "70+", labelKey: "home.features.stat4" },
 ];
 
 const FeaturesHighlight = () => {

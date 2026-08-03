@@ -20,154 +20,6 @@
     "stat3Value": "100%",
     "stat3Label": "Customizable"
   },
-  "allFeatures": {
-    "badge": "Platform Features",
-    "title1": "Everything You Need to",
-    "title2": "Run Your Lending Business",
-    "description": "From loan origination to collection tracking, staff management to multi-tenant deployment—our platform covers every aspect of microfinance operations.",
-    "featuresLabel": "features",
-    "coreLoan": {
-      "title": "Core Loan Management",
-      "items": [
-        "Daily Loans",
-        "Weekly Loans",
-        "Monthly Loans",
-        "Gold Loans",
-        "Property Loans",
-        "Product-Based Loans",
-        "Loan Renewal",
-        "Repayment Schedules",
-        "Loan Progress Tracking",
-        "Loan Closure Cards",
-        "CSV Bulk Import",
-        "Loan Deduction Config"
-      ]
-    },
-    "collection": {
-      "title": "Collection & Payments",
-      "items": [
-        "Daily Collection Tracking",
-        "Weekly Collection Tracking",
-        "Payment Receipts (PDF)",
-        "Payment History",
-        "Admin Cash Settlement"
-      ]
-    },
-    "route": {
-      "title": "Route Management",
-      "items": [
-        "Daily Routes",
-        "Weekly Routes",
-        "Route Items Management",
-        "Route Completion Tracking"
-      ]
-    },
-    "customer": {
-      "title": "Customer Management",
-      "items": [
-        "Customer Profiles",
-        "Customer Verification",
-        "GPS Location Tracking",
-        "Document Management",
-        "Contact Management",
-        "Customer-Staff Linking",
-        "Customer-Referee Linking"
-      ]
-    },
-    "staffTeam": {
-      "title": "Staff & Team Management",
-      "items": [
-        "Staff Management",
-        "Role-Based Access Control",
-        "Live Staff GPS Tracking",
-        "Staff Location History",
-        "Live Staff Map",
-        "Real-Time Field Agent Tracking"
-      ]
-    },
-    "staffFinancials": {
-      "title": "Staff Financials",
-      "items": [
-        "Income & Expense Ledger",
-        "Day Book & Cash Settlement",
-        "Cash Advance Management",
-        "Cash Advance Verification",
-        "Cash Balance Summary"
-      ]
-    },
-    "reporting": {
-      "title": "Reporting & Analytics",
-      "items": [
-        "Dashboard",
-        "Staff Route Overview",
-        "Officer Performance Reports",
-        "Collection Summary Reports",
-        "Profit & Loss Reports",
-        "Advance Balance Reports",
-        "Overdue Loan Reports",
-        "Staff-Wise Collection Reports",
-        "Daily Collection Reports"
-      ]
-    },
-    "referee": {
-      "title": "Referee Management",
-      "items": [
-        "Referee Records",
-        "Referee-Customer Linking"
-      ]
-    },
-    "product": {
-      "title": "Product Catalog",
-      "items": [
-        "Product Categories",
-        "Product Photos",
-        "Product Pricing"
-      ]
-    },
-    "security": {
-      "title": "Security & Audit",
-      "items": [
-        "JWT Authentication",
-        "Unified Login",
-        "Biometric Login",
-        "Audit Logging",
-        "Entity History",
-        "Bot & Attack Protection",
-        "Rate Limiting"
-      ]
-    },
-    "multiTenancy": {
-      "title": "Multi-Tenancy & Infrastructure",
-      "items": [
-        "Multi-Tenant Architecture",
-        "Custom Branding",
-        "Per-Tenant Feature Toggles",
-        "Per-Tenant Storage Limits",
-        "Storage Monitoring",
-        "Multi-Server Deployment",
-        "Automated Provisioning",
-        "Automated Deprovisioning"
-      ]
-    },
-    "api": {
-      "title": "API & Integration",
-      "items": [
-        "REST API (100+ endpoints)",
-        "Generated TypeScript Types",
-        "Swagger Documentation",
-        "Offline Sync Support"
-      ]
-    },
-    "operations": {
-      "title": "Operations",
-      "items": [
-        "Database Migrations",
-        "Distributed Tracing",
-        "Health Checks",
-        "CI/CD Pipeline"
-      ]
-    }
-  },
   "home": {
     "loans": {
       "badge": "Loan Products",
@@ -215,11 +67,11 @@
       "badge": "Platform Capabilities",
       "title1": "Beyond Loans —",
       "title2": "A Complete Platform",
-      "description": "From customer management to multi-tenant infrastructure, Vasool covers every aspect of running a microfinance business.",
+      "description": "One platform, three ways to work — a field app for your agents, a web dashboard for the office, and a self-service portal for borrowers.",
       "viewAll": "Explore All Features",
       "stat1": "Total Features",
       "stat2": "Modules",
-      "stat3": "API Endpoints",
+      "stat3": "Finance Businesses",
       "stat4": "Feature Toggles",
       "customer": {
         "title": "Customer Management",
@@ -231,7 +83,7 @@
       },
       "reporting": {
         "title": "Reporting & Analytics",
-        "desc": "9 report types including P&L, officer performance, collection summaries, and overdue tracking."
+        "desc": "12 report types including P&L, cash flow by account, officer performance, collection summaries, and overdue tracking."
       },
       "security": {
         "title": "Security & Audit",

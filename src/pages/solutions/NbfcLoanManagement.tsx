@@ -6,6 +6,9 @@ import {
   Gauge,
   TrendingDown,
   Landmark,
+  UserCheck,
+  EyeOff,
+  Wallet,
 } from "lucide-react";
 import KeywordLanding, {
   type KeywordLandingConfig,
@@ -15,7 +18,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "NBFC Loan Management Software | Vasool",
     description:
-      "Vasool is loan management software for NBFCs in India — immutable audit trail, KYC vault, per-tenant database, AI credit appraisal, DPD tracking and a capital ledger. The platform you grow with, from one route to many branches. Free demo.",
+      "Vasool is loan management software for NBFCs in India — maker-checker approvals, immutable audit trail, KYC vault, per-tenant database, AI credit appraisal, DPD tracking and a capital ledger. The platform you grow with, from one route to many branches. Free demo.",
     keywords:
       "NBFC loan management software, NBFC lending software india, loan management system for NBFC, NBFC loan origination and collection software, NBFC software india, loan management software for finance companies, NBFC portfolio management software",
     canonical: "/nbfc-loan-management",
@@ -29,12 +32,27 @@ const config: KeywordLandingConfig = {
     </>
   ),
   intro:
-    "Vasool is the operating system a lender grows with. The same platform that runs a one-route money lender scales to a multi-branch NBFC — because every capability is a per-tenant toggle. Immutable audit trails, a KYC document vault, AI-assisted credit appraisal and DPD tracking come standard, on a database that is yours alone.",
+    "Vasool is the operating system a lender grows with. The same platform that runs a one-route money lender scales to a multi-branch NBFC — because every capability is a per-tenant toggle. Maker-checker approvals, immutable audit trails, row-level data scoping, a KYC document vault, AI-assisted credit appraisal and DPD tracking come standard, on a database that is yours alone.",
   features: [
     {
       icon: ShieldCheck,
       title: "Immutable audit trail",
       desc: "Every edit, approval and closure is written to an audit log with full entity history, so you can reconstruct exactly what changed, when, and by whom — the evidentiary backbone examiners expect.",
+    },
+    {
+      icon: UserCheck,
+      title: "Maker-checker approvals",
+      desc: "Staff creates, edits and deletes can be held for approval instead of taking effect immediately. The request is queued with its full payload, an owner or assigned manager approves or rejects it, and only then does it apply — with the decision on the audit record.",
+    },
+    {
+      icon: EyeOff,
+      title: "Need-to-know data scoping",
+      desc: "Row-level scoping per resource: a role defaults to View Own and is granted View All only where you tick it. A branch manager can see every customer but only their own loans — your book is never fully exposed to a field device.",
+    },
+    {
+      icon: Wallet,
+      title: "Account-level cash reconciliation",
+      desc: "Register your UPI IDs and bank accounts, tag every collection, disbursement and expense to one, and pull a date-ranged cash-flow-by-account report — so book entries reconcile against bank statements.",
     },
     {
       icon: FileText,
@@ -72,7 +90,7 @@ const config: KeywordLandingConfig = {
     },
     {
       title: "Appraise & sanction",
-      desc: "Run the application through AI-assisted credit appraisal for a risk score and suggested limit, then approve, review or reject with a full audit record.",
+      desc: "Run the application through AI-assisted credit appraisal for a risk score and suggested limit. With maker-checker on, the officer's sanction waits in an approvals inbox until a manager signs off — with a full audit record either way.",
     },
     {
       title: "Disburse & collect",
@@ -92,11 +110,13 @@ const config: KeywordLandingConfig = {
         <>
           The foundations regulators care about are already here: an immutable
           audit trail with entity history on every change, a KYC document vault,
-          granular role-based access control (the groundwork for maker-checker),
-          and per-tenant isolated PostgreSQL with self-hosting for data
-          ownership. On top of that sits AI-assisted credit appraisal, DPD and
-          overdue tracking, and a capital-and-borrowings ledger for the funding
-          side of the book. It covers every loan product too —{" "}
+          a maker-checker approval workflow that holds staff actions until an
+          owner or manager signs off, row-level data scoping that keeps a role
+          to the customers and loans it should see, and per-tenant isolated
+          PostgreSQL with self-hosting for data ownership. On top of that sits
+          AI-assisted credit appraisal, DPD and overdue tracking, account-level
+          cash reconciliation, and a capital-and-borrowings ledger for the
+          funding side of the book. It covers every loan product too —{" "}
           <Link to="/loan-types" className="text-secondary hover:underline">
             daily, weekly, monthly, EMI, interest-only, gold and more
           </Link>
@@ -118,7 +138,7 @@ const config: KeywordLandingConfig = {
       heading: "The compliance layer: what we support, what's on the roadmap",
       paragraphs: [
         "We'll be straight with you, because you're a regulated buyer and honesty is the whole point. Vasool is software your NBFC operates — it is not RBI-registered, and it does not grant you regulatory certification or guarantee compliance. What it does is give you the operating platform and the evidence trail to help you meet your obligations.",
-        "Full NBFC-grade compliance needs more than a good lending engine, and several of those pieces are on our roadmap or built on request rather than shipping today. That list includes NPA classification to RBI norms (SMA-0/1/2 and sub-standard, doubtful, loss) with provisioning; credit-bureau reporting and pulls (CIBIL, Equifax, Experian, CRIF); CKYC upload and download and AML screening; sanction letters, loan agreements and Key Fact Statement / APR disclosures; Fair Practices Code workflows like grievance redressal, cooling-off and foreclosure disclosure; statutory RBI returns and GST/TDS handling; enforced maker-checker on financial entities; and the co-lending or business-correspondent model.",
+        "Full NBFC-grade compliance needs more than a good lending engine, and several of those pieces are on our roadmap or built on request rather than shipping today. That list includes NPA classification to RBI norms (SMA-0/1/2 and sub-standard, doubtful, loss) with provisioning; credit-bureau reporting and pulls (CIBIL, Equifax, Experian, CRIF); CKYC upload and download and AML screening; sanction letters, loan agreements and Key Fact Statement / APR disclosures; Fair Practices Code workflows like grievance redressal, cooling-off and foreclosure disclosure; statutory RBI returns and GST/TDS handling; extending maker-checker to collection and payment entries (it covers customers, loans, chits, gold sales, expenses, staff, roles and routes today); and the co-lending or business-correspondent model.",
         "Because your data sits in a database you own and can self-host, and because features are toggles, these are additions we build with you rather than a rewrite. We'd rather tell you what's ready and what isn't up front than have you discover it in an audit.",
       ],
     },
@@ -130,7 +150,8 @@ const config: KeywordLandingConfig = {
       "An immutable audit trail and full entity history on every change",
       "A KYC document vault for Aadhaar, PAN and onboarding documents",
       "Data you own — an isolated database with a self-hosting option",
-      "Granular role-based access as the foundation for maker-checker",
+      "A maker-checker workflow that holds staff actions until a manager approves",
+      "Row-level scoping so a role sees only the customers and loans it should",
       "Credit appraisal and a documented approve / review / reject decision",
       "DPD and overdue tracking as the basis for NPA and SMA bucketing",
       "A capital and borrowings ledger for the funding side of the book",
@@ -156,7 +177,7 @@ const config: KeywordLandingConfig = {
     },
     {
       q: "Does Vasool support maker-checker and audit requirements?",
-      a: "Vasool ships granular role-based access control and an immutable audit trail with entity history on every edit and closure, which are the foundation for maker-checker and audit review. Enforced maker-checker on financial entities specifically is on the roadmap and can be built on request for NBFCs that need it mandated.",
+      a: "Yes. Maker-checker ships today: a staff create, edit or delete is held as a pending request, routed to the owner or an assigned approver, and applied only once approved — with the whole decision on the audit trail. You turn it on per role and per resource, so the actions that need a second pair of eyes are held and the rest stay one-tap. It currently covers customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes; extending it to individual collection entries is on the roadmap. That sits on top of an immutable audit log with entity history on every change.",
     },
   ],
   related: [

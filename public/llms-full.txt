@@ -17,7 +17,7 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 - Product-based loans — loans tied to physical goods (daily/weekly/monthly/semi-monthly)
 - Chit funds (Agent Chit) — groups, members, cycles, foreman commission, late fees, WhatsApp reminders
 - Savings schemes (Savings Chit) — festival/deposit schemes with cash or goods maturity payouts
-- Gold business — recovered-gold inventory, sales and profit & loss
+- Gold business (gold sales) — liquidate pledged gold from a defaulted loan or sell standalone: recover the outstanding, take a flat or percentage owner deduction, pay the surplus back to the customer, with per-item photos, a sales dashboard and a gold sale report
 
 ## Operations and modules
 
@@ -27,7 +27,11 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 - Collection & payments — cash and UPI, automatic PDF receipts, payment history, admin cash settlement
 - Route management — plan daily/weekly routes, assign to staff, GPS navigation, completion tracking
 - Staff tools — live GPS tracking, location history, role-based access control, staff attendance
+- Maker-checker approvals — staff creates/edits/deletes can be held for owner or manager approval before they take effect; enabled per role and per resource, covering customers, loans, chit and savings schemes, gold sales, expenses, staff, roles and routes
+- Row-level data scoping — roles default to View Own; View All is granted per resource, so a manager can see every customer but only their own loans
 - Financials — income & expense ledger, day book per route, cash advances, profit & loss reports
+- Cash & accounts — register UPI, company and personal accounts, tag every transaction to the account it hit, and pull a date-ranged cash-flow-by-account report plus a cash book, both as PDF
+- Office web dashboard — full browser app for the office: every loan product, reports with PDF/CSV export, approvals inbox, roles and permissions, staff attendance, and live staff/customer maps
 - Funding & investors — partner capital (profit-share) and financier borrowings (the liability side)
 - Customer management — profiles, KYC document vault (Aadhaar, PAN, voter ID, ration card, gas bill), referee/guarantor linking, live customer location
 - Customer self-service portal — borrowers see balances, dues and receipts
@@ -37,7 +41,7 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 
 - Each tenant runs in a separate database and storage; no cross-tenant access
 - Data lives on infrastructure the client provides or designates — Vasool does not centrally store it
-- TLS/SSL in transit, JWT authentication, biometric login, granular role-based access control
+- TLS/SSL in transit, JWT authentication, biometric login, granular role-based access control, row-level data scoping and maker-checker approvals
 - Full audit trail with entity-level change history on every record
 - Bot/attack protection and rate limiting
 - On the roadmap: formal certifications (SOC 2, ISO 27001) and RBI-aligned compliance modules (CKYC, credit-bureau reporting). Vasool supports a lender's compliance; it does not replace their obligations.
