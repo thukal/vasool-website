@@ -25,23 +25,25 @@ interface SolidPixel {
   b: number;
 }
 
-interface ThukalParticlesProps {
-  width: number;
-  height: number;
-}
-
 /**
- * Tamil "த" with vibrant gradient (blue → magenta → orange) and
+ * Tamil "துகள்" with vibrant gradient (blue → magenta → orange) and
  * left-side particle dispersion. Particles carry the gradient color.
+ *
+ * The canvas measures its own container and renders at the real pixel
+ * dimensions (accounting for devicePixelRatio), so the word stays crisp
+ * and correctly proportioned on every screen size instead of being
+ * stretched from a fixed buffer.
  */
-const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
+const ThukalParticles = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const solidPixelsRef = useRef<SolidPixel[]>([]);
   const animRef = useRef<number>(0);
-  const initializedRef = useRef(false);
   const [isHovering, setIsHovering] = useState(false);
   const mouseRef = useRef({ x: -999, y: -999 });
+  // Logical (CSS-pixel) dimensions of the drawing area.
+  const [dims, setDims] = useState({ width: 0, height: 0 });
 
   // Map a normalized position (0..1 diagonal from bottom-left to top-right) to gradient color
   const getGradientColor = useCallback(
@@ -120,10 +122,46 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
     []
   );
 
+  // Measure the container and keep logical dimensions in sync with layout.
   useEffect(() => {
-    if (width <= 0 || height <= 0 || initializedRef.current) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    const fontSize = Math.min(height * 0.55, width * 0.22, 200);
+    const measure = () => {
+      const rect = el.getBoundingClientRect();
+      const w = Math.round(rect.width);
+      const h = Math.round(rect.height);
+      setDims((prev) =>
+        prev.width === w && prev.height === h ? prev : { width: w, height: h }
+      );
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // (Re)build the particle field whenever the drawing size changes.
+  useEffect(() => {
+    const { width, height } = dims;
+    if (width <= 0 || height <= 0) return;
+
+    // Fit the whole word inside the box: shrink the font until "துகள்"
+    // spans at most ~86% of the available width and ~70% of the height.
+    let fontSize = Math.min(height * 0.55, width * 0.32, 200);
+    const measureCtx = document.createElement("canvas").getContext("2d");
+    if (measureCtx) {
+      const maxTextWidth = width * 0.86;
+      // Binary-ish shrink loop — cheap and runs only on resize.
+      for (let i = 0; i < 24; i++) {
+        measureCtx.font = `800 ${fontSize}px "Anek Tamil", sans-serif`;
+        const measured = measureCtx.measureText("துகள்").width;
+        if (measured <= maxTextWidth || fontSize <= 12) break;
+        fontSize *= Math.max(0.9, maxTextWidth / measured);
+      }
+    }
+
     const { pixels, textBounds } = sampleText("துகள்", fontSize, width, height);
     if (pixels.length === 0) return;
 
@@ -164,19 +202,26 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
 
     particlesRef.current = particles;
     solidPixelsRef.current = solid;
-    initializedRef.current = true;
-  }, [width, height, sampleText, getGradientColor]);
+  }, [dims, sampleText, getGradientColor]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    const { width, height } = dims;
     if (!canvas || width <= 0 || height <= 0) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Render at device resolution for crispness, but keep the drawing
+    // coordinate system in logical CSS pixels.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
 
     let time = 0;
 
     const animate = () => {
       time++;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
 
       const particles = particlesRef.current;
@@ -240,25 +285,33 @@ const ThukalParticles = ({ width, height }: ThukalParticlesProps) => {
 
     animRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animRef.current);
-  }, [width, height, isHovering]);
+  }, [dims, isHovering]);
+
+  const updateMouse = (clientX: number, clientY: number) => {
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (!rect || rect.width === 0 || rect.height === 0) return;
+    mouseRef.current = {
+      x: ((clientX - rect.left) / rect.width) * dims.width,
+      y: ((clientY - rect.top) / rect.height) * dims.height,
+    };
+  };
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={width}
-      height={height}
-      className="w-full h-full cursor-crosshair"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      onMouseMove={(e) => {
-        const rect = canvasRef.current?.getBoundingClientRect();
-        if (!rect) return;
-        mouseRef.current = {
-          x: ((e.clientX - rect.left) / rect.width) * width,
-          y: ((e.clientY - rect.top) / rect.height) * height,
-        };
-      }}
-    />
+    <div ref={containerRef} className="w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full cursor-crosshair touch-none"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        onMouseMove={(e) => updateMouse(e.clientX, e.clientY)}
+        onTouchStart={() => setIsHovering(true)}
+        onTouchEnd={() => setIsHovering(false)}
+        onTouchMove={(e) => {
+          const t = e.touches[0];
+          if (t) updateMouse(t.clientX, t.clientY);
+        }}
+      />
+    </div>
   );
 };
 

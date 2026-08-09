@@ -27,9 +27,9 @@ const PretextStory = ({
       </div>
 
       {/* Tamil "த" particle dispersion — Thukal brand identity */}
-      <div className="relative my-10 rounded-2xl overflow-hidden bg-background border border-border/30">
-        <div className="aspect-[5/3] sm:aspect-[2/1] max-h-[360px]">
-          <ThukalParticles width={900} height={450} />
+      <div className="relative my-8 sm:my-10 rounded-2xl overflow-hidden bg-background border border-border/30">
+        <div className="aspect-[3/2] sm:aspect-[2/1] max-h-[360px]">
+          <ThukalParticles />
         </div>
         <p className="text-center text-[11px] text-muted-foreground/40 pb-3 -mt-1 tracking-wide">
           hover to interact with particles
