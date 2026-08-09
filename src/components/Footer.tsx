@@ -115,6 +115,14 @@ const Footer = () => {
                   {t("footer.aboutUs")}
                 </a>
               </li>
+              <li>
+                <a
+                  href="/blog"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.blog")}
+                </a>
+              </li>
             </ul>
           </div>
 

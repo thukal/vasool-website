@@ -1,9 +1,23 @@
 import type { ComponentType } from "react";
+import { posts } from "../lib/blog";
 
 export interface RouteDef {
   path: string;
   importer: () => Promise<{ default: ComponentType }>;
 }
+
+// One concrete route per markdown post (plus the /blog index). Concrete paths
+// — not a "/blog/:slug" pattern — are required so main.tsx can resolve the
+// initial route synchronously for hydration, and so every post is enumerable
+// for prerendering. BlogPost reads the slug from the URL itself. Adding a
+// post is just dropping a .md file in src/content/blog/ (see src/lib/blog.ts).
+const blogRoutes: RouteDef[] = [
+  { path: "/blog", importer: () => import("../pages/Blog") },
+  ...posts.map((post) => ({
+    path: `/blog/${post.slug}`,
+    importer: () => import("../pages/BlogPost"),
+  })),
+];
 
 // Single source of truth for the site's routes. ClientRoutes.tsx code-splits
 // each page behind React.lazy(); ServerRoutes.tsx resolves every importer
@@ -62,6 +76,8 @@ export const routeDefs: RouteDef[] = [
   { path: "/loan-management-software-colombia", importer: () => import("../pages/countries/Colombia") },
   // Cambodia has a market page but no company setup yet — see status: "preview".
   { path: "/loan-management-software-cambodia", importer: () => import("../pages/countries/Cambodia") },
+  // Blog: /blog index + one route per markdown post (see blogRoutes above).
+  ...blogRoutes,
   // ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE
   { path: "*", importer: () => import("../pages/NotFound") },
 ];

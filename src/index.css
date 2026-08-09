@@ -233,3 +233,33 @@
     transform: none !important;
   }
 }
+
+/* Blog article media — pictures and embedded video/iframes inside the
+   rendered markdown (.prose). Keeps any embed responsive and on-brand
+   without the post author having to add wrapper markup. See
+   src/lib/markdown.ts for how posts reference media. */
+.prose img,
+.prose video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.prose iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+.prose figure {
+  margin: 2rem 0;
+}
+
+.prose figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
