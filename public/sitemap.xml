@@ -298,9 +298,15 @@
   <!-- blog:start -->
   <url>
     <loc>https://vasool.app/blog</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vasool.app/blog/why-choose-vasool-over-other-loan-collection-apps</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vasool.app/blog/reduce-loan-defaults-with-daily-field-collections</loc>
