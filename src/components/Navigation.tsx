@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { key: "nav.staffTools", to: "/staff-tools" },
   { key: "nav.pricing", to: "/pricing" },
   { key: "nav.compare", to: "/compare" },
+  { key: "nav.blog", to: "/blog" },
 ] as const;
 
 const Navigation = () => {
