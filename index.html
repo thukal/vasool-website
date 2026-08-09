@@ -13,6 +13,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
 
+    <!--
+      Google Analytics (GA4, gtag.js). Placed outside the per-route-seo
+      markers so scripts/prerender.mjs keeps it on every prerendered page.
+      Loaded async so it never blocks first paint. SPA route changes are
+      tracked automatically by GA4 Enhanced Measurement (history events).
+    -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM6LTV7R0L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BM6LTV7R0L');
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
