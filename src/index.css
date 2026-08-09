@@ -264,20 +264,35 @@
   color: hsl(var(--muted-foreground));
 }
 
-/* Comparison tables — let wide tables scroll on small screens instead of
-   overflowing the article, and give cells clear separation. */
+/* Comparison tables — render as a clear, bordered grid. Wide tables scroll
+   on small screens instead of overflowing the article. */
 .prose table {
   display: block;
   width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
+  font-size: 0.95em;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+}
+
+.prose thead {
+  background-color: hsl(var(--muted));
+}
+
+.prose th,
+.prose td {
+  padding: 0.625rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid hsl(var(--border));
 }
 
 .prose thead th {
-  border-bottom: 2px solid hsl(var(--border));
+  font-weight: 600;
+  color: hsl(var(--foreground));
 }
 
-.prose tbody td,
-.prose tbody th {
-  border-bottom: 1px solid hsl(var(--border));
+.prose tbody tr:nth-child(even) {
+  background-color: hsl(var(--muted) / 0.4);
 }
