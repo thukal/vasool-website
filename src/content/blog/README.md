@@ -62,21 +62,34 @@ With a caption, use an HTML figure:
 </figure>
 ```
 
-**Self-hosted video** (put the `.mp4` in `public/blog/`):
+**Video by URL — the easy way.** Paste a video link on its own line (blank
+line above and below) and it is embedded automatically, responsively at 16:9:
+
+```markdown
+Here's a walkthrough of the app:
+
+https://youtu.be/VIDEO_ID
+```
+
+This works for:
+
+- YouTube — `youtube.com/watch?v=…`, `youtu.be/…`, `/embed/…`, `/shorts/…`
+  (embedded privacy-friendly via youtube-nocookie.com)
+- Vimeo — `vimeo.com/…` or `player.vimeo.com/video/…`
+- A direct video file — any `https://…/clip.mp4` (also `.webm`, `.ogg`, `.mov`)
+
+A link written inline — `[watch the demo](https://youtu.be/VIDEO_ID)` — stays a
+normal link; only a URL alone on its own line becomes an embed.
+
+**Self-hosted video file** (put the `.mp4` in `public/blog/` and reference it
+with a full HTML tag so you can set a poster):
 
 ```html
 <video src="/blog/product-demo.mp4" controls poster="/blog/demo-poster.png"></video>
 ```
 
-**YouTube / Vimeo embed** (kept at a responsive 16:9):
-
-```html
-<iframe
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="Vasool product walkthrough"
-  allowfullscreen
-></iframe>
-```
+You can still hand-write an `<iframe>` if you need custom embed options — raw
+HTML in a post is rendered as-is.
 
 > Note: post content is trusted (authored here in the repo), so raw HTML in a
 > post is rendered as-is. Don't paste untrusted third-party HTML into a post.
