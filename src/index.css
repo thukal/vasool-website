@@ -263,3 +263,21 @@
   font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
 }
+
+/* Comparison tables — let wide tables scroll on small screens instead of
+   overflowing the article, and give cells clear separation. */
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.prose thead th {
+  border-bottom: 2px solid hsl(var(--border));
+}
+
+.prose tbody td,
+.prose tbody th {
+  border-bottom: 1px solid hsl(var(--border));
+}
