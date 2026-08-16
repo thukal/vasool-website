@@ -298,9 +298,27 @@
   <!-- blog:start -->
   <url>
     <loc>https://vasool.app/blog</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vasool.app/blog/how-we-replay-offline-collections-through-our-own-api</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vasool.app/blog/multi-tenant-architecture-one-database-per-tenant</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vasool.app/blog/why-we-built-our-backend-in-go-not-node</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vasool.app/blog/why-choose-vasool-over-other-loan-collection-apps</loc>
