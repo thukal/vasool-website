@@ -34,7 +34,12 @@ A genuinely free trial fills up with people who were never going to run a book o
 
 There's a second reason, and it's simpler: **serving you costs us money from day one.** Voice transcription, servers, and WhatsApp messages are metered — we pay for them whether you stay or leave. A free trial at any real scale would mean funding strangers' infrastructure bills indefinitely.
 
-We've also explained this on camera, in about a minute: **[why we charge ₹700 for the trial](https://www.instagram.com/reel/Dballq1hMpw/)**.
+We've also explained this on camera, in about a minute:
+
+<figure>
+  <iframe src="https://www.instagram.com/reel/Dballq1hMpw/embed" title="Why we charge ₹700 for the Vasool trial" style="aspect-ratio: 1 / 2; max-width: 400px; margin-inline: auto; display: block;" loading="lazy" scrolling="no" allowfullscreen></iframe>
+  <figcaption>Why we charge ₹700 for the trial. <a href="https://www.instagram.com/reel/Dballq1hMpw/" target="_blank" rel="noopener noreferrer">Watch on Instagram</a> if the video doesn't load here.</figcaption>
+</figure>
 
 And rather than ask you to take any of it on trust, here are the actual numbers.
 
