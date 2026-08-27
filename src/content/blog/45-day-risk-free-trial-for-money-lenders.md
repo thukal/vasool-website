@@ -9,7 +9,7 @@ keywords: loan collection software trial, free trial loan management software, v
 
 Most lenders we speak to have the same worry before switching software: *what if my agents don't use it?* It's a fair worry. A collection app only pays for itself if the person standing outside a borrower's shop at 8am actually opens it.
 
-So we've stopped asking you to take that on faith. We're opening a **45-day risk-free trial** of Vasool to the next **100+ money lenders and finance companies** who register. You pay **₹700 to start**, we walk you through a live demo, and you run your real collection book on it for 45 days. If at any point in those 45 days it isn't working for you, tell us and **we refund the ₹700**.
+So we've stopped asking you to take that on faith. We're opening a **45-day risk-free trial** of Vasool to the next **100+ money lenders and finance companies** who register. You pay **₹700 to start** — all-in, GST included, nothing added at checkout — we walk you through a live demo, and you run your real collection book on it for 45 days. If at any point in those 45 days it isn't working for you, tell us and **we refund the ₹700**.
 
 **[Register for the 45-day trial →](https://connect.automationclub.in/widget/form/5AoH3gGBeEGtnXUNjyCu?notrack=true)**
 
@@ -42,37 +42,40 @@ And rather than ask you to take any of it on trust, here are the actual numbers.
 
 This is our real cost to serve one customer for one month. We're publishing it because you're a lender — you understand a cost sheet better than you understand a marketing page.
 
-| Line item | Cost/month | What it is |
+| Line item | Amount | What it is |
 |---|---|---|
-| Server infrastructure | ₹150 | Your share of a ₹1,000 server, split across the customers on it |
-| Voice compute | ₹70 | Transcription at ₹35 per hour of voice input, ~2 hours per customer |
-| Third-party AI models | ₹30 | Capped at ₹30 per model, per customer — a hard ceiling, not an estimate |
-| WhatsApp / SMS | ₹100 | 500 messages included at ₹0.15 each, budgeted with headroom |
-| Development & marketing | ₹150 | Amortised build cost and what it cost to reach you |
-| **Total cost to serve** | **₹500** | |
-| **You pay** | **₹700** | |
-| **Our margin** | **₹200** | About 29% |
+| **What you pay** | **₹700** | All-in. GST included, nothing added at checkout |
+| GST @ 18% | −₹107 | Collected from you and paid to the government — it never stays with us |
+| **Net revenue to us** | **₹593** | |
+| Server infrastructure | −₹150 | Your share of a ₹1,000 server, split across the customers on it |
+| Voice compute | −₹70 | Transcription at ₹35 per hour of voice input, ~2 hours per customer |
+| Third-party AI models | −₹30 | Capped at ₹30 per model, per customer — a hard ceiling, not an estimate |
+| WhatsApp / SMS | −₹100 | 500 messages included at ₹0.15 each, budgeted with headroom |
+| Development & marketing | −₹150 | Amortised build cost and what it cost to reach you |
+| **What we actually keep** | **₹93** | About 16% |
 
 A few things worth pointing out, because they affect you directly.
 
+**GST isn't ours to keep.** Of the ₹700, about ₹107 is GST. We collect it, we file it, we hand it over — it never becomes revenue. We've shown it as a deduction rather than a cost because that's what it is, and because the alternative (quoting you ₹593 and adding tax at checkout) is how you end up paying more than the number you were shown.
+
 **The caps are real caps.** The ₹30 per model and the ₹100 messaging budget are ceilings we enforce on our side, not averages we hope hold. That's deliberate: a business whose costs can run away has to protect itself with fine print and surprise overage bills. Ours can't run away, so we don't need the fine print.
 
-**The server line gets better as we grow, and the voice line doesn't.** Splitting a server across more customers is cheap. Transcribing an hour of a field agent's voice costs what it costs, forever. So when you see lenders' software promising unlimited everything for ₹99/month, look for where the voice feature is — usually it isn't there, or it's a paid add-on.
+**The server line gets better as we grow, and the voice line doesn't.** Splitting a server across more customers is cheap. Transcribing an hour of a field agent's voice costs what it costs, forever. So when you see lending software promising unlimited everything for ₹99/month, look for where the voice feature is — usually it isn't there, or it's a paid add-on.
 
-**₹200 a month is a thin margin, and that's the point.** We'd rather earn ₹200 from a lender who stays four years than ₹2,000 from one who leaves in three months feeling fleeced.
+**₹93 a month is a thin margin, and that's the point.** It is not a rounding error we're hiding — it's roughly 16 paise on the rupee, before anyone at Thukal is paid a salary. We'd rather earn ₹93 from a lender who stays four years than ₹2,000 from one who leaves in three months feeling fleeced.
 
-### And on the trial specifically, we're underwater
+### And on the trial specifically, we lose money
 
 Run the same maths across 45 days instead of 30:
 
 - Cost to serve you for 45 days: **₹750**
-- What you pay: **₹700**
+- What actually reaches us after GST: **₹593**
 
-> We are about ₹50 short on every trial before we've earned a rupee — and out the full ₹750 of service we've already delivered if you take the refund on day 44.
+> Every trial we run puts us about ₹157 in the hole before we have earned a single rupee — and out the full ₹750 of service already delivered if you ask for the refund on day 44.
 
-That only works if enough of you stay past day 45. Which is precisely the incentive we want: the only way this trial makes us money is if the product is actually good enough that you don't want the ₹700 back.
+That only works if enough of you stay past day 45. Which is precisely the incentive we want: the only way this trial makes us money is if the product is good enough that you don't want the ₹700 back.
 
-For context, the [Standard plan](/pricing) is ₹699/month. A 45-day trial at ₹700 costs you *less than the period it covers*.
+And it is genuinely cheaper than the regular plan. The [Standard plan](/pricing) is ₹699/month **plus** GST — about ₹825 all-in. Forty-five days at that rate would be roughly ₹1,240. You're paying ₹700, tax included, for the same period.
 
 And the refund is genuinely unconditional. If it isn't working for you on day 3 or on day 44, message us and we return the ₹700 — no exit interview, no "let us try one more thing first".
 
