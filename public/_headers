@@ -7,10 +7,13 @@
 # google-analytics.com (connect-src for the fetch beacon, img-src for the pixel
 # fallback). connect-src also allows Netlify's Real User Metrics beacon
 # (ingesteer.services-prod.nsvcs.net) so RUM isn't blocked. Microsoft Clarity:
-# the inline bootstrap snippet injects a script tag pointed at
-# www.clarity.ms/tag/<id> (script-src) and its session beacons go to
-# *.clarity.ms (connect-src) — without both, the CSP silently blocks Clarity
-# and the dashboard shows 0 sessions even though the tag is present.
+# the inline bootstrap snippet loads www.clarity.ms/tag/<id>, which in turn
+# loads the real engine from scripts.clarity.ms/<version>/clarity.js — so
+# script-src must allow *.clarity.ms (www alone is NOT enough; with only www
+# the bootstrap loads but the engine is silently blocked and the dashboard
+# shows 0 sessions/heatmaps even though the tag is present). Session uploads
+# go to b.clarity.ms (connect-src *.clarity.ms) and a sync pixel is fetched
+# from c.clarity.ms/c.gif (img-src *.clarity.ms).
 # frame-src allows instagram.com so blog posts can embed a Reel via its
 # /embed iframe. There is deliberately no script-src entry for Instagram: we
 # use the plain iframe, not their embed.js, so none of their JavaScript runs
@@ -22,4 +25,4 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms; frame-src https://www.instagram.com https://instagram.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms; frame-src https://www.instagram.com https://instagram.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
