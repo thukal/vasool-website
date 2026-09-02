@@ -4,6 +4,11 @@
 
 Vasool (also known as Vasool Drive) is built by Thukal for the Indian lending market: daily finance, weekly finance, monthly finance, kandhu vatti, thandal, byaj wasooli and ugrani style collections. The website is available in English and Tamil (/ta pages).
 
+**Every link below is also available as clean Markdown** — append `.md` to
+any page's URL (e.g. `https://vasool.app/features.md`, or
+`https://vasool.app/index.md` for the homepage) to fetch its content as
+Markdown instead of parsing HTML.
+
 ## Product
 
 - [Home](https://vasool.app/): Overview of the voice entry loan collection app

@@ -32,6 +32,14 @@ Every page also ships **JSON-LD structured data** (`Organization`,
 and is **fully prerendered to static HTML** (`scripts/prerender.mjs`), so a
 crawler that doesn't execute JavaScript still sees complete content.
 
+**Every route also has a Markdown alternate.** `scripts/prerender.mjs`
+writes `dist/<route>.md` next to every `dist/<route>.html` — nav/footer/icon
+chrome stripped, internal links made absolute — and the HTML head links to
+it (`<link rel="alternate" type="text/markdown">`). Blog posts serve their
+original `src/content/blog/*.md` source directly instead of a converted
+copy. This needs no manual step: it's generated for every route in
+`public/sitemap.xml` on every build, same as the `.html` file.
+
 When adding a new page or blog post, update `public/llms.txt` (and
 `public/llms-full.txt` for major product changes) so agents' summaries of
 Vasool stay accurate — blog posts do this automatically, everything else is
