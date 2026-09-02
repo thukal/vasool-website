@@ -56,8 +56,34 @@ Vasool supports company setup in eight countries. Each sets its own currency, lo
 - [Privacy Policy](https://vasool.app/privacy): Privacy policy
 - [Terms of Service](https://vasool.app/terms): Terms of service
 
+## Blog
+
+Practical, field-tested articles for money lenders, finance companies and
+NBFCs — collections, field operations, compliance and product/engineering
+notes. This list is generated from `src/content/blog/*.md` on every build.
+
+<!-- llms:blog:start -->
+- [Blog](https://vasool.app/blog): Articles on loan collection, field operations, compliance and product updates for money lenders and NBFCs
+- [Agent Chit: How to Run a Chit Group Without a Register](https://vasool.app/blog/agent-chit-fund-management-app): What an agent chit is, why it breaks past twenty members, and how one app reminds every member, holds their location, and tracks cycles and commission.
+- [Your Lending Business Shouldn’t Live in One Person’s Memory](https://vasool.app/blog/your-lending-business-shouldnt-live-in-memory): Real stories of how paper-based lending nearly destroyed families — and what every money lender can do before it happens to them.
+- [Try Vasool for 45 Days: ₹700, Fully Refundable](https://vasool.app/blog/45-day-risk-free-trial-for-money-lenders): Run your real collection book on Vasool for 45 days for ₹700 — refundable any time. Plus the full cost breakdown of what serving you actually costs us.
+- [Why Vasool's AI Credit-Risk Score Is Advisory, Not Automatic](https://vasool.app/blog/why-ai-credit-risk-scoring-is-advisory-not-automatic): How Vasool's AI credit-risk scoring works — what it reads from KYC, repayment history, and GPS visit data — and why the decision still belongs to a human.
+- [The NBFC Compliance Checklist: What Loan Software Should (and Shouldn't) Promise](https://vasool.app/blog/nbfc-compliance-checklist-what-loan-software-should-promise): The governance controls a regulated NBFC should demand from loan software — audit trails, maker-checker, data isolation, KYC — and what no vendor should claim yet.
+- [How We Replay Offline Collections Through Our Own API](https://vasool.app/blog/how-we-replay-offline-collections-through-our-own-api): Building offline-first field collections without a second, weaker write path — HTTP replay through the live router, idempotency keys, tombstones, and kill switches.
+- [Multi-Tenancy: Why Every Tenant Gets Its Own Database](https://vasool.app/blog/multi-tenant-architecture-one-database-per-tenant): How Vasool isolates each finance company in its own container and PostgreSQL database — why we rejected shared tables with a tenant_id, and what that choice costs us.
+- [Why We Built Vasool's Backend in Go, Not Node.js](https://vasool.app/blog/why-we-built-our-backend-in-go-not-node): The engineering case for Go over TypeScript on the server — deployment artefacts, per-tenant memory, money maths, and the places Go still hurts.
+- [Why Choose the Vasool App Over Other Loan Collection Apps](https://vasool.app/blog/why-choose-vasool-over-other-loan-collection-apps): A practical comparison for money lenders and NBFCs — why Vasool's voice entry, offline-first design, and data ownership beat generic loan collection apps.
+- [How to Reduce Loan Defaults with Daily Field Collections](https://vasool.app/blog/reduce-loan-defaults-with-daily-field-collections): Practical, field-tested ways money lenders and NBFCs cut defaults — tighter daily follow-ups, real-time visibility, and proof of every visit.
+- [Voice Entry vs Manual Entry: Faster Collections for Field Agents](https://vasool.app/blog/voice-entry-vs-manual-entry-field-collections): Why speaking a collection is faster and more accurate than typing it — and what that means for daily finance companies running large field teams.
+- [Choosing Loan Collection Software: A Checklist for NBFCs & Money Lenders](https://vasool.app/blog/choosing-loan-collection-software-checklist): A no-nonsense checklist for evaluating loan collection and lending software — data ownership, offline support, staff tracking, and the questions vendors hope you won't ask.
+<!-- llms:blog:end -->
+
 ## Optional
 
 - [Tamil Home](https://vasool.app/ta): Tamil version of the homepage
 - [Tamil Features](https://vasool.app/ta/features): Tamil version of the features page
+- [Tamil Loan Types](https://vasool.app/ta/loan-types): Tamil version of the loan types page
+- [Tamil Staff Tools](https://vasool.app/ta/staff-tools): Tamil version of the staff tools page
+- [Tamil Pricing](https://vasool.app/ta/pricing): Tamil version of the pricing page
+- [Tamil Compare](https://vasool.app/ta/compare): Tamil version of the compare page
 - [Full overview](https://vasool.app/llms-full.txt): Extended machine-readable summary of Vasool's full product, loan types and modules

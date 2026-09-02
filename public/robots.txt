@@ -5,9 +5,67 @@ Disallow: /api/
 # Sitemaps
 Sitemap: https://vasool.app/sitemap.xml
 
-# Crawl-delay
+# Search crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+# AI assistants and answer engines — explicitly allowed so ChatGPT, Claude,
+# Perplexity, Gemini and other assistants can read, cite and link to Vasool.
+# See /llms.txt and /llms-full.txt for a machine-readable site summary built
+# for exactly this purpose.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
 Allow: /
