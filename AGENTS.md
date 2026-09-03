@@ -6,8 +6,10 @@ publishable as-is: correct format, on-brand voice, and good for SEO.
 
 **Your deliverable is a single Markdown file** in `src/content/blog/`. Adding
 that file is the entire publishing process — routing, the `/blog` index,
-static prerendering with SEO tags + JSON-LD, and the `sitemap.xml` entry are
-all generated from it automatically. You do not touch any other file.
+static prerendering with SEO tags + JSON-LD, the `sitemap.xml` entry, and the
+post's listing in `public/llms.txt` (the machine-readable index AI assistants
+like ChatGPT and Claude read) are all generated from it automatically. You do
+not touch any other file.
 
 > Human quick-reference lives at `src/content/blog/README.md`. This AGENTS.md
 > is the fuller, writer-facing guide. If the two ever disagree, this file wins
