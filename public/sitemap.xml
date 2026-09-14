@@ -298,11 +298,13 @@
   <!-- blog:start -->
   <url>
     <loc>https://vasool.app/blog</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://vasool.app/blog/tracing-a-collection-from-phone-to-database</loc>
+    <lastmod>2026-09-14</lastmod>
     <loc>https://vasool.app/blog/approval-workflow-replaying-the-original-request</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
