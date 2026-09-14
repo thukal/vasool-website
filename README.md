@@ -15,6 +15,36 @@ Marketing website for **Vasool**, a complete multi-tenant microfinance loan mana
 | `/terms` | Terms of service |
 | `/security` | Security features and responsible disclosure |
 
+## AI agent & LLM readability (GEO)
+
+The site is built so AI assistants (ChatGPT, Claude, Perplexity, Gemini, …)
+can crawl it, understand it, and cite it accurately:
+
+| File | Purpose |
+|------|---------|
+| `public/llms.txt` | Short, curated Markdown index of every page — the [llms.txt](https://llmstxt.org/) convention. Its `## Blog` section is regenerated from `src/content/blog/*.md` on every build (see `scripts/sync-blog.mjs`) — never edit it by hand. |
+| `public/llms-full.txt` | Longer Markdown summary of the whole product (features, loan types, security, pricing) for agents that want more than links. |
+| `public/robots.txt` | Explicitly allows major AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.) in addition to search engines. |
+| `public/sitemap.xml` | Every route, with `hreflang` alternates, kept in sync with the blog via `scripts/sync-blog.mjs`. |
+
+Every page also ships **JSON-LD structured data** (`Organization`,
+`SoftwareApplication`, `BlogPosting`, etc. — see `src/components/SEO.tsx`)
+and is **fully prerendered to static HTML** (`scripts/prerender.mjs`), so a
+crawler that doesn't execute JavaScript still sees complete content.
+
+**Every route also has a Markdown alternate.** `scripts/prerender.mjs`
+writes `dist/<route>.md` next to every `dist/<route>.html` — nav/footer/icon
+chrome stripped, internal links made absolute — and the HTML head links to
+it (`<link rel="alternate" type="text/markdown">`). Blog posts serve their
+original `src/content/blog/*.md` source directly instead of a converted
+copy. This needs no manual step: it's generated for every route in
+`public/sitemap.xml` on every build, same as the `.html` file.
+
+When adding a new page or blog post, update `public/llms.txt` (and
+`public/llms-full.txt` for major product changes) so agents' summaries of
+Vasool stay accurate — blog posts do this automatically, everything else is
+manual.
+
 ## Tech Stack
 
 - **Vite** — Build tool and dev server

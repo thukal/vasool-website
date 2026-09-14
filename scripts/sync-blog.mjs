@@ -1,4 +1,5 @@
-// Keeps public/sitemap.xml in sync with the markdown blog posts.
+// Keeps public/sitemap.xml and public/llms.txt in sync with the markdown
+// blog posts.
 //
 // The prerender step (scripts/prerender.mjs) treats sitemap.xml as the source
 // of truth for which URLs exist. This script reads src/content/blog/*.md, then
@@ -6,8 +7,13 @@
 // with a <url> entry for /blog and for each post. Run it BEFORE `vite build`
 // so the updated sitemap is copied into dist/ and picked up by the prerender.
 //
+// It also rewrites the block between <!-- llms:blog:start --> /
+// <!-- llms:blog:end --> in public/llms.txt with a link + description for
+// /blog and every post, so the AI-agent-facing index (llms.txt) never drifts
+// from what's actually published.
+//
 // Adding a post therefore needs nothing but a new .md file — this script wires
-// it into the sitemap automatically on the next build.
+// it into the sitemap and llms.txt automatically on the next build.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -16,9 +22,12 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const blogDir = path.join(root, "src", "content", "blog");
 const sitemapPath = path.join(root, "public", "sitemap.xml");
+const llmsPath = path.join(root, "public", "llms.txt");
 
 const START = "<!-- blog:start -->";
 const END = "<!-- blog:end -->";
+const LLMS_START = "<!-- llms:blog:start -->";
+const LLMS_END = "<!-- llms:blog:end -->";
 
 /** Minimal frontmatter reader — mirrors src/lib/blog.ts's parser. */
 function parseFrontmatter(raw) {
@@ -48,7 +57,13 @@ const postsMeta = files
   .map((file) => {
     const raw = fs.readFileSync(path.join(blogDir, file), "utf-8");
     const data = parseFrontmatter(raw);
-    return { slug: file.replace(/\.md$/, ""), date: data.date || "" };
+    const slug = file.replace(/\.md$/, "");
+    return {
+      slug,
+      date: data.date || "",
+      title: data.title || slug,
+      description: data.description || "",
+    };
   })
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
@@ -89,3 +104,29 @@ fs.writeFileSync(sitemapPath, sitemap);
 console.log(
   `synced ${postsMeta.length} blog post(s) into public/sitemap.xml`
 );
+
+const llmsLinkLine = (loc, title, description) =>
+  `- [${title}](https://vasool.app${loc})${description ? `: ${description}` : ""}`;
+
+const llmsBlock = [
+  llmsLinkLine(
+    "/blog",
+    "Blog",
+    "Articles on loan collection, field operations, compliance and product updates for money lenders and NBFCs"
+  ),
+  ...postsMeta.map((p) => llmsLinkLine(`/blog/${p.slug}`, p.title, p.description)),
+].join("\n");
+
+let llms = fs.readFileSync(llmsPath, "utf-8");
+if (llms.includes(LLMS_START) && llms.includes(LLMS_END)) {
+  llms = llms.replace(
+    new RegExp(`${LLMS_START}[\\s\\S]*?${LLMS_END}`),
+    `${LLMS_START}\n${llmsBlock}\n${LLMS_END}`
+  );
+  fs.writeFileSync(llmsPath, llms);
+  console.log(`synced ${postsMeta.length} blog post(s) into public/llms.txt`);
+} else {
+  console.warn(
+    `public/llms.txt is missing "${LLMS_START}" / "${LLMS_END}" markers — skipped llms.txt sync`
+  );
+}
