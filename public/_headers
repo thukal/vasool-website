@@ -18,11 +18,18 @@
 # /embed iframe. There is deliberately no script-src entry for Instagram: we
 # use the plain iframe, not their embed.js, so none of their JavaScript runs
 # on our origin. Without frame-src the iframe is blocked, because frame-src
-# otherwise falls back to default-src 'self'.
+# otherwise falls back to default-src 'self'. Google Tag Manager: the GTM
+# container script itself loads from googletagmanager.com (already allowed
+# for GA4's gtag.js), and its <noscript> fallback embeds an iframe from the
+# same host, so frame-src needs an explicit entry too. Meta Pixel: the
+# bootstrap snippet loads fbevents.js from connect.facebook.net (script-src),
+# and every tracked event (including the <noscript> fallback pixel) is a
+# beacon/image hit to www.facebook.com/tr — allowed in both connect-src (the
+# JS beacon) and img-src (the noscript <img> fallback when JS is disabled).
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms; frame-src https://www.instagram.com https://instagram.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://connect.facebook.net; frame-src https://www.instagram.com https://instagram.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
