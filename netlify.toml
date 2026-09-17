@@ -2,6 +2,16 @@
   command = "npm run build"
   publish = "dist"
 
+# Meta Conversions API relay (netlify/functions/capi-event.js). Deployed at
+# /.netlify/functions/capi-event — same origin as the site, so no CSP change
+# is needed for the client-side fetch() calls that hit it. It reads
+# META_ACCESS_TOKEN and META_DATASET_ID from Netlify's own environment
+# variables (Site configuration -> Environment variables), NOT from GitHub
+# repository/Action secrets — those are only ever visible to GitHub Actions
+# workflows and never reach Netlify's build or function runtime.
+[functions]
+  directory = "netlify/functions"
+
 # Contact information injected at build time (see src/lib/contact.ts).
 # To change the phone number or email, edit these values and redeploy.
 # Values can also be overridden in the Netlify dashboard under

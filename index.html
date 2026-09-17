@@ -57,7 +57,22 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2124670255104449');
-    fbq('track', 'PageView');
+    // Shared event ID for browser <-> server dedup: this PageView is mirrored
+    // to Meta's Conversions API below (via our own Netlify function, so no
+    // access token is ever exposed here), tagged with the same ID so Meta
+    // merges the two into a single event.
+    var vsPvId = 'pv_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    fbq('track', 'PageView', {}, {eventID: vsPvId});
+    fetch('/.netlify/functions/capi-event', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        event_name: 'PageView',
+        event_id: vsPvId,
+        event_source_url: window.location.href
+      }),
+      keepalive: true
+    }).catch(function(){});
     </script>
     <!-- End Meta Pixel Code -->
     <!--
