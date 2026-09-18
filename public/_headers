@@ -30,10 +30,19 @@
 # linking pings and the sync pixel go to www.google.com and
 # www.googleadservices.com — allowed in both connect-src (the fetch/beacon
 # hit) and img-src (the pixel fallback), same pattern as the GA4 entries.
+# Google Ads view-through conversions + Floodlight/GTM conversion linking
+# (flagged blocked by Google Tag Assistant): view-through conversion pixels
+# are requested from googleads.g.doubleclick.net/pagead/viewthroughconversion/...
+# and cross-domain conversion-linking "collect" hits go to
+# ad.doubleclick.net/ccm/s/collect. Both can fire as either a fetch/beacon
+# or a plain <img> depending on browser support, so both domains are
+# allowed in connect-src and img-src (same dual-directive pattern as the
+# other Google/Meta entries above). No script-src entry is needed — neither
+# URL loads a script, both are data-collection endpoints only.
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://www.google.com https://www.googleadservices.com; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://connect.facebook.net https://www.google.com https://www.googleadservices.com; frame-src https://www.instagram.com https://instagram.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://connect.facebook.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src https://www.instagram.com https://instagram.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
