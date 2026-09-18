@@ -38,13 +38,16 @@ const serverEntry = pathToFileURL(
 ).href;
 const { render } = await import(serverEntry);
 
-// The sitemap is the source of truth for which routes exist publicly.
-const sitemap = fs.readFileSync(path.join(root, "public", "sitemap.xml"), "utf-8");
+// The sitemap is the source of truth for which routes exist publicly. Read the
+// BUILT copy at dist/sitemap.xml, not public/ — scripts/sync-blog.mjs injects
+// the blog URLs into dist only, so public/sitemap.xml carries an empty blog
+// block and would prerender no posts.
+const sitemap = fs.readFileSync(path.join(root, "dist", "sitemap.xml"), "utf-8");
 const routes = [...sitemap.matchAll(/<loc>https:\/\/vasool\.app([^<]*)<\/loc>/g)]
   .map((m) => m[1] || "/");
 
 if (routes.length === 0) {
-  throw new Error("No routes found in public/sitemap.xml — prerender aborted");
+  throw new Error("No routes found in dist/sitemap.xml — prerender aborted");
 }
 
 // Routes under /ta are the Tamil versions; everything else renders in English.
