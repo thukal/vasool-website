@@ -1,13 +1,19 @@
-// Keeps public/sitemap.xml in sync with the markdown blog posts.
+// Injects the markdown blog posts into the BUILT sitemap at dist/sitemap.xml.
 //
 // The prerender step (scripts/prerender.mjs) treats sitemap.xml as the source
 // of truth for which URLs exist. This script reads src/content/blog/*.md, then
 // rewrites the block between the <!-- blog:start --> / <!-- blog:end --> markers
-// with a <url> entry for /blog and for each post. Run it BEFORE `vite build`
-// so the updated sitemap is copied into dist/ and picked up by the prerender.
+// with a <url> entry for /blog and for each post.
 //
-// Adding a post therefore needs nothing but a new .md file — this script wires
-// it into the sitemap automatically on the next build.
+// Run it AFTER `vite build` (which copies public/sitemap.xml into dist/) and
+// BEFORE the prerender. Writing to dist/ rather than back into public/ is
+// deliberate: public/sitemap.xml holds the hand-maintained product, solution
+// and country URLs and must stay byte-identical whoever adds a post. When the
+// generated block lived in the tracked file, every blog branch edited the same
+// lines and each one conflicted with the last to merge.
+//
+// Adding a post therefore needs nothing but a new .md file — and touches no
+// other tracked file at all.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -15,7 +21,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const blogDir = path.join(root, "src", "content", "blog");
-const sitemapPath = path.join(root, "public", "sitemap.xml");
+const sitemapPath = path.join(root, "dist", "sitemap.xml");
 
 const START = "<!-- blog:start -->";
 const END = "<!-- blog:end -->";
@@ -72,6 +78,12 @@ const block = [
   ...postsMeta.map((p) => urlEntry(`/blog/${p.slug}`, p.date, "monthly", "0.6")),
 ].join("\n");
 
+if (!fs.existsSync(sitemapPath)) {
+  throw new Error(
+    `dist/sitemap.xml not found — run this after \`vite build\` (which copies public/sitemap.xml into dist/), not before.`
+  );
+}
+
 let sitemap = fs.readFileSync(sitemapPath, "utf-8");
 const replacement = `${START}\n${block}\n  ${END}`;
 
@@ -87,5 +99,5 @@ if (sitemap.includes(START) && sitemap.includes(END)) {
 
 fs.writeFileSync(sitemapPath, sitemap);
 console.log(
-  `synced ${postsMeta.length} blog post(s) into public/sitemap.xml`
+  `synced ${postsMeta.length} blog post(s) into dist/sitemap.xml`
 );
