@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import LeadCapturePopup from "./components/LeadCapturePopup";
 import { trackMetaEvent } from "@/lib/analytics";
 
 // Classifies a clicked link's href into a Meta "Contact" sub-channel, or
@@ -46,6 +47,7 @@ const App = ({ children }: { children: ReactNode }) => {
       <Sonner />
       {children}
       <WhatsAppFloat />
+      <LeadCapturePopup />
     </TooltipProvider>
   );
 };
