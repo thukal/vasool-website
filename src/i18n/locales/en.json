@@ -8,6 +8,10 @@
     "blog": "Blog",
     "bookDemo": "Book a Demo"
   },
+  "leadPopup": {
+    "title": "Get in touch",
+    "description": "Tell us a bit about your business and we'll reach out."
+  },
   "hero": {
     "badge": "Voice Entry Loan Collection App",
     "title1": "Voice Entry",

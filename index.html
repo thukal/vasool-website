@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TXRRMMF7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta name="author" content="Thukal" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -14,10 +23,15 @@
     <meta name="mobile-web-app-capable" content="yes" />
 
     <!--
-      Google Analytics (GA4, gtag.js). Placed outside the per-route-seo
-      markers so scripts/prerender.mjs keeps it on every prerendered page.
-      Loaded async so it never blocks first paint. SPA route changes are
-      tracked automatically by GA4 Enhanced Measurement (history events).
+      Google Analytics (GA4, gtag.js) + Google Ads conversion tracking.
+      Both share one gtag.js load and one dataLayer — gtag.js supports
+      multiple destinations via separate gtag('config', ...) calls, so the
+      Google Ads tag (AW-18457833720) does NOT need its own <script src>
+      (that would just fetch the same loader twice). Placed outside the
+      per-route-seo markers so scripts/prerender.mjs keeps it on every
+      prerendered page. Loaded async so it never blocks first paint. SPA
+      route changes are tracked automatically by GA4 Enhanced Measurement
+      (history events).
     -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM6LTV7R0L"></script>
@@ -26,6 +40,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BM6LTV7R0L');
+      gtag('config', 'AW-18457833720');
     </script>
 
     <!-- Microsoft Clarity -->
@@ -36,6 +51,41 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "y6afosjvfo");
     </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2124670255104449');
+    // Shared event ID for browser <-> server dedup: this PageView is mirrored
+    // to Meta's Conversions API below (via our own Netlify function, so no
+    // access token is ever exposed here), tagged with the same ID so Meta
+    // merges the two into a single event.
+    var vsPvId = 'pv_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    fbq('track', 'PageView', {}, {eventID: vsPvId});
+    fetch('/.netlify/functions/capi-event', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        event_name: 'PageView',
+        event_id: vsPvId,
+        event_source_url: window.location.href
+      }),
+      keepalive: true
+    }).catch(function(){});
+    </script>
+    <!-- End Meta Pixel Code -->
+    <!--
+      The Pixel's <noscript> fallback is an <img>, which HTML doesn't allow
+      inside <head><noscript> (Vite's HTML parser rejects it at build time).
+      It's placed in <body> instead, next to the GTM noscript iframe.
+    -->
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -168,6 +218,17 @@
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXRRMMF7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Meta Pixel Code (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2124670255104449&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code (noscript) -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

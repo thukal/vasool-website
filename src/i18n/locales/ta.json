@@ -8,6 +8,10 @@
     "blog": "Blog",
     "bookDemo": "Demo Book பண்ணுங்க"
   },
+  "leadPopup": {
+    "title": "எங்களை Contact பண்ணுங்க",
+    "description": "உங்க business பத்தி கொஞ்சம் details தாங்க, நாங்க reach out பண்றோம்."
+  },
   "hero": {
     "badge": "Voice Entry Loan Collection App",
     "title1": "Voice Entry",
