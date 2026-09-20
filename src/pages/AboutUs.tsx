@@ -102,6 +102,7 @@ const storyParagraphs = [
   '<strong class="text-foreground">Vasool</strong> — வசூல் — means "collection" in Tamil, the everyday word used across India\'s microfinance industry. When field agents go out each morning to collect daily repayments, they call it vasool. We named our platform after the work itself — because that\'s exactly what we set out to digitize.',
   'Together, Thukal and Vasool represent our philosophy: build precise, well-crafted tools (துகள்) that transform how collections (வசூல்) work on the ground. We started by watching how microfinance actually operates — paper registers, WhatsApp groups, manual cash reconciliation every evening — and built a platform that replaces all of it with a single, purpose-built system.',
   'Built by <strong class="text-foreground">Thukal</strong> for the Indian microfinance industry, Vasool isn\'t a generic banking tool adapted for small lenders. It\'s a ground-up system that understands daily collections, field routes, cash settlements, and the realities of lending at scale. Every finance company gets their own isolated environment with their own branding, features, and data — all running on infrastructure they control. We don\'t hold your data hostage. We build great software and let you run your business.',
+  'Vasool is a product of <strong class="text-foreground">Thukal Innovatives LLP</strong>, our registered company. You can read more about the company and the rest of what we build at <a class="text-secondary hover:underline" href="https://thukal.io" target="_blank" rel="noopener">thukal.io</a>.',
 ];
 
 const AboutUs = () => {
@@ -110,8 +111,8 @@ const AboutUs = () => {
       <Navigation />
       <SEO
         title="About Vasool - Microfinance Technology by Thukal"
-        description="Learn about Vasool, built by Thukal for India's microfinance industry. We provide complete loan management technology with mobile apps, admin dashboards, self-hosted platforms, and dedicated support for lending businesses."
-        keywords="vasool about, thukal, microfinance technology india, lending software company, microfinance software provider, vasool app developer, tamil nadu fintech"
+        description="Learn about Vasool, built by Thukal Innovatives LLP (thukal.io) for India's microfinance industry. We provide complete loan management technology with mobile apps, admin dashboards, self-hosted platforms, and dedicated support for lending businesses."
+        keywords="vasool about, thukal, thukal innovatives llp, thukal.io, microfinance technology india, lending software company, microfinance software provider, vasool app developer, tamil nadu fintech"
         canonical="/about"
         structuredData={{
           "@context": "https://schema.org",

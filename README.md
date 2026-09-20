@@ -1,6 +1,6 @@
 # Vasool — Multi-Tenant Microfinance Loan Management System
 
-Marketing website for **Vasool**, a complete multi-tenant microfinance loan management platform built by [Thukal](mailto:hello@thukal.in).
+Marketing website for **Vasool**, a complete multi-tenant microfinance loan management platform built by [Thukal Innovatives LLP](https://thukal.io).
 
 ## Pages
 

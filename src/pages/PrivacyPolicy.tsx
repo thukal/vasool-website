@@ -47,7 +47,8 @@ const PrivacyPolicy = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Vasool ("we", "our", or "the Platform") is a multi-tenant
-              microfinance loan management platform operated by Thukal. This
+              microfinance loan management platform operated by Thukal
+              Innovatives LLP ("Thukal"). This
               Privacy Policy explains how data is collected, used, stored, and
               protected across the Platform. By using Vasool, you agree to the
               practices described in this policy.
@@ -358,6 +359,19 @@ const PrivacyPolicy = () => {
               practices, please contact us:
             </p>
             <div className="space-y-2 text-muted-foreground">
+              <p>
+                <strong className="text-foreground">Company:</strong> Thukal
+                Innovatives LLP (
+                <a
+                  href="https://thukal.io"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-secondary hover:underline"
+                >
+                  thukal.io
+                </a>
+                )
+              </p>
               <p>
                 <strong className="text-foreground">Email:</strong>{" "}
                 <a
