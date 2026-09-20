@@ -123,6 +123,16 @@ const Footer = () => {
                   {t("footer.blog")}
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://thukal.io"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-white/35 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t("footer.thukal")}
+                </a>
+              </li>
             </ul>
           </div>
 

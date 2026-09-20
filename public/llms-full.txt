@@ -1,6 +1,6 @@
 # Vasool — Full Overview
 
-> Vasool is a voice-entry loan collection and lending platform for money lenders, finance companies and NBFCs in India. Built by Thukal. The website is bilingual (English and Tamil, /ta pages). Field staff use an Android/iOS app; the office uses a web dashboard; borrowers get a self-service portal. Works fully offline and syncs when back online.
+> Vasool is a voice-entry loan collection and lending platform for money lenders, finance companies and NBFCs in India. Built by Thukal Innovatives LLP (thukal.io). The website is bilingual (English and Tamil, /ta pages). Field staff use an Android/iOS app; the office uses a web dashboard; borrowers get a self-service portal. Works fully offline and syncs when back online.
 
 ## What Vasool does
 
@@ -67,7 +67,8 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 
 ## Contact
 
-- Company: Thukal
+- Company: Thukal Innovatives LLP
+- Company site: https://thukal.io
 - Email: hello@thukal.in
 - Phone: +91 86829 27187
 - Languages: English, Tamil

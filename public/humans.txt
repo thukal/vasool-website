@@ -1,5 +1,6 @@
 /* TEAM */
-  Built by: Thukal
+  Built by: Thukal Innovatives LLP
+  Company site: https://thukal.io
   Contact: hello@thukal.in
   Location: India
 

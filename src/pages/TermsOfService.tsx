@@ -48,7 +48,8 @@ const TermsOfService = () => {
             <p className="text-muted-foreground leading-relaxed mb-4">
               These Terms of Service ("Terms") constitute a legally binding
               agreement between you ("Tenant", "Client", or "you") and Thukal
-              ("we", "us", or "our"), governing your access to and use of the
+              Innovatives LLP ("Thukal", "we", "us", or "our"), governing your
+              access to and use of the
               Vasool multi-tenant microfinance loan management platform ("the
               Platform").
             </p>
@@ -408,6 +409,19 @@ const TermsOfService = () => {
               For questions about these Terms of Service, please contact us:
             </p>
             <div className="space-y-2 text-muted-foreground">
+              <p>
+                <strong className="text-foreground">Company:</strong> Thukal
+                Innovatives LLP (
+                <a
+                  href="https://thukal.io"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-secondary hover:underline"
+                >
+                  thukal.io
+                </a>
+                )
+              </p>
               <p>
                 <strong className="text-foreground">Email:</strong>{" "}
                 <a
