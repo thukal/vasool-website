@@ -37,8 +37,12 @@
 # ad.doubleclick.net/ccm/s/collect. Both can fire as either a fetch/beacon
 # or a plain <img> depending on browser support, so both domains are
 # allowed in connect-src and img-src (same dual-directive pattern as the
-# other Google/Meta entries above). No script-src entry is needed — neither
-# URL loads a script, both are data-collection endpoints only.
+# other Google/Meta entries above). googleads.g.doubleclick.net ALSO loads
+# an actual <script> for enhanced conversions/remarketing — Google's own Tag
+# Diagnostics flagged this as blocked under script-src-elem (which falls
+# back to script-src since this policy doesn't set script-src-elem
+# separately), so it's allowed in script-src too. ad.doubleclick.net does
+# not load a script, so it stays out of script-src.
 # Lead capture popup (src/components/LeadCapturePopup.tsx): embeds the
 # hosted form at connect.automationclub.in/widget/form/<id> via a plain
 # <iframe> (no companion JS is loaded from that domain), so it only needs
@@ -49,4 +53,4 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://connect.facebook.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src https://www.instagram.com https://instagram.com https://www.googletagmanager.com https://connect.automationclub.in; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://connect.facebook.net https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; connect-src 'self' https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://www.facebook.com https://connect.facebook.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net; frame-src https://www.instagram.com https://instagram.com https://www.googletagmanager.com https://connect.automationclub.in; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
