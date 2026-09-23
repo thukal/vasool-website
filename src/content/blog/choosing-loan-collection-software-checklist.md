@@ -7,7 +7,7 @@ tags: [Guides, Buying]
 keywords: loan collection software, lending software, NBFC software, loan management app comparison
 ---
 
-Most collection software looks the same in a sales deck. The differences that matter only show up after you've onboarded a hundred accounts and put the app in the hands of field agents. Use this checklist *before* you commit.
+Most loan collection software — or debt collection software, if that's the term you search for — looks the same in a sales deck. The differences that matter only show up after you've onboarded a hundred accounts and put the app in the hands of field agents. Use this checklist *before* you commit.
 
 ## 1. Who actually owns your data?
 

@@ -89,7 +89,7 @@ const config: KeywordLandingConfig = {
     {
       heading: "Why a dedicated loan collection app beats a khata app",
       paragraphs: [
-        "Generic ledger and khata apps record who owes what — but lending is more than a balance. A real loan collection app understands schedules: a 100-day daily loan, a weekly line, an EMI with foreclosure, interest-only with principal at the end. Vasool generates the schedule when you disburse, so every agent knows exactly what is due from every borrower today.",
+        "Whether you call it a loan collection app or debt collection software, generic ledger and khata apps record who owes what — but lending is more than a balance. A real loan collection app understands schedules: a 100-day daily loan, a weekly line, an EMI with foreclosure, interest-only with principal at the end. Vasool generates the schedule when you disburse, so every agent knows exactly what is due from every borrower today.",
         <>
           It also understands field work. Your agents aren't sitting at a desk
           — they're on a two-wheeler moving between streets. That's why Vasool
