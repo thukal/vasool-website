@@ -1,5 +1,5 @@
 ---
-title: "Best Debt Collection Software in South Africa: Features to Look for in 2026"
+title: "Best Debt Collection Software in South Africa (2026 Guide)"
 description: "The features that matter in debt collection software in South Africa for 2026: payment allocation, arrears ageing, audit trails and POPIA-conscious access."
 date: 2026-09-29
 author: Vasool Team
