@@ -195,6 +195,61 @@ export const COUNTRIES: CountryMeta[] = [
     voiceRisk:
       "a rate or fee rewritten against a modality, and any renegotiated loan term — the records that separate formal credit from gota a gota",
   },
+  {
+    slug: "/loan-management-software-ghana",
+    name: "Ghana",
+    buyer:
+      "Tier 2 microfinance and susu companies, Tier 3 money lenders, Tier 4 susu collectors and enterprises",
+    rail: "Field cash, MTN MoMo, Telecel Cash, bank transfer",
+    currency: "GHS ₵ · Africa/Accra",
+    regulator: "Bank of Ghana",
+    blurb:
+      "Daily susu collection with a per-collector cash close, and the member balance a depositor can be shown on demand. Company setup for Ghana is not live yet.",
+    voiceLangs: "English",
+    voiceNote:
+      "Twi, Ga and Ewe dictation ships alongside Ghanaian company setup — neither is live yet, and the market page says so rather than listing a language you cannot use.",
+    voiceExpense: "Trotro fare 15",
+    voiceRisk:
+      "a susu member's balance adjusted by hand, a loan rescheduled after a slow week at the market, and any client a collector signs up without the office seeing them",
+    status: "preview",
+  },
+  {
+    slug: "/loan-management-software-zimbabwe",
+    name: "Zimbabwe",
+    buyer:
+      "RBZ-registered credit-only microfinance institutions, deposit-taking MFIs, savings and credit cooperatives",
+    rail: "EcoCash, InnBucks, OneMoney, field cash in USD and ZiG, bank transfer",
+    currency: "USD and ZiG · Africa/Harare",
+    regulator: "Reserve Bank of Zimbabwe",
+    blurb:
+      "Dual-currency field lending — USD and ZiG balances kept apart, never silently converted — with every wallet repayment carrying its channel and reference. Company setup for Zimbabwe is not live yet.",
+    voiceLangs: "English",
+    voiceNote:
+      "Shona and Ndebele dictation ships alongside Zimbabwean company setup — neither is live yet, and the market page says so rather than listing a language you cannot use.",
+    voiceExpense: "Fuel 20 dollars",
+    voiceRisk:
+      "a loan written in the wrong currency, a wallet repayment posted against the wrong account, or terms rewritten after disbursement — where a quiet conversion between USD and ZiG is the whole risk",
+    status: "preview",
+  },
+  {
+    slug: "/loan-management-software-cote-divoire",
+    name: "Côte d'Ivoire",
+    buyer:
+      "Approved SFDs — savings and credit cooperatives and microfinance institutions",
+    rail: "Field cash, Orange Money, MTN MoMo, Wave, Moov Money, bank transfer",
+    currency: "XOF CFA · Africa/Abidjan",
+    regulator:
+      "BCEAO and the Direction Générale du Trésor et de la Comptabilité Publique",
+    blurb:
+      "Member-owned credit and savings with the per-member records a supervised SFD is asked to produce, in CFA francs. Company setup for Côte d'Ivoire is not live yet.",
+    voiceLangs: "English",
+    voiceNote:
+      "French dictation ships alongside Ivorian company setup — neither is live yet — and Dioula and Baoulé are not dictation languages.",
+    voiceExpense: "Carburant 5 mille",
+    voiceRisk:
+      "a renegotiated repayment schedule or a rewritten rate on a member's loan — SFD money belongs to the members, so the record has to name who allowed the change",
+    status: "preview",
+  },
 ];
 
 /** The country name as it reads inside a sentence. */

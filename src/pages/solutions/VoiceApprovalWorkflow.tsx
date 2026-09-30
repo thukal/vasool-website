@@ -57,7 +57,7 @@ const config: KeywordLandingConfig = {
     </>
   ),
   intro:
-    "A round is money in, money out, and where the officer went to do it. Vasool captures all three as they happen: collections and expenses dictated in the officer's own language, both tied to a GPS-tracked route. What posts immediately and what waits is the split that matters — a repayment posts on confirmation, while a rewritten loan or a new borrower can be held for an approver. The day closes on a per-route day book, officer performance and P&L. The same flow runs in all nine markets.",
+    "A round is money in, money out, and where the officer went to do it. Vasool captures all three as they happen: collections and expenses dictated in the officer's own language, both tied to a GPS-tracked route. What posts immediately and what waits is the split that matters — a repayment posts on confirmation, while a rewritten loan or a new borrower can be held for an approver. The day closes on a per-route day book, officer performance and P&L. The same flow runs in every market Vasool covers.",
   featuresHeading: "The whole round, one flow, two speeds",
   featuresSub:
     "Most lending software makes you pick: gate everything and your officers stop using the app, or gate nothing and your book is whatever the last person typed. This is built to avoid that trade — and to record the money going out and the ground covered, not just the money coming in.",
@@ -137,7 +137,7 @@ const config: KeywordLandingConfig = {
       ],
     },
     {
-      heading: "The same flow in nine markets",
+      heading: "The same flow in every market",
       paragraphs: [
         `Voice entry is not an India-only feature with the other markets waiting. Officers dictate in ${LANGUAGE_LINE}. ${LANGUAGE_CAVEATS}`,
         "What differs by market is not the mechanism but what is worth gating. A Kenyan SACCO cares about who added a member to a chama and who rewrote a loan before the paybill sees the repayments. A South African credit provider cares about a borrower record edited after the affordability assessment was run on it. An Indonesian koperasi cares that a change to a member's savings scheme names whoever allowed it, because the money belongs to the members. Same inbox, different list of gated resources.",

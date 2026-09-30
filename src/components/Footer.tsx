@@ -195,6 +195,9 @@ const Footer = () => {
               { label: "Aplikasi Koperasi Simpan Pinjam", href: "/aplikasi-koperasi-simpan-pinjam" },
               { label: "Software de Cobranza", href: "/software-de-cobranza" },
               { label: "Debt Collection Software South Africa", href: "/debt-collection-software-south-africa" },
+              { label: "Susu Collection App", href: "/susu-collection-app" },
+              { label: "Ajo & Esusu Collection Software", href: "/ajo-esusu-collection-software" },
+              { label: "Logiciel de Gestion de Microfinance", href: "/logiciel-gestion-microfinance" },
             ].map((s) => (
               <a
                 key={s.href}

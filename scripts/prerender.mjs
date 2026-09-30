@@ -61,6 +61,10 @@ const langForRoute = (route) =>
 const PAGE_LANG = {
   "/aplikasi-koperasi-simpan-pinjam": "id",
   "/software-de-cobranza": "es",
+  "/logiciel-gestion-microfinance": "fr",
+  // Blog posts written in-language get their <html lang> here too — an English
+  // lang attribute on a French post is a contradictory signal to crawlers.
+  "/blog/saisie-terrain-et-ratios-prudentiels-sfd": "fr",
 };
 
 for (const route of routes) {

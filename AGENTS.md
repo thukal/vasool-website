@@ -126,11 +126,19 @@ Solutions:
 `/voice-approval-workflow` · `/weekly-collection-app` · `/monthly-finance-app` ·
 `/line-management-app` · `/kandhu-vatti-app` · `/byaj-wasooli-app` · `/ugrani-app` ·
 `/self-hosted-loan-software` · `/white-label-loan-app` · `/chit-fund-and-lending-app` ·
-`/nbfc-loan-management` · `/sacco-management-system` · `/debt-collection-software-south-africa`
+`/nbfc-loan-management` · `/sacco-management-system` · `/debt-collection-software-south-africa` ·
+`/susu-collection-app` · `/ajo-esusu-collection-software` · `/logiciel-gestion-microfinance`
 
 Countries: `/countries` and per-country pages such as
 `/loan-management-software-philippines`, `/loan-management-software-nigeria`,
-`/loan-management-software-kenya`, `/loan-management-software-sri-lanka`.
+`/loan-management-software-kenya`, `/loan-management-software-sri-lanka`,
+`/loan-management-software-ghana`, `/loan-management-software-zimbabwe`,
+`/loan-management-software-cote-divoire`.
+
+> Ghana, Zimbabwe, Côte d'Ivoire and Cambodia are **preview** markets — their
+> pages are live but company setup is not. Never write copy implying a lender
+> can sign up in one of them today. `src/lib/countries.ts` is the source of
+> truth for which are `status: "preview"`.
 
 Company / legal: `/about` · `/blog` · `/privacy` · `/terms` · `/security`
 

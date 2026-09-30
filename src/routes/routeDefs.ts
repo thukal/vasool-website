@@ -64,6 +64,12 @@ export const routeDefs: RouteDef[] = [
   { path: "/aplikasi-koperasi-simpan-pinjam", importer: () => import("../pages/solutions/AplikasiKoperasiSimpanPinjam") },
   { path: "/software-de-cobranza", importer: () => import("../pages/solutions/SoftwareDeCobranza") },
   { path: "/debt-collection-software-south-africa", importer: () => import("../pages/solutions/DebtCollectionSoftwareSouthAfrica") },
+  // West Africa's daily-contribution vocabulary. "Susu" (Ghana) and
+  // "ajo/esusu/adashe" (Nigeria) name the same operation, so they get separate
+  // exact-match pages rather than one page hedging between two search terms.
+  { path: "/susu-collection-app", importer: () => import("../pages/solutions/SusuCollectionApp") },
+  { path: "/ajo-esusu-collection-software", importer: () => import("../pages/solutions/AjoEsusuSoftware") },
+  { path: "/logiciel-gestion-microfinance", importer: () => import("../pages/solutions/LogicielGestionMicrofinance") },
   // Country pages. India isn't listed here — the whole site is the India
   // pitch, and /nbfc-loan-management is its entry in the country hub.
   { path: "/countries", importer: () => import("../pages/Countries") },
@@ -74,8 +80,12 @@ export const routeDefs: RouteDef[] = [
   { path: "/loan-management-software-indonesia", importer: () => import("../pages/countries/Indonesia") },
   { path: "/loan-management-software-south-africa", importer: () => import("../pages/countries/SouthAfrica") },
   { path: "/loan-management-software-colombia", importer: () => import("../pages/countries/Colombia") },
-  // Cambodia has a market page but no company setup yet — see status: "preview".
+  // Cambodia, Ghana, Zimbabwe and Côte d'Ivoire have market pages but no company
+  // setup yet — see status: "preview" in src/lib/countries.ts.
   { path: "/loan-management-software-cambodia", importer: () => import("../pages/countries/Cambodia") },
+  { path: "/loan-management-software-ghana", importer: () => import("../pages/countries/Ghana") },
+  { path: "/loan-management-software-zimbabwe", importer: () => import("../pages/countries/Zimbabwe") },
+  { path: "/loan-management-software-cote-divoire", importer: () => import("../pages/countries/CoteDIvoire") },
   // Blog: /blog index + one route per markdown post (see blogRoutes above).
   ...blogRoutes,
   // ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE
