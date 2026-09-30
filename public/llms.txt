@@ -33,18 +33,24 @@ Vasool (also known as Vasool Drive) is built by Thukal Innovatives LLP (https://
 - [Aplikasi Koperasi Simpan Pinjam](https://vasool.app/aplikasi-koperasi-simpan-pinjam): Indonesian-language page for koperasi loan and field collection management
 - [Software de Cobranza](https://vasool.app/software-de-cobranza): Spanish-language page for formal microcredit field collections in Colombia
 - [Debt Collection Software South Africa](https://vasool.app/debt-collection-software-south-africa): Arrears ageing, promise-to-pay tracking and payment allocation for South African credit providers
+- [Susu Collection App](https://vasool.app/susu-collection-app): Daily susu contribution collection for West Africa — per-collector cash close, savings held apart from loans, offline rounds
+- [Ajo & Esusu Collection Software](https://vasool.app/ajo-esusu-collection-software): Nigerian thrift collection — ajo, esusu and adashe rounds in NGN, available at company setup today
+- [Logiciel de Gestion de Microfinance](https://vasool.app/logiciel-gestion-microfinance): French-language page for SFDs in the UEMOA/BCEAO zone; UEMOA company setup and French interface are NOT shipped
 
 ## Countries
 
-Vasool supports company setup in eight countries. Each sets its own currency, local business date and time zone without changing the accounting meaning of any recorded amount. Voice entry works in every supported market, in the languages officers speak on those routes — it is not India-only. Maker-checker approvals are available everywhere too. Vasool is collections and portfolio software — it is not a lending licence, registration or regulatory approval in any market.
+Vasool supports company setup in eight countries: India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia. Four further markets — Cambodia, Ghana, Zimbabwe and Côte d'Ivoire — have published market pages but are NOT selectable at company setup, and each page says so. Each supported country sets its own currency, local business date and time zone without changing the accounting meaning of any recorded amount. Voice entry works in every supported market, in the languages officers speak on those routes — it is not India-only. Maker-checker approvals are available everywhere too. Vasool is collections and portfolio software — it is not a lending licence, registration or regulatory approval in any market.
 
-- [Supported Countries](https://vasool.app/countries): All eight markets, with the buyer, payment rail, currency and regulatory home for each
+- [Supported Countries](https://vasool.app/countries): All twelve market pages, with the buyer, payment rail, currency and regulatory home for each, and preview markets labelled
 - [Philippines](https://vasool.app/loan-management-software-philippines): SEC-registered lending companies and cooperatives — PHP, GCash/Maya tagging, daily and weekly field collection
 - [Nigeria](https://vasool.app/loan-management-software-nigeria): Microfinance banks, cooperatives and market lenders — NGN, group and individual exposure, portfolio at risk
 - [Kenya](https://vasool.app/loan-management-software-kenya): SACCOs and digital credit providers — KES, M-Pesa channel and transaction reference on every payment
 - [Sri Lanka](https://vasool.app/loan-management-software-sri-lanka): Licensed microfinance and finance companies — LKR, Tamil and English interface
 - [Indonesia](https://vasool.app/loan-management-software-indonesia): Koperasi simpan pinjam, BPR and microfinance institutions — IDR amounts stored exactly as entered
 - [Cambodia](https://vasool.app/loan-management-software-cambodia): Market page only — Cambodia is NOT selectable at company setup, and dual-currency KHR/USD support and Khmer (interface and voice dictation) are not shipped
+- [Ghana](https://vasool.app/loan-management-software-ghana): Market page only — Ghana is NOT selectable at company setup; Bank of Ghana tiers, susu and money-lending operations, GHS; Twi, Ga and Ewe dictation not shipped
+- [Zimbabwe](https://vasool.app/loan-management-software-zimbabwe): Market page only — Zimbabwe is NOT selectable at company setup; RBZ credit-only vs deposit-taking MFIs, EcoCash/InnBucks/OneMoney rails, dual-currency USD/ZiG support and Shona/Ndebele not shipped
+- [Côte d'Ivoire](https://vasool.app/loan-management-software-cote-divoire): Market page only — Côte d'Ivoire is NOT selectable at company setup; approved SFDs under BCEAO and the DGTCP, XOF; French interface and dictation not shipped
 - [South Africa](https://vasool.app/loan-management-software-south-africa): NCR-registered credit providers — ZAR, agreement and affordability-evidence records, payment allocation
 - [Colombia](https://vasool.app/loan-management-software-colombia): Supervised microcredit institutions and cooperatives — COP, per-modality pricing; not for informal gota a gota lending
 - [India](https://vasool.app/nbfc-loan-management): Money lenders, finance companies and NBFCs — INR, voice entry, kandhu vatti and EMI books

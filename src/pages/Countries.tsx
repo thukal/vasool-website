@@ -23,7 +23,7 @@ const VOICE_LANGUAGES = (() => {
 const FAQS = [
   {
     q: "Which countries can I set a company up in?",
-    a: "India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia. Choosing a country sets the currency, the local business date and time zone, and the phone and address formats — it does not change the accounting meaning of any amount you record. Cambodia has a market page here but is not yet selectable at setup, and it is labelled that way rather than quietly listed alongside the rest.",
+    a: "India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia. Choosing a country sets the currency, the local business date and time zone, and the phone and address formats — it does not change the accounting meaning of any amount you record. Cambodia, Ghana, Zimbabwe and Côte d'Ivoire have market pages here but are not yet selectable at setup, and each is labelled that way rather than quietly listed alongside the rest.",
   },
   {
     q: "Does Vasool let me lend in these countries?",
@@ -99,8 +99,8 @@ const Countries = () => (
     <Navigation />
     <SEO
       title="Loan Management Software by Country | Vasool"
-      description="Vasool supports company setup in India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia — each with its own currency, local business date, payment rail and buyer. Collections software, not a lending licence."
-      keywords="loan management software by country, microfinance software philippines, loan management software nigeria, sacco loan management software kenya, microfinance software sri lanka, koperasi simpan pinjam software, credit provider software south africa, microcredit software colombia, multi country lending software, international loan collection app"
+      description="Vasool supports company setup in India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia, with market pages for Ghana, Zimbabwe, Côte d'Ivoire and Cambodia — each with its own currency, local business date, payment rail and buyer. Collections software, not a lending licence."
+      keywords="loan management software by country, microfinance software philippines, loan management software nigeria, sacco loan management software kenya, microfinance software sri lanka, koperasi simpan pinjam software, credit provider software south africa, microcredit software colombia, loan management software ghana, microfinance software zimbabwe, susu collection software, multi country lending software, international loan collection app"
       canonical="/countries"
       structuredData={[faqSchema, breadcrumbSchema, itemListSchema]}
     />
