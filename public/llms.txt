@@ -29,6 +29,8 @@ Vasool (also known as Vasool Drive) is built by Thukal Innovatives LLP (https://
 - [White-Label Loan App](https://vasool.app/white-label-loan-app): Vasool under your own brand
 - [Chit Fund & Lending App](https://vasool.app/chit-fund-and-lending-app): Chit fund and lending management
 - [NBFC Loan Management](https://vasool.app/nbfc-loan-management): Loan management software for NBFCs in India
+- [Vehicle Finance Software](https://vasool.app/vehicle-finance-software): The vehicle finance pillar page — two-wheeler, auto-rickshaw, used car and commercial vehicle books on one vehicle register and EMI engine (not four modules), with maker-checker, audit trail and a repossession register; no RTO filing, hypothecation endorsement/NOC, RC transfer, insurance renewal, valuation feed, dealer/DSA payouts, telematics or bureau reporting
+- [Auto Finance Tracking App](https://vasool.app/auto-finance-tracking-app): The narrower evaluation page for "auto finance tracking" — vehicle register linked to each loan, insurance expiry, EMI schedules, Recovery P&L. Vasool is for financiers tracking a book they lent out, NOT for borrowers tracking their own EMIs
 - [SACCO Management System](https://vasool.app/sacco-management-system): Loans and collections for SACCOs — guarantor tracking, M-Pesa references, arrears ageing (not a full SACCO system; shares and deposits stay in your core system)
 - [Aplikasi Koperasi Simpan Pinjam](https://vasool.app/aplikasi-koperasi-simpan-pinjam): Indonesian-language page for koperasi loan and field collection management
 - [Software de Cobranza](https://vasool.app/software-de-cobranza): Spanish-language page for formal microcredit field collections in Colombia
