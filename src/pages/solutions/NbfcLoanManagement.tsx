@@ -202,6 +202,7 @@ const config: KeywordLandingConfig = {
     { label: "Self-Hosted Loan Software", to: "/self-hosted-loan-software" },
     { label: "White-Label Loan App", to: "/white-label-loan-app" },
     { label: "Loan Types", to: "/loan-types" },
+    { label: "Vehicle Finance Software", to: "/vehicle-finance-software" },
     { label: "Voice Approval Workflow", to: "/voice-approval-workflow" },
     { label: "Compare Vasool", to: "/compare" },
     { label: "Chit Fund & Lending App", to: "/chit-fund-and-lending-app" },

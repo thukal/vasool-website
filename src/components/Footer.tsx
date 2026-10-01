@@ -191,6 +191,8 @@ const Footer = () => {
               { label: "White-Label Loan App", href: "/white-label-loan-app" },
               { label: "Chit Fund & Lending App", href: "/chit-fund-and-lending-app" },
               { label: "NBFC Loan Management", href: "/nbfc-loan-management" },
+              { label: "Vehicle Finance Software", href: "/vehicle-finance-software" },
+              { label: "Auto Finance Tracking App", href: "/auto-finance-tracking-app" },
               { label: "SACCO Management System", href: "/sacco-management-system" },
               { label: "Aplikasi Koperasi Simpan Pinjam", href: "/aplikasi-koperasi-simpan-pinjam" },
               { label: "Software de Cobranza", href: "/software-de-cobranza" },

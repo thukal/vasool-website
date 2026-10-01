@@ -62,6 +62,8 @@ Vasool digitises the daily/weekly/monthly "vasool" (collection) round that lende
 - Compare: https://vasool.app/compare
 - Voice Approval Workflow: https://vasool.app/voice-approval-workflow
 - NBFC Loan Management: https://vasool.app/nbfc-loan-management
+- Vehicle Finance Software: https://vasool.app/vehicle-finance-software
+- Auto Finance Tracking App: https://vasool.app/auto-finance-tracking-app
 - Security: https://vasool.app/security
 - About: https://vasool.app/about
 

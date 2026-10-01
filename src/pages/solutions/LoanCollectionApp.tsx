@@ -168,6 +168,7 @@ const config: KeywordLandingConfig = {
     { label: "Monthly Finance App", to: "/monthly-finance-app" },
     { label: "Voice Entry Collection App", to: "/voice-entry-collection-app" },
     { label: "Line Management App", to: "/line-management-app" },
+    { label: "Auto Finance Tracking App", to: "/auto-finance-tracking-app" },
     { label: "Compare Vasool", to: "/compare" },
   ],
   ctaHeading: "Put your collections on autopilot",

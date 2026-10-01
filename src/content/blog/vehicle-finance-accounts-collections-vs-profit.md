@@ -25,7 +25,7 @@ This sounds like paperwork until the day it matters:
 - Collateral with **lapsed insurance** is worth materially less if it comes back to you damaged — and expiry dates are invisible unless something is tracking them.
 - When a vehicle changes hands, its history should follow it rather than starting fresh.
 
-Vehicle loans generally run as [EMI loans](/loan-types), so the repayment schedule, foreclosure and pre-closure handling all work exactly as they do elsewhere. The vehicle record is what sits underneath.
+Vehicle loans generally run as [EMI loans](/loan-types), so the repayment schedule, foreclosure and pre-closure handling all work exactly as they do elsewhere. The vehicle record is what sits underneath — see our [vehicle finance software](/vehicle-finance-software) page for what that register holds and how each loan points at the vehicle securing it.
 
 ## 2. Your income is not only interest
 
@@ -99,4 +99,4 @@ None of them substitutes for the others, and the last two are the ones vehicle f
 
 Collections tell you whether your field team is working. They do not tell you whether your business is profitable. The gap between those two numbers is where charges, waivers and repossessions live — and in vehicle finance that gap is rarely small.
 
-See how the [reporting and dashboards](/features) fit together, or [talk to us about running your book on Vasool](/pricing).
+See how [vehicle finance software](/vehicle-finance-software) handles the register and the recovery side, how the [reporting and dashboards](/features) fit together, or [talk to us about running your book on Vasool](/pricing).

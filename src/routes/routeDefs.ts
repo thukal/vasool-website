@@ -56,6 +56,15 @@ export const routeDefs: RouteDef[] = [
   { path: "/white-label-loan-app", importer: () => import("../pages/solutions/WhiteLabelLoanApp") },
   { path: "/chit-fund-and-lending-app", importer: () => import("../pages/solutions/ChitFundAndLendingApp") },
   { path: "/nbfc-loan-management", importer: () => import("../pages/solutions/NbfcLoanManagement") },
+  // Vehicle finance: an asset-backed book whose vocabulary ("auto finance")
+  // and reporting needs — vehicle register, repossession kept out of
+  // collections, Recovery P&L — don't fit the generic collection pages.
+  // Two pages, deliberately split so they don't compete for one query:
+  // /vehicle-finance-software is the head-term pillar (how the company runs);
+  // /auto-finance-tracking-app answers the narrower "best app for auto finance
+  // tracking" evaluation query. See the header comment in each file.
+  { path: "/vehicle-finance-software", importer: () => import("../pages/solutions/VehicleFinanceSoftware") },
+  { path: "/auto-finance-tracking-app", importer: () => import("../pages/solutions/AutoFinanceTrackingApp") },
   // Exact-match pages for the head terms buyers actually search in each market.
   // The Indonesian and Spanish pages are written in-language: an English page
   // does not rank for an Indonesian or Spanish query. See PAGE_LANG in

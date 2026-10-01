@@ -166,6 +166,7 @@ const config: KeywordLandingConfig = {
     { label: "Daily Collection App", to: "/daily-collection-app" },
     { label: "Weekly Collection App", to: "/weekly-collection-app" },
     { label: "Line Management App", to: "/line-management-app" },
+    { label: "Vehicle Finance Software", to: "/vehicle-finance-software" },
     { label: "Compare Vasool", to: "/compare" },
   ],
   ctaHeading: "Make month-end a non-event",
