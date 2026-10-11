@@ -64,7 +64,7 @@ const Solutions = () => (
   <main className="min-h-screen">
     <Navigation />
     <SEO
-      title="Solutions - Collection Software for Every Lending Model | Vasool"
+      title="Solutions - Collection Software by Lending Model | Vasool"
       description="Every way Vasool is used: daily, weekly and monthly collection, gold loans, rentals, chit funds, vehicle finance, voice entry, NBFC and SACCO setups, self-hosted and white-label — plus pages written in Tamil, Hindi, Kannada, Spanish and French vocabulary."
       keywords="loan collection software solutions, daily collection app, gold loan software, rental collection app, chit fund software, vehicle finance software, voice entry collection app, nbfc loan management, sacco management system, self-hosted loan software, white label loan app"
       canonical="/solutions"

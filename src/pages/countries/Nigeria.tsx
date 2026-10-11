@@ -26,7 +26,7 @@ const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Loan Management Software for Microfinance Banks in Nigeria | Vasool",
+    title: "Microfinance Bank Loan Software in Nigeria | Vasool",
     description:
       "Vasool is loan management and collection software for microfinance banks, cooperative societies and market lenders in Nigeria — group and individual exposure records, portfolio at risk ageing, agent cash accountability, NGN and Africa/Lagos, offline field collection and a full audit trail. Free demo.",
     keywords:

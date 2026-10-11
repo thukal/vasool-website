@@ -26,7 +26,7 @@ const chrome: LandingChrome = {
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Aplikasi Koperasi Simpan Pinjam untuk Petugas Lapangan | Vasool",
+    title: "Aplikasi Koperasi Simpan Pinjam Lapangan | Vasool",
     description:
       "Vasool adalah aplikasi koperasi simpan pinjam untuk pengelolaan pinjaman anggota: catatan pokok dan bunga terpisah, angsuran harian dan mingguan, pertanggungjawaban kas petugas lapangan, mode offline, dan jejak audit lengkap. Nilai rupiah tersimpan persis seperti yang diketik. Demo gratis.",
     keywords:

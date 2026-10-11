@@ -26,7 +26,7 @@ const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Loan Management Software for Microfinance & Susu in Ghana | Vasool",
+    title: "Microfinance & Susu Loan Software in Ghana | Vasool",
     description:
       "Vasool is loan and susu collection software for Ghanaian microfinance companies, money lenders and susu collectors — daily doorstep collection, per-collector cash close, member balances, GHS and Africa/Accra, offline field work and a full audit trail. Ghana company setup is not live yet; talk to us about your rollout.",
     keywords:
