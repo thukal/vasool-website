@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import PretextText from "./pretext/PretextText";
 import { COUNTRIES, inSentence } from "@/lib/countries";
+import { ALL_SOLUTIONS } from "@/lib/solutions";
 import {
   BILINGUAL_PATHS,
   basePathOf,
@@ -173,39 +174,15 @@ const Footer = () => {
         {/* Solution pages — keyword anchors kept in English to match search terms */}
         <div className="pt-7 mb-7 border-t border-white/[0.06]">
           <h4 className="font-semibold text-white/50 mb-3 text-xs uppercase tracking-wider">
-            Solutions
+            <a href="/solutions" className="hover:text-white/80 transition-colors">
+              Solutions
+            </a>
           </h4>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            {[
-              { label: "Loan Collection App", href: "/loan-collection-app" },
-              { label: "Daily Collection App", href: "/daily-collection-app" },
-              { label: "Voice Entry Collection App", href: "/voice-entry-collection-app" },
-              { label: "Voice Approval Workflow", href: "/voice-approval-workflow" },
-              { label: "Weekly Collection App", href: "/weekly-collection-app" },
-              { label: "Rental Collection App", href: "/rental-collection-app" },
-              { label: "Gold Loan Software", href: "/gold-loan-software" },
-              { label: "Monthly Finance App", href: "/monthly-finance-app" },
-              { label: "Line Management App", href: "/line-management-app" },
-              { label: "Kandhu Vatti App", href: "/kandhu-vatti-app" },
-              { label: "Byaj Wasooli App", href: "/byaj-wasooli-app" },
-              { label: "Ugrani App", href: "/ugrani-app" },
-              { label: "Self-Hosted Loan Software", href: "/self-hosted-loan-software" },
-              { label: "White-Label Loan App", href: "/white-label-loan-app" },
-              { label: "Chit Fund & Lending App", href: "/chit-fund-and-lending-app" },
-              { label: "NBFC Loan Management", href: "/nbfc-loan-management" },
-              { label: "Vehicle Finance Software", href: "/vehicle-finance-software" },
-              { label: "Auto Finance Tracking App", href: "/auto-finance-tracking-app" },
-              { label: "SACCO Management System", href: "/sacco-management-system" },
-              { label: "Aplikasi Koperasi Simpan Pinjam", href: "/aplikasi-koperasi-simpan-pinjam" },
-              { label: "Software de Cobranza", href: "/software-de-cobranza" },
-              { label: "Debt Collection Software South Africa", href: "/debt-collection-software-south-africa" },
-              { label: "Susu Collection App", href: "/susu-collection-app" },
-              { label: "Ajo & Esusu Collection Software", href: "/ajo-esusu-collection-software" },
-              { label: "Logiciel de Gestion de Microfinance", href: "/logiciel-gestion-microfinance" },
-            ].map((s) => (
+            {ALL_SOLUTIONS.map((s) => (
               <a
-                key={s.href}
-                href={s.href}
+                key={s.to}
+                href={s.to}
                 className="text-white/35 hover:text-white/70 transition-colors text-xs"
               >
                 {s.label}
