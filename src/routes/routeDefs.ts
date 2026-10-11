@@ -47,6 +47,13 @@ export const routeDefs: RouteDef[] = [
   // capture plus maker-checker, positioned once for every supported country.
   { path: "/voice-approval-workflow", importer: () => import("../pages/solutions/VoiceApprovalWorkflow") },
   { path: "/weekly-collection-app", importer: () => import("../pages/solutions/WeeklyCollectionApp") },
+  // Rental is a product line of its own: the owner lends nothing, so the
+  // page sells a deposit + repeating rent model rather than a loan balance.
+  { path: "/rental-collection-app", importer: () => import("../pages/solutions/RentalCollectionApp") },
+  // Gold loan: the pledge register and custody lifecycle are what distinguish
+  // it from the rest of the book, so it gets its own page rather than a
+  // section on /loan-types.
+  { path: "/gold-loan-software", importer: () => import("../pages/solutions/GoldLoanSoftware") },
   { path: "/monthly-finance-app", importer: () => import("../pages/solutions/MonthlyFinanceApp") },
   { path: "/line-management-app", importer: () => import("../pages/solutions/LineManagementApp") },
   { path: "/kandhu-vatti-app", importer: () => import("../pages/solutions/KandhuVattiApp") },
