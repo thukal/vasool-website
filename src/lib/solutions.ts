@@ -88,6 +88,17 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
     ],
   },
   {
+    heading: "Field work that isn't lending",
+    sub: "The same route discipline applied to an obligation that is a visit rather than an amount owed.",
+    items: [
+      {
+        label: "Shop Visit Tracking App",
+        to: "/shop-visit-tracking-app",
+        blurb: "Scheduled pickup rounds: routes built on your once-in-N-days cadence, and a visit that counts even at zero.",
+      },
+    ],
+  },
+  {
     heading: "By how the work gets recorded",
     sub: "What an officer does at the doorstep decides how much of your book is real by evening.",
     items: [
