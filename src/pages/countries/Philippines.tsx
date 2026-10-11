@@ -27,7 +27,7 @@ const COUNTRY = countryFor(CANONICAL);
 const config: KeywordLandingConfig = {
   seo: {
     title:
-      "Loan Management Software for Lending Companies in the Philippines | Vasool",
+      "Loan Management Software Philippines | Vasool",
     description:
       "Vasool is collection and loan management software for SEC-registered lending companies, financing companies and cooperatives in the Philippines — daily and weekly field collection, PHP and Asia/Manila, GCash and Maya tagging, borrower receipts, agent cash accountability and a full audit trail. Free demo.",
     keywords:

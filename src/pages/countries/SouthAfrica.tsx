@@ -26,7 +26,7 @@ const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Loan Management Software for Credit Providers in South Africa | Vasool",
+    title: "Credit Provider Loan Software in South Africa | Vasool",
     description:
       "Vasool is loan management software for registered credit providers in South Africa — agreement and affordability-evidence records, payment allocation across principal, interest and fees, ZAR amounts, Africa/Johannesburg dates, borrower data scoping and a full audit trail. Free demo.",
     keywords:

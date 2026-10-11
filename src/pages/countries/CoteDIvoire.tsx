@@ -26,7 +26,7 @@ const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Loan Management Software for SFD Microfinance in Côte d'Ivoire | Vasool",
+    title: "Loan Management Software for SFDs in Côte d'Ivoire | Vasool",
     description:
       "Vasool is loan and savings management software for approved SFDs in Côte d'Ivoire — per-member credit and savings records, field-agent cash accountability, mobile-money references, XOF and Africa/Abidjan, offline collection and a full audit trail. Ivorian company setup is not live yet; talk to us about your rollout.",
     keywords:

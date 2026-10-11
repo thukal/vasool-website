@@ -26,7 +26,7 @@ const COUNTRY = countryFor(CANONICAL);
 
 const config: KeywordLandingConfig = {
   seo: {
-    title: "Aplikasi Koperasi Simpan Pinjam & Loan Software Indonesia | Vasool",
+    title: "Loan Management Software Indonesia | Vasool",
     description:
       "Vasool is an aplikasi koperasi simpan pinjam and loan management system for koperasi, BPR and licensed microfinance institutions in Indonesia — member-based lending, field-officer accountability, IDR amounts that stay exactly as entered, Asia/Jakarta business dates and a full audit trail. Free demo.",
     keywords:
