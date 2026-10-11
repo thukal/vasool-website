@@ -183,6 +183,7 @@ const Footer = () => {
               { label: "Voice Approval Workflow", href: "/voice-approval-workflow" },
               { label: "Weekly Collection App", href: "/weekly-collection-app" },
               { label: "Rental Collection App", href: "/rental-collection-app" },
+              { label: "Gold Loan Software", href: "/gold-loan-software" },
               { label: "Monthly Finance App", href: "/monthly-finance-app" },
               { label: "Line Management App", href: "/line-management-app" },
               { label: "Kandhu Vatti App", href: "/kandhu-vatti-app" },
