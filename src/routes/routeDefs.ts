@@ -47,6 +47,9 @@ export const routeDefs: RouteDef[] = [
   // capture plus maker-checker, positioned once for every supported country.
   { path: "/voice-approval-workflow", importer: () => import("../pages/solutions/VoiceApprovalWorkflow") },
   { path: "/weekly-collection-app", importer: () => import("../pages/solutions/WeeklyCollectionApp") },
+  // Rental is a product line of its own: the owner lends nothing, so the
+  // page sells a deposit + repeating rent model rather than a loan balance.
+  { path: "/rental-collection-app", importer: () => import("../pages/solutions/RentalCollectionApp") },
   { path: "/monthly-finance-app", importer: () => import("../pages/solutions/MonthlyFinanceApp") },
   { path: "/line-management-app", importer: () => import("../pages/solutions/LineManagementApp") },
   { path: "/kandhu-vatti-app", importer: () => import("../pages/solutions/KandhuVattiApp") },
