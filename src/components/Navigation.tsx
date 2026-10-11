@@ -10,6 +10,7 @@ import { localizedPath, basePathOf } from "@/lib/langRoutes";
 const NAV_LINKS = [
   { key: "nav.features", to: "/features" },
   { key: "nav.loanTypes", to: "/loan-types" },
+  { key: "nav.solutions", to: "/solutions" },
   { key: "nav.staffTools", to: "/staff-tools" },
   { key: "nav.pricing", to: "/pricing" },
   { key: "nav.compare", to: "/compare" },

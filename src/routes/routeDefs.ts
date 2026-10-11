@@ -88,6 +88,7 @@ export const routeDefs: RouteDef[] = [
   { path: "/logiciel-gestion-microfinance", importer: () => import("../pages/solutions/LogicielGestionMicrofinance") },
   // Country pages. India isn't listed here — the whole site is the India
   // pitch, and /nbfc-loan-management is its entry in the country hub.
+  { path: "/solutions", importer: () => import("../pages/Solutions") },
   { path: "/countries", importer: () => import("../pages/Countries") },
   { path: "/loan-management-software-philippines", importer: () => import("../pages/countries/Philippines") },
   { path: "/loan-management-software-nigeria", importer: () => import("../pages/countries/Nigeria") },

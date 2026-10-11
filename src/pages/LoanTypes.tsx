@@ -15,6 +15,7 @@ import {
   Upload,
   Settings2,
   Gem,
+  Bike,
   Building2,
   Receipt,
   Percent,
@@ -33,6 +34,12 @@ interface LoanType {
   color: string;
   description: string;
   highlights: string[];
+  /**
+   * Solution page for this product, when one exists. Several types are
+   * covered only here, so the link is optional rather than a required field
+   * that would need a placeholder.
+   */
+  to?: string;
 }
 interface LoanFeature {
   icon: LucideIcon;
@@ -44,6 +51,7 @@ const loanTypesEn: LoanType[] = [
   {
     icon: Calendar,
     title: "Daily Loans",
+    to: "/daily-collection-app",
     color: "from-emerald-500 to-teal-500",
     description:
       "The most common microfinance product — small loans repaid through daily collections by field agents visiting customers on their route.",
@@ -59,6 +67,7 @@ const loanTypesEn: LoanType[] = [
   {
     icon: CalendarDays,
     title: "Weekly Loans",
+    to: "/weekly-collection-app",
     color: "from-blue-500 to-cyan-500",
     description:
       "Loans with weekly repayment cycles — ideal for borrowers with weekly income patterns like market vendors and small traders.",
@@ -74,6 +83,7 @@ const loanTypesEn: LoanType[] = [
   {
     icon: CalendarRange,
     title: "Monthly Loans",
+    to: "/monthly-finance-app",
     color: "from-purple-500 to-violet-500",
     description:
       "Loans with monthly repayment cycles — suitable for salaried borrowers, businesses, and customers with monthly income flows.",
@@ -104,6 +114,7 @@ const loanTypesEn: LoanType[] = [
   {
     icon: Percent,
     title: "Interest-Only Loans",
+    to: "/kandhu-vatti-app",
     color: "from-rose-500 to-pink-500",
     description:
       "Borrower pays only interest each period while the principal stays outstanding until closure — the classic 'kandhu vatti' / 'byaj' model, with simple, compound, and daily interest modes plus an optional weekly collection cadence.",
@@ -119,6 +130,7 @@ const loanTypesEn: LoanType[] = [
   {
     icon: Gem,
     title: "Gold Loans",
+    to: "/gold-loan-software",
     color: "from-yellow-500 to-amber-500",
     description:
       "Loans secured against gold ornaments — manage gold valuation, pledging, interest calculation, and redemption with complete tracking.",
@@ -147,6 +159,22 @@ const loanTypesEn: LoanType[] = [
     ],
   },
   {
+    icon: Bike,
+    title: "Rentals",
+    color: "from-violet-500 to-purple-500",
+    description:
+      "Not a loan at all — cycles, push carts, tools and equipment rented out against a deposit, with rent falling due every week or month until the item comes back.",
+    highlights: [
+      "Items tracked by unit, with available stock kept current",
+      "A deposit rather than a principal — the money moves the other way",
+      "Weekly or monthly rent with a chosen collection day",
+      "Unpaid rent worked out from the schedule, not a stored total",
+      "Separate due-today and overdue reminder wording",
+      "Deposit settled against unpaid rent on return, refund recorded",
+    ],
+    to: "/rental-collection-app",
+  },
+  {
     icon: Package,
     title: "Product-Based Loans",
     color: "from-orange-500 to-amber-500",
@@ -167,6 +195,7 @@ const loanTypesTa: LoanType[] = [
   {
     icon: Calendar,
     title: "Daily Loans",
+    to: "/daily-collection-app",
     color: "from-emerald-500 to-teal-500",
     description:
       "மிகவும் common-ஆன microfinance product — field agent-கள் route-ல customer-களை visit பண்ணி தினசரி collection மூலமா வாங்கற small loans.",
@@ -182,6 +211,7 @@ const loanTypesTa: LoanType[] = [
   {
     icon: CalendarDays,
     title: "Weekly Loans",
+    to: "/weekly-collection-app",
     color: "from-blue-500 to-cyan-500",
     description:
       "Weekly repayment cycle உள்ள loans — market vendor, small trader மாதிரி weekly income வர்றவங்களுக்கு ideal.",
@@ -197,6 +227,7 @@ const loanTypesTa: LoanType[] = [
   {
     icon: CalendarRange,
     title: "Monthly Loans",
+    to: "/monthly-finance-app",
     color: "from-purple-500 to-violet-500",
     description:
       "Monthly repayment cycle உள்ள loans — salary வாங்கறவங்க, business மற்றும் monthly income உள்ள customer-களுக்கு suitable.",
@@ -227,6 +258,7 @@ const loanTypesTa: LoanType[] = [
   {
     icon: Percent,
     title: "Interest-Only Loans",
+    to: "/kandhu-vatti-app",
     color: "from-rose-500 to-pink-500",
     description:
       "Borrower ஒவ்வொரு period-லயும் interest மட்டும் கட்டுவாங்க, principal closure வரை outstanding-ஆ இருக்கும் — classic 'கந்து வட்டி' / 'byaj' model, simple, compound மற்றும் daily interest mode-உடன், optional weekly collection cadence-உம்.",
@@ -242,6 +274,7 @@ const loanTypesTa: LoanType[] = [
   {
     icon: Gem,
     title: "Gold Loans",
+    to: "/gold-loan-software",
     color: "from-yellow-500 to-amber-500",
     description:
       "தங்க நகை மேல secure பண்ணப்பட்ட loans — gold valuation, pledging, interest calculation மற்றும் redemption-ஐ முழு tracking-உடன் manage பண்ணுங்க.",
@@ -268,6 +301,22 @@ const loanTypesTa: LoanType[] = [
       "Flexible repayment (daily/weekly/monthly)",
       "Collateral மற்றும் lien tracking",
     ],
+  },
+  {
+    icon: Bike,
+    title: "Rentals",
+    color: "from-violet-500 to-purple-500",
+    description:
+      "இது loan இல்லை — cycle, தள்ளுவண்டி, tools மாதிரி item-களை deposit வாங்கிட்டு வாடகைக்கு விடறது. Item திரும்ப வர்ற வரைக்கும் வாரம் அல்லது மாசம் வாடகை due ஆகும்.",
+    highlights: [
+      "Unit-வாரியா item tracking, available stock எப்பவும் live",
+      "Principal இல்ல — deposit, பணம் எதிர் திசையில வரும்",
+      "Collection day தேர்ந்தெடுத்து weekly அல்லது monthly வாடகை",
+      "Store பண்ண total இல்லாம schedule-ல இருந்து unpaid rent calculate",
+      "Due-today-க்கும் overdue-க்கும் தனித்தனி reminder wording",
+      "Item திரும்ப வரும்போது deposit-ல unpaid rent பிடிச்சு refund record",
+    ],
+    to: "/rental-collection-app",
   },
   {
     icon: Package,
@@ -375,6 +424,7 @@ const copy = {
     intro:
       "Purpose-built loan management for every collection cycle — daily, weekly, monthly, EMI, interest-only, gold loan, property loan, and product-based — with complete lifecycle tools from origination to closure.",
     capabilities: "Key Capabilities",
+    readMore: "See how it works",
     commonTitle: "Common Across All Loan Types",
     commonText:
       "Every loan type benefits from these shared capabilities — built into the platform core.",
@@ -393,6 +443,7 @@ const copy = {
     intro:
       "ஒவ்வொரு collection cycle-க்கும் purpose-built loan management — daily, weekly, monthly, EMI, interest-only, gold loan, property loan மற்றும் product-based — origination முதல் closure வரை முழு lifecycle tools-உடன்.",
     capabilities: "Key Capabilities",
+    readMore: "எப்படி வேலை செய்யுது பாருங்க",
     commonTitle: "எல்லா Loan Type-க்கும் Common",
     commonText:
       "ஒவ்வொரு loan type-உம் இந்த shared capabilities-ஐ பயன்படுத்தும் — platform core-ல build பண்ணப்பட்டது.",
@@ -468,6 +519,15 @@ const LoanTypes = () => {
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {loan.description}
                   </p>
+                  {loan.to && (
+                    <Link
+                      to={loan.to}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
+                    >
+                      {c.readMore}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  )}
                 </div>
 
                 <div
