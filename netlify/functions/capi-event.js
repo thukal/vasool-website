@@ -18,7 +18,15 @@
 // merges the two into a single event instead of double-counting.
 const GRAPH_VERSION = "v21.0";
 
-const JSON_HEADERS = { "Content-Type": "application/json" };
+// Headers for this function's own HTTP responses. Server-to-server relay,
+// never a page — tell any crawler that reaches it anyway (e.g. before
+// robots.txt is re-crawled) not to index the response.
+const JSON_HEADERS = { "Content-Type": "application/json", "X-Robots-Tag": "noindex" };
+
+// Headers for the outbound request to Meta's Graph API — distinct from
+// JSON_HEADERS so response-only headers (X-Robots-Tag) never leak into the
+// third-party request.
+const GRAPH_REQUEST_HEADERS = { "Content-Type": "application/json" };
 
 // ESM export: the repo's root package.json declares "type": "module", so a
 // plain .js file here is loaded as an ES module, not CommonJS — `export
@@ -77,7 +85,7 @@ export const handler = async (event) => {
       `https://graph.facebook.com/${GRAPH_VERSION}/${datasetId}/events?access_token=${encodeURIComponent(accessToken)}`,
       {
         method: "POST",
-        headers: JSON_HEADERS,
+        headers: GRAPH_REQUEST_HEADERS,
         body: JSON.stringify({ data: [fbEvent] }),
       },
     );
