@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /.netlify/functions/
 
 # Sitemaps
 Sitemap: https://vasool.app/sitemap.xml
@@ -8,6 +9,10 @@ Sitemap: https://vasool.app/sitemap.xml
 # Crawl-delay
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /.netlify/functions/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /.netlify/functions/
