@@ -18,7 +18,7 @@ const config: KeywordLandingConfig = {
     description:
       "Vasool runs your chit funds and lending business in a single app — daily, weekly, monthly, EMI and gold loans alongside chit operations. One dashboard, one staff team, one platform. Free demo.",
     keywords:
-      "chit fund and lending app, chit fund software, chit and loan management app, chit fund management software, run chit and finance in one app, chit fund collection app, chit fund and microfinance software, chit business app india",
+      "fd rd software, fixed deposit software, recurring deposit software, chit and deposit software, chit fund and lending app, chit fund software, chit and loan management app, chit fund management software, run chit and finance in one app, chit fund collection app, chit fund and microfinance software, chit business app india",
     canonical: "/chit-fund-and-lending-app",
   },
   breadcrumbName: "Chit Fund & Lending App",

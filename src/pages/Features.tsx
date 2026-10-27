@@ -681,7 +681,7 @@ const Features = () => {
       <SEO
         title={c.title}
         description={c.description}
-        keywords="microfinance software features, loan management features, NBFC loan management software, chit fund software, savings scheme software, EMI loan management, interest-only loan software, gold loan software, WhatsApp collection reminders, AI loan eligibility, investor management microfinance, customer self-service portal, collection tracking software, route planning microfinance, multi-tenant loan software"
+        keywords="microfinance software features, loan management features, fd rd software, fixed deposit software, recurring deposit software, deposit management software, NBFC loan management software, chit fund software, savings scheme software, EMI loan management, interest-only loan software, gold loan software, WhatsApp collection reminders, AI loan eligibility, investor management microfinance, customer self-service portal, collection tracking software, route planning microfinance, multi-tenant loan software"
         canonical={canonical}
         ogLocale={ogLocale}
         alternates={alternates}

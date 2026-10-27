@@ -54,6 +54,9 @@ export const routeDefs: RouteDef[] = [
   // it from the rest of the book, so it gets its own page rather than a
   // section on /loan-types.
   { path: "/gold-loan-software", importer: () => import("../pages/solutions/GoldLoanSoftware") },
+  // Deposits run the other way to lending — money the customer leaves with
+  // the business — so they get their own page rather than a loan-type section.
+  { path: "/fd-rd-software", importer: () => import("../pages/solutions/FdRdSoftware") },
   // Scheduled pickup rounds: the obligation is the visit frequency, not an
   // amount owed, so it is sold on routes and visits rather than collections.
   { path: "/shop-visit-tracking-app", importer: () => import("../pages/solutions/ShopVisitTrackingApp") },
