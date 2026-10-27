@@ -467,7 +467,7 @@ const LoanTypes = () => {
       <SEO
         title={c.title}
         description={c.description}
-        keywords="daily loan software, weekly loan management, monthly loan tracking, gold loan software, property loan management, product loan app, microfinance loan types, EMI loan management, interest-only loan software, kandhu vatti app, loan collection software, loan repayment tracking"
+        keywords="daily loan software, weekly loan management, fd rd software, fixed deposit software, recurring deposit software, monthly loan tracking, gold loan software, property loan management, product loan app, microfinance loan types, EMI loan management, interest-only loan software, kandhu vatti app, loan collection software, loan repayment tracking"
         canonical={canonical}
         ogLocale={ogLocale}
         alternates={alternates}

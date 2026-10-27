@@ -88,6 +88,17 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
     ],
   },
   {
+    heading: "Money your customers leave with you",
+    sub: "Deposits run the other way to lending: you hold the money, and the maturity figure is the promise.",
+    items: [
+      {
+        label: "FD & RD Software",
+        to: "/fd-rd-software",
+        blurb: "Fixed and recurring deposits with maturity computed the way you quote it, and RD slots collected like any round.",
+      },
+    ],
+  },
+  {
     heading: "Field work that isn't lending",
     sub: "The same route discipline applied to an obligation that is a visit rather than an amount owed.",
     items: [
