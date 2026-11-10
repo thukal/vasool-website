@@ -12,7 +12,7 @@
  */
 export const BASE_MONTHLY_INR = 699;
 
-/** Limited-time Lifetime offer: one payment, all 6 loan plan types. */
+/** Limited-time Lifetime offer: one payment, up to 3 loan plan types. */
 export const LIFETIME_INR = 120000;
 export const RATES_AS_OF = "2026-08-03";
 
