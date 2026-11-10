@@ -13,6 +13,14 @@
     "title": "Get in touch",
     "description": "Tell us a bit about your business and we'll reach out."
   },
+  "lifetimeOffer": {
+    "badge": "Limited-time offer",
+    "title": "Vasool for life",
+    "text": "Pay {{price}} once. All 6 loan types, no monthly fees.",
+    "cta": "See the offer",
+    "close": "Hide offer",
+    "tab": "Lifetime offer"
+  },
   "hero": {
     "badge": "Voice Entry Loan Collection App",
     "title1": "Voice Entry",
