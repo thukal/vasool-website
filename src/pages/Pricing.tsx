@@ -15,6 +15,7 @@ import {
   Users,
   HelpCircle,
   ChevronDown,
+  Infinity as InfinityIcon,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,7 +23,7 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
 import { useLangPage } from "@/lib/i18nPage";
-import { CONTACT_PHONE_HREF, mailtoHref } from "@/lib/contact";
+import { CONTACT_PHONE_HREF, mailtoHref, whatsappHref } from "@/lib/contact";
 import {
   DEFAULT_LOCALE,
   PRICE_LOCALES,
@@ -38,6 +39,7 @@ type BillingCycle = "monthly" | "yearly";
 
 const MONTHLY = 699;
 const YEARLY = Math.round((MONTHLY * 10) / 12);
+const LIFETIME = 120000;
 
 const planTypeIcons: LucideIcon[] = [Calendar, CalendarDays, Package, ShoppingBag, Wallet, Percent];
 
@@ -83,6 +85,18 @@ const content = {
       "Storage tailored to your needs",
       "Personalized onboarding",
       "Direct line to our team",
+    ],
+    lifetimeBadge: "Limited-time offer",
+    lifetimeTitle: "Lifetime",
+    lifetimeTagline: "Pay once and run every loan product on Vasool — no monthly or yearly subscription.",
+    oneTime: "one-time",
+    lifetimeSub: "Single payment · {{tax}}",
+    contactSales: "Contact sales to claim",
+    lifetimeFeatures: [
+      "All 6 loan plan types",
+      "Everything in Standard",
+      "No recurring subscription fee",
+      "Personalized onboarding",
     ],
     gstNote1: "Price is exclusive of",
     gstNote2: "{{taxShort}}",
@@ -165,6 +179,18 @@ const content = {
       "உங்க தேவைக்கு ஏத்த storage",
       "Personalized onboarding",
       "எங்க team-க்கு direct line",
+    ],
+    lifetimeBadge: "Limited-time offer",
+    lifetimeTitle: "Lifetime",
+    lifetimeTagline: "ஒரே ஒரு தடவை pay பண்ணுங்க, எல்லா loan product-ஐயும் Vasool-ல நடத்துங்க — monthly, yearly subscription இல்ல.",
+    oneTime: "one-time",
+    lifetimeSub: "ஒரே payment · +18% GST",
+    contactSales: "Claim பண்ண sales-ஐ contact பண்ணுங்க",
+    lifetimeFeatures: [
+      "எல்லா 6 loan plan type-உம்",
+      "Standard-ல இருக்கற எல்லாமே",
+      "Recurring subscription fee இல்ல",
+      "Personalized onboarding",
     ],
     gstNote1: "விலை",
     gstNote2: "{{taxShort}}",
@@ -277,15 +303,25 @@ const Pricing = () => {
     description:
       "Loan management CRM for money lenders and microfinance businesses in India with live field staff tracking, route management, and multiple loan plan types.",
     image: "https://vasool.app/logo-full.png",
-    offers: {
-      "@type": "Offer",
-      name: `Vasool ${c.planName}`,
-      url: "https://vasool.app/pricing",
-      price: MONTHLY,
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: MONTHLY, priceCurrency: "INR", unitText: "MONTH" },
-    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: `Vasool ${c.planName}`,
+        url: "https://vasool.app/pricing",
+        price: MONTHLY,
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        priceSpecification: { "@type": "UnitPriceSpecification", price: MONTHLY, priceCurrency: "INR", unitText: "MONTH" },
+      },
+      {
+        "@type": "Offer",
+        name: `Vasool ${c.lifetimeTitle}`,
+        url: "https://vasool.app/pricing",
+        price: LIFETIME,
+        priceCurrency: "INR",
+        availability: "https://schema.org/LimitedAvailability",
+      },
+    ],
   };
   const faqStructuredData = {
     "@context": "https://schema.org",
@@ -416,6 +452,42 @@ const Pricing = () => {
                 <div key={f} className="flex items-start gap-3 text-sm">
                   <Check className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" strokeWidth={3} />
                   <span className="text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Lifetime offer */}
+        <div className="max-w-4xl mx-auto mt-5 sm:mt-6 rounded-2xl bg-hero p-6 sm:p-8 relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-[360px] h-[360px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.18)_0%,transparent_70%)] pointer-events-none" />
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div>
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/20 text-accent">
+                {c.lifetimeBadge}
+              </span>
+              <h3 className="mt-3 flex items-center gap-2 text-lg font-bold text-white">
+                <InfinityIcon className="w-5 h-5 text-secondary" />
+                {c.lifetimeTitle}
+              </h3>
+              <p className="text-xs sm:text-sm text-white/60 mt-1 leading-relaxed">{c.lifetimeTagline}</p>
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-extrabold text-white">{money(LIFETIME, loc)}</span>
+                <span className="text-sm text-white/60">{c.oneTime}</span>
+              </div>
+              <p className="text-xs text-white/60 mt-1">{fill(c.lifetimeSub)}</p>
+              <a href={whatsappHref("Hi, I'd like to claim the Vasool Lifetime offer.")} target="_blank" rel="noopener noreferrer" className="block mt-5">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                  {c.contactSales}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+            <div className="space-y-3">
+              {c.lifetimeFeatures.map((f) => (
+                <div key={f} className="flex items-start gap-3 text-sm">
+                  <Check className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" strokeWidth={3} />
+                  <span className="text-white">{f}</span>
                 </div>
               ))}
             </div>
