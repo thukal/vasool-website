@@ -13,6 +13,14 @@
     "title": "எங்களை Contact பண்ணுங்க",
     "description": "உங்க business பத்தி கொஞ்சம் details தாங்க, நாங்க reach out பண்றோம்."
   },
+  "lifetimeOffer": {
+    "badge": "Limited-time offer",
+    "title": "Vasool for life",
+    "text": "ஒரே தடவை {{price}} pay பண்ணுங்க. எல்லா 6 loan type-உம், monthly fee இல்ல.",
+    "cta": "Offer-ஐ பாருங்க",
+    "close": "Offer-ஐ மறை",
+    "tab": "Lifetime offer"
+  },
   "hero": {
     "badge": "Voice Entry Loan Collection App",
     "title1": "Voice Entry",
