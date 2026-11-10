@@ -94,6 +94,8 @@ const content = {
     contactSales: "Contact sales to claim",
     lifetimeFeatures: [
       "Up to 3 loan plan types (your choice)",
+      "2 hours of voice entry every month",
+      "5 GB storage for life",
       "Everything in Standard",
       "No recurring subscription fee",
       "Personalized onboarding",
@@ -188,6 +190,8 @@ const content = {
     contactSales: "Claim பண்ண sales-ஐ contact பண்ணுங்க",
     lifetimeFeatures: [
       "3 loan plan type வரை (நீங்க choose பண்ணுங்க)",
+      "மாசம் 2 மணி நேரம் voice entry",
+      "Lifetime-க்கு 5 GB storage",
       "Standard-ல இருக்கற எல்லாமே",
       "Recurring subscription fee இல்ல",
       "Personalized onboarding",
