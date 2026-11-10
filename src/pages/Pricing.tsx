@@ -26,6 +26,7 @@ import { useLangPage } from "@/lib/i18nPage";
 import { CONTACT_PHONE_HREF, mailtoHref, whatsappHref } from "@/lib/contact";
 import {
   DEFAULT_LOCALE,
+  LIFETIME_INR as LIFETIME,
   PRICE_LOCALES,
   detectLocale,
   localeByCode,
@@ -39,7 +40,6 @@ type BillingCycle = "monthly" | "yearly";
 
 const MONTHLY = 699;
 const YEARLY = Math.round((MONTHLY * 10) / 12);
-const LIFETIME = 120000;
 
 const planTypeIcons: LucideIcon[] = [Calendar, CalendarDays, Package, ShoppingBag, Wallet, Percent];
 
@@ -399,8 +399,8 @@ const Pricing = () => {
       </div>
 
       {/* Pricing cards */}
-      <section className="container mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+      <section className="container mx-auto px-4 sm:px-6 pt-10 sm:pt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl">
           {/* Standard plan */}
           <div className="bg-card rounded-2xl border border-secondary shadow-card-hover flex flex-col">
             <div className="p-6 sm:p-7">
@@ -456,34 +456,34 @@ const Pricing = () => {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Lifetime offer */}
-        <div className="max-w-4xl mx-auto mt-5 sm:mt-6 rounded-2xl bg-hero p-6 sm:p-8 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-[360px] h-[360px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.18)_0%,transparent_70%)] pointer-events-none" />
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
-            <div>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/20 text-accent">
-                {c.lifetimeBadge}
-              </span>
-              <h3 className="mt-3 flex items-center gap-2 text-lg font-bold text-white">
-                <InfinityIcon className="w-5 h-5 text-secondary" />
-                {c.lifetimeTitle}
-              </h3>
-              <p className="text-xs sm:text-sm text-white/60 mt-1 leading-relaxed">{c.lifetimeTagline}</p>
+          {/* Lifetime offer */}
+          <div id="lifetime" className="scroll-mt-28 bg-hero rounded-2xl shadow-card-hover flex flex-col relative overflow-hidden md:col-span-2 lg:col-span-1">
+            <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[radial-gradient(circle,hsl(158_70%_38%/0.18)_0%,transparent_70%)] pointer-events-none" />
+            <div className="relative p-6 sm:p-7">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="flex items-center gap-2 text-lg font-bold text-white">
+                  <InfinityIcon className="w-5 h-5 text-secondary" />
+                  {c.lifetimeTitle}
+                </h3>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/20 text-accent whitespace-nowrap">
+                  {c.lifetimeBadge}
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-white/60 mt-1 leading-relaxed min-h-[2.5rem]">{c.lifetimeTagline}</p>
               <div className="mt-5 flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl font-extrabold text-white">{money(LIFETIME, loc)}</span>
                 <span className="text-sm text-white/60">{c.oneTime}</span>
               </div>
               <p className="text-xs text-white/60 mt-1">{fill(c.lifetimeSub)}</p>
               <a href={whatsappHref("Hi, I'd like to claim the Vasool Lifetime offer.")} target="_blank" rel="noopener noreferrer" className="block mt-5">
-                <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="w-full">
                   {c.contactSales}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </a>
             </div>
-            <div className="space-y-3">
+            <div className="relative border-t border-white/10 px-6 sm:px-7 py-5 sm:py-6 space-y-3">
               {c.lifetimeFeatures.map((f) => (
                 <div key={f} className="flex items-start gap-3 text-sm">
                   <Check className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" strokeWidth={3} />
@@ -494,7 +494,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <p className="text-center text-xs sm:text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
+        <p className="text-xs sm:text-sm text-muted-foreground mt-8 max-w-2xl">
           {c.gstNote1} <span className="font-semibold">{fill(c.gstNote2)}</span> {c.gstNote3}{" "}
           <span className="font-semibold text-foreground">{fill(c.gstNote4)}</span>.
         </p>
