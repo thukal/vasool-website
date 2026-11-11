@@ -23,6 +23,23 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const blogDir = path.join(root, "src", "content", "blog");
 const sitemapPath = path.join(root, "dist", "sitemap.xml");
 
+// Page size lives in src/lib/blog.ts so the site and this script cannot
+// paginate differently. This is a plain node script and cannot import the TS
+// module, so it reads the declaration out of the file and throws when the line
+// stops matching — a rename fails the build instead of silently emitting a
+// sitemap that disagrees with the routes.
+const blogLibPath = path.join(root, "src", "lib", "blog.ts");
+const perPageMatch = /export const POSTS_PER_PAGE\s*=\s*(\d+)\s*;/.exec(
+  fs.readFileSync(blogLibPath, "utf-8")
+);
+if (!perPageMatch) {
+  throw new Error(
+    "POSTS_PER_PAGE not found in src/lib/blog.ts — sync-blog.mjs reads it to " +
+      "emit /blog/page/N sitemap entries. Did the declaration get renamed?"
+  );
+}
+const POSTS_PER_PAGE = Number(perPageMatch[1]);
+
 const START = "<!-- blog:start -->";
 const END = "<!-- blog:end -->";
 
@@ -73,8 +90,17 @@ const urlEntry = (loc, lastmod, changefreq, priority) =>
     .filter(Boolean)
     .join("\n");
 
+// /blog is page 1 — pages 2..N get their own entries so the prerender step
+// emits real HTML for each. Page 1 is never /blog/page/1: that would be a
+// duplicate of /blog competing with it.
+const pageCount = Math.max(1, Math.ceil(postsMeta.length / POSTS_PER_PAGE));
+const pageUrls = Array.from({ length: Math.max(0, pageCount - 1) }, (_, i) =>
+  urlEntry(`/blog/page/${i + 2}`, latest, "weekly", "0.5")
+);
+
 const block = [
   urlEntry("/blog", latest, "weekly", "0.7"),
+  ...pageUrls,
   ...postsMeta.map((p) => urlEntry(`/blog/${p.slug}`, p.date, "monthly", "0.6")),
 ].join("\n");
 

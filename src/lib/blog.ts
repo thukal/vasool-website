@@ -110,6 +110,30 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
   return posts.find((p) => p.slug === slug);
 }
 
+/**
+ * Posts per page on /blog.
+ *
+ * scripts/sync-blog.mjs reads this exact declaration out of this file with a
+ * regex, because it is a plain node script and cannot import TypeScript. It
+ * throws if the line stops matching, so renaming the constant fails the build
+ * rather than silently paginating the sitemap differently from the site.
+ */
+export const POSTS_PER_PAGE = 12;
+
+/** Number of /blog pages. Always at least 1, even with no posts. */
+export const pageCount = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+
+/** The slice of posts shown on a given 1-based page, clamped to range. */
+export function postsForPage(page: number): BlogPost[] {
+  const p = Math.min(Math.max(1, Math.trunc(page) || 1), pageCount);
+  return posts.slice((p - 1) * POSTS_PER_PAGE, p * POSTS_PER_PAGE);
+}
+
+/** Canonical path for a page — page 1 is /blog, never /blog/page/1. */
+export function blogPagePath(page: number): string {
+  return page <= 1 ? "/blog" : `/blog/page/${page}`;
+}
+
 /** Human-readable date, e.g. "5 August 2026". SSR-safe (fixed locale). */
 export function formatDate(iso: string): string {
   const d = new Date(iso);
