@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { posts } from "../lib/blog";
+import { posts, pageCount } from "../lib/blog";
 
 export interface RouteDef {
   path: string;
@@ -13,6 +13,13 @@ export interface RouteDef {
 // post is just dropping a .md file in src/content/blog/ (see src/lib/blog.ts).
 const blogRoutes: RouteDef[] = [
   { path: "/blog", importer: () => import("../pages/Blog") },
+  // /blog is page 1; pages 2..N are concrete routes so each prerenders with
+  // real post links. Derived from pageCount, so adding a post that spills
+  // onto a new page needs no edit here.
+  ...Array.from({ length: Math.max(0, pageCount - 1) }, (_, i) => ({
+    path: `/blog/page/${i + 2}`,
+    importer: () => import("../pages/Blog"),
+  })),
   ...posts.map((post) => ({
     path: `/blog/${post.slug}`,
     importer: () => import("../pages/BlogPost"),

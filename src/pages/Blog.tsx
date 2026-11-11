@@ -1,13 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import SEO from "@/components/SEO";
-import { posts, formatDate } from "@/lib/blog";
+import {
+  posts,
+  formatDate,
+  pageCount,
+  postsForPage,
+  blogPagePath,
+} from "@/lib/blog";
 
 const BASE_URL = "https://vasool.app";
 
 const Blog = () => {
+  // /blog is page 1; /blog/page/N is page N. Read from the path rather than
+  // held in state, so each page prerenders with its own posts and its own
+  // canonical instead of every page serving page one to a crawler.
+  const { pathname } = useLocation();
+  const matched = /^\/blog\/page\/(\d+)\/?$/.exec(pathname);
+  const page = Math.min(Math.max(1, Number(matched?.[1]) || 1), pageCount);
+  const pagePosts = postsForPage(page);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -15,7 +29,7 @@ const Blog = () => {
     description:
       "Guides and field notes on loan collection, lending operations, and collection software for money lenders, NBFCs and finance companies.",
     url: `${BASE_URL}/blog`,
-    blogPost: posts.map((p) => ({
+    blogPost: pagePosts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
       description: p.description,
@@ -29,9 +43,13 @@ const Blog = () => {
     <main className="min-h-screen">
       <Navigation />
       <SEO
-        title="Blog — Loan Collection & Lending Insights"
+        title={
+          page === 1
+            ? "Blog — Loan Collection & Lending Insights"
+            : `Blog page ${page} — Loan Collection & Lending Insights`
+        }
         description="Guides and field notes on loan collection, reducing defaults, and choosing lending software — for money lenders, NBFCs and finance companies."
-        canonical="/blog"
+        canonical={blogPagePath(page)}
         keywords="loan collection blog, lending software guides, NBFC collections, daily finance tips"
         structuredData={structuredData}
       />
@@ -58,11 +76,11 @@ const Blog = () => {
 
       {/* Post list */}
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        {posts.length === 0 ? (
+        {pagePosts.length === 0 ? (
           <p className="text-muted-foreground">No posts yet — check back soon.</p>
         ) : (
           <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
-            {posts.map((post) => (
+            {pagePosts.map((post) => (
               <article
                 key={post.slug}
                 className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
@@ -108,6 +126,43 @@ const Blog = () => {
               </article>
             ))}
           </div>
+        )}
+
+        {pageCount > 1 && (
+          <nav
+            className="mx-auto mt-12 flex max-w-5xl items-center justify-between gap-4"
+            aria-label="Blog pages"
+          >
+            {page > 1 ? (
+              <Link
+                to={blogPagePath(page - 1)}
+                rel="prev"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Newer posts
+              </Link>
+            ) : (
+              <span />
+            )}
+
+            <span className="text-sm text-muted-foreground">
+              Page {page} of {pageCount}
+            </span>
+
+            {page < pageCount ? (
+              <Link
+                to={blogPagePath(page + 1)}
+                rel="next"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
+              >
+                Older posts
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            ) : (
+              <span />
+            )}
+          </nav>
         )}
       </div>
 
