@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vasool.app/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://vasool.app/ta</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://vasool.app/features</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/features" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://vasool.app/ta/features</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/features" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://vasool.app/loan-types</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/loan-types" />
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://vasool.app/ta/loan-types</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/loan-types" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://vasool.app/staff-tools</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/staff-tools" />
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://vasool.app/ta/staff-tools</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/staff-tools" />
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://vasool.app/pricing</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/pricing" />
@@ -84,7 +84,7 @@
   </url>
   <url>
     <loc>https://vasool.app/ta/pricing</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://vasool.app/pricing" />
@@ -111,79 +111,79 @@
   </url>
   <url>
     <loc>https://vasool.app/self-hosted-loan-software</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/white-label-loan-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/chit-fund-and-lending-app</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/nbfc-loan-management</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/vehicle-finance-software</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/auto-finance-tracking-app</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-collection-app</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/daily-collection-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/voice-entry-collection-app</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/voice-approval-workflow</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/weekly-collection-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/rental-collection-app</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/gold-loan-software</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -201,73 +201,73 @@
   </url>
   <url>
     <loc>https://vasool.app/monthly-finance-app</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/line-management-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/kandhu-vatti-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/byaj-wasooli-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/ugrani-app</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/sacco-management-system</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/aplikasi-koperasi-simpan-pinjam</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/software-de-cobranza</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/debt-collection-software-south-africa</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/susu-collection-app</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/ajo-esusu-collection-software</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/logiciel-gestion-microfinance</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -279,85 +279,85 @@
   </url>
   <url>
     <loc>https://vasool.app/countries</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-philippines</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-nigeria</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-kenya</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-sri-lanka</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-indonesia</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-cambodia</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-ghana</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-zimbabwe</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-cote-divoire</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-south-africa</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vasool.app/loan-management-software-colombia</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vasool.app/about</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vasool.app/security</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

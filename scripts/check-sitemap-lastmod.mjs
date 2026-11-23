@@ -48,6 +48,16 @@ if (git(["rev-parse", "--is-shallow-repository"]) === "true") {
   process.exit(0);
 }
 
+// A handful of routes take their title and description from the locale files
+// rather than from their own page component, so the page file alone reports
+// "unchanged" when the metadata a crawler cares about has in fact changed.
+// (/ and /ta both render Index.tsx and read seo.home out of these.) Declared
+// by hand on purpose — see the scope note above on why we don't walk imports.
+const EXTRA_DEPS = {
+  "/": ["src/i18n/locales/en.json"],
+  "/ta": ["src/i18n/locales/ta.json"],
+};
+
 /** route path -> page source file, read from the single route table. */
 function routeSources() {
   const src = fs.readFileSync(routeDefsPath, "utf-8");
@@ -86,8 +96,12 @@ let sitemap = fs.readFileSync(sitemapPath, "utf-8");
 const stale = [];
 
 for (const [route, file] of sources) {
-  const changed = lastChanged(file);
-  if (!changed) continue;
+  // Newest of the page file and anything else the route's metadata comes from.
+  const dates = [file, ...(EXTRA_DEPS[route] ?? []).map((d) => path.join(root, d))]
+    .map(lastChanged)
+    .filter(Boolean);
+  if (!dates.length) continue;
+  const changed = dates.sort().at(-1);
   const escaped = route.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const entry = new RegExp(
     `(<loc>https://vasool\\.app${escaped}</loc>\\s*<lastmod>)([^<]*)(</lastmod>)`
