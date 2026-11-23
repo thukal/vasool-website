@@ -1,6 +1,6 @@
 ---
 title: "One SigNoz, Every Tenant: Tracing a Collection From Phone to Database"
-description: How we instrument a multi-tenant lending platform — mobile spans relayed through the backend, server-stamped identity, W3C trace correlation, and telemetry that survives being offline.
+description: How we instrument a multi-tenant lending platform — mobile spans relayed through the backend, W3C trace correlation, and telemetry that survives being offline.
 date: 2026-09-14
 author: Vasool Engineering
 tags: [Engineering, Architecture]

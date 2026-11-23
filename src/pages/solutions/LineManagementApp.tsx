@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Line Management App for Finance Lines | Vasool",
     description:
-      "Vasool is a line management app for finance lines — run daily, weekly & monthly lines with line-wise day books, agents per line, line transfers, and line P&L. The finance line app for line vasool businesses. Free demo.",
+      "A line management app for finance lines — run daily, weekly and monthly lines with line-wise day books, agents per line, line transfers, and line P&L.",
     keywords:
       "line management app, finance line app, line vasool app, line finance software, daily line app, weekly line app, line collection app, finance line management software, line wise collection app, line business app india",
     canonical: "/line-management-app",

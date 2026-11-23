@@ -1,6 +1,6 @@
 ---
 title: "Multi-Tenancy: Why Every Tenant Gets Its Own Database"
-description: How Vasool isolates each finance company in its own container and PostgreSQL database — why we rejected shared tables with a tenant_id, and what that choice costs us.
+description: How Vasool isolates each finance company in its own container and PostgreSQL database — why we rejected shared tables with a tenant_id, and what it costs us.
 date: 2026-08-14
 author: Vasool Engineering
 tags: [Engineering, Architecture]

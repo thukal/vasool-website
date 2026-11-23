@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Microfinance & Susu Loan Software in Ghana | Vasool",
     description:
-      "Vasool is loan and susu collection software for Ghanaian microfinance companies, money lenders and susu collectors — daily doorstep collection, per-collector cash close, member balances, GHS and Africa/Accra, offline field work and a full audit trail. Ghana company setup is not live yet; talk to us about your rollout.",
+      "Loan and susu collection software for Ghana — daily doorstep collection, per-collector cash close, GHS, offline field work. Company setup not live yet.",
     keywords:
       "loan management software ghana, susu software ghana, susu collection software, microfinance software ghana, loan management system ghana, money lending software ghana, daily collection app ghana, susu management software, microfinance company software accra, field collection app ghana, tier 2 microfinance software, loan software for money lenders ghana",
     canonical: CANONICAL,

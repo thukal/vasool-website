@@ -21,7 +21,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Ajo, Esusu & Adashe Collection Software for Nigeria | Vasool",
     description:
-      "Thrift collection software for Nigerian ajo, esusu and adashe operations — every daily contribution recorded at the stall with its collector and channel, contributor balances kept apart from any loan, per-agent cash close, offline field work and a full audit trail. NGN and Africa/Lagos, available today.",
+      "Thrift collection software for Nigerian ajo, esusu and adashe — every daily contribution recorded at the stall with its collector, contributor balances, NGN.",
     keywords:
       "ajo software, esusu software, adashe software, ajo collection app, esusu collection software, thrift collection software nigeria, daily contribution collection app nigeria, thrift collector app, ajo app for agents, cooperative thrift software nigeria, savings collection software lagos, contribution management software nigeria",
     canonical: CANONICAL,

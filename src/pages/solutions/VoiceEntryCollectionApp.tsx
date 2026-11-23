@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Voice Entry Collection App - Speak & Record | Vasool",
     description:
-      'Vasool is the voice entry collection app for money lenders: say "Arun 500 cash" and the payment is recorded. Voice to data in Tamil, Telugu, Hindi, Malayalam, Kannada & English. Hands-free collection entry, works offline.',
+      'The voice entry collection app for money lenders: say \'Arun 500 cash\' and the payment is recorded. Tamil, Telugu, Hindi, Malayalam, Kannada and English.',
     keywords:
       "voice entry collection app, voice based vasool app, collection app with voice typing, add loan entry by voice, voice entry app for money lenders, hands free collection entry app, vasool app with voice input, voice to data collection entry, speak and record collection entry, Tamil voice entry finance app, Kannada voice collection app",
     canonical: "/voice-entry-collection-app",

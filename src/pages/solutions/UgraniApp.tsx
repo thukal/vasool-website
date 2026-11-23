@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Ugrani App - Kannada Loan Collection & Meter Baddi | Vasool",
     description:
-      "Vasool is the ugrani app for Kannada finance businesses — daily ugrani collection, meter baddi tracking, Kannada voice entry, automatic interest calculation, and full Kannada interface. Works offline. Free demo in Kannada.",
+      "The ugrani app for Kannada finance businesses — daily ugrani collection, meter baddi tracking, Kannada voice entry, and automatic interest. Works offline.",
     keywords:
       "ugrani app, ಉಗ್ರಾಣಿ ಆ್ಯಪ್, meter baddi app, ಮೀಟರ್ ಬಡ್ಡಿ, kannada loan collection app, kannada finance app, kannada vasool app, baddi calculation app, daily ugrani app, kannada voice collection app, kannada voice entry finance app, finance app karnataka, daily collection app kannada",
     canonical: "/ugrani-app",

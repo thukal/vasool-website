@@ -631,7 +631,7 @@ const copy = {
   en: {
     title: "Features - Microfinance & NBFC Loan Platform",
     description:
-      "Explore every module in Vasool's lending platform: daily/weekly/monthly, EMI, interest-only and gold loans, chit funds and savings schemes, collection and routes, funding & investors, automation & AI, a customer portal, reporting, security and multi-tenancy.",
+      "Explore every module in Vasool's lending platform: daily, weekly and monthly loans, EMI, gold, chit funds, collection routes, investors, AI, and reporting.",
     back: "Back to Home",
     h1a: "Platform",
     h1b: "Features",
@@ -650,7 +650,7 @@ const copy = {
   ta: {
     title: "Features - Microfinance & NBFC Loan Platform | Vasool",
     description:
-      "Vasool lending platform-ல எல்லா module-ஐயும் பாருங்க: daily/weekly/monthly, EMI, interest-only மற்றும் gold loan, chit fund மற்றும் savings scheme, collection மற்றும் route, funding & investors, automation & AI, customer portal, reporting, security மற்றும் multi-tenancy.",
+      "Vasool lending platform-ல எல்லா module-ஐயும் பாருங்க: daily, weekly, monthly, EMI, gold loan, chit fund, collection route, investors, AI, reporting, security.",
     back: "Home-க்கு திரும்பு",
     h1a: "Platform",
     h1b: "Features",

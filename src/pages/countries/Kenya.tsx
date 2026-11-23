@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "SACCO & Loan Management Software in Kenya | Vasool",
     description:
-      "Vasool is loan management and collection software for SACCOs, microfinance institutions and licensed digital credit providers in Kenya — every payment recorded with its channel and M-Pesa transaction reference, member and borrower records, group lending, KES and Africa/Nairobi, and a full audit trail. Free demo.",
+      "Loan management software for Kenya SACCOs, microfinance and digital credit providers — every payment recorded with its M-Pesa reference, group lending, KES.",
     keywords:
       "sacco software kenya, sacco management system, sacco management system in kenya, top sacco management system in kenya, best sacco software, free sacco software, sacco loan management system, loan management system kenya, loan management system for microfinance, microfinance software kenya, mpesa loan reconciliation software, digital credit provider software kenya, chama loan management software, loan collection app nairobi",
     canonical: CANONICAL,

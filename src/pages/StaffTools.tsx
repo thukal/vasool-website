@@ -95,7 +95,7 @@ const copy = {
   en: {
     title: "Staff Tools - GPS Tracking & Field Collection | Vasool",
     description:
-      "Empower your field team with Vasool's staff tools: real-time GPS tracking, dedicated Android app with offline support, expense management, cash advances, biometric login, route planning, and performance monitoring.",
+      "Vasool's staff tools for your field team: real-time GPS tracking, an offline Android app, expense management, cash advances, biometric login, route planning.",
     back: "Back to Home",
     h1a: "Staff",
     h1b: "Tools",
@@ -117,7 +117,7 @@ const copy = {
   ta: {
     title: "Vasool Staff Tools - GPS Tracking & Field Collection",
     description:
-      "Vasool staff tools-ஆல உங்க field team-ஐ powerful ஆக்குங்க: real-time GPS tracking, offline support உள்ள Android app, expense management, cash advance, biometric login, route planning மற்றும் performance monitoring.",
+      "Vasool staff tools-ஆல உங்க field team-ஐ powerful ஆக்குங்க: real-time GPS tracking, offline Android app, expense management, biometric login, route planning.",
     back: "Home-க்கு திரும்பு",
     h1a: "Staff",
     h1b: "Tools",

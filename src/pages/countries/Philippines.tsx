@@ -29,7 +29,7 @@ const config: KeywordLandingConfig = {
     title:
       "Loan Management Software Philippines | Vasool",
     description:
-      "Vasool is collection and loan management software for SEC-registered lending companies, financing companies and cooperatives in the Philippines — daily and weekly field collection, PHP and Asia/Manila, GCash and Maya tagging, borrower receipts, agent cash accountability and a full audit trail. Free demo.",
+      "Collection and loan management software for SEC-registered lending companies and cooperatives in the Philippines — PHP, GCash and Maya tagging, offline.",
     keywords:
       "loan management system philippines, loan management software philippines, lending system philippines, lending software philippines, collection app philippines, payment collection app, daily collection app philippines, microfinance software philippines, cooperative loan software philippines, sec registered lending company software, lending software for sari-sari store, palengke lending software, loan tracker app philippines, collection agent app philippines",
     canonical: CANONICAL,

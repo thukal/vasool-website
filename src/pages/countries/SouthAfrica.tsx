@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Credit Provider Loan Software in South Africa | Vasool",
     description:
-      "Vasool is loan management software for registered credit providers in South Africa — agreement and affordability-evidence records, payment allocation across principal, interest and fees, ZAR amounts, Africa/Johannesburg dates, borrower data scoping and a full audit trail. Free demo.",
+      "Loan management software for registered credit providers in South Africa — agreement and affordability records, payment allocation across principal and fees.",
     keywords:
       "loan management software south africa, best loan management software south africa, loan management software for small business south africa, debt collection software south africa, debt collection software in south africa, loan management system in south africa, credit provider software south africa, microlending software south africa, ncr registered credit provider software, loan book management software south africa",
     canonical: CANONICAL,

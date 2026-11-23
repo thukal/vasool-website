@@ -108,7 +108,7 @@ const content = {
   en: {
     title: "Best Vasool App 2026 - Vasool vs Vasool Book Apps & Diary",
     description:
-      "Looking for a Vasool Book or Vasool Diary alternative? Compare the best vasool apps of 2026 — voice to data collections, self-hosting on your own server, white-label branding, chit & lending in one app, photo proof, GPS staff tracking. See why money lenders switch to Vasool.",
+      "Looking for a Vasool Book or Vasool Diary alternative? Compare the best vasool apps of 2026 — voice entry, self-hosting, white-label branding, GPS tracking.",
     back: "Back to Home",
     h1a: "The best vasool app in 2026 —",
     h1b: "compared",
@@ -158,7 +158,7 @@ const content = {
   ta: {
     title: "Vasool vs Vasool Book Apps & Diary - Best Vasool App 2026",
     description:
-      "Vasool Book அல்லது Vasool Diary alternative தேடுறீங்களா? 2026-ஓட best vasool app-ஐ compare பண்ணுங்க — voice to data collection, சொந்த server-ல self-hosting, white-label branding, chit & lending ஒரே app-ல, photo proof, GPS staff tracking. Money lenders ஏன் Vasool-க்கு மாறுறாங்கனு பாருங்க.",
+      "Vasool Book / Vasool Diary alternative தேடுறீங்களா? 2026-ன் best vasool app-ஐ compare பண்ணுங்க — voice entry, self-hosting, white-label, GPS staff tracking.",
     back: "Home-க்கு திரும்பு",
     h1a: "2026-ல best vasool app —",
     h1b: "compared",

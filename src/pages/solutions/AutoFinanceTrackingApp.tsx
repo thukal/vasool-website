@@ -43,7 +43,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Best App for Auto Finance Tracking (2026) | Vasool",
     description:
-      "Vasool tracks an auto finance book the way a financier needs it — the vehicle behind every loan, EMI schedules, insurance expiry, field collection by voice, and a repossession that is never counted as a collection. Free demo.",
+      "Track an auto finance book the way a financier needs it — the vehicle behind every loan, EMI schedules, insurance expiry, and voice entry in the field.",
     keywords:
       "best app for auto finance tracking, auto finance tracking app, auto finance software, auto loan tracking software, auto finance collection app, repossession tracking software, EMI tracking app for financiers",
     canonical: "/auto-finance-tracking-app",

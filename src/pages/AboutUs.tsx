@@ -111,7 +111,7 @@ const AboutUs = () => {
       <Navigation />
       <SEO
         title="About Vasool - Microfinance Technology by Thukal"
-        description="Learn about Vasool, built by Thukal Innovatives LLP (thukal.io) for India's microfinance industry. We provide complete loan management technology with mobile apps, admin dashboards, self-hosted platforms, and dedicated support for lending businesses."
+        description="Vasool is built by Thukal Innovatives LLP (thukal.io) for India's microfinance industry — mobile apps, admin dashboards, self-hosted platforms and support."
         keywords="vasool about, thukal, thukal innovatives llp, thukal.io, microfinance technology india, lending software company, microfinance software provider, vasool app developer, tamil nadu fintech"
         canonical="/about"
         structuredData={{

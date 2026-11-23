@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Byaj Wasooli App - Udhar Khata & Loan Collection | Vasool",
     description:
-      "Vasool is the byaj wasooli app for Hindi finance businesses — daily byaj collection, udhar khata, lena dena tracking, Hindi voice entry, automatic interest calculation, and full Hindi interface. Works offline. Free demo in Hindi.",
+      "The byaj wasooli app for Hindi finance businesses — daily byaj collection, udhar khata, lena dena tracking, Hindi voice entry, automatic interest. Offline.",
     keywords:
       "byaj wasooli app, ब्याज वसूली ऐप, vasooli app, वसूली ऐप, udhar khata app, उधार खाता ऐप, lena dena app, hindi finance app, hindi loan collection app, byaj calculation app, daily byaj app, hindi vasool app, paisa wasooli app, karz wasooli app, hindi voice entry finance app",
     canonical: "/byaj-wasooli-app",

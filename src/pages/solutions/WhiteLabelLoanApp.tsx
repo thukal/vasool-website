@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "White-Label Loan Collection App - Your Brand | Vasool",
     description:
-      "Vasool is a white-label loan collection app — put your own name, logo, and branded subdomain (yourbusiness.vasool.app) on a full microfinance platform. Rebrandable for finance businesses and resellers. Free demo.",
+      "A white-label loan collection app — put your own name, logo and branded subdomain (yourbusiness.vasool.app) on a full microfinance platform. Resellers too.",
     keywords:
       "white label loan collection app, white label microfinance software, rebrandable loan app, white label finance crm, your own branded vasool app, custom subdomain loan software, white label lending platform, reseller loan management software",
     canonical: "/white-label-loan-app",

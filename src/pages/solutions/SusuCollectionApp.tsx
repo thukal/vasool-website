@@ -20,7 +20,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Susu Collection App & Susu Management Software | Vasool",
     description:
-      "Susu software for daily collection in West Africa: record every contribution at the stall with the collector, client and channel, keep savings apart from loans, close each collector's cash daily, and show any client their balance on demand. Works offline. Free demo.",
+      "Susu software for daily collection in West Africa — record every contribution at the stall with its collector and channel, keep savings apart from loans.",
     keywords:
       "susu collection app, susu software, susu management software, susu collector app, daily contribution collection app, susu software ghana, esusu software, ajo collection app, thrift collection software, savings collection app west africa, susu company software, digital susu platform",
     canonical: CANONICAL,

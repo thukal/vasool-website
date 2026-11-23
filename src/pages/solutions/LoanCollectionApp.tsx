@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Loan Collection App - Money Lenders & Micro Finance | Vasool",
     description:
-      "Vasool is a loan collection app built for Indian money lenders — record collections by voice, track field agents with GPS, collect cash & UPI, auto-generate PDF receipts, and chase overdues. Works offline. Free demo.",
+      "A loan collection app for Indian money lenders — record collections by voice, track field agents with GPS, collect cash and UPI, and chase overdues. Offline.",
     keywords:
       "loan collection app, loan collection software, debt collection app, loan recovery app, collection agent app, field collection app, money lender collection app, loan collection app india, EMI collection app, loan tracker app",
     canonical: "/loan-collection-app",
