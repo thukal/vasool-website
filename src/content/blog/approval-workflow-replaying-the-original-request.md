@@ -1,6 +1,6 @@
 ---
 title: "Approval Workflows: Why We Replay the Original Request"
-description: Maker-checker without a shadow schema. How Vasool parks the HTTP request itself for approval, then replays it through the same handler the staff member would have hit.
+description: Maker-checker without a shadow schema. How Vasool parks the HTTP request itself for approval, then replays it through the same handler staff would have hit.
 date: 2026-09-07
 author: Vasool Engineering
 tags: [Engineering, Architecture]

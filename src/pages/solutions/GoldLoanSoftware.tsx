@@ -15,7 +15,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Gold Loan Software - Pledge & Ledger Management | Vasool",
     description:
-      "Vasool is gold loan software for pawn brokers and finance companies — item-wise pledge register with weight and purity, LTV limits, an append-only interest ledger, top-ups, and a two-step settle-then-release. Free demo.",
+      "Gold loan software for pawn brokers and finance companies — item-wise pledge register with weight and purity, LTV limits, and a two-step settle-then-release.",
     keywords:
       "gold loan software, gold loan management software, pawn broker software, gold loan app india, pledge management software, gold loan accounting software, jewel loan software, gold loan ledger",
     canonical: "/gold-loan-software",

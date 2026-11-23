@@ -30,7 +30,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Logiciel de Gestion de Microfinance pour SFD | Vasool",
     description:
-      "Logiciel de gestion de microfinance pour les SFD de la zone UEMOA : chaque versement saisi sur le terrain avec son agent, son membre et son canal, épargne et crédit tenus séparément, caisse arrêtée par agent chaque soir, fonctionnement hors ligne et piste d'audit complète. La configuration des pays UEMOA n'est pas encore disponible.",
+      "Logiciel de gestion de microfinance pour les SFD de l'UEMOA : versements saisis sur le terrain, épargne et crédit séparés, caisse arrêtée par agent, hors ligne.",
     keywords:
       "logiciel de gestion de microfinance, logiciel microfinance, logiciel sfd, logiciel de gestion sfd, logiciel gestion credit epargne, logiciel microfinance afrique, logiciel de recouvrement microfinance, application de collecte terrain microfinance, logiciel institution de microfinance, logiciel microfinance uemoa, logiciel gestion de portefeuille credit",
     canonical: CANONICAL,

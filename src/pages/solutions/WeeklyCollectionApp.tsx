@@ -15,7 +15,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Weekly Collection App for Weekly Finance Lines | Vasool",
     description:
-      "Vasool is a weekly collection app for weekly finance lines — 10 or 12-week terms, market-day collections, day-of-week routes, and voice entry. Track every weekly line from disbursal to closure. Free demo.",
+      "A weekly collection app for weekly finance lines — 10 or 12-week terms, market-day collections, day-of-week routes, and voice entry. Disbursal to closure.",
     keywords:
       "weekly collection app, weekly finance app, weekly loan collection app, weekly line app, weekly collection software, weekly finance software india, market day collection app, weekly vasool app, weekly installment app",
     canonical: "/weekly-collection-app",

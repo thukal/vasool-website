@@ -99,7 +99,7 @@ const Countries = () => (
     <Navigation />
     <SEO
       title="Loan Management Software by Country | Vasool"
-      description="Vasool supports company setup in India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia, with market pages for Ghana, Zimbabwe, Côte d'Ivoire and Cambodia — each with its own currency, local business date, payment rail and buyer. Collections software, not a lending licence."
+      description="Vasool supports company setup in India, Sri Lanka, the Philippines, Indonesia, Nigeria, Kenya, South Africa and Colombia — each with its own currency and rails."
       keywords="loan management software by country, microfinance software philippines, loan management software nigeria, sacco loan management software kenya, microfinance software sri lanka, koperasi simpan pinjam software, credit provider software south africa, microcredit software colombia, loan management software ghana, microfinance software zimbabwe, susu collection software, multi country lending software, international loan collection app"
       canonical="/countries"
       structuredData={[faqSchema, breadcrumbSchema, itemListSchema]}

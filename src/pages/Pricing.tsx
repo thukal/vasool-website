@@ -47,7 +47,7 @@ const content = {
   en: {
     title: "Pricing - Simple Plan for Money Lenders | Vasool",
     description:
-      "Transparent pricing for Vasool loan management CRM. Single loan product at {{price}}/month with unlimited staff, live location tracking, and route management. Need more loan products? Contact us for a tailored plan.",
+      "Transparent pricing for Vasool loan management CRM. A single loan product at ₹699/month with unlimited staff, live location tracking and route management.",
     back: "Back to Home",
     h1a: "Simple, transparent",
     h1b: "pricing",
@@ -143,7 +143,7 @@ const content = {
   ta: {
     title: "Pricing - Money Lenders-க்கான Simple Plan | Vasool",
     description:
-      "Vasool loan management CRM-க்கு transparent pricing. ஒரு loan product ₹699/month — unlimited staff, live location tracking மற்றும் route management உடன். அதிக loan product வேணுமா? Tailored plan-க்கு எங்களை contact பண்ணுங்க.",
+      "Vasool loan management CRM-க்கு transparent pricing. ஒரு loan product ₹699/month — unlimited staff, live location tracking மற்றும் route management உடன்.",
     back: "Home-க்கு திரும்பு",
     h1a: "Simple, transparent",
     h1b: "pricing",

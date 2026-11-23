@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Loan Management Software for SFDs in Côte d'Ivoire | Vasool",
     description:
-      "Vasool is loan and savings management software for approved SFDs in Côte d'Ivoire — per-member credit and savings records, field-agent cash accountability, mobile-money references, XOF and Africa/Abidjan, offline collection and a full audit trail. Ivorian company setup is not live yet; talk to us about your rollout.",
+      "Loan and savings software for approved SFDs in Côte d'Ivoire — member credit and savings records, agent cash accountability, XOF. Company setup not live yet.",
     keywords:
       "loan management software cote d'ivoire, sfd software, microfinance software cote d'ivoire, systemes financiers decentralises software, loan management system ivory coast, microfinance software uemoa, cooperative credit software west africa, field collection app abidjan, xof loan software, mobile money loan software cote d'ivoire",
     canonical: CANONICAL,

@@ -1,6 +1,6 @@
 ---
 title: "Daily Collection Software: Online vs the Office PC"
-description: Most daily finance software still lives on one office computer and imports the agent's phone every night. Here's what that costs you — and what to ask before you buy.
+description: Most daily finance software still lives on one office computer and imports the agent's phone nightly. What that costs you — and what to ask before you buy.
 date: 2026-09-03
 author: Vasool Team
 tags: [Guides, Buying]

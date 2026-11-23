@@ -417,7 +417,7 @@ const copy = {
   en: {
     title: "Loan Types - Daily, Weekly, Monthly & Gold Loans | Vasool",
     description:
-      "Manage all types of microfinance loans with Vasool: daily loans, weekly loans, monthly loans, gold loans, property loans, and product-based loans. Complete lifecycle management from origination to closure.",
+      "Manage every type of microfinance loan with Vasool: daily, weekly and monthly loans, gold, property and product-based loans — origination through to closure.",
     back: "Back to Home",
     h1a: "Loan",
     h1b: "Types",
@@ -436,7 +436,7 @@ const copy = {
   ta: {
     title: "Vasool Loan Types - Daily, Weekly, Monthly & Gold Loans",
     description:
-      "Vasool-ல எல்லா மாதிரியான microfinance loan-ஐயும் manage பண்ணுங்க: daily, weekly, monthly, gold, property மற்றும் product-based loan. Origination முதல் closure வரை முழு lifecycle management.",
+      "Vasool-ல எல்லா மாதிரியான microfinance loan-ஐயும் manage பண்ணுங்க: daily, weekly, monthly, gold, property மற்றும் product-based loan. முழு lifecycle management.",
     back: "Home-க்கு திரும்பு",
     h1a: "Loan",
     h1b: "Types",

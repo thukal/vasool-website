@@ -15,7 +15,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Monthly Finance App - EMI & Interest Collection | Vasool",
     description:
-      "Vasool is a monthly finance app for monthly interest lending, EMI with foreclosure, semi-monthly lines, and salary-day collections. Automatic interest calculation, PDF receipts, overdue tracking. Free demo.",
+      "A monthly finance app for monthly interest lending, EMI with foreclosure, semi-monthly lines and salary-day collections. Automatic interest, PDF receipts.",
     keywords:
       "recurring deposit software, fd rd software, monthly deposit collection app, monthly finance app, monthly collection app, monthly loan app, EMI collection app, monthly interest app, interest calculation app, monthly finance software, semi monthly collection app, salary day collection app, monthly vasool app",
     canonical: "/monthly-finance-app",

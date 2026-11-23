@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Loan Management Software for Microfinance in Cambodia | Vasool",
     description:
-      "Vasool is loan management and collection software for Cambodian microfinance — dual-currency KHR and USD balances kept separate, field-officer cash accountability, group and village lending, offline collection and a full audit trail. Cambodia company setup is not live yet; talk to us about your rollout.",
+      "Loan software for Cambodian microfinance — KHR and USD balances kept separate, field-officer cash accountability. Cambodia company setup not live yet.",
     keywords:
       "loan management software cambodia, microfinance software cambodia, mfi software cambodia, loan management system cambodia, dual currency loan software, khr usd loan software, village bank software cambodia, group lending software cambodia, field collection app cambodia, credit operations software phnom penh",
     canonical: CANONICAL,

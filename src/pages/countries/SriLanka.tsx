@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Microfinance & Loan Management Software in Sri Lanka | Vasool",
     description:
-      "Vasool is loan management and collection software for licensed microfinance companies, finance companies and SME lenders in Sri Lanka — LKR amounts, Asia/Colombo business dates, Tamil and English interface, offline field collection, borrower receipts and a full audit trail. Free demo.",
+      "Loan management software for licensed microfinance and finance companies in Sri Lanka — LKR, Asia/Colombo business dates, Tamil and English, offline collection.",
     keywords:
       "loan management software sri lanka, microfinance software sri lanka, leasing software sri lanka, micro loan management software, microfinance software solution, loan collection app sri lanka, sme lending software sri lanka, daily collection app sri lanka, tamil loan collection app, finance company software sri lanka, loan management system colombo, gold loan management software",
     canonical: CANONICAL,

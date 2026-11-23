@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Software de Cobranza en Campo para Microcrédito | Vasool",
     description:
-      "Vasool es un software de cobranza para instituciones de microcrédito y cooperativas: registro de cada abono con su método y cobrador, separación de capital, intereses y mora, conciliación por cuenta, cartera vencida por antigüedad y trazabilidad completa. Solo para operaciones formales. Demo gratuita.",
+      "Software de cobranza para microcrédito y cooperativas: cada abono con su método y cobrador, capital, intereses y mora separados, cartera vencida por antigüedad.",
     keywords:
       "software de cobranza, software de cobranza colombia, software para prestamos, software para prestamos personales, software de cobranza automatizado, que es un software de cobranza, software para microcredito, software de cartera vencida, sistema de gestion de cobranza, software para cooperativas de ahorro y credito",
     canonical: "/software-de-cobranza",

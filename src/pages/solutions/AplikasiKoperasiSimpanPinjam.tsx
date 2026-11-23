@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Aplikasi Koperasi Simpan Pinjam Lapangan | Vasool",
     description:
-      "Vasool adalah aplikasi koperasi simpan pinjam untuk pengelolaan pinjaman anggota: catatan pokok dan bunga terpisah, angsuran harian dan mingguan, pertanggungjawaban kas petugas lapangan, mode offline, dan jejak audit lengkap. Nilai rupiah tersimpan persis seperti yang diketik. Demo gratis.",
+      "Aplikasi koperasi simpan pinjam untuk pinjaman anggota: pokok dan bunga terpisah, angsuran harian dan mingguan, pertanggungjawaban kas petugas, mode offline.",
     keywords:
       "aplikasi koperasi simpan pinjam, aplikasi koperasi simpan pinjam android, aplikasi koperasi simpan pinjam gratis, aplikasi koperasi simpan pinjam excel gratis, download aplikasi koperasi simpan pinjam gratis, contoh aplikasi koperasi simpan pinjam, jual aplikasi koperasi simpan pinjam, aplikasi koperasi simpan pinjam syariah, aplikasi koperasi simpan pinjam sederhana gratis, software koperasi simpan pinjam, aplikasi pinjaman anggota koperasi",
     canonical: "/aplikasi-koperasi-simpan-pinjam",

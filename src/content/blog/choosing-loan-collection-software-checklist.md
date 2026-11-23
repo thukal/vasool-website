@@ -1,6 +1,6 @@
 ---
 title: "Choosing Loan Collection Software: A Checklist for NBFCs & Money Lenders"
-description: A no-nonsense checklist for evaluating loan collection and lending software — data ownership, offline support, staff tracking, and the questions vendors hope you won't ask.
+description: A no-nonsense checklist for evaluating loan collection software — data ownership, offline support, staff tracking, and the questions vendors hope you won't ask.
 date: 2026-07-15
 author: Vasool Team
 tags: [Guides, Buying]

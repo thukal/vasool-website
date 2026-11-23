@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Microfinance Bank Loan Software in Nigeria | Vasool",
     description:
-      "Vasool is loan management and collection software for microfinance banks, cooperative societies and market lenders in Nigeria — group and individual exposure records, portfolio at risk ageing, agent cash accountability, NGN and Africa/Lagos, offline field collection and a full audit trail. Free demo.",
+      "Loan management software for Nigerian microfinance banks, cooperatives and market lenders — group and individual exposure, portfolio at risk ageing, NGN.",
     keywords:
       "loan management software nigeria, loan management system nigeria, microfinance bank software nigeria, loan management software for msme, cooperative society loan software nigeria, daily contribution collection app nigeria, ajo esusu software, market trader loan software nigeria, collection agent app nigeria, portfolio at risk software nigeria, lending software lagos, loan management software for lenders",
     canonical: CANONICAL,

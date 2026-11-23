@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Kandhu Vatti App - Daily Vatti Collection in Tamil | Vasool",
     description:
-      "Vasool is the kandhu vatti app for Tamil finance businesses — daily vatti collections, thandal lines, Tamil voice entry (குரல் பதிவு), automatic vatti calculation, and Tamil interface. Works offline. Free demo in Tamil.",
+      "The kandhu vatti app for Tamil finance businesses — daily vatti collections, thandal lines, Tamil voice entry, automatic vatti calculation. Works offline.",
     keywords:
       "kandhu vatti app, கந்து வட்டி ஆப், thandal app, தண்டல் ஆப், tamil finance app, tamil vasool app, vatti calculation app, daily vatti app, tamil loan collection app, kandhu vatti calculator, finance vatti calculator, tamil voice entry finance app, meter vatti app",
     canonical: "/kandhu-vatti-app",

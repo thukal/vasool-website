@@ -25,7 +25,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Debt Collection Software for South African Lenders | Vasool",
     description:
-      "Vasool is debt collection software for South African credit providers — arrears ageing, promise-to-pay tracking, transparent payment allocation across capital, interest and fees, contact history, POPIA-conscious data scoping and a full audit trail. Free demo.",
+      "Debt collection software for South African credit providers — arrears ageing, promise-to-pay tracking, payment allocation across capital, interest and fees.",
     keywords:
       "debt collection software south africa, debt collection software in south africa, free debt collection software south africa, debt collection software for small business, best debt collection software, collections software south africa, arrears management software south africa, loan management software south africa, credit control software south africa, payment allocation software",
     canonical: "/debt-collection-software-south-africa",

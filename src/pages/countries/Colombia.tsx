@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Microcredit Loan Management Software in Colombia | Vasool",
     description:
-      "Vasool is loan management software for supervised microcredit institutions and cooperatives in Colombia — per-modality pricing records, COP amounts stored exactly as entered, America/Bogotá business dates, signed borrower terms, complaint records and a full audit trail. Not for informal gota a gota lending.",
+      "Loan management software for supervised microcredit and cooperatives in Colombia — per-modality pricing, exact COP amounts, audit trail. Not for gota a gota.",
     keywords:
       "software de cobranza, software de cobranza colombia, software para prestamos, software para prestamos personales, software para microcredito, loan management software colombia, microcredit software colombia, cooperative loan software colombia, productive credit software colombia, loan portfolio software colombia, microfinance software colombia, credit management system colombia",
     canonical: CANONICAL,

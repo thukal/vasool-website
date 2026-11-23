@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Loan Management Software Indonesia | Vasool",
     description:
-      "Vasool is an aplikasi koperasi simpan pinjam and loan management system for koperasi, BPR and licensed microfinance institutions in Indonesia — member-based lending, field-officer accountability, IDR amounts that stay exactly as entered, Asia/Jakarta business dates and a full audit trail. Free demo.",
+      "Aplikasi koperasi simpan pinjam and loan management for koperasi, BPR and microfinance in Indonesia — member lending, exact IDR amounts, Asia/Jakarta dates.",
     keywords:
       "aplikasi koperasi simpan pinjam, aplikasi koperasi simpan pinjam android, aplikasi koperasi simpan pinjam syariah, contoh aplikasi koperasi simpan pinjam, jual aplikasi koperasi simpan pinjam, koperasi simpan pinjam software, software pinjaman koperasi, loan management software indonesia, bpr loan management software, microfinance software indonesia, lembaga keuangan mikro software, field officer collection app indonesia, ojk microfinance software",
     canonical: CANONICAL,

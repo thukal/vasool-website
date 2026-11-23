@@ -28,7 +28,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Loan Management Software for Microfinance in Zimbabwe | Vasool",
     description:
-      "Vasool is loan management and collection software for Zimbabwean microfinance institutions — USD and ZiG balances kept separate, EcoCash and InnBucks repayments recorded with their reference, per-officer cash close, arrears ageing, offline field collection and a full audit trail. Zimbabwe company setup is not live yet; talk to us about your rollout.",
+      "Loan collection software for Zimbabwe microfinance — USD and ZiG balances kept separate, EcoCash references, offline field work. Company setup not live yet.",
     keywords:
       "loan management software zimbabwe, microfinance software zimbabwe, mfi software zimbabwe, loan management system zimbabwe, credit only microfinance software, deposit taking microfinance software zimbabwe, ecocash loan software, usd zig dual currency loan software, field collection app zimbabwe, loan software harare, sacco software zimbabwe, money lending software zimbabwe",
     canonical: CANONICAL,

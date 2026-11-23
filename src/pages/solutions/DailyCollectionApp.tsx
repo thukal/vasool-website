@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Daily Collection App - Daily Finance Software | Vasool",
     description:
-      "Vasool is a daily collection app for daily finance businesses — 100-day lines, daily interest, route-wise day book, voice entry, and pigmy-style collections. Daily finance collection software that works offline. Free demo.",
+      "A daily collection app for daily finance businesses — 100-day lines, daily interest, route-wise day book, voice entry, and pigmy-style collections. Offline.",
     keywords:
       "daily collection app, daily finance collection software, daily finance app, daily collection software, daily loan collection app, pigmy collection app, daily line collection app, 100 day loan app, daily vasool app, daily finance software india",
     canonical: "/daily-collection-app",

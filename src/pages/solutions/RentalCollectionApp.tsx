@@ -15,7 +15,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Rental Collection App - Rent Collection Software | Vasool",
     description:
-      "Vasool is a rental collection app for cycle shops, cart owners and equipment renters — track who has which item, collect weekly or monthly rent, send due reminders, and settle the deposit on return. Free demo.",
+      "A rental collection app for cycle shops, cart owners and equipment renters — track who has which item, collect weekly or monthly rent, settle the deposit.",
     keywords:
       "rental collection app, rent collection app, rent collection software, rental management app india, cycle rental shop software, cart rental app, equipment rental software, weekly rent collection app, rental agreement tracking",
     canonical: "/rental-collection-app",

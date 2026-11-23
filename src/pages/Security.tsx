@@ -140,7 +140,7 @@ const Security = () => {
       <Navigation />
       <SEO
         title="Security & Data Ownership | Vasool"
-        description="How Vasool protects lending data: per-tenant database isolation, self-hosted infrastructure you own, TLS encryption, biometric login, role-based access control, full audit trails, and responsible disclosure."
+        description="How Vasool protects lending data: per-tenant database isolation, self-hosted infrastructure you own, TLS, biometric login, role-based access, audit trails."
         keywords="microfinance security, loan data security, tenant data isolation, self-hosted lending software, financial data protection, RBAC microfinance, audit logging finance, NBFC data security"
         canonical="/security"
       />

@@ -45,7 +45,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Vehicle Finance Software for Financiers in India | Vasool",
     description:
-      "Vehicle finance software for two-wheeler, auto, used car and commercial vehicle books — one vehicle register, EMI schedules, maker-checker approvals, an audit trail, and a repossession register kept out of your collections. Free demo.",
+      "Vehicle finance software for two-wheeler, auto, used car and commercial books — one vehicle register, EMI schedules, and a repossession register kept separate.",
     keywords:
       "vehicle finance software, two wheeler finance software, three wheeler finance software, auto rickshaw finance software, used car finance software, commercial vehicle finance software, vehicle loan management software india, vehicle finance company software, hire purchase software india",
     canonical: "/vehicle-finance-software",

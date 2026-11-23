@@ -30,7 +30,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "NBFC Loan Management Software | Vasool",
     description:
-      "Vasool is loan management software for NBFCs in India — maker-checker approvals, immutable audit trail, KYC vault, per-tenant database, AI credit appraisal, DPD tracking and a capital ledger. The platform you grow with, from one route to many branches. Free demo.",
+      "Loan management software for NBFCs in India — maker-checker approvals, immutable audit trail, KYC vault, per-tenant database, DPD tracking, capital ledger.",
     keywords:
       "fd rd software for nbfc, fixed deposit software, recurring deposit software, NBFC loan management software, NBFC lending software india, loan management system for NBFC, NBFC loan origination and collection software, NBFC software india, loan management software for finance companies, NBFC portfolio management software",
     canonical: "/nbfc-loan-management",

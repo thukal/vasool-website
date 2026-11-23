@@ -43,7 +43,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "Voice Approval Workflow for Lenders | Vasool",
     description:
-      "Field officers dictate collections and expenses by voice, every entry ties to a GPS-tracked route, and the changes that carry consequence are held for maker-checker approval before they touch the book. Day book, officer performance, DPD ageing and P&L close it out. Available in every country Vasool supports. Free demo.",
+      "Field officers dictate collections by voice on GPS-tracked routes, and entries that carry consequence wait for maker-checker approval before they touch the book.",
     keywords:
       "voice approval workflow, maker checker approval software, loan approval workflow software, voice entry loan management software, voice expense tracking app, collection route tracking software, field officer gps tracking lending, day book report loan software, officer performance report microfinance, approval workflow for microfinance, maker checker lending software, voice to data loan software, multi language voice collection app, loan management approval inbox",
     canonical: CANONICAL,

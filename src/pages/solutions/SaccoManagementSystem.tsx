@@ -25,7 +25,7 @@ const config: KeywordLandingConfig = {
   seo: {
     title: "SACCO Management System — Loans & Collections | Vasool",
     description:
-      "Vasool is the loans and collections half of a SACCO management system: member loan records, guarantor tracking, M-Pesa payment references, arrears ageing, officer cash accountability and a full audit trail. Runs alongside your core SACCO system. Free demo.",
+      "The loans and collections half of a SACCO management system — member loan records, guarantor tracking, M-Pesa references, arrears ageing, officer cash close.",
     keywords:
       "sacco management system, sacco software kenya, sacco software, best sacco software, free sacco software, sacco loan management system, sacco management system in kenya, top sacco management system in kenya, sacco management system modules, sacco management system features, sacco management system free download, loan management system for microfinance, chama loan management software",
     canonical: "/sacco-management-system",

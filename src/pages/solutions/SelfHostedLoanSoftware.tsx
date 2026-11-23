@@ -16,7 +16,7 @@ const config: KeywordLandingConfig = {
     title:
       "Self-Hosted Loan Management Software - Your Server | Vasool",
     description:
-      "Vasool is self-hosted loan management software you can run on your own server — even a Raspberry Pi in your office. Own your borrower data, work offline, no shared cloud. On-premise vasool app for money lenders. Free demo.",
+      "Self-hosted loan management software you can run on your own server — even a Raspberry Pi in your office. Own your borrower data and work offline.",
     keywords:
       "self hosted loan management software, on premise loan software, run loan app on own server, raspberry pi loan collection, self hosted vasool app, data ownership finance software, on premise microfinance software, private server loan app, self hosted collection app",
     canonical: "/self-hosted-loan-software",
