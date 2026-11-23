@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/sync-blog.mjs && node scripts/prerender.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/sync-blog.mjs && node scripts/check-sitemap-lastmod.mjs && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "node --test netlify/functions/__tests__/*.test.mjs"
+    "test": "node --test netlify/functions/__tests__/*.test.mjs",
+    "sitemap:check": "node scripts/check-sitemap-lastmod.mjs --check",
+    "sitemap:fix": "node scripts/check-sitemap-lastmod.mjs --fix"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.3",
