@@ -17,7 +17,7 @@ const config: KeywordLandingConfig = {
     description:
       "Scheduled pickup rounds on Vasool: a verified shop list, routes built on your once-in-N-days cadence, a daily assignment board, and a visit that counts even at zero.",
     keywords:
-      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner",
+      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner, tender collection software, carton collection tracking, partner transparency reports, staff gps tracking field team",
     canonical: "/shop-visit-tracking-app",
   },
   breadcrumbName: "Shop Visit Tracking",
@@ -29,7 +29,7 @@ const config: KeywordLandingConfig = {
     </>
   ),
   intro:
-    "Some field work is not collecting money — it is turning up. A contract to visit a fixed list of shops once every few days is a promise about frequency, and the only way to keep it is to know which shops are due today, who is running that route, and what actually happened at each stop.",
+    "Win a tender to collect from every outlet in a district and you have promised two things: that your team turns up on the agreed cadence, and that what they bring back is what they picked up. Vasool records both — which shops are due today, who ran the route, how much came from each stop — and lets the partners funding the contract see it without being able to change it.",
   features: [
     {
       icon: Store,
@@ -58,8 +58,8 @@ const config: KeywordLandingConfig = {
     },
     {
       icon: FileText,
-      title: "A printable route booklet",
-      desc: "The whole route as a PDF to carry in the vehicle, for the stretches where looking at a phone is not practical.",
+      title: "Reports your partners can open",
+      desc: "Box summary, shop-wise totals, route performance and a monthly overview — grantable on their own, so a funding partner sees every number and can change none of them.",
     },
   ],
   featuresHeading: "Built around turning up on time",
@@ -111,6 +111,23 @@ const config: KeywordLandingConfig = {
             staff tools
           </Link>{" "}
           applies here: where the team went is recorded, not asserted.
+        </>,
+      ],
+    },
+    {
+      heading: "Partners can watch without touching",
+      paragraphs: [
+        "A tender is often funded by more than one person. The partners who put money in are not on the route, and the only thing standing between them and a trust problem is the collector's word about how many were picked up at each stop.",
+        "Box collection has four separate permission areas — the shops, the routes, the daily assignments, and the reports. They are granted independently, so a partner can be given the reports and nothing else. They can open the box summary, the shop-wise totals, route performance and the monthly overview. They cannot edit a shop, move a route, reassign a team or record a visit, because that access was never granted rather than merely discouraged.",
+        <>
+          That is the difference between showing someone a figure and giving
+          them the record. Combine it with{" "}
+          <Link to="/staff-tools" className="text-secondary hover:underline">
+            live staff location
+          </Link>{" "}
+          and a visit history that counts a closed shop as a visit, and the
+          question "did the round actually happen" has an answer that nobody on
+          the route has to be trusted for.
         </>,
       ],
     },
@@ -169,6 +186,14 @@ const config: KeywordLandingConfig = {
     {
       q: "Can different staff run a route on different days?",
       a: "Yes. Assignment is per route per day, one person can hold more than one route and visit them in sequence, and a day with no assignment is a rest day. That assignment history is what the attendance and salary view is built from.",
+    },
+    {
+      q: "Can my partners see the collection figures without being able to change them?",
+      a: "Yes. The shops, the routes, the daily assignments and the reports are four separate permission areas, granted independently. A partner given only the reports can open the box summary, shop-wise totals, route performance and monthly overview, and cannot edit a shop, move a route, reassign a team or record a visit.",
+    },
+    {
+      q: "How do I know a team actually visited a shop?",
+      a: "Each visit is recorded against the shop, the route, the staff member and the date, including visits where nothing was collected. Staff location tracking shows where the team went during the round, and shop locations can be re-verified on site with the date of the last check kept on the record.",
     },
     {
       q: "Do I have to use the lending features?",
