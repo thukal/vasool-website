@@ -1,6 +1,6 @@
 ---
 title: "Who Counts the Boxes?"
-description: A district carton tender is funded by partners who never see the route. The collector's word is the only record of what came back — until the round records itself.
+description: A district carton tender is often funded by partners who never see the route, and the collector's word is the only record of what came back.
 date: 2026-11-17
 author: Vasool Team
 tags: [Product, Field Operations]
