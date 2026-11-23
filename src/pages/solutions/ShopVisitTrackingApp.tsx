@@ -17,7 +17,7 @@ const config: KeywordLandingConfig = {
     description:
       "Scheduled pickup rounds on Vasool: a verified shop list, routes built on your once-in-N-days cadence, a daily assignment board, and a visit that counts even at zero.",
     keywords:
-      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner, tender collection software, carton collection tracking, partner transparency reports, staff gps tracking field team",
+      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner, tender collection software, carton collection tracking, partner transparency reports, staff gps tracking field team, tasmac shop collection software, tasmac box collection app, tasmac carton tender tracking, tasmac route management tamil nadu",
     canonical: "/shop-visit-tracking-app",
   },
   breadcrumbName: "Shop Visit Tracking",
@@ -190,6 +190,10 @@ const config: KeywordLandingConfig = {
     {
       q: "Can my partners see the collection figures without being able to change them?",
       a: "Yes. The shops, the routes, the daily assignments and the reports are four separate permission areas, granted independently. A partner given only the reports can open the box summary, shop-wise totals, route performance and monthly overview, and cannot edit a shop, move a route, reassign a team or record a visit.",
+    },
+    {
+      q: "Is this used for TASMAC carton collection rounds?",
+      a: "Yes — collecting used cartons from TASMAC retail outlets across a district on a tender cadence is the round this module was first built around, starting from a district-wide shop list imported in bulk. Vasool is not affiliated with or endorsed by TASMAC; the software tracks the visits, counts and staff on a contract you already hold, and works the same way for any scheduled pickup round.",
     },
     {
       q: "How do I know a team actually visited a shop?",
