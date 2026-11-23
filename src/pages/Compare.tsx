@@ -10,6 +10,7 @@ import {
   Mic,
   Camera,
   WifiOff,
+  SlidersHorizontal,
   Server,
   Palette,
   Layers,
@@ -212,6 +213,7 @@ const switchReasonsEn: Reason[] = [
   { icon: Server, title: "Host it anywhere — even a Raspberry Pi", desc: "Run Vasool on our cloud, your own server, or a Raspberry Pi in your shop. Your borrower data lives where you decide, in a dedicated database that never mixes with other lenders." },
   { icon: Palette, title: "White-label it as your own", desc: "Put your brand on it — your name, your logo, your own subdomain like yourbusiness.vasool.app. Customers see your finance business, not ours." },
   { icon: Camera, title: "Photo proof on everything", desc: "Customer photos, ID proofs, signed documents and collection photo proof attached to every loan. Photo-wise tracking replaces the paper trail completely." },
+  { icon: SlidersHorizontal, title: "Configured to your business, not a template", desc: "Nearly 9 in 10 businesses on Vasool run a feature combination no other business has — their own loan products, their own charges, their own screens. A rental-only business never sees the word \"loan\"; a pickup round never sees a loan screen at all. Same app, your configuration." },
   { icon: WifiOff, title: "Offline-first like a notebook", desc: "The one thing a notebook does well — work without internet — Vasool does too. Record collections anywhere and sync automatically when the network returns." },
 ];
 
@@ -221,6 +223,7 @@ const switchReasonsTa: Reason[] = [
   { icon: Server, title: "எங்கேயும் host பண்ணுங்க — Raspberry Pi-லயும்", desc: "Vasool-ஐ எங்க cloud-ல, உங்க சொந்த server-ல, அல்லது உங்க கடையில Raspberry Pi-ல run பண்ணுங்க. உங்க borrower data நீங்க தீர்மானிக்கற இடத்துல, வேற lender-உடன் mix ஆகாத dedicated database-ல இருக்கும்." },
   { icon: Palette, title: "உங்க சொந்த brand-ஆ white-label", desc: "உங்க brand போடுங்க — உங்க name, logo, yourbusiness.vasool.app மாதிரி உங்க subdomain. Customer-கள் உங்க finance business-ஐ பார்ப்பாங்க, எங்களோடதை இல்ல." },
   { icon: Camera, title: "எல்லாத்துலயும் photo proof", desc: "Customer photo, ID proof, sign பண்ணப்பட்ட document மற்றும் collection photo proof ஒவ்வொரு loan-க்கும் attach. Photo-wise tracking paper trail-ஐ முழுசா replace பண்ணுது." },
+  { icon: SlidersHorizontal, title: "Template இல்ல — உங்க business-க்கு ஏத்த configuration", desc: "Vasool-ல இருக்க businesses-ல கிட்டத்தட்ட 10-ல 9 பேர், வேற யாருக்கும் இல்லாத feature combination-ல run பண்றாங்க — அவங்க loan product, அவங்க charges, அவங்க screens. Rental மட்டும் பண்ற business-க்கு \"loan\" கிற வார்த்தையே தெரியாது; pickup round-க்கு loan screen-ஏ வராது. ஒரே app, உங்க configuration." },
   { icon: WifiOff, title: "Notebook மாதிரி offline-first", desc: "Notebook நல்லா பண்ற ஒரே விஷயம் — internet illama work பண்றது — Vasool-உம் பண்ணுது. எங்கேயும் collection record பண்ணுங்க, network வந்தவுடன் automatic-ஆ sync ஆகும்." },
 ];
 

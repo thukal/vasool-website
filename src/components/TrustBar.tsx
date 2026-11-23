@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { ShieldCheck, Database, ServerCog, FileCheck2, ArrowUpRight } from "lucide-react";
+import {
+  ShieldCheck,
+  Database,
+  ServerCog,
+  FileCheck2,
+  SlidersHorizontal,
+  ArrowUpRight,
+} from "lucide-react";
 import { localizedPath } from "@/lib/langRoutes";
 
 // The signals a regulated lender / NBFC evaluates first. Stated as capabilities
@@ -10,6 +17,9 @@ const SIGNALS = [
   { icon: Database, label: "Isolated database per tenant" },
   { icon: ServerCog, label: "Self-hosted — you own the data" },
   { icon: FileCheck2, label: "KYC document vault" },
+  // Measured across live tenant configs, not a slogan: nearly 9 in 10 run a
+  // feature-flag combination no other business on the platform shares.
+  { icon: SlidersHorizontal, label: "9 in 10 run a setup no one else has" },
 ];
 
 const TrustBar = () => {
