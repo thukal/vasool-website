@@ -17,7 +17,7 @@ const config: KeywordLandingConfig = {
     description:
       "Scheduled pickup rounds on Vasool: a verified shop list, routes built on your once-in-N-days cadence, a daily assignment board, and a visit that counts even at zero.",
     keywords:
-      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner, tender collection software, carton collection tracking, partner transparency reports, staff gps tracking field team, tasmac shop collection software, tasmac box collection app, tasmac carton tender tracking, tasmac route management tamil nadu",
+      "shop visit tracking app, route management software, field visit tracking app, pickup route planning software, collection route app india, scheduled visit management, field team route assignment, shop route planner, tender collection software, carton collection tracking, partner transparency reports, staff gps tracking field team, tasmac shop collection software, tasmac box collection app, tasmac carton tender tracking, tasmac route management tamil nadu, tasmac empty carton tender, empty carton box collection, paper waste collection tender software, district wise collection route app",
     canonical: "/shop-visit-tracking-app",
   },
   breadcrumbName: "Shop Visit Tracking",
@@ -193,7 +193,7 @@ const config: KeywordLandingConfig = {
     },
     {
       q: "Is this used for TASMAC carton collection rounds?",
-      a: "Yes — collecting used cartons from TASMAC retail outlets across a district on a tender cadence is the round this module was first built around, starting from a district-wide shop list imported in bulk. Vasool is not affiliated with or endorsed by TASMAC; the software tracks the visits, counts and staff on a contract you already hold, and works the same way for any scheduled pickup round.",
+      a: "Yes. A TASMAC empty-carton tender grants the right to collect empty liquor, beer and wine cartons and paper waste from retail vending shops, awarded district by district through the Tamil Nadu eProcurement portal. That is the round this module was built around: import the district shop list in bulk, group the shops into routes on the cadence your tender commits to, assign a team each day, and record what came back from each stop. Vasool is not affiliated with or endorsed by TASMAC and has no role in the tender process — it tracks a contract you already hold, and works the same way for any scheduled pickup round.",
     },
     {
       q: "How do I know a team actually visited a shop?",
