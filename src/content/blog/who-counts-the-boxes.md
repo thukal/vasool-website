@@ -4,10 +4,10 @@ description: A district carton tender is often funded by partners who never see 
 date: 2026-11-17
 author: Vasool Team
 tags: [Product, Field Operations]
-keywords: tasmac empty carton tender, carton collection tracking, tender collection software, shop visit tracking app, paper waste collection tender, district wise collection route
+keywords: tasmac empty carton tender, imfl carton collection, ifl carton tender, carton collection tracking, tender collection software, shop visit tracking app, paper waste collection tender, district wise collection route
 ---
 
-A TASMAC empty-carton tender grants the right to collect empty liquor, beer and wine cartons and paper waste from retail vending shops — awarded district by district through the Tamil Nadu eProcurement portal. Win one and you have a few hundred shops, a vehicle, two or three men, and an obligation to turn up at every one of them on an agreed cadence.
+A TASMAC empty-carton tender grants the right to collect empty IMFL, IFL, beer and wine cartons and paper waste from retail vending shops — awarded district by district through the Tamil Nadu eProcurement portal. Win one and you have a few hundred shops, a vehicle, two or three men, and an obligation to turn up at every one of them on an agreed cadence.
 
 At the end of the week a number arrives at the office. Four thousand one hundred boxes.
 
